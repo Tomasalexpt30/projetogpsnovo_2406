@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Modo de Navegación",
+  "Modo Visita": "Modo de Visita",
+  "welcome": "Bienvenido",
+  "splash_screen": {
+    "start": "Iniciar"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Preferencias generales",
+    "sound": "Sonido",
+    "sound_description": "Habilitar o deshabilitar el sonido.",
+    "vibration": "Vibración",
+    "vibration_description": "Habilitar o deshabilitar la vibración.",
+    "voice": "Voz",
+    "language": "Idioma de la Voz",
+    "select_language": "Seleccionar idioma",
+    "current_language": "Actual: {language}",
+    "voice_speed": "Velocidad de la voz",
+    "voice_pitch": "Tono de la voz",
+    "test_voice": "Probar Voz"
+  },
+  "settings_page": {
+    "settings": "Configuración",
+    "sound": "Sonido",
+    "accessibility": "Accesibilidad",
+    "map": "Mapa",
+    "personalization": "Personalización",
+    "language": "Idioma"
+  },
+  "personalization_page": {
+    "theme": "Tema",
+    "theme_description": "Alterna entre modo claro y oscuro.",
+    "light_mode": "Modo Claro",
+    "dark_mode": "Modo Oscuro"
+  },
+  "map_settings_page": {
+    "map_appearance": "Apariencia del Mapa",
+    "dark_map": "Modo Oscuro del Mapa",
+    "dark_map_description": "Activa un tema oscuro.",
+    "icon_style": "Estilo de los íconos",
+    "default_style": "Predeterminado",
+    "accessible_style": "Accesible"
+  },
+  "language_settings_page": {
+    "language": "Idioma",
+    "language_description": "Selecciona el idioma deseado.",
+    "current_language": "Idioma Actual",
+    "select_language": "Seleccionar idioma"
+  },
+  "accessibility_settings_page": {
+    "vision": "Visión",
+    "high_contrast": "Contraste Alto",
+    "high_contrast_description": "Aumenta el contraste entre los colores para facilitar la lectura.",
+    "hearing": "Audición",
+    "screen_reader": "Lector de Pantalla",
+    "screen_reader_description": "Activa la lectura en voz alta de los elementos en pantalla."
+  },
+  "map_page": {
+    "search_hint": "Destino?",
+    "route_button": "Iniciar Ruta",
+    "start_route_message": "Acercándose a la Sala 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Modo de Navegación",
+    "mode_visit": "Modo de Visita",
+    "welcome": "Autónoma GPS",
+    "settings": "Configuraciones",
+    "language": "Idioma"
+  }
+}

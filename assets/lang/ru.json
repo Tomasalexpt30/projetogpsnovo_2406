@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Режим Навигации",
+  "Modo Visita": "Режим Посещения",
+  "welcome": "Добро пожаловать",
+  "splash_screen": {
+    "start": "Начать"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Общие настройки",
+    "sound": "Звук",
+    "sound_description": "Включить или выключить звук.",
+    "vibration": "Вибрация",
+    "vibration_description": "Включить или выключить вибрацию.",
+    "voice": "Голос",
+    "language": "Язык голоса",
+    "select_language": "Выбрать язык",
+    "current_language": "Текущий: {language}",
+    "voice_speed": "Скорость голоса",
+    "voice_pitch": "Тон голоса",
+    "test_voice": "Тестировать голос"
+  },
+  "settings_page": {
+    "settings": "Настройки",
+    "sound": "Звук",
+    "accessibility": "Доступность",
+    "map": "Карта",
+    "personalization": "Персонализация",
+    "language": "Язык"
+  },
+  "personalization_page": {
+    "theme": "Тема",
+    "theme_description": "Переключение между светлой и темной темой.",
+    "light_mode": "Светлый режим",
+    "dark_mode": "Темный режим"
+  },
+  "map_settings_page": {
+    "map_appearance": "Внешний вид карты",
+    "dark_map": "Темная карта",
+    "dark_map_description": "Активировать темную тему.",
+    "icon_style": "Стиль значков",
+    "default_style": "По умолчанию",
+    "accessible_style": "Доступный"
+  },
+  "language_settings_page": {
+    "language": "Язык",
+    "language_description": "Выберите предпочитаемый язык.",
+    "current_language": "Текущий язык",
+    "select_language": "Выбрать язык"
+  },
+  "accessibility_settings_page": {
+    "vision": "Зрение",
+    "high_contrast": "Высокий контраст",
+    "high_contrast_description": "Увеличьте контрастность цветов для облегчения чтения.",
+    "hearing": "Слух",
+    "screen_reader": "Чтец экрана",
+    "screen_reader_description": "Включите чтение элементов экрана вслух."
+  },
+  "map_page": {
+    "search_hint": "Назначение?",
+    "route_button": "Начать маршрут",
+    "start_route_message": "Подходим к комнате 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Режим навигации",
+    "mode_visit": "Режим посещения",
+    "welcome": "Autónoma GPS",
+    "settings": "Настройки",
+    "language": "Язык"
+  }
+}

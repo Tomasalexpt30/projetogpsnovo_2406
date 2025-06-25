@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Navigatiemodus",
+  "Modo Visita": "Bezoekmodus",
+  "welcome": "Welkom",
+  "splash_screen": {
+    "start": "Start"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Algemene voorkeuren",
+    "sound": "Geluid",
+    "sound_description": "Schakel geluid in of uit.",
+    "vibration": "Trilling",
+    "vibration_description": "Schakel trilling in of uit.",
+    "voice": "Stem",
+    "language": "Stemtaal",
+    "select_language": "Wybierz język",
+    "current_language": "Huidige: {language}",
+    "voice_speed": "Snelheid van de stem",
+    "voice_pitch": "Toonhoogte van de stem",
+    "test_voice": "Test Stem"
+  },
+  "settings_page": {
+    "settings": "Ustawienia",
+    "sound": "Geluid",
+    "accessibility": "Toegankelijkheid",
+    "map": "Kaart",
+    "personalization": "Personalisatie",
+    "language": "Taal"
+  },
+  "personalization_page": {
+    "theme": "Thema",
+    "theme_description": "Wissel tussen de lichte en donkere modus.",
+    "light_mode": "Lichte modus",
+    "dark_mode": "Donkere modus"
+  },
+  "map_settings_page": {
+    "map_appearance": "Kaartweergave",
+    "dark_map": "Donkere kaartmodus",
+    "dark_map_description": "Schakel een donkere thema in.",
+    "icon_style": "Pictogramstijl",
+    "default_style": "Standaard",
+    "accessible_style": "Toegankelijk"
+  },
+  "language_settings_page": {
+    "language": "Taal",
+    "language_description": "Selecteer de gewenste taal.",
+    "current_language": "Huidige taal",
+    "select_language": "Selecteer taal"
+  },
+  "accessibility_settings_page": {
+    "vision": "Zicht",
+    "high_contrast": "Hoge contrasten",
+    "high_contrast_description": "Verhoog het contrast tussen kleuren om lezen gemakkelijker te maken.",
+    "hearing": "Horen",
+    "screen_reader": "Schermlezer",
+    "screen_reader_description": "Schakel tekst-naar-spraak in voor schermelementen."
+  },
+  "map_page": {
+    "search_hint": "Bestemming?",
+    "route_button": "Start route",
+    "start_route_message": "Naar Kamer 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Navigatiemodus",
+    "mode_visit": "Bezoekmodus",
+    "welcome": "Autónoma GPS",
+    "settings": "Instellingen",
+    "language": "Taal"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Navigasyon Modu",
+  "Modo Visita": "Ziyaret Modu",
+  "welcome": "Hoş geldiniz",
+  "splash_screen": {
+    "start": "Başlat"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Genel Tercihler",
+    "sound": "Ses",
+    "sound_description": "Sesi açma veya kapama.",
+    "vibration": "Titreşim",
+    "vibration_description": "Titreşimi açma veya kapama.",
+    "voice": "Ses",
+    "language": "Ses Dili",
+    "select_language": "Dil Seç",
+    "current_language": "Mevcut: {language}",
+    "voice_speed": "Ses Hızı",
+    "voice_pitch": "Ses Tonu",
+    "test_voice": "Ses Testi"
+  },
+  "settings_page": {
+    "settings": "Ayarlar",
+    "sound": "Ses",
+    "accessibility": "Erişilebilirlik",
+    "map": "Harita",
+    "personalization": "Kişiselleştirme",
+    "language": "Dil"
+  },
+  "personalization_page": {
+    "theme": "Tema",
+    "theme_description": "Açık ve koyu mod arasında geçiş yapın.",
+    "light_mode": "Açık Mod",
+    "dark_mode": "Koyu Mod"
+  },
+  "map_settings_page": {
+    "map_appearance": "Harita Görünümü",
+    "dark_map": "Koyu Harita Modu",
+    "dark_map_description": "Koyu bir tema etkinleştir.",
+    "icon_style": "Simge Stili",
+    "default_style": "Varsayılan",
+    "accessible_style": "Erişilebilir"
+  },
+  "language_settings_page": {
+    "language": "Dil",
+    "language_description": "Tercih edilen dili seçin.",
+    "current_language": "Mevcut Dil",
+    "select_language": "Dil Seçin"
+  },
+  "accessibility_settings_page": {
+    "vision": "Görme",
+    "high_contrast": "Yüksek Kontrast",
+    "high_contrast_description": "Okumayı kolaylaştırmak için renkler arasındaki kontrastı artırın.",
+    "hearing": "İşitme",
+    "screen_reader": "Ekran Okuyucu",
+    "screen_reader_description": "Ekran öğelerini sesli okumayı etkinleştirin."
+  },
+  "map_page": {
+    "search_hint": "Hedef?",
+    "route_button": "Rota Başlat",
+    "start_route_message": "Oda 10'a yaklaşıyoruz..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Navigasyon Modu",
+    "mode_visit": "Ziyaret Modu",
+    "welcome": "Autónoma GPS",
+    "settings": "Ayarlar",
+    "language": "Dil"
+  }
+}

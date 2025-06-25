@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Mode de Navigation",
+  "Modo Visita": "Mode de Visite",
+  "welcome": "Bienvenue",
+  "splash_screen": {
+    "start": "Démarrer"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Préférences générales",
+    "sound": "Son",
+    "sound_description": "Activez ou désactivez le son.",
+    "vibration": "Vibration",
+    "vibration_description": "Activez ou désactivez la vibration.",
+    "voice": "Voix",
+    "language": "Langue de la Voix",
+    "select_language": "Selecteer taal",
+    "current_language": "Actuel: {language}}",
+    "voice_speed": "Vitesse de la voix",
+    "voice_pitch": "Ton de la voix",
+    "test_voice": "Tester la voix"
+  },
+  "settings_page": {
+    "settings": "Instellingen",
+    "sound": "Son",
+    "accessibility": "Accessibilité",
+    "map": "Carte",
+    "personalization": "Personnalisation",
+    "language": "Langue"
+  },
+  "personalization_page": {
+    "theme": "Thème",
+    "theme_description": "Alterner entre le mode clair et sombre.",
+    "light_mode": "Mode Clair",
+    "dark_mode": "Mode Sombre"
+  },
+  "map_settings_page": {
+    "map_appearance": "Apparence de la carte",
+    "dark_map": "Mode sombre de la carte",
+    "dark_map_description": "Activez un thème sombre.",
+    "icon_style": "Style des icônes",
+    "default_style": "Par défaut",
+    "accessible_style": "Accessible"
+  },
+  "language_settings_page": {
+    "language": "Langue",
+    "language_description": "Sélectionnez la langue souhaitée.",
+    "current_language": "Langue actuelle",
+    "select_language": "Sélectionner la langue"
+  },
+  "accessibility_settings_page": {
+    "vision": "Vision",
+    "high_contrast": "Contraste élevé",
+    "high_contrast_description": "Augmentez le contraste des couleurs pour faciliter la lecture.",
+    "hearing": "Audition",
+    "screen_reader": "Lecteur d'écran",
+    "screen_reader_description": "Activez la lecture des éléments à l'écran."
+  },
+  "map_page": {
+    "search_hint": "Destination?",
+    "route_button": "Démarrer le trajet",
+    "start_route_message": "Approche de la Salle 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Mode de Navigation",
+    "mode_visit": "Mode de Visite",
+    "welcome": "Autónoma GPS",
+    "settings": "Paramètres",
+    "language": "Langue"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Navigation Mode",
+  "Modo Visita": "Visit Mode",
+  "welcome": "Welcome",
+  "splash_screen": {
+    "start": "Start"
+  },
+  "sound_settings_page": {
+    "general_preferences": "General Preferences",
+    "sound": "Sound",
+    "sound_description": "Enable or disable sound.",
+    "vibration": "Vibration",
+    "vibration_description": "Enable or disable vibration.",
+    "voice": "Voice",
+    "language": "Voice Language",
+    "select_language": "Select Language",
+    "current_language": "Current: {language}",
+    "voice_speed": "Voice Speed",
+    "voice_pitch": "Voice Pitch",
+    "test_voice": "Test Voice"
+  },
+  "settings_page": {
+    "settings": "Settings",
+    "sound": "Sound",
+    "accessibility": "Accessibility",
+    "map": "Map",
+    "personalization": "Personalization",
+    "language": "Language"
+  },
+  "personalization_page": {
+    "theme": "Theme",
+    "theme_description": "Toggle between light and dark mode.",
+    "light_mode": "Light Mode",
+    "dark_mode": "Dark Mode"
+  },
+  "map_settings_page": {
+    "map_appearance": "Map Appearance",
+    "dark_map": "Dark Map Mode",
+    "dark_map_description": "Enable a dark theme.",
+    "icon_style": "Icon Style",
+    "default_style": "Default",
+    "accessible_style": "Accessible"
+  },
+  "language_settings_page": {
+    "language": "Language",
+    "language_description": "Select your preferred language.",
+    "current_language": "Current Language",
+    "select_language": "Select Language"
+  },
+  "accessibility_settings_page": {
+    "vision": "Vision",
+    "high_contrast": "High Contrast",
+    "high_contrast_description": "Increase contrast between colors for easier reading.",
+    "hearing": "Hearing",
+    "screen_reader": "Screen Reader",
+    "screen_reader_description": "Enable text-to-speech for screen elements."
+  },
+  "map_page": {
+    "search_hint": "Destination?",
+    "route_button": "Start Route",
+    "start_route_message": "Approaching Room 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Navigation Mode",
+    "mode_visit": "Visit Mode",
+    "welcome": "Autónoma GPS",
+    "settings": "Settings",
+    "language": "Language"
+  }
+}

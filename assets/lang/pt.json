@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Modo Navegação",
+  "Modo Visita": "Modo Visita",
+  "welcome": "Bem-vindo",
+  "splash_screen": {
+    "start": "Iniciar"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Preferências gerais",
+    "sound": "Som",
+    "sound_description": "Ativa ou desativa o som.",
+    "vibration": "Vibração",
+    "vibration_description": "Ativa ou desativa a vibração.",
+    "voice": "Voz",
+    "language": "Idioma da Voz",
+    "select_language": "Selecionar idioma",
+    "current_language": "Atual: {language}",
+    "voice_speed": "Velocidade da voz",
+    "voice_pitch": "Tom da voz",
+    "test_voice": "Testar Voz"
+  },
+  "settings_page": {
+    "settings": "Definições",
+    "sound": "Som",
+    "accessibility": "Acessibilidade",
+    "map": "Mapa",
+    "personalization": "Personalização",
+    "language": "Idioma"
+  },
+  "personalization_page": {
+    "theme": "Tema",
+    "theme_description": "Alterna entre modo claro e escuro.",
+    "light_mode": "Modo Claro",
+    "dark_mode": "Modo Escuro"
+  },
+  "map_settings_page": {
+    "map_appearance": "Aparência do Mapa",
+    "dark_map": "Modo Escuro do Mapa",
+    "dark_map_description": "Ativa um tema escuro.",
+    "icon_style": "Estilo dos ícones",
+    "default_style": "Padrão",
+    "accessible_style": "Acessível"
+  },
+  "language_settings_page": {
+    "language": "Idioma",
+    "language_description": "Selecione o idioma desejado.",
+    "current_language": "Idioma Atual",
+    "select_language": "Selecionar idioma"
+  },
+  "accessibility_settings_page": {
+    "vision": "Visão",
+    "high_contrast": "Contraste Elevado",
+    "high_contrast_description": "Aumenta o contraste entre cores para facilitar a leitura.",
+    "hearing": "Audição",
+    "screen_reader": "Leitura de Ecrã",
+    "screen_reader_description": "Ativa a leitura em voz alta dos elementos no ecrã."
+  },
+  "map_page": {
+    "search_hint": "Destino?",
+    "route_button": "Iniciar Rota",
+    "start_route_message": "A aproximar da Sala 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Modo Navegação",
+    "mode_visit": "Modo Visita",
+    "welcome": "Autónoma GPS",
+    "settings": "Definições",
+    "language": "Idioma"
+  }
+}

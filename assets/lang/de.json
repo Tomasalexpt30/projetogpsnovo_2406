@@ -1,0 +1,70 @@
+{
+  "Modo Navegação": "Tryb Nawigacji",
+  "Modo Visita": "Tryb Wizyty",
+  "welcome": "Witamy",
+  "splash_screen": {
+    "start": "Rozpocznij"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Ogólne ustawienia",
+    "sound": "Dźwięk",
+    "sound_description": "Włącz lub wyłącz dźwięk.",
+    "vibration": "Wibracja",
+    "vibration_description": "Włącz lub wyłącz wibrację.",
+    "voice": "Głos",
+    "language": "Język głosu",
+    "select_language": "Sprache auswählen",
+    "current_language": "Aktualny: {language}",
+    "voice_speed": "Szybkość głosu",
+    "voice_pitch": "Ton głosu",
+    "test_voice": "Testuj głos"
+  },
+  "settings_page": {
+    "settings": "Einstellungen",
+    "sound": "Dźwięk",
+    "accessibility": "Dostępność",
+    "map": "Mapa",
+    "personalization": "Personalizacja",
+    "language": "Język"
+  },
+  "personalization_page": {
+    "theme": "Motyw",
+    "theme_description": "Zmień między trybem jasnym i ciemnym.",
+    "light_mode": "Tryb jasny",
+    "dark_mode": "Tryb ciemny"
+  },
+  "map_settings_page": {
+    "map_appearance": "Wygląd mapy",
+    "dark_map": "Ciemny tryb mapy",
+    "dark_map_description": "Włącz ciemny motyw.",
+    "icon_style": "Styl ikon",
+    "default_style": "Domyślny",
+    "accessible_style": "Dostępny"
+  },
+  "language_settings_page": {
+    "language": "Język",
+    "language_description": "Wybierz preferowany język.",
+    "current_language": "Aktualny język",
+    "select_language": "Wybierz język"
+  },
+  "accessibility_settings_page": {
+    "vision": "Wzrok",
+    "high_contrast": "Wysoki kontrast",
+    "high_contrast_description": "Zwiększ kontrast między kolorami, aby ułatwić czytanie.",
+    "hearing": "Słuch",
+    "screen_reader": "Lector ekranu",
+    "screen_reader_description": "Włącz czytanie na głos elementów ekranu."
+  },
+  "map_page": {
+    "search_hint": "Cel?",
+    "route_button": "Zaczynamy trasę",
+    "start_route_message": "Zbliżamy się do Sali 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Tryb Nawigacji",
+    "mode_visit": "Tryb Wizyty",
+    "welcome": "Autónoma GPS",
+    "settings": "Ustawienia",
+    "language": "Język"
+  }
+}
