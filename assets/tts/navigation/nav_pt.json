@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "Já se encontra em {location}. Chegou ao seu destino.",
+    "path_not_found": "Encontra-se em {location}. Caminho não encontrado.",
+    "arrived": "Chegou ao seu destino. Obrigado por usar a nossa aplicação.",
+    "at_location": "Encontra-se em: {location}",
+    "navigation_cancelled": "Navegação cancelada",
+    "searching": "A procurar...",
+    "end_of_route": "Fim da rota",
+    "start_navigation": "Vamos iniciar a navegação.",
+    "voice_start": "Vamos iniciar a navegação.",
+    "voice_unavailable": "Destino não se encontra disponível. Repita, por favor.",
+    "voice_selected": "Destino selecionado: {destination}"
+  },
+  "instructions": {
+    "Entrada-Pátio": "Siga em frente desde a Entrada até ao Pátio.",
+    "Pátio-Entrada": "Volte para trás desde o Pátio até à Entrada.",
+    "Pátio-Corredor 1": "Continue em frente desde o Pátio até ao Corredor 1.",
+    "Corredor 1-Pátio": "Volte para trás desde o Corredor 1 até ao Pátio.",
+    "Entrada-Corredor 1": "Siga em frente desde a Entrada, passe pelo Pátio e continue até ao Corredor 1.",
+    "Corredor 1-Entrada": "Volte para trás desde o Corredor 1, passe pelo Pátio e continue até à Entrada."
+  }
+}

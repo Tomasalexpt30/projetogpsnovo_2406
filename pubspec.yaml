@@ -39,9 +39,9 @@ flutter:
     - assets/images/home/aluno.png
     - assets/images/map/00_piso.png
     - assets/images/map/-01_piso.png
-    - assets/images/map/-01_piso.png
     - assets/images/map/01_piso.png
     - assets/images/map/02_piso.png
-    
-
- 
+    - assets/tts/navigation/nav_pt.json
+    - assets/tts/navigation/nav_en.json
+    - assets/tts/tour/tour_pt.json
+    - assets/tts/tour/tour_en.json

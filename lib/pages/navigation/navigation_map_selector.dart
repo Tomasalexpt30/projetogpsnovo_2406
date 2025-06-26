@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'beacon_scan_tts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
 
 class NavigationMapSelectorPage extends StatefulWidget {
   const NavigationMapSelectorPage({super.key});
@@ -17,8 +19,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     'entrada': 'Entrada',
     'pátio': 'Pátio',
     'corredor 1': 'Corredor 1',
-    'sala 10': 'Sala 10',
-    'cafeteria': 'Cafeteria',
   };
 
   final Set<String> destinosComBeacon = {'Entrada', 'Pátio', 'Corredor 1'};
@@ -26,28 +26,28 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   String? destinoSelecionado;
   late stt.SpeechToText _speech;
   final FlutterTts _tts = FlutterTts();
+  final PreferencesHelper _preferencesHelper = PreferencesHelper();
   bool _speechAvailable = false;
   bool _isListening = false;
+  String selectedLanguageCode = 'pt-PT';
+  Map<String, dynamic> mensagens = {};
+  bool soundEnabled = true;
 
-  // Lista para armazenar os favoritos
   List<String> favoritos = [];
   List<String> destinosDisponiveis = [
     'Entrada',
     'Corredor 1',
     'Pátio',
-    'Cafeteria',
-    'Sala 10'
-  ]; // Todos os destinos são disponíveis inicialmente
+  ];
 
   @override
   void initState() {
     super.initState();
     _initSpeech();
-    _initTTS();
-    _loadFavorites(); // Carregar os favoritos armazenados ao iniciar
+    _loadSettings();
+    _loadFavorites();
   }
 
-  // Inicializar o reconhecimento de voz
   Future<void> _initSpeech() async {
     _speech = stt.SpeechToText();
     _speechAvailable = await _speech.initialize(
@@ -56,55 +56,64 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     );
   }
 
-  // Inicializar o TTS (Texto para fala)
-  Future<void> _initTTS() async {
-    await _tts.setLanguage('pt-BR'); // Alterado para pt-BR (português do Brasil)
-    await _tts.setSpeechRate(0.4);
-    await _tts.setPitch(1.0);
+  Future<void> _loadSettings() async {
+    final settings = await _preferencesHelper.loadSoundSettings();
+    setState(() {
+      selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
+      soundEnabled = settings['soundEnabled'];
+    });
+    await _tts.setLanguage(selectedLanguageCode);
+    await _tts.setSpeechRate(0.5);
+    await _loadMessages();
   }
 
-  // Função para adicionar favoritos
+  Future<void> _loadMessages() async {
+    final lang = selectedLanguageCode.startsWith('en') ? 'en' : 'pt';
+    final path = 'assets/tts/navigation/nav_$lang.json';
+    final jsonString = await rootBundle.loadString(path);
+    setState(() {
+      mensagens = json.decode(jsonString);
+    });
+  }
+
   void _adicionarFavorito(String destino) {
     setState(() {
       if (!favoritos.contains(destino)) {
         favoritos.add(destino);
-        destinosDisponiveis.remove(destino); // Remove o destino dos disponíveis
-        _saveFavorites(); // Salvar os favoritos sempre que houver uma alteração
+        destinosDisponiveis.remove(destino);
+        _saveFavorites();
       }
     });
   }
 
-  // Função para remover favoritos
   void _removerFavorito(String destino) {
     setState(() {
       favoritos.remove(destino);
-      destinosDisponiveis.add(destino); // Adiciona de volta aos disponíveis
-      _saveFavorites(); // Salvar os favoritos sempre que houver uma alteração
+      destinosDisponiveis.add(destino);
+      _saveFavorites();
     });
   }
 
-  // Função para salvar os favoritos usando SharedPreferences
   Future<void> _saveFavorites() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('favoritos', favoritos); // Armazenar a lista de favoritos
+    await _preferencesHelper.saveFavorites(favoritos);
   }
 
-  // Função para carregar os favoritos do SharedPreferences
   Future<void> _loadFavorites() async {
-    final prefs = await SharedPreferences.getInstance();
+    final favoritosGuardados = await _preferencesHelper.loadFavorites();
     setState(() {
-      favoritos = prefs.getStringList('favoritos') ?? []; // Carregar favoritos, se existirem
-      destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino)); // Remover os favoritos dos destinos disponíveis
+      favoritos = favoritosGuardados;
+      destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
     });
   }
 
-  // Função para exibir o pop-up com os destinos disponíveis
   void _mostrarAdicionarFavorito() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Adicionar aos Favoritos'),
+          title: Text(selectedLanguageCode == 'pt-PT'
+              ? 'Adicionar aos Favoritos'
+              : 'Add to Favorites'),
           content: SingleChildScrollView(
             child: ListBody(
               children: destinosDisponiveis.map((destino) {
@@ -112,7 +121,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                   title: Text(destino),
                   onTap: () {
                     _adicionarFavorito(destino);
-                    Navigator.of(context).pop(); // Fecha o pop-up após adicionar
+                    Navigator.of(context).pop();
                   },
                 );
               }).toList(),
@@ -123,21 +132,24 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     );
   }
 
-  // Função para capturar o comando de voz
+  String _mensagem(String chave, {String? valor}) {
+    String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ?? '';
+    if (valor != null) {
+      raw = raw.replaceAll('{destination}', valor);
+    }
+    return raw;
+  }
+
   Future<void> _ouvirComando() async {
     if (!_speechAvailable) return;
 
     setState(() => _isListening = true);
 
-    // Iniciar escuta com o idioma pt-BR
     await _speech.listen(
-      localeId: 'pt-BR', // Alterado para o português do Brasil
+      localeId: selectedLanguageCode,
       listenMode: stt.ListenMode.dictation,
       onResult: (result) async {
         final textoReconhecido = result.recognizedWords.toLowerCase().trim();
-        print('Reconhecido: $textoReconhecido');
-
-        // Verificar se o texto reconhecido contém algum destino
         for (final entrada in destinosMap.entries) {
           if (textoReconhecido.contains(entrada.key)) {
             final destino = entrada.value;
@@ -148,7 +160,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 _isListening = false;
               });
               await _speech.stop();
-              await _tts.speak("Ok, vamos começar.");
+              if (soundEnabled) {
+                await _tts.speak(_mensagem('voice_start'));
+              }
               await Future.delayed(const Duration(seconds: 2));
               if (!mounted) return;
               Navigator.push(
@@ -156,7 +170,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 MaterialPageRoute(
                   builder: (context) => BeaconScanPage(
                     destino: destino,
-                    destinosMap: destinosMap, // Passando destinosMap para BeaconScanPage
+                    destinosMap: destinosMap,
                   ),
                 ),
               );
@@ -167,21 +181,20 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
 
         await _speech.stop();
         setState(() => _isListening = false);
-        await _tts.speak("Destino não se encontra disponível. Repita, por favor.");
+        if (soundEnabled) {
+          await _tts.speak(_mensagem('voice_unavailable'));
+        }
       },
     );
   }
 
-  String get imagemPiso {
-    return 'assets/images/map/00_piso.png'; // Piso fixo no 0
-  }
+  String get imagemPiso => 'assets/images/map/00_piso.png';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Mapa
           Positioned.fill(
             child: InteractiveViewer(
               panEnabled: true,
@@ -197,7 +210,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               ),
             ),
           ),
-          // Bloco deslizante de pesquisa e navegação
           DraggableScrollableSheet(
             minChildSize: 0.20,
             maxChildSize: 0.40,
@@ -207,7 +219,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.95),
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                   boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 6)],
                 ),
                 child: SingleChildScrollView(
@@ -215,14 +227,19 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Para onde deseja ir?',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text(
+                        selectedLanguageCode == 'pt-PT'
+                            ? 'Para onde deseja ir?'
+                            : 'Where do you want to go?',
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                       const SizedBox(height: 10),
-                      // Dropdown para selecionar o destino
                       DropdownButtonFormField<String>(
                         decoration: const InputDecoration(border: OutlineInputBorder()),
                         value: destinoSelecionado,
-                        hint: const Text('Selecionar destino'),
+                        hint: Text(selectedLanguageCode == 'pt-PT'
+                            ? 'Selecionar destino'
+                            : 'Select destination'),
                         items: destinosMap.entries
                             .map((entry) => DropdownMenuItem(
                           value: entry.value,
@@ -236,26 +253,32 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                         },
                       ),
                       const SizedBox(height: 10),
-                      // Botões alinhados na mesma linha
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton.icon(
                             onPressed: destinoSelecionado == null
                                 ? null
-                                : () {
+                                : () async {
+                              if (soundEnabled) {
+                                await _tts.speak(_mensagem('start_navigation'));
+                              }
+                              await Future.delayed(const Duration(seconds: 2));
+                              if (!mounted) return;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => BeaconScanPage(
                                     destino: destinoSelecionado!,
-                                    destinosMap: destinosMap, // Passando destinosMap
+                                    destinosMap: destinosMap,
                                   ),
                                 ),
                               );
                             },
                             icon: const Icon(Icons.navigation),
-                            label: const Text('Iniciar Navegação'),
+                            label: Text(selectedLanguageCode == 'pt-PT'
+                                ? 'Iniciar Navegação'
+                                : 'Start Navigation'),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               foregroundColor: Colors.white,
@@ -264,7 +287,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                           ElevatedButton.icon(
                             onPressed: _ouvirComando,
                             icon: const Icon(Icons.mic),
-                            label: const Text('Por Voz'),
+                            label: Text(selectedLanguageCode == 'pt-PT'
+                                ? 'Por Voz'
+                                : 'By Voice'),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
                               foregroundColor: Colors.white,
@@ -273,9 +298,10 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const Text('Favoritos',
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                      // Exibir favoritos em linha horizontal com possibilidade de deslizar
+                      Text(
+                        selectedLanguageCode == 'pt-PT' ? 'Favoritos' : 'Favorites',
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -295,7 +321,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                         setState(() {
                                           destinoSelecionado = favorito;
                                         });
-                                        _tts.speak("Destino selecionado: $favorito");
+                                        if (soundEnabled) {
+                                          _tts.speak(_mensagem('voice_selected', valor: favorito));
+                                        }
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -306,10 +334,10 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                             onTap: () {
                                               _removerFavorito(favorito);
                                             },
-                                            child: Container(
+                                            child: const SizedBox(
                                               width: 22,
                                               height: 22,
-                                              child: const Center(
+                                              child: Center(
                                                 child: Icon(Icons.cancel, size: 18, color: Colors.white),
                                               ),
                                             ),
@@ -321,9 +349,8 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                 ),
                               );
                             }).toList(),
-                            // Botão para adicionar mais favoritos
                             Padding(
-                              padding: const EdgeInsets.only(right: 10, top:5),
+                              padding: const EdgeInsets.only(right: 10, top: 5),
                               child: ElevatedButton(
                                 onPressed: _mostrarAdicionarFavorito,
                                 child: const Icon(Icons.add),
@@ -342,8 +369,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               );
             },
           ),
-
-          // Botão de retroceder
           Positioned(
             top: 40,
             left: 10,

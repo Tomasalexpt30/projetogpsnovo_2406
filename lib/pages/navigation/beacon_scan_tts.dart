@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -22,6 +24,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   final FlutterTts flutterTts = FlutterTts();
   final NavigationManager nav = NavigationManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
+
+  Map<String, dynamic> mensagens = {};
 
   String? localAtual;
   List<String> rota = [];
@@ -58,7 +62,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
   final Map<String, Offset> beaconPositions = {
     'Entrada': Offset(300, 500),
-    'Patio': Offset(300, 250),
+    'Pátio': Offset(300, 250),
     'Corredor 1': Offset(380, 95),
   };
 
@@ -80,7 +84,9 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       Permission.locationWhenInUse,
     ].request();
 
-    _loadSettings();
+    await _loadSettings();
+    await _carregarMensagens();
+    await nav.carregarInstrucoes(selectedLanguageCode);
     iniciarScan();
   }
 
@@ -90,6 +96,15 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
       soundEnabled = settings['soundEnabled'];
       vibrationEnabled = settings['vibrationEnabled'];
+    });
+  }
+
+  Future<void> _carregarMensagens() async {
+    final lang = selectedLanguageCode.startsWith('en') ? 'en' : 'pt';
+    final path = 'assets/tts/navigation/nav_$lang.json';
+    final String jsonString = await rootBundle.loadString(path);
+    setState(() {
+      mensagens = json.decode(jsonString);
     });
   }
 
@@ -117,9 +132,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         if (rota.isEmpty) {
           if (local == widget.destino) {
-            falar(selectedLanguageCode == 'pt-PT'
-                ? "Já se encontra em $local. Chegou ao seu destino."
-                : "You are already at $local. You have reached your destination.");
+            falar(_mensagemAlerta('already_there', local));
             finalizar();
             return;
           }
@@ -135,13 +148,11 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             final instrucao = nav.getInstrucoes(caminho, selectedLanguageCode)[0];
             falar(instrucao);
             setState(() {
-              status = selectedLanguageCode == 'pt-PT' ? 'Encontra-se em: $local' : 'You are at: $local';
+              status = _mensagemAlerta('at_location', local);
               mostrarSeta = true;
             });
           } else {
-            falar(selectedLanguageCode == 'pt-PT'
-                ? "Encontra-se em $local. Caminho não encontrado."
-                : "You are at $local. Path not found.");
+            falar(_mensagemAlerta('path_not_found', local));
             finalizar();
           }
           return;
@@ -152,13 +163,11 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
           atualizarPosicaoVisual(local);
 
           setState(() {
-            status = selectedLanguageCode == 'pt-PT' ? 'Encontra-se em: $local' : 'You are at: $local';
+            status = _mensagemAlerta('at_location', local);
           });
 
           if (proximoPasso == rota.length - 1) {
-            falar(selectedLanguageCode == 'pt-PT'
-                ? "Chegou ao seu destino. Obrigado por usar a nossa aplicação."
-                : "You have reached your destination. Thank you for using our application.");
+            falar(_mensagemAlerta('arrived', local));
             finalizar();
           } else {
             final instrucao = nav.getInstrucoes(rota, selectedLanguageCode)[proximoPasso];
@@ -169,6 +178,11 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
         }
       }
     });
+  }
+
+  String _mensagemAlerta(String chave, String local) {
+    final raw = mensagens['alerts']?[chave] ?? '';
+    return raw.replaceAll('{location}', local);
   }
 
   void atualizarPosicaoVisual(String local) {
@@ -206,11 +220,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   Future<void> falar(String texto) async {
-    if (soundEnabled) {
-      final settings = await _preferencesHelper.loadSoundSettings();
-      final languageCode = settings['selectedLanguageCode'];
-
-      await flutterTts.setLanguage(languageCode);
+    if (soundEnabled && texto.isNotEmpty) {
+      await flutterTts.setLanguage(selectedLanguageCode);
       await flutterTts.setSpeechRate(0.5);
       await flutterTts.speak(texto);
     }
@@ -219,7 +230,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   void cancelarNavegacao() {
     setState(() {
       isNavigationCanceled = true;
-      status = 'Navegação cancelada';
+      status = mensagens['alerts']?['navigation_cancelled'] ?? '';
     });
 
     FlutterBluePlus.stopScan();
@@ -238,12 +249,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   String obterLocalAtual() {
-    return localAtual ?? (selectedLanguageCode == 'pt-PT' ? 'A procurar...' : 'Searching...');
+    return localAtual ?? (mensagens['alerts']?['searching'] ?? '');
   }
 
   String obterProximaParagem() {
     if (rota.isEmpty || proximoPasso >= rota.length) {
-      return selectedLanguageCode == 'pt-PT' ? 'Fim da rota' : 'End of route';
+      return mensagens['alerts']?['end_of_route'] ?? '';
     }
     return rota[proximoPasso];
   }
