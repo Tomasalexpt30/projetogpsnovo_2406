@@ -80,6 +80,17 @@
     "current_location": "Aktualna Lokalizacja",
     "next": "Następny",
     "cancel_navigation": "Anuluj Nawigację"
+  },
+  "tour_page": {
+    "title": "Wycieczka z przewodnikiem",
+    "description": "Rozpocznij wycieczkę z przewodnikiem po głównych punktach uniwersytetu.",
+    "start_btn": "Rozpocznij wycieczkę"
+  },
+  "tour_scan_page": {
+    "current_location": "Aktualna lokalizacja",
+    "next": "Następny",
+    "searching": "Wyszukiwanie beaconów...",
+    "go_to_entrance": "Przejdź do wejścia, aby rozpocząć zwiedzanie.",
+    "cancel_btn": "Anuluj wycieczkę z przewodnikiem"
   }
-
 }

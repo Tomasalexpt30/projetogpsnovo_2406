@@ -74,5 +74,17 @@
     "by_voice": "Per Spracheingabe",
     "favorites": "Favoriten",
     "add_favorite": "Zu Favoriten hinzufügen"
+  },
+  "tour_page": {
+    "title": "Geführte Tour",
+    "description": "Starten Sie Ihre geführte Tour durch die wichtigsten Orte der Universität.",
+    "start_btn": "Tour starten"
+  },
+  "tour_scan_page": {
+    "current_location": "Aktueller Standort",
+    "next": "Nächste",
+    "searching": "Suche nach Beacons...",
+    "go_to_entrance": "Gehen Sie zum Eingang, um die geführte Tour zu starten.",
+    "cancel_btn": "Geführte Tour abbrechen"
   }
 }

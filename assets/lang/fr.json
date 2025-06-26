@@ -80,5 +80,17 @@
     "current_location": "Emplacement Actuel",
     "next": "Suivant",
     "cancel_navigation": "Annuler la Navigation"
+  },
+  "tour_page": {
+    "title": "Visite Guidée",
+    "description": "Commencez votre visite guidée des principaux lieux de l'université.",
+    "start_btn": "Commencer la visite"
+  },
+  "tour_scan_page": {
+    "current_location": "Emplacement actuel",
+    "next": "Suivant",
+    "searching": "Recherche de balises...",
+    "go_to_entrance": "Rendez-vous à l'entrée pour commencer la visite guidée.",
+    "cancel_btn": "Annuler la visite guidée"
   }
 }

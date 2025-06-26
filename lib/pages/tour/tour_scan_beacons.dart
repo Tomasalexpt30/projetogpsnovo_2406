@@ -1,32 +1,29 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:vibration/vibration.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../navigation/navigation_manager.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
 
 class TourStop {
-  final String nomePT;
-  final String nomeEN;
-  final String piso;
-  final String textoPT;
-  final String textoEN;
+  final String id;
   final Offset position;
+  final String piso;
   final String uuid;
   final int major;
   final int minor;
   final String macAddress;
 
   const TourStop({
-    required this.nomePT,
-    required this.nomeEN,
-    required this.piso,
-    required this.textoPT,
-    required this.textoEN,
+    required this.id,
     required this.position,
+    required this.piso,
     required this.uuid,
     required this.major,
     required this.minor,
@@ -38,14 +35,6 @@ class TourStop {
         beacon.major == major &&
         beacon.minor == minor &&
         beacon.macAddress.toLowerCase() == macAddress.toLowerCase();
-  }
-
-  String getNome(String languageCode) {
-    return languageCode == 'pt-PT' ? nomePT : nomeEN;
-  }
-
-  String getTexto(String languageCode) {
-    return languageCode == 'pt-PT' ? textoPT : textoEN;
   }
 }
 
@@ -63,19 +52,20 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   final NavigationManager nav = NavigationManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
+  late Map<String, dynamic> mensagens;
   int currentIndex = 0;
   bool chegou = false;
   bool tourStarted = false;
   bool isTourCanceled = false;
   bool entradaDetetada = false;
 
-  String status = 'À procura de beacons...';
-
-  DateTime? ultimaDetecao;
-  final Duration cooldown = const Duration(seconds: 4);
+  String status = '';
   String selectedLanguageCode = 'pt-PT';
   bool soundEnabled = true;
   bool vibrationEnabled = true;
+
+  DateTime? ultimaDetecao;
+  final Duration cooldown = const Duration(seconds: 4);
 
   Offset currentPosition = const Offset(0, 0);
   Offset previousPosition = const Offset(0, 0);
@@ -102,19 +92,19 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    currentFloor = widget.tourStops[0].piso;
-    currentPosition = widget.tourStops[0].position;
-    previousPosition = currentPosition;
-    cameraOffset = currentPosition;
-
-    textoAtual = widget.tourStops[0].getTexto(selectedLanguageCode);
-
     _cameraController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
+    _initTour();
+  }
 
-    pedirPermissoes();
+  Future<void> _initTour() async {
+    await pedirPermissoes();
+    await _loadSettings();
+    await _loadMensagensTTS();
+    _setupInitialState();
+    verificarLocalizacaoInicial();
   }
 
   Future<void> pedirPermissoes() async {
@@ -124,9 +114,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       Permission.bluetoothConnect,
       Permission.locationWhenInUse,
     ].request();
-
-    await _loadSettings();
-    verificarLocalizacaoInicial();
   }
 
   Future<void> _loadSettings() async {
@@ -138,9 +125,44 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     });
   }
 
+  Future<void> _loadMensagensTTS() async {
+    // Sempre carrega o ficheiro do idioma TTS selecionado pelo utilizador nas preferências de som!
+    String lang;
+    if (selectedLanguageCode.startsWith('en')) {
+      lang = 'en';
+    } else if (selectedLanguageCode.startsWith('pt')) {
+      lang = 'pt';
+    } else if (selectedLanguageCode.startsWith('es')) {
+      lang = 'es';
+    } else if (selectedLanguageCode.startsWith('fr')) {
+      lang = 'fr';
+    } else {
+      lang = 'pt'; // Fallback
+    }
+    final String jsonStr = await rootBundle.loadString('assets/tts/tour/tour_$lang.json');
+    setState(() {
+      mensagens = json.decode(jsonStr);
+    });
+  }
+
+  void _setupInitialState() {
+    final firstStop = widget.tourStops[0];
+    setState(() {
+      currentFloor = firstStop.piso;
+      currentPosition = firstStop.position;
+      previousPosition = currentPosition;
+      cameraOffset = currentPosition;
+      textoAtual = _getTourPointText(firstStop.id);
+      status = '';
+    });
+  }
+
+  String _getTourPointText(String id) => mensagens['tour_points']?[id]?['text'] ?? '';
+  String _getTourPointName(String id) => mensagens['tour_points']?[id]?['name'] ?? '';
+  String _alertTTS(String key) => mensagens['alerts']?[key] ?? '';
+
   void verificarLocalizacaoInicial() {
     FlutterBluePlus.startScan();
-
     FlutterBluePlus.scanResults.listen((results) {
       if (tourStarted || isTourCanceled) return;
 
@@ -152,7 +174,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
         if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown) {
           continue;
         }
-
         ultimaDetecao = agora;
 
         for (final stop in widget.tourStops) {
@@ -177,7 +198,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
               rotationAngle = angle;
               currentFloor = stop.piso;
               estaAProucurar = false;
-              textoAtual = stop.getTexto(selectedLanguageCode);
+              textoAtual = _getTourPointText(stop.id);
             });
 
             if (stop == widget.tourStops[0]) {
@@ -187,37 +208,25 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
               ignorarBeacons = false;
               cancelarAvisoRepetido();
               mostrarCamoes = true;
-
-              status = selectedLanguageCode == 'pt-PT'
-                  ? 'Visita iniciada! Continue para o próximo ponto.'
-                  : 'Tour started! Proceed to the next stop.';
-
+              status = '';
               if (soundEnabled) {
                 flutterTts.setLanguage(selectedLanguageCode);
                 flutterTts.setSpeechRate(0.5);
-                flutterTts.speak(selectedLanguageCode == 'pt-PT'
-                    ? 'Está na entrada. Vamos começar a visita guiada!'
-                    : 'You are at the entrance. Let\'s start the guided tour!');
+                flutterTts.speak(_alertTTS('voice_entrance'));
               }
             } else {
               if (!ignorarBeacons) {
                 ignorarBeacons = true;
                 entradaDetetada = false;
-
-                status = selectedLanguageCode == 'pt-PT'
-                    ? 'Está em: ${stop.getNome(selectedLanguageCode)}. Dirija-se até à entrada para iniciar a visita.'
-                    : 'You are at: ${stop.getNome(selectedLanguageCode)}. Please proceed to the entrance to start the tour.';
-
+                status = '';
                 if (soundEnabled) {
                   flutterTts.setLanguage(selectedLanguageCode);
                   flutterTts.setSpeechRate(0.5);
-                  flutterTts.speak(status);
+                  flutterTts.speak(_alertTTS('go_to_entrance'));
                 }
-
                 iniciarAvisoRepetido();
               }
             }
-
             break;
           }
         }
@@ -231,9 +240,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       if (!entradaDetetada && soundEnabled && !tourStarted) {
         flutterTts.setLanguage(selectedLanguageCode);
         flutterTts.setSpeechRate(0.5);
-        flutterTts.speak(selectedLanguageCode == 'pt-PT'
-            ? 'Dirija-se até à entrada para iniciar a visita guiada.'
-            : 'Please proceed to the entrance to start the guided tour.');
+        flutterTts.speak(_alertTTS('repeat_entrance'));
       }
     });
   }
@@ -246,7 +253,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   void iniciarScan() {
     FlutterBluePlus.stopScan();
     FlutterBluePlus.startScan();
-
     FlutterBluePlus.scanResults.listen((results) {
       if (chegou || isTourCanceled) return;
 
@@ -258,7 +264,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
         if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown) {
           continue;
         }
-
         final stop = widget.tourStops[currentIndex];
         if (stop.matches(beacon)) {
           ultimaDetecao = agora;
@@ -284,7 +289,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
             currentPosition = newPosition;
             rotationAngle = angle;
             currentFloor = stop.piso;
-            textoAtual = stop.getTexto(selectedLanguageCode);
+            textoAtual = _getTourPointText(stop.id);
           });
 
           if (currentIndex == widget.tourStops.length - 1) {
@@ -292,9 +297,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
           } else {
             setState(() {
               currentIndex++;
-              status = selectedLanguageCode == 'pt-PT'
-                  ? 'Avance para o próximo ponto.'
-                  : 'Proceed to the next stop.';
             });
           }
           break;
@@ -304,18 +306,11 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   }
 
   void _anunciarParagem(TourStop stop) async {
-    setState(() {
-      status = selectedLanguageCode == 'pt-PT'
-          ? 'Chegou a: ${stop.getNome(selectedLanguageCode)}'
-          : 'You have reached: ${stop.getNome(selectedLanguageCode)}';
-    });
-
     if (soundEnabled) {
       await flutterTts.setLanguage(selectedLanguageCode);
       await flutterTts.setSpeechRate(0.5);
-      await flutterTts.speak(stop.getTexto(selectedLanguageCode));
+      await flutterTts.speak(_getTourPointText(stop.id));
     }
-
     if (vibrationEnabled) {
       if (await Vibration.hasVibrator() ?? false) {
         Vibration.vibrate(duration: 600);
@@ -327,15 +322,13 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     FlutterBluePlus.stopScan();
     chegou = true;
     cancelarAvisoRepetido();
-    flutterTts.speak(selectedLanguageCode == 'pt-PT'
-        ? 'Tour concluído. Obrigado!'
-        : 'Tour completed. Thank you!');
+    flutterTts.setLanguage(selectedLanguageCode);
+    flutterTts.speak(_alertTTS('tour_completed'));
   }
 
   void cancelarTour() {
     setState(() {
       isTourCanceled = true;
-      status = 'Tour cancelado';
     });
     FlutterBluePlus.stopScan();
     flutterTts.stop();
@@ -360,14 +353,14 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
     if (tourStarted) {
       if (currentIndex == 0) {
-        localAtual = widget.tourStops[0].getNome(selectedLanguageCode);
-        proximaParagem = widget.tourStops[1].getNome(selectedLanguageCode);
+        localAtual = _getTourPointName(widget.tourStops[0].id);
+        proximaParagem = _getTourPointName(widget.tourStops[1].id);
       } else {
-        localAtual = widget.tourStops[currentIndex - 1].getNome(selectedLanguageCode);
+        localAtual = _getTourPointName(widget.tourStops[currentIndex - 1].id);
         if (currentIndex < widget.tourStops.length) {
-          proximaParagem = widget.tourStops[currentIndex].getNome(selectedLanguageCode);
+          proximaParagem = _getTourPointName(widget.tourStops[currentIndex].id);
         } else {
-          proximaParagem = selectedLanguageCode == 'pt-PT' ? 'Fim da Visita' : 'End of Tour';
+          proximaParagem = tr('tour_scan_page.next');
         }
       }
     }
@@ -465,10 +458,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        selectedLanguageCode == 'pt-PT' ? 'Visita Guiada' : 'Guided Tour',
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
                       const SizedBox(height: 20),
                       estaAProucurar
                           ? Container(
@@ -484,9 +473,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  selectedLanguageCode == 'pt-PT'
-                                      ? 'À procura de beacons...'
-                                      : 'Searching for beacons...',
+                                  'tour_scan_page.searching'.tr(),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
@@ -509,9 +496,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  selectedLanguageCode == 'pt-PT'
-                                      ? 'Dirija-se até à entrada para iniciar a visita guiada.'
-                                      : 'Please proceed to the entrance to start the guided tour.',
+                                  'tour_scan_page.go_to_entrance'.tr(),
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
@@ -533,7 +518,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                               child: Column(
                                 children: [
                                   Text(
-                                    selectedLanguageCode == 'pt-PT' ? 'Local Atual' : 'Current Location',
+                                    'tour_scan_page.current_location'.tr(),
                                     style: const TextStyle(fontSize: 16, color: Colors.black54),
                                   ),
                                   const SizedBox(height: 5),
@@ -557,7 +542,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                               child: Column(
                                 children: [
                                   Text(
-                                    selectedLanguageCode == 'pt-PT' ? 'Próximo' : 'Next',
+                                    'tour_scan_page.next'.tr(),
                                     style: const TextStyle(fontSize: 16, color: Colors.black54),
                                   ),
                                   const SizedBox(height: 5),
@@ -576,7 +561,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                       ElevatedButton.icon(
                         onPressed: cancelarTour,
                         icon: const Icon(Icons.cancel),
-                        label: Text(selectedLanguageCode == 'pt-PT' ? 'Cancelar Visita Guiada' : 'Cancel Guided Tour'),
+                        label: Text('tour_scan_page.cancel_btn'.tr()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent,
                           foregroundColor: Colors.white,

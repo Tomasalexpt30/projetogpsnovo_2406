@@ -80,5 +80,17 @@
     "current_location": "当前位置",
     "next": "下一个",
     "cancel_navigation": "取消导航"
+  },
+  "tour_page": {
+    "title": "导览",
+    "description": "开始您的大学主要景点导览。",
+    "start_btn": "开始导览"
+  },
+  "tour_scan_page": {
+    "current_location": "当前位置",
+    "next": "下一个",
+    "searching": "正在寻找信标...",
+    "go_to_entrance": "请前往入口开始导览。",
+    "cancel_btn": "取消导览"
   }
 }

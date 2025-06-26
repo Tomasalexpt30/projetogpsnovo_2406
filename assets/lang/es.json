@@ -80,6 +80,18 @@
     "current_location": "Ubicación Actual",
     "next": "Siguiente",
     "cancel_navigation": "Cancelar Navegación"
+  },
+  "tour_page": {
+    "title": "Visita Guiada",
+    "description": "Inicie su visita guiada por los principales puntos de la universidad.",
+    "start_btn": "Iniciar Visita"
+  },
+  "tour_scan_page": {
+    "current_location": "Ubicación actual",
+    "next": "Siguiente",
+    "searching": "Buscando beacons...",
+    "go_to_entrance": "Diríjase a la entrada para iniciar la visita guiada.",
+    "cancel_btn": "Cancelar visita guiada"
   }
 
 }

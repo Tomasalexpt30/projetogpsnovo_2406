@@ -80,6 +80,17 @@
     "current_location": "Mevcut Konum",
     "next": "Sonraki",
     "cancel_navigation": "Navigasyonu İptal Et"
+  },
+  "tour_page": {
+    "title": "Rehberli Tur",
+    "description": "Üniversitenin ana noktalarında rehberli turunuzu başlatın.",
+    "start_btn": "Turu Başlat"
+  },
+  "tour_scan_page": {
+    "current_location": "Mevcut Konum",
+    "next": "Sonraki",
+    "searching": "Beaconlar aranıyor...",
+    "go_to_entrance": "Rehberli turu başlatmak için girişe gidin.",
+    "cancel_btn": "Rehberli turu iptal et"
   }
-
 }

@@ -1,0 +1,30 @@
+{
+  "alerts": {
+    "start_tour": "Visita Guiada",
+    "tour_description": "Inicie a sua visita guiada pelos principais pontos da universidade.",
+    "start_btn": "Iniciar Visita",
+    "searching": "À procura de beacons...",
+    "start_tour_info": "Visita iniciada! Continue para o próximo ponto.",
+    "go_to_entrance": "Dirija-se até à entrada para iniciar a visita guiada.",
+    "at_location": "Está em: {location}.",
+    "please_proceed_entrance": "Por favor, dirija-se até à entrada para começar.",
+    "tour_cancelled": "Visita cancelada.",
+    "tour_completed": "Tour concluído. Obrigado!",
+    "repeat_entrance": "Dirija-se até à entrada para iniciar a visita guiada.",
+    "voice_entrance": "Está na entrada. Vamos começar a visita guiada!"
+  },
+  "tour_points": {
+    "entrada": {
+      "name": "Entrada",
+      "text": "Bem-vindo à Universidade Autónoma de Lisboa. Aqui inicia-se a sua visita. Aproveite para conhecer os principais pontos do campus!"
+    },
+    "patio": {
+      "name": "Pátio",
+      "text": "Este é o átrio principal da universidade. Aqui decorrem vários eventos e é um local de encontro entre estudantes."
+    },
+    "camoes": {
+      "name": "Camões",
+      "text": "A estátua de Camões representa o valor da literatura e cultura portuguesa. É um dos símbolos mais emblemáticos do nosso campus."
+    }
+  }
+}

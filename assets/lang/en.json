@@ -80,6 +80,18 @@
     "current_location": "Current Location",
     "next": "Next",
     "cancel_navigation": "Cancel Navigation"
+  },
+  "tour_page": {
+    "title": "Guided Tour",
+    "description": "Start your guided tour through the university's main spots.",
+    "start_btn": "Start Tour"
+  },
+  "tour_scan_page": {
+    "current_location": "Current Location",
+    "next": "Next",
+    "searching": "Searching for beacons...",
+    "go_to_entrance": "Proceed to the entrance to start the guided tour.",
+    "cancel_btn": "Cancel Guided Tour"
   }
 
 }

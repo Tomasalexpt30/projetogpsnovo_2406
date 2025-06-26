@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'tour_scan_beacons.dart';
 
 class TourPage extends StatefulWidget {
   const TourPage({super.key});
 
-  static const Map<String, String> imagensPorPiso = {
-    'Piso -1': 'assets/images/map/-01_piso.png',
-    'Piso 0': 'assets/images/map/00_piso.png',
-    'Piso 1': 'assets/images/map/01_piso.png',
-    'Piso 2': 'assets/images/map/02_piso.png',
-  };
-
+  // Dados técnicos (ids dos pontos + dados dos beacons)
   static const List<TourStop> tourStops = [
     TourStop(
-      nomePT: 'Entrada',
-      nomeEN: 'Entrance',
+      id: 'entrada',
       piso: 'Piso 0',
-      textoPT: 'Bem-vindo à Universidade Autónoma de Lisboa...',
-      textoEN: 'Welcome to the Autonomous University of Lisbon...',
       position: Offset(300, 500),
       uuid: 'fda50693-a4e2-4fb1-afcf-c6eb07647825',
       major: 1,
@@ -25,11 +17,8 @@ class TourPage extends StatefulWidget {
       macAddress: '51:00:24:12:01:CA',
     ),
     TourStop(
-      nomePT: 'Pátio',
-      nomeEN: 'Courtyard',
+      id: 'patio',
       piso: 'Piso 0',
-      textoPT: 'Este é o átrio principal da universidade...',
-      textoEN: 'This is the main atrium of the university...',
       position: Offset(300, 250),
       uuid: 'fda50693-a4e2-4fb1-afcf-c6eb07647825',
       major: 1,
@@ -37,11 +26,8 @@ class TourPage extends StatefulWidget {
       macAddress: '51:00:24:12:01:E3',
     ),
     TourStop(
-      nomePT: 'Camões',
-      nomeEN: 'Camões',
+      id: 'camoes',
       piso: 'Piso 0',
-      textoPT: 'A estátua de Camões representa o valor da literatura...',
-      textoEN: 'The Camões statue represents the value of literature...',
       position: Offset(380, 95),
       uuid: 'fda50693-a4e2-4fb1-afcf-c6eb07647825',
       major: 1,
@@ -54,8 +40,10 @@ class TourPage extends StatefulWidget {
   State<TourPage> createState() => _TourPageState();
 }
 
-class _TourPageState extends State<TourPage> with TickerProviderStateMixin {
-  String imagemPiso = TourPage.imagensPorPiso['Piso 0']!;
+class _TourPageState extends State<TourPage> {
+  String imagemPiso = TourPage.tourStops[0].piso == 'Piso 0'
+      ? 'assets/images/map/00_piso.png'
+      : 'assets/images/map/01_piso.png';
   Offset cameraOffset = TourPage.tourStops[0].position;
 
   @override
@@ -106,14 +94,15 @@ class _TourPageState extends State<TourPage> with TickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Visita Guiada',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      Text(
+                        'tour_page.title'.tr(),
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 10),
-                      const Text(
-                        'Inicie a sua visita guiada pelos principais pontos da universidade.',
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      Text(
+                        'tour_page.description'.tr(),
+                        style: const TextStyle(fontSize: 16, color: Colors.grey),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 20),
@@ -127,7 +116,7 @@ class _TourPageState extends State<TourPage> with TickerProviderStateMixin {
                           );
                         },
                         icon: const Icon(Icons.navigation),
-                        label: const Text('Iniciar Visita'),
+                        label: Text('tour_page.start_btn'.tr()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           foregroundColor: Colors.white,
