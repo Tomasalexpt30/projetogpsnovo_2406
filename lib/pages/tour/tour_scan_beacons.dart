@@ -63,6 +63,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   String selectedLanguageCode = 'pt-PT';
   bool soundEnabled = true;
   bool vibrationEnabled = true;
+  double voiceSpeed = 0.6;
+  double voicePitch = 1.0;
 
   DateTime? ultimaDetecao;
   final Duration cooldown = const Duration(seconds: 4);
@@ -122,26 +124,29 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
       soundEnabled = settings['soundEnabled'];
       vibrationEnabled = settings['vibrationEnabled'];
+      voiceSpeed = settings['voiceSpeed'] ?? 0.6;
+      voicePitch = settings['voicePitch'] ?? 1.0;
     });
   }
 
   Future<void> _loadMensagensTTS() async {
-    // Sempre carrega o ficheiro do idioma TTS selecionado pelo utilizador nas preferências de som!
-    String lang;
-    if (selectedLanguageCode.startsWith('en')) {
-      lang = 'en';
-    } else if (selectedLanguageCode.startsWith('pt')) {
-      lang = 'pt';
-    } else if (selectedLanguageCode.startsWith('es')) {
-      lang = 'es';
-    } else if (selectedLanguageCode.startsWith('fr')) {
-      lang = 'fr';
-    } else {
-      lang = 'pt'; // Fallback
+    // Lógica universal para carregar o JSON correto do tour!
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+    List<String> paths = [
+      'assets/tts/tour/tour_$fullCode.json',
+      'assets/tts/tour/tour_$langCode.json',
+      'assets/tts/tour/tour_en.json',
+    ];
+    String? jsonStr;
+    for (String path in paths) {
+      try {
+        jsonStr = await rootBundle.loadString(path);
+        break;
+      } catch (_) {}
     }
-    final String jsonStr = await rootBundle.loadString('assets/tts/tour/tour_$lang.json');
     setState(() {
-      mensagens = json.decode(jsonStr);
+      mensagens = jsonStr != null ? json.decode(jsonStr) : {};
     });
   }
 
@@ -211,7 +216,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
               status = '';
               if (soundEnabled) {
                 flutterTts.setLanguage(selectedLanguageCode);
-                flutterTts.setSpeechRate(0.5);
+                flutterTts.setSpeechRate(voiceSpeed);
+                flutterTts.setPitch(voicePitch);
                 flutterTts.speak(_alertTTS('voice_entrance'));
               }
             } else {
@@ -221,7 +227,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                 status = '';
                 if (soundEnabled) {
                   flutterTts.setLanguage(selectedLanguageCode);
-                  flutterTts.setSpeechRate(0.5);
+                  flutterTts.setSpeechRate(voiceSpeed);
+                  flutterTts.setPitch(voicePitch);
                   flutterTts.speak(_alertTTS('go_to_entrance'));
                 }
                 iniciarAvisoRepetido();
@@ -239,7 +246,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     avisoTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
       if (!entradaDetetada && soundEnabled && !tourStarted) {
         flutterTts.setLanguage(selectedLanguageCode);
-        flutterTts.setSpeechRate(0.5);
+        flutterTts.setSpeechRate(voiceSpeed);
+        flutterTts.setPitch(voicePitch);
         flutterTts.speak(_alertTTS('repeat_entrance'));
       }
     });
@@ -308,7 +316,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   void _anunciarParagem(TourStop stop) async {
     if (soundEnabled) {
       await flutterTts.setLanguage(selectedLanguageCode);
-      await flutterTts.setSpeechRate(0.5);
+      await flutterTts.setSpeechRate(voiceSpeed);
+      await flutterTts.setPitch(voicePitch);
       await flutterTts.speak(_getTourPointText(stop.id));
     }
     if (vibrationEnabled) {
@@ -323,6 +332,8 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     chegou = true;
     cancelarAvisoRepetido();
     flutterTts.setLanguage(selectedLanguageCode);
+    flutterTts.setSpeechRate(voiceSpeed);
+    flutterTts.setPitch(voicePitch);
     flutterTts.speak(_alertTTS('tour_completed'));
   }
 
@@ -473,7 +484,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  'tour_scan_page.searching'.tr(),
+                                  mensagens['alerts']?['searching'] ?? 'À procura de beacons...',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
@@ -496,7 +507,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  'tour_scan_page.go_to_entrance'.tr(),
+                                  mensagens['alerts']?['go_to_entrance'] ?? 'Dirija-se até à entrada para iniciar a visita guiada.',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                 ),

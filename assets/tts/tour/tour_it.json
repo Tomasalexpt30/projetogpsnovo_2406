@@ -1,0 +1,30 @@
+{
+  "alerts": {
+    "start_tour": "Visita Guidata",
+    "tour_description": "Inizia la tua visita guidata tra i principali punti dell’università.",
+    "start_btn": "Inizia Visita",
+    "searching": "Ricerca dei beacon...",
+    "start_tour_info": "Visita iniziata! Prosegui verso il prossimo punto.",
+    "go_to_entrance": "Recati all’ingresso per iniziare la visita guidata.",
+    "at_location": "Sei a: {location}.",
+    "please_proceed_entrance": "Recati all’ingresso per cominciare.",
+    "tour_cancelled": "Visita annullata.",
+    "tour_completed": "Tour completato. Grazie!",
+    "repeat_entrance": "Recati all’ingresso per iniziare la visita guidata.",
+    "voice_entrance": "Sei all’ingresso. Iniziamo la visita guidata!"
+  },
+  "tour_points": {
+    "entrada": {
+      "name": "Ingresso",
+      "text": "Benvenuto all’Università Autonoma di Lisbona. Qui inizia la tua visita. Approfittane per scoprire i principali punti del campus!"
+    },
+    "patio": {
+      "name": "Atrio",
+      "text": "Questo è l’atrio principale dell’università. Qui si svolgono diversi eventi ed è un punto d’incontro per gli studenti."
+    },
+    "camoes": {
+      "name": "Camões",
+      "text": "La statua di Camões rappresenta il valore della letteratura e della cultura portoghese. È uno dei simboli più emblematici del nostro campus."
+    }
+  }
+}

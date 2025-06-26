@@ -93,8 +93,6 @@ class _LanguageSettingsPageState extends State<LanguageSettingsPage> {
         return 'Русский';
       case 'uk':
         return 'Українська';
-      case 'zh':
-        return '中文';
       case 'nl':
         return 'Nederlands';
       case 'pl':

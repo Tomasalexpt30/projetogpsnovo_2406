@@ -23,13 +23,29 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   double voicePitch = 1.0;
 
   final Map<String, String> voiceTests = {
-    'pt-PT': 'Isto é um teste de voz.',
     'en-US': 'This is a voice test.',
+    'pt-PT': 'Isto é um teste de voz.',
+    'ru-RU': 'Это тест голоса.',
+    'es-ES': 'Esto es una prueba de voz.',
+    'pl-PL': 'To jest test głosu.',
+    'tr-TR': 'Bu bir ses testidir.',
+    'de-DE': 'Dies ist ein Sprachtest.',
+    'fr-FR': 'Ceci est un test de voix.',
+    'nl-NL': 'Dit is een stemtest.',
+    'it-IT': 'Questo è un test della voce.',
   };
 
   final Map<String, String> voiceOptions = {
-    'pt-PT': 'Português',
     'en-US': 'English',
+    'pt-PT': 'Português',
+    'ru-RU': 'Русский',
+    'es-ES': 'Español',
+    'pl-PL': 'Polski',
+    'tr-TR': 'Türkçe',
+    'de-DE': 'Deutsch',
+    'fr-FR': 'Français',
+    'nl-NL': 'Nederlands',
+    'it-IT': 'Italiano',
   };
 
   @override

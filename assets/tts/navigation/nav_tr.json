@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "{location} konumundasınız. Hedefinize ulaştınız.",
+    "path_not_found": "{location} konumundasınız. Yol bulunamadı.",
+    "arrived": "Hedefinize ulaştınız. Uygulamamızı kullandığınız için teşekkürler.",
+    "at_location": "Şu an buradasınız: {location}",
+    "navigation_cancelled": "Navigasyon iptal edildi",
+    "searching": "Aranıyor...",
+    "end_of_route": "Rotanın sonu",
+    "voice_start": "Navigasyona başlayalım.",
+    "voice_unavailable": "Hedef mevcut değil. Lütfen tekrar edin.",
+    "voice_selected": "Seçilen hedef: {destination}",
+    "start_navigation": "Navigasyona başlayalım."
+  },
+  "instructions": {
+    "Entrada-Pátio": "Entrada'dan Pátio'ya düz devam edin.",
+    "Pátio-Entrada": "Pátio'dan Entrada'ya geri dönün.",
+    "Pátio-Corredor 1": "Pátio'dan Corredor 1'e düz devam edin.",
+    "Corredor 1-Pátio": "Corredor 1'den Pátio'ya geri dönün.",
+    "Entrada-Corredor 1": "Entrada'dan başlayıp Pátio'dan geçerek Corredor 1'e devam edin.",
+    "Corredor 1-Entrada": "Corredor 1'den çıkıp Pátio'dan geçerek Entrada'ya devam edin."
+  }
+}

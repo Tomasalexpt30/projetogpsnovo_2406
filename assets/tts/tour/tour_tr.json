@@ -1,0 +1,30 @@
+{
+  "alerts": {
+    "start_tour": "Rehberli Tur",
+    "tour_description": "Üniversitenin ana noktalarında rehberli turunuza başlayın.",
+    "start_btn": "Turu Başlat",
+    "searching": "Beaconlar aranıyor...",
+    "start_tour_info": "Tur başladı! Sonraki noktaya devam edin.",
+    "go_to_entrance": "Rehberli turu başlatmak için girişe gidin.",
+    "at_location": "{location} konumundasınız.",
+    "please_proceed_entrance": "Başlamak için lütfen girişe gidin.",
+    "tour_cancelled": "Tur iptal edildi.",
+    "tour_completed": "Tur tamamlandı. Teşekkürler!",
+    "repeat_entrance": "Rehberli turu başlatmak için girişe gidin.",
+    "voice_entrance": "Giriştesiniz. Rehberli turu başlatalım!"
+  },
+  "tour_points": {
+    "entrada": {
+      "name": "Giriş",
+      "text": "Lizbon Özerk Üniversitesi'ne hoş geldiniz. Turunuz burada başlar. Kampüsün ana noktalarını keşfetmeye başlayın!"
+    },
+    "patio": {
+      "name": "Avlu",
+      "text": "Burası üniversitenin ana salonudur. Burada çeşitli etkinlikler yapılır ve öğrenciler burada buluşur."
+    },
+    "camoes": {
+      "name": "Camões",
+      "text": "Camões heykeli, Portekiz edebiyatı ve kültürünün değerini simgeler. Kampüsümüzün en önemli sembollerinden biridir."
+    }
+  }
+}

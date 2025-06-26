@@ -40,11 +40,24 @@ class NavigationManager {
 
   Map<String, String> instrucoesCarregadas = {};
 
+  /// Lógica universal: lê o ficheiro certo para QUALQUER idioma (es, de, fr, it, pl, etc)
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
-    final lang = selectedLanguageCode.startsWith('en') ? 'en' : 'pt';
-    final path = 'assets/tts/navigation/nav_$lang.json';
-    final String jsonString = await rootBundle.loadString(path);
-    final Map<String, dynamic> jsonData = json.decode(jsonString);
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+    List<String> paths = [
+      'assets/tts/navigation/nav_$fullCode.json',
+      'assets/tts/navigation/nav_$langCode.json',
+      'assets/tts/navigation/nav_en.json',
+    ];
+
+    String? jsonString;
+    for (String path in paths) {
+      try {
+        jsonString = await rootBundle.loadString(path);
+        break;
+      } catch (_) {}
+    }
+    final Map<String, dynamic> jsonData = jsonString != null ? json.decode(jsonString) : {};
     instrucoesCarregadas = Map<String, String>.from(jsonData['instructions'] ?? {});
   }
 

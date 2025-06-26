@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "Ya estás en {location}. Has llegado a tu destino.",
+    "path_not_found": "Estás en {location}. Ruta no encontrada.",
+    "arrived": "Has llegado a tu destino. Gracias por usar nuestra app.",
+    "at_location": "Estás en: {location}",
+    "navigation_cancelled": "Navegación cancelada",
+    "searching": "Buscando...",
+    "end_of_route": "Fin del recorrido",
+    "voice_start": "Empecemos la navegación.",
+    "voice_unavailable": "Destino no disponible. Por favor, repite.",
+    "voice_selected": "Destino seleccionado: {destination}",
+    "start_navigation": "Empecemos la navegación."
+  },
+  "instructions": {
+    "Entrada-Pátio": "Ve recto desde Entrada hasta el Pátio.",
+    "Pátio-Entrada": "Regresa del Pátio a la Entrada.",
+    "Pátio-Corredor 1": "Continúa recto del Pátio al Corredor 1.",
+    "Corredor 1-Pátio": "Regresa del Corredor 1 al Pátio.",
+    "Entrada-Corredor 1": "Ve recto desde la Entrada, pasa por el Pátio y continúa hasta el Corredor 1.",
+    "Corredor 1-Entrada": "Regresa del Corredor 1, pasa por el Pátio y continúa hasta la Entrada."
+  }
+}

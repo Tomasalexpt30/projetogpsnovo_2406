@@ -43,5 +43,21 @@ flutter:
     - assets/images/map/02_piso.png
     - assets/tts/navigation/nav_pt.json
     - assets/tts/navigation/nav_en.json
+    - assets/tts/navigation/nav_de.json
+    - assets/tts/navigation/nav_es.json
+    - assets/tts/navigation/nav_fr.json
+    - assets/tts/navigation/nav_it.json
+    - assets/tts/navigation/nav_nl.json
+    - assets/tts/navigation/nav_pl.json
+    - assets/tts/navigation/nav_ru.json
+    - assets/tts/navigation/nav_tr.json
     - assets/tts/tour/tour_pt.json
     - assets/tts/tour/tour_en.json
+    - assets/tts/tour/tour_de.json
+    - assets/tts/tour/tour_es.json
+    - assets/tts/tour/tour_fr.json
+    - assets/tts/tour/tour_it.json
+    - assets/tts/tour/tour_nl.json
+    - assets/tts/tour/tour_pl.json
+    - assets/tts/tour/tour_ru.json
+    - assets/tts/tour/tour_tr.json

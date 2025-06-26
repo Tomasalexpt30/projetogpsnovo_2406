@@ -1,0 +1,30 @@
+{
+  "alerts": {
+    "start_tour": "Geführte Tour",
+    "tour_description": "Beginnen Sie Ihre geführte Tour zu den wichtigsten Punkten der Universität.",
+    "start_btn": "Tour starten",
+    "searching": "Suche nach Beacons...",
+    "start_tour_info": "Tour gestartet! Gehen Sie zum nächsten Punkt.",
+    "go_to_entrance": "Gehen Sie zum Eingang, um die Tour zu starten.",
+    "at_location": "Sie sind bei: {location}.",
+    "please_proceed_entrance": "Bitte gehen Sie zum Eingang, um zu beginnen.",
+    "tour_cancelled": "Tour abgebrochen.",
+    "tour_completed": "Tour abgeschlossen. Danke!",
+    "repeat_entrance": "Gehen Sie zum Eingang, um die Tour zu starten.",
+    "voice_entrance": "Sie sind am Eingang. Beginnen wir die geführte Tour!"
+  },
+  "tour_points": {
+    "entrada": {
+      "name": "Eingang",
+      "text": "Willkommen an der Autonomen Universität Lissabon. Hier beginnt Ihre Tour. Entdecken Sie die wichtigsten Punkte des Campus!"
+    },
+    "patio": {
+      "name": "Atrium",
+      "text": "Dies ist die Haupthalle der Universität. Hier finden verschiedene Veranstaltungen statt, und es ist ein Treffpunkt für Studierende."
+    },
+    "camoes": {
+      "name": "Camões",
+      "text": "Die Statue von Camões steht für den Wert der portugiesischen Literatur und Kultur. Sie ist eines der markantesten Symbole unseres Campus."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "Вы уже находитесь в {location}. Вы прибыли в пункт назначения.",
+    "path_not_found": "Вы находитесь в {location}. Маршрут не найден.",
+    "arrived": "Вы прибыли в пункт назначения. Спасибо за использование нашего приложения.",
+    "at_location": "Вы находитесь: {location}",
+    "navigation_cancelled": "Навигация отменена",
+    "searching": "Поиск...",
+    "end_of_route": "Конец маршрута",
+    "voice_start": "Начнем навигацию.",
+    "voice_unavailable": "Пункт назначения недоступен. Повторите, пожалуйста.",
+    "voice_selected": "Выбранный пункт назначения: {destination}",
+    "start_navigation": "Начнем навигацию."
+  },
+  "instructions": {
+    "Entrada-Pátio": "Идите прямо от Entrada к Pátio.",
+    "Pátio-Entrada": "Вернитесь от Pátio к Entrada.",
+    "Pátio-Corredor 1": "Идите прямо от Pátio к Corredor 1.",
+    "Corredor 1-Pátio": "Вернитесь от Corredor 1 к Pátio.",
+    "Entrada-Corredor 1": "Идите прямо от Entrada, пройдите через Pátio и продолжайте до Corredor 1.",
+    "Corredor 1-Entrada": "Вернитесь от Corredor 1, пройдите через Pátio и продолжайте до Entrada."
+  }
+}

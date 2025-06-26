@@ -29,7 +29,7 @@ void main() async {
         Locale('de'),
         Locale('fr'),
         Locale('nl'),
-        Locale('zh'),
+        Locale('it'),
       ],
       path: 'assets/lang',
       fallbackLocale: const Locale('pt'),

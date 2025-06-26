@@ -39,6 +39,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   String selectedLanguageCode = 'pt-PT';
   bool soundEnabled = true;
   bool vibrationEnabled = true;
+  double voiceSpeed = 0.6;
+  double voicePitch = 1.0;
 
   Offset currentPosition = const Offset(300, 500);
   Offset previousPosition = const Offset(300, 500);
@@ -86,7 +88,6 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     ].request();
 
     await _loadSettings();
-    await _carregarMensagens();
     await nav.carregarInstrucoes(selectedLanguageCode);
     iniciarScan();
   }
@@ -97,15 +98,31 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
       soundEnabled = settings['soundEnabled'];
       vibrationEnabled = settings['vibrationEnabled'];
+      voiceSpeed = settings['voiceSpeed'] ?? 0.6;
+      voicePitch = settings['voicePitch'] ?? 1.0;
     });
+    await _carregarMensagens();
   }
 
   Future<void> _carregarMensagens() async {
-    final lang = context.locale.languageCode.startsWith('en') ? 'en' : 'pt';
-    final path = 'assets/tts/navigation/nav_$lang.json';
-    final String jsonString = await rootBundle.loadString(path);
+    // Prepara os possíveis nomes de ficheiro: nav_de.json, nav_de-de.json, nav_en.json, etc
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+    List<String> paths = [
+      'assets/tts/navigation/nav_$fullCode.json',
+      'assets/tts/navigation/nav_$langCode.json',
+      'assets/tts/navigation/nav_en.json',
+    ];
+
+    String? jsonString;
+    for (String path in paths) {
+      try {
+        jsonString = await rootBundle.loadString(path);
+        break;
+      } catch (_) {}
+    }
     setState(() {
-      mensagens = json.decode(jsonString);
+      mensagens = jsonString != null ? json.decode(jsonString) : {};
       status = mensagens['alerts']?['searching'] ?? '';
     });
   }
@@ -224,7 +241,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   Future<void> falar(String texto) async {
     if (soundEnabled && texto.isNotEmpty) {
       await flutterTts.setLanguage(selectedLanguageCode);
-      await flutterTts.setSpeechRate(0.5);
+      await flutterTts.setSpeechRate(voiceSpeed);
+      await flutterTts.setPitch(voicePitch);
       await flutterTts.speak(texto);
     }
   }

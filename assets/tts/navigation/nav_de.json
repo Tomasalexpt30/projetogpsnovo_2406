@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "Sie sind bereits bei {location}. Sie haben Ihr Ziel erreicht.",
+    "path_not_found": "Sie sind bei {location}. Route nicht gefunden.",
+    "arrived": "Sie haben Ihr Ziel erreicht. Vielen Dank für die Nutzung unserer App.",
+    "at_location": "Sie sind bei: {location}",
+    "navigation_cancelled": "Navigation abgebrochen",
+    "searching": "Suche...",
+    "end_of_route": "Ende der Route",
+    "voice_start": "Lassen Sie uns mit der Navigation beginnen.",
+    "voice_unavailable": "Ziel nicht verfügbar. Bitte wiederholen.",
+    "voice_selected": "Ausgewähltes Ziel: {destination}",
+    "start_navigation": "Lassen Sie uns mit der Navigation beginnen."
+  },
+  "instructions": {
+    "Entrada-Pátio": "Gehen Sie geradeaus von Entrada zum Pátio.",
+    "Pátio-Entrada": "Gehen Sie zurück vom Pátio zur Entrada.",
+    "Pátio-Corredor 1": "Gehen Sie geradeaus vom Pátio zum Corredor 1.",
+    "Corredor 1-Pátio": "Gehen Sie zurück vom Corredor 1 zum Pátio.",
+    "Entrada-Corredor 1": "Gehen Sie geradeaus von der Entrada, durch den Pátio und weiter zum Corredor 1.",
+    "Corredor 1-Entrada": "Gehen Sie zurück vom Corredor 1, durch den Pátio und weiter zur Entrada."
+  }
+}

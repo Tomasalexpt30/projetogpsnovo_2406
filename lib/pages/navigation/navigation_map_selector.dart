@@ -69,11 +69,23 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   }
 
   Future<void> _loadMessages() async {
-    final lang = selectedLanguageCode.startsWith('en') ? 'en' : 'pt';
-    final path = 'assets/tts/navigation/nav_$lang.json';
-    final jsonString = await rootBundle.loadString(path);
+    // Carrega o ficheiro correto de acordo com o idioma TTS
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+    List<String> paths = [
+      'assets/tts/navigation/nav_$fullCode.json',
+      'assets/tts/navigation/nav_$langCode.json',
+      'assets/tts/navigation/nav_en.json',
+    ];
+    String? jsonString;
+    for (String path in paths) {
+      try {
+        jsonString = await rootBundle.loadString(path);
+        break;
+      } catch (_) {}
+    }
     setState(() {
-      mensagens = json.decode(jsonString);
+      mensagens = jsonString != null ? json.decode(jsonString) : {};
     });
   }
 

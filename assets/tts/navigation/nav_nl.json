@@ -1,0 +1,23 @@
+{
+  "alerts": {
+    "already_there": "U bent al bij {location}. U bent op uw bestemming aangekomen.",
+    "path_not_found": "U bent bij {location}. Route niet gevonden.",
+    "arrived": "U bent op uw bestemming aangekomen. Bedankt voor het gebruiken van onze app.",
+    "at_location": "U bent bij: {location}",
+    "navigation_cancelled": "Navigatie geannuleerd",
+    "searching": "Zoeken...",
+    "end_of_route": "Einde van de route",
+    "voice_start": "Laten we de navigatie starten.",
+    "voice_unavailable": "Bestemming niet beschikbaar. Herhaal alstublieft.",
+    "voice_selected": "Geselecteerde bestemming: {destination}",
+    "start_navigation": "Laten we de navigatie starten."
+  },
+  "instructions": {
+    "Entrada-Pátio": "Ga rechtdoor van Entrada naar Pátio.",
+    "Pátio-Entrada": "Ga terug van Pátio naar Entrada.",
+    "Pátio-Corredor 1": "Ga rechtdoor van Pátio naar Corredor 1.",
+    "Corredor 1-Pátio": "Ga terug van Corredor 1 naar Pátio.",
+    "Entrada-Corredor 1": "Ga rechtdoor van Entrada, door Pátio en verder naar Corredor 1.",
+    "Corredor 1-Entrada": "Ga terug van Corredor 1, door Pátio en verder naar Entrada."
+  }
+}

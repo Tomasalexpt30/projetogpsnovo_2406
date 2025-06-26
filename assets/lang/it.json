@@ -1,0 +1,96 @@
+{
+  "Modo Navegação": "Modalità Navigazione",
+  "Modo Visita": "Modalità Visita",
+  "welcome": "Benvenuto",
+  "splash_screen": {
+    "start": "Inizia"
+  },
+  "sound_settings_page": {
+    "general_preferences": "Preferenze generali",
+    "sound": "Suono",
+    "sound_description": "Abilita o disabilita il suono.",
+    "vibration": "Vibrazione",
+    "vibration_description": "Abilita o disabilita la vibrazione.",
+    "voice": "Voce",
+    "language": "Lingua della voce",
+    "select_language": "Seleziona lingua",
+    "current_language": "Attuale: {language}",
+    "voice_speed": "Velocità della voce",
+    "voice_pitch": "Tono della voce",
+    "test_voice": "Testa la voce"
+  },
+  "settings_page": {
+    "settings": "Impostazioni",
+    "sound": "Suono",
+    "accessibility": "Accessibilità",
+    "map": "Mappa",
+    "personalization": "Personalizzazione",
+    "language": "Lingua"
+  },
+  "personalization_page": {
+    "theme": "Tema",
+    "theme_description": "Passa tra la modalità chiara e quella scura.",
+    "light_mode": "Modalità chiara",
+    "dark_mode": "Modalità scura"
+  },
+  "map_settings_page": {
+    "map_appearance": "Aspetto della mappa",
+    "dark_map": "Modalità mappa scura",
+    "dark_map_description": "Abilita il tema scuro.",
+    "icon_style": "Stile delle icone",
+    "default_style": "Predefinito",
+    "accessible_style": "Accessibile"
+  },
+  "language_settings_page": {
+    "language": "Lingua",
+    "language_description": "Seleziona la tua lingua preferita.",
+    "current_language": "Lingua attuale",
+    "select_language": "Seleziona lingua"
+  },
+  "accessibility_settings_page": {
+    "vision": "Vista",
+    "high_contrast": "Alto contrasto",
+    "high_contrast_description": "Aumenta il contrasto dei colori per facilitare la lettura.",
+    "hearing": "Udito",
+    "screen_reader": "Lettore schermo",
+    "screen_reader_description": "Abilita la lettura vocale degli elementi sullo schermo."
+  },
+  "map_page": {
+    "search_hint": "Destinazione?",
+    "route_button": "Avvia percorso",
+    "start_route_message": "Avvicinamento alla stanza 10..."
+  },
+  "my_home_page": {
+    "mode_navigation": "Modalità Navigazione",
+    "mode_visit": "Modalità Visita",
+    "welcome": "Autónoma GPS",
+    "settings": "Impostazioni",
+    "language": "Lingua"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Dove vuoi andare?",
+    "select_destination": "Seleziona destinazione",
+    "start_navigation": "Avvia navigazione",
+    "by_voice": "Tramite voce",
+    "favorites": "Preferiti",
+    "add_favorite": "Aggiungi ai preferiti"
+  },
+  "beacon_scan_page": {
+    "destination": "Destinazione",
+    "current_location": "Posizione attuale",
+    "next": "Successivo",
+    "cancel_navigation": "Annulla navigazione"
+  },
+  "tour_page": {
+    "title": "Tour",
+    "description": "Inizia il tour delle principali attrazioni dell'università.",
+    "start_btn": "Inizia tour"
+  },
+  "tour_scan_page": {
+    "current_location": "Posizione attuale",
+    "next": "Successivo",
+    "searching": "Ricerca beacon in corso...",
+    "go_to_entrance": "Vai all'ingresso per iniziare il tour.",
+    "cancel_btn": "Annulla tour"
+  }
+}
