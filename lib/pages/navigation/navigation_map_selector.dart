@@ -5,6 +5,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'beacon_scan_tts.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class NavigationMapSelectorPage extends StatefulWidget {
   const NavigationMapSelectorPage({super.key});
@@ -111,9 +112,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(selectedLanguageCode == 'pt-PT'
-              ? 'Adicionar aos Favoritos'
-              : 'Add to Favorites'),
+          title: Text('navigation_map_selector.add_favorite'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: destinosDisponiveis.map((destino) {
@@ -228,18 +227,14 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        selectedLanguageCode == 'pt-PT'
-                            ? 'Para onde deseja ir?'
-                            : 'Where do you want to go?',
+                        'navigation_map_selector.where_to_go'.tr(),
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       DropdownButtonFormField<String>(
                         decoration: const InputDecoration(border: OutlineInputBorder()),
                         value: destinoSelecionado,
-                        hint: Text(selectedLanguageCode == 'pt-PT'
-                            ? 'Selecionar destino'
-                            : 'Select destination'),
+                        hint: Text('navigation_map_selector.select_destination'.tr()),
                         items: destinosMap.entries
                             .map((entry) => DropdownMenuItem(
                           value: entry.value,
@@ -276,9 +271,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                               );
                             },
                             icon: const Icon(Icons.navigation),
-                            label: Text(selectedLanguageCode == 'pt-PT'
-                                ? 'Iniciar Navegação'
-                                : 'Start Navigation'),
+                            label: Text('navigation_map_selector.start_navigation'.tr()),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               foregroundColor: Colors.white,
@@ -287,9 +280,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                           ElevatedButton.icon(
                             onPressed: _ouvirComando,
                             icon: const Icon(Icons.mic),
-                            label: Text(selectedLanguageCode == 'pt-PT'
-                                ? 'Por Voz'
-                                : 'By Voice'),
+                            label: Text('navigation_map_selector.by_voice'.tr()),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
                               foregroundColor: Colors.white,
@@ -299,7 +290,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        selectedLanguageCode == 'pt-PT' ? 'Favoritos' : 'Favorites',
+                        'navigation_map_selector.favorites'.tr(),
                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SingleChildScrollView(

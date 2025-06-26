@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Paramètres",
     "language": "Langue"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Waar wil je naartoe?",
+    "select_destination": "Selecteer bestemming",
+    "start_navigation": "Navigatie starten",
+    "by_voice": "Via spraak",
+    "favorites": "Favorieten",
+    "add_favorite": "Toevoegen aan favorieten"
+  },
+  "beacon_scan_page": {
+    "destination": "Bestemming",
+    "current_location": "Huidige Locatie",
+    "next": "Volgende",
+    "cancel_navigation": "Navigatie Annuleren"
   }
+
 }

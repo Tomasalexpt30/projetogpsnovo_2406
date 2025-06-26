@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Ayarlar",
     "language": "Dil"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Nereye gitmek istiyorsunuz?",
+    "select_destination": "Hedef seçin",
+    "start_navigation": "Navigasyonu başlat",
+    "by_voice": "Sesle",
+    "favorites": "Favoriler",
+    "add_favorite": "Favorilere ekle"
+  },
+  "beacon_scan_page": {
+    "destination": "Hedef",
+    "current_location": "Mevcut Konum",
+    "next": "Sonraki",
+    "cancel_navigation": "Navigasyonu İptal Et"
   }
+
 }

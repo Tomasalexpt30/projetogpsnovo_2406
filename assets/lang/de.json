@@ -66,5 +66,13 @@
     "welcome": "Autónoma GPS",
     "settings": "Ustawienia",
     "language": "Język"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Wohin möchten Sie gehen?",
+    "select_destination": "Ziel auswählen",
+    "start_navigation": "Navigation starten",
+    "by_voice": "Per Spracheingabe",
+    "favorites": "Favoriten",
+    "add_favorite": "Zu Favoriten hinzufügen"
   }
 }

@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Settings",
     "language": "Language"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Where do you want to go?",
+    "select_destination": "Select destination",
+    "start_navigation": "Start Navigation",
+    "by_voice": "By Voice",
+    "favorites": "Favorites",
+    "add_favorite": "Add to Favorites"
+  },
+  "beacon_scan_page": {
+    "destination": "Destination",
+    "current_location": "Current Location",
+    "next": "Next",
+    "cancel_navigation": "Cancel Navigation"
   }
+
 }

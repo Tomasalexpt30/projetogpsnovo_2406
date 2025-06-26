@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Настройки",
     "language": "Язык"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Куда вы хотите пойти?",
+    "select_destination": "Выбрать место назначения",
+    "start_navigation": "Начать навигацию",
+    "by_voice": "Голосом",
+    "favorites": "Избранное",
+    "add_favorite": "Добавить в избранное"
+  },
+  "beacon_scan_page": {
+    "destination": "Место назначения",
+    "current_location": "Текущее местоположение",
+    "next": "Далее",
+    "cancel_navigation": "Отменить Навигацию"
   }
+
 }

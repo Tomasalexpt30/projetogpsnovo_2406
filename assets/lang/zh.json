@@ -66,5 +66,19 @@
     "welcome": "Autónoma GPS",
     "settings": "设置",
     "language": "语言"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "你想去哪里？",
+    "select_destination": "选择目的地",
+    "start_navigation": "开始导航",
+    "by_voice": "通过语音",
+    "favorites": "收藏夹",
+    "add_favorite": "添加到收藏夹"
+  },
+  "beacon_scan_page": {
+    "destination": "目的地",
+    "current_location": "当前位置",
+    "next": "下一个",
+    "cancel_navigation": "取消导航"
   }
 }

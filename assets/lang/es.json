@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Configuraciones",
     "language": "Idioma"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "¿A dónde quieres ir?",
+    "select_destination": "Seleccionar destino",
+    "start_navigation": "Iniciar navegación",
+    "by_voice": "Por voz",
+    "favorites": "Favoritos",
+    "add_favorite": "Añadir a favoritos"
+  },
+  "beacon_scan_page": {
+    "destination": "Destino",
+    "current_location": "Ubicación Actual",
+    "next": "Siguiente",
+    "cancel_navigation": "Cancelar Navegación"
   }
+
 }

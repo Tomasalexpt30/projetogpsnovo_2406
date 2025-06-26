@@ -9,6 +9,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:vibration/vibration.dart';
 import 'navigation_manager.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class BeaconScanPage extends StatefulWidget {
   final String destino;
@@ -58,7 +59,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     'Piso 2': 'assets/images/map/02_piso.png',
   };
 
-  String status = 'À procura de beacons...';
+  String status = '';
 
   final Map<String, Offset> beaconPositions = {
     'Entrada': Offset(300, 500),
@@ -100,11 +101,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   Future<void> _carregarMensagens() async {
-    final lang = selectedLanguageCode.startsWith('en') ? 'en' : 'pt';
+    final lang = context.locale.languageCode.startsWith('en') ? 'en' : 'pt';
     final path = 'assets/tts/navigation/nav_$lang.json';
     final String jsonString = await rootBundle.loadString(path);
     setState(() {
       mensagens = json.decode(jsonString);
+      status = mensagens['alerts']?['searching'] ?? '';
     });
   }
 
@@ -145,7 +147,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
             atualizarPosicaoVisual(local);
 
-            final instrucao = nav.getInstrucoes(caminho, selectedLanguageCode)[0];
+            final instrucao = nav.getInstrucoes(caminho)[0];
             falar(instrucao);
             setState(() {
               status = _mensagemAlerta('at_location', local);
@@ -170,7 +172,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             falar(_mensagemAlerta('arrived', local));
             finalizar();
           } else {
-            final instrucao = nav.getInstrucoes(rota, selectedLanguageCode)[proximoPasso];
+            final instrucao = nav.getInstrucoes(rota)[proximoPasso];
             falar(instrucao);
             proximoPasso++;
           }
@@ -319,7 +321,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        '${selectedLanguageCode == 'pt-PT' ? 'Destino:' : 'Destination:'} ${widget.destino}',
+                        '${'beacon_scan_page.destination'.tr()}: ${widget.destino}',
                         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 20),
@@ -336,7 +338,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                               child: Column(
                                 children: [
                                   Text(
-                                    selectedLanguageCode == 'pt-PT' ? 'Local Atual' : 'Current Location',
+                                    'beacon_scan_page.current_location'.tr(),
                                     style: const TextStyle(fontSize: 16, color: Colors.black54),
                                   ),
                                   const SizedBox(height: 5),
@@ -360,7 +362,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                               child: Column(
                                 children: [
                                   Text(
-                                    selectedLanguageCode == 'pt-PT' ? 'Próximo' : 'Next',
+                                    'beacon_scan_page.next'.tr(),
                                     style: const TextStyle(fontSize: 16, color: Colors.black54),
                                   ),
                                   const SizedBox(height: 5),
@@ -379,7 +381,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                       ElevatedButton.icon(
                         onPressed: cancelarNavegacao,
                         icon: const Icon(Icons.cancel),
-                        label: Text(selectedLanguageCode == 'pt-PT' ? 'Cancelar Navegação' : 'Cancel Navigation'),
+                        label: Text('beacon_scan_page.cancel_navigation'.tr()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent,
                           foregroundColor: Colors.white,

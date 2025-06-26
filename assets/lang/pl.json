@@ -66,5 +66,20 @@
     "welcome": "Autónoma GPS",
     "settings": "Instellingen",
     "language": "Taal"
+  },
+  "navigation_map_selector": {
+    "where_to_go": "Dokąd chcesz się udać?",
+    "select_destination": "Wybierz cel",
+    "start_navigation": "Rozpocznij nawigację",
+    "by_voice": "Głosem",
+    "favorites": "Ulubione",
+    "add_favorite": "Dodaj do ulubionych"
+  },
+  "beacon_scan_page": {
+    "destination": "Cel",
+    "current_location": "Aktualna Lokalizacja",
+    "next": "Następny",
+    "cancel_navigation": "Anuluj Nawigację"
   }
+
 }

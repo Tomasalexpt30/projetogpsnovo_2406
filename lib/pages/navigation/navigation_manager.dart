@@ -88,21 +88,14 @@ class NavigationManager {
     return path.isNotEmpty && path.first == origem ? path : null;
   }
 
-  List<String> getInstrucoes(List<String> caminho, String selectedLanguageCode) {
+  List<String> getInstrucoes(List<String> caminho) {
     final instr = <String>[];
 
     for (var i = 0; i < caminho.length - 1; i++) {
       final chave = '${caminho[i]}-${caminho[i + 1]}';
-      instr.add(instrucoesCarregadas[chave] ??
-          (selectedLanguageCode.startsWith('en')
-              ? 'Go from ${caminho[i]} to ${caminho[i + 1]}.'
-              : 'Dirija-se de ${caminho[i]} para ${caminho[i + 1]}.'));
-    }
-
-    if (caminho.length > 1) {
-      instr.add(selectedLanguageCode.startsWith('en')
-          ? 'You have reached your destination.'
-          : 'Chegou ao seu destino.');
+      if (instrucoesCarregadas.containsKey(chave)) {
+        instr.add(instrucoesCarregadas[chave]!);
+      }
     }
 
     return instr;

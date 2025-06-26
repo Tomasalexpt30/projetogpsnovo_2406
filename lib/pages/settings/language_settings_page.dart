@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart'; // Adicionado para a tradução
+import 'package:easy_localization/easy_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
 
@@ -37,7 +37,7 @@ class _LanguageSettingsPageState extends State<LanguageSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('language_settings_page.language'.tr(), style: titleStyle), // Tradução
+        title: Text('language_settings_page.language'.tr(), style: titleStyle),
         backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white,
         foregroundColor: const Color(0xFF00B4D8),
         elevation: 1,
@@ -59,14 +59,11 @@ class _LanguageSettingsPageState extends State<LanguageSettingsPage> {
                   selectedLocale = value;
                 });
                 context.setLocale(value);
-
-                // Salvar o idioma selecionado no SharedPreferences
-                await _preferencesHelper.saveLanguageCode(value.languageCode);
               }
             },
             activeColor: const Color(0xFF00B4D8),
             title: Text(
-              _getLanguageName(locale.languageCode).tr(), // Tradução
+              _getLanguageName(locale.languageCode).tr(),
               style: itemStyle.copyWith(
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),
