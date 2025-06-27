@@ -7,10 +7,10 @@
     "navigation_cancelled": "Navegação cancelada",
     "searching": "A procurar...",
     "end_of_route": "Fim da rota",
-    "start_navigation": "Vamos iniciar a navegação.",
     "voice_start": "Vamos iniciar a navegação.",
     "voice_unavailable": "Destino não se encontra disponível. Repita, por favor.",
-    "voice_selected": "Destino selecionado: {destination}"
+    "voice_selected": "Destino favorito selecionado: {destination}",
+    "start_navigation": "Vamos iniciar a navegação com o destino {destination}"
   },
   "instructions": {
     "Entrada-Pátio": "Siga em frente desde a Entrada até ao Pátio.",

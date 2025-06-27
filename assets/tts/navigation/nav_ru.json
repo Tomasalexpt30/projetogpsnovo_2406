@@ -9,8 +9,8 @@
     "end_of_route": "Конец маршрута",
     "voice_start": "Начнем навигацию.",
     "voice_unavailable": "Пункт назначения недоступен. Повторите, пожалуйста.",
-    "voice_selected": "Выбранный пункт назначения: {destination}",
-    "start_navigation": "Начнем навигацию."
+    "voice_selected": "Выбран любимый пункт назначения: {destination}",
+    "start_navigation": "Давайте начнем навигацию с места назначения {destination}"
   },
   "instructions": {
     "Entrada-Pátio": "Идите прямо от Entrada к Pátio.",

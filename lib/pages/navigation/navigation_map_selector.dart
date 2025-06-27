@@ -33,6 +33,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   String selectedLanguageCode = 'pt-PT';
   Map<String, dynamic> mensagens = {};
   bool soundEnabled = true;
+  bool isSpeaking = false; // Variável de controle do TTS
 
   List<String> favoritos = [];
   List<String> destinosDisponiveis = [
@@ -69,7 +70,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   }
 
   Future<void> _loadMessages() async {
-    // Carrega o ficheiro correto de acordo com o idioma TTS
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [
@@ -173,8 +173,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               await _speech.stop();
               if (soundEnabled) {
                 await _tts.speak(_mensagem('voice_start'));
+                await _tts.awaitSpeakCompletion(true);
               }
-              await Future.delayed(const Duration(seconds: 2));
+              await Future.delayed(const Duration(seconds: 1));
               if (!mounted) return;
               Navigator.push(
                 context,
@@ -189,7 +190,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
             }
           }
         }
-
         await _speech.stop();
         setState(() => _isListening = false);
         if (soundEnabled) {
@@ -200,6 +200,18 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   }
 
   String get imagemPiso => 'assets/images/map/00_piso.png';
+  Future<void> speakAndBlock(String texto) async {
+    if (soundEnabled) {
+      setState(() {
+        isSpeaking = true;
+      });
+      await _tts.speak(texto);
+      await _tts.awaitSpeakCompletion(true);
+      setState(() {
+        isSpeaking = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -264,13 +276,14 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton.icon(
-                            onPressed: destinoSelecionado == null
+                            onPressed: destinoSelecionado == null || isSpeaking
                                 ? null
                                 : () async {
-                              if (soundEnabled) {
-                                await _tts.speak(_mensagem('start_navigation'));
-                              }
-                              await Future.delayed(const Duration(seconds: 2));
+                              String mensagemIniciar = mensagens['alerts']?['start_navigation'] ?? 'Mensagem de início não encontrada';
+                              mensagemIniciar = mensagemIniciar.replaceAll('{destination}', destinoSelecionado!);
+                              await speakAndBlock(mensagemIniciar);
+
+                              await Future.delayed(const Duration(milliseconds: 500));
                               if (!mounted) return;
                               Navigator.push(
                                 context,
@@ -320,13 +333,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                         foregroundColor: Colors.white,
                                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                                       ),
-                                      onPressed: () {
+                                      onPressed: () async {
                                         setState(() {
                                           destinoSelecionado = favorito;
                                         });
-                                        if (soundEnabled) {
-                                          _tts.speak(_mensagem('voice_selected', valor: favorito));
-                                        }
+                                        await speakAndBlock(_mensagem('voice_selected', valor: favorito));
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,

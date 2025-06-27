@@ -9,8 +9,8 @@
     "end_of_route": "Koniec trasy",
     "voice_start": "Zacznijmy nawigację.",
     "voice_unavailable": "Cel niedostępny. Proszę powtórzyć.",
-    "voice_selected": "Wybrany cel: {destination}",
-    "start_navigation": "Zacznijmy nawigację."
+    "voice_selected": "Wybrano ulubiony cel: {destination}",
+    "start_navigation": "Zacznijmy nawigację z celem {destination}"
   },
   "instructions": {
     "Entrada-Pátio": "Idź prosto z Entrada do Pátio.",

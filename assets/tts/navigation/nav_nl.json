@@ -9,8 +9,8 @@
     "end_of_route": "Einde van de route",
     "voice_start": "Laten we de navigatie starten.",
     "voice_unavailable": "Bestemming niet beschikbaar. Herhaal alstublieft.",
-    "voice_selected": "Geselecteerde bestemming: {destination}",
-    "start_navigation": "Laten we de navigatie starten."
+    "voice_selected": "Favoriete bestemming geselecteerd: {destination}",
+    "start_navigation": "Laten we de navigatie starten met de bestemming {destination}"
   },
   "instructions": {
     "Entrada-Pátio": "Ga rechtdoor van Entrada naar Pátio.",

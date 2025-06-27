@@ -9,8 +9,8 @@
     "end_of_route": "Rotanın sonu",
     "voice_start": "Navigasyona başlayalım.",
     "voice_unavailable": "Hedef mevcut değil. Lütfen tekrar edin.",
-    "voice_selected": "Seçilen hedef: {destination}",
-    "start_navigation": "Navigasyona başlayalım."
+    "voice_selected": "Favori varış noktası seçildi: {destination}",
+    "start_navigation": "{destination} varış noktasına navigasyona başlayalım"
   },
   "instructions": {
     "Entrada-Pátio": "Entrada'dan Pátio'ya düz devam edin.",

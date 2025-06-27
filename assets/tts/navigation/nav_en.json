@@ -9,8 +9,8 @@
     "end_of_route": "End of the route",
     "voice_start": "Let's start the navigation.",
     "voice_unavailable": "Destination not available. Please repeat.",
-    "voice_selected": "Selected destination: {destination}",
-    "start_navigation": "Let's start the navigation."
+    "voice_selected": "Favorite destination selected: {destination}",
+    "start_navigation": "Let's start the navigation with the destination {destination}"
   },
   "instructions": {
     "Entrada-Pátio": "Go straight from Entrada to Pátio.",
