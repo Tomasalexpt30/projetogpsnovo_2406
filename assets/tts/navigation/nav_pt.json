@@ -7,10 +7,12 @@
     "navigation_cancelled": "Navegação cancelada",
     "searching": "A procurar...",
     "end_of_route": "Fim da rota",
-    "voice_start": "Vamos iniciar a navegação.",
-    "voice_unavailable": "Destino não se encontra disponível. Repita, por favor.",
+    "voice_start": "Vamos iniciar a navegação com o destino {destination}.",
+    "voice_unavailable": "Destino não se encontra disponível, repita por favor.",
     "voice_selected": "Destino favorito selecionado: {destination}",
-    "start_navigation": "Vamos iniciar a navegação com o destino {destination}"
+    "start_navigation": "Vamos iniciar a navegação com o destino {destination}",
+    "timeout": "Tempo limite de áudio excedido. Por favor, tente novamente.",
+    "no_match": "Não foi possível reconhecer o que disse. Por favor, tente novamente."
   },
   "instructions": {
     "Entrada-Pátio": "Siga em frente desde a Entrada até ao Pátio.",
@@ -19,5 +21,13 @@
     "Corredor 1-Pátio": "Volte para trás desde o Corredor 1 até ao Pátio.",
     "Entrada-Corredor 1": "Siga em frente desde a Entrada, passe pelo Pátio e continue até ao Corredor 1.",
     "Corredor 1-Entrada": "Volte para trás desde o Corredor 1, passe pelo Pátio e continue até à Entrada."
+  },
+  "voice_commands": {
+    "entrada": "Entrada",
+    "pátio": "Pátio",
+    "corredor 1": "Corredor 1"
   }
 }
+
+
+

@@ -7,10 +7,11 @@
     "navigation_cancelled": "Nawigacja anulowana",
     "searching": "Wyszukiwanie...",
     "end_of_route": "Koniec trasy",
-    "voice_start": "Zacznijmy nawigację.",
-    "voice_unavailable": "Cel niedostępny. Proszę powtórzyć.",
+    "voice_start": "Rozpoczynamy nawigację do {destination}.",
+    "voice_unavailable": "Cel niedostępny, proszę powtórzyć.",
     "voice_selected": "Wybrano ulubiony cel: {destination}",
-    "start_navigation": "Zacznijmy nawigację z celem {destination}"
+    "start_navigation": "Zacznijmy nawigację z celem {destination}",
+    "timeout": "Przekroczono limit czasu nagrania. Spróbuj ponownie."
   },
   "instructions": {
     "Entrada-Pátio": "Idź prosto z Entrada do Pátio.",
@@ -19,5 +20,10 @@
     "Corredor 1-Pátio": "Wróć z Corredor 1 do Pátio.",
     "Entrada-Corredor 1": "Idź prosto z Entrada, przejdź przez Pátio i kontynuuj do Corredor 1.",
     "Corredor 1-Entrada": "Wróć z Corredor 1, przejdź przez Pátio i kontynuuj do Entrada."
+  },
+  "voice_commands": {
+    "wejście": "Entrada",
+    "dziedziniec": "Pátio",
+    "korytarz 1": "Corredor 1"
   }
 }

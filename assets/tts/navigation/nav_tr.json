@@ -7,10 +7,11 @@
     "navigation_cancelled": "Navigasyon iptal edildi",
     "searching": "Aranıyor...",
     "end_of_route": "Rotanın sonu",
-    "voice_start": "Navigasyona başlayalım.",
-    "voice_unavailable": "Hedef mevcut değil. Lütfen tekrar edin.",
+    "voice_start": "Hedef {destination} için navigasyona başlıyoruz.",
+    "voice_unavailable": "Hedef mevcut değil, lütfen tekrar edin.",
     "voice_selected": "Favori varış noktası seçildi: {destination}",
-    "start_navigation": "{destination} varış noktasına navigasyona başlayalım"
+    "start_navigation": "{destination} varış noktasına navigasyona başlayalım",
+    "timeout": "Ses zaman aşımı aşıldı. Lütfen tekrar deneyin."
   },
   "instructions": {
     "Entrada-Pátio": "Entrada'dan Pátio'ya düz devam edin.",
@@ -19,5 +20,10 @@
     "Corredor 1-Pátio": "Corredor 1'den Pátio'ya geri dönün.",
     "Entrada-Corredor 1": "Entrada'dan başlayıp Pátio'dan geçerek Corredor 1'e devam edin.",
     "Corredor 1-Entrada": "Corredor 1'den çıkıp Pátio'dan geçerek Entrada'ya devam edin."
+  },
+  "voice_commands": {
+    "giriş": "Entrada",
+    "avlu": "Pátio",
+    "koridor 1": "Corredor 1"
   }
 }

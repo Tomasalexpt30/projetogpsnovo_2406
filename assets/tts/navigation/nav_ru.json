@@ -7,10 +7,11 @@
     "navigation_cancelled": "Навигация отменена",
     "searching": "Поиск...",
     "end_of_route": "Конец маршрута",
-    "voice_start": "Начнем навигацию.",
-    "voice_unavailable": "Пункт назначения недоступен. Повторите, пожалуйста.",
+    "voice_start": "Начинаем навигацию к {destination}.",
+    "voice_unavailable": "Место назначения недоступно, пожалуйста, повторите.",
     "voice_selected": "Выбран любимый пункт назначения: {destination}",
-    "start_navigation": "Давайте начнем навигацию с места назначения {destination}"
+    "start_navigation": "Давайте начнем навигацию с места назначения {destination}",
+    "timeout": "Превышено время ожидания аудио. Пожалуйста, попробуйте снова."
   },
   "instructions": {
     "Entrada-Pátio": "Идите прямо от Entrada к Pátio.",
@@ -19,5 +20,10 @@
     "Corredor 1-Pátio": "Вернитесь от Corredor 1 к Pátio.",
     "Entrada-Corredor 1": "Идите прямо от Entrada, пройдите через Pátio и продолжайте до Corredor 1.",
     "Corredor 1-Entrada": "Вернитесь от Corredor 1, пройдите через Pátio и продолжайте до Entrada."
+  },
+  "voice_commands": {
+    "вход": "Entrada",
+    "внутренний двор": "Pátio",
+    "коридор 1": "Corredor 1"
   }
 }

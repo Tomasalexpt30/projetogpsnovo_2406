@@ -7,10 +7,11 @@
     "navigation_cancelled": "Navigazione annullata",
     "searching": "Ricerca...",
     "end_of_route": "Fine del percorso",
-    "voice_start": "Iniziamo la navigazione.",
-    "voice_unavailable": "Destinazione non disponibile. Ripeti per favore.",
+    "voice_start": "Iniziamo la navigazione verso {destination}.",
+    "voice_unavailable": "La destinazione non è disponibile, ripeti per favore.",
     "voice_selected": "Destinazione preferita selezionata: {destination}",
-    "start_navigation": "Iniziamo la navigazione con la destinazione {destination}"
+    "start_navigation": "Iniziamo la navigazione con la destinazione {destination}",
+    "timeout": "Tempo limite audio superato. Per favore, riprova."
   },
   "instructions": {
     "Entrada-Pátio": "Procedi dritto da Entrada a Pátio.",
@@ -19,5 +20,10 @@
     "Corredor 1-Pátio": "Torna da Corredor 1 a Pátio.",
     "Entrada-Corredor 1": "Procedi dritto da Entrada, passa per il Pátio e continua verso Corredor 1.",
     "Corredor 1-Entrada": "Torna da Corredor 1, passa per il Pátio e continua verso Entrada."
+  },
+  "voice_commands": {
+    "entrata": "Entrada",
+    "cortile": "Pátio",
+    "corridoio 1": "Corredor 1"
   }
 }

@@ -7,10 +7,12 @@
     "navigation_cancelled": "Navigation cancelled",
     "searching": "Searching...",
     "end_of_route": "End of the route",
-    "voice_start": "Let's start the navigation.",
-    "voice_unavailable": "Destination not available. Please repeat.",
+    "voice_start": "Let's start the navigation to {destination}.",
+    "voice_unavailable": "Destination is not available, please repeat.",
     "voice_selected": "Favorite destination selected: {destination}",
-    "start_navigation": "Let's start the navigation with the destination {destination}"
+    "start_navigation": "Let's start the navigation with the destination {destination}",
+    "timeout": "Audio timeout exceeded. Please try again.",
+    "no_match": "Could not recognize what you said. Please try again."
   },
   "instructions": {
     "Entrada-Pátio": "Go straight from Entrada to Pátio.",
@@ -19,5 +21,11 @@
     "Corredor 1-Pátio": "Go back from Corredor 1 to Pátio.",
     "Entrada-Corredor 1": "Go straight from Entrada, pass through Pátio and continue to Corredor 1.",
     "Corredor 1-Entrada": "Go back from Corredor 1, pass through Pátio and continue to Entrada."
+  },
+  "voice_commands": {
+    "entrance": "Entrada",
+    "courtyard": "Pátio",
+    "corridor 1": "Corredor 1"
   }
 }
+

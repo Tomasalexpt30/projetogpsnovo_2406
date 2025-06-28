@@ -7,10 +7,11 @@
     "navigation_cancelled": "Navigatie geannuleerd",
     "searching": "Zoeken...",
     "end_of_route": "Einde van de route",
-    "voice_start": "Laten we de navigatie starten.",
-    "voice_unavailable": "Bestemming niet beschikbaar. Herhaal alstublieft.",
+    "voice_start": "We gaan navigeren naar {destination}.",
+    "voice_unavailable": "Bestemming is niet beschikbaar, gelieve te herhalen.",
     "voice_selected": "Favoriete bestemming geselecteerd: {destination}",
-    "start_navigation": "Laten we de navigatie starten met de bestemming {destination}"
+    "start_navigation": "Laten we de navigatie starten met de bestemming {destination}",
+    "timeout": "Audiotime-out overschreden. Probeer het opnieuw."
   },
   "instructions": {
     "Entrada-Pátio": "Ga rechtdoor van Entrada naar Pátio.",
@@ -19,5 +20,10 @@
     "Corredor 1-Pátio": "Ga terug van Corredor 1 naar Pátio.",
     "Entrada-Corredor 1": "Ga rechtdoor van Entrada, door Pátio en verder naar Corredor 1.",
     "Corredor 1-Entrada": "Ga terug van Corredor 1, door Pátio en verder naar Entrada."
+  },
+  "voice_commands": {
+    "ingang": "Entrada",
+    "binnenplaats": "Pátio",
+    "gang 1": "Corredor 1"
   }
 }
