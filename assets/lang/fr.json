@@ -92,5 +92,27 @@
     "searching": "Recherche de balises...",
     "go_to_entrance": "Rendez-vous à l'entrée pour commencer la visite guidée.",
     "cancel_btn": "Annuler la visite guidée"
+  },
+  "privacy_policy": {
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : 29 juin 2025",
+    "intro": "L’Universidade Autónoma de Lisboa valorise la vie privée des utilisateurs et s’engage à protéger toute information partagée lors de l’utilisation de l’application : Autónoma GPS.",
+    "section1_title": "1. Identité de l’organisation",
+    "section1_body": "L’Universidade Autónoma de Lisboa est responsable de l’exploitation de l’application Autónoma GPS, une solution de navigation intérieure utilisant des balises BLE pour aider les utilisateurs à se repérer dans les locaux de l’université. Pour toute question concernant cette politique, les utilisateurs peuvent contacter mmira@autonoma.pt.",
+    "section2_title": "2. Données personnelles et informations collectées",
+    "section2_body": "L’application Autónoma GPS ne collecte, n’enregistre ni ne partage de données personnelles. Les seules informations traitées concernent la détection des signaux des balises BLE afin de calculer la position approximative de l’utilisateur. Aucune donnée d’identification personnelle (nom, e‑mail, numéro de téléphone) n’est demandée ni stockée.",
+    "section3_title": "3. Finalité de l’utilisation des données",
+    "section3_body": "L’application utilise uniquement les signaux des balises pour fournir les directives de navigation intérieure. Les données de proximité sont traitées localement sur l’appareil et servent seulement à déterminer la position approximative de l’utilisateur et à fournir des instructions de navigation en temps réel. Aucune information n’est enregistrée ou utilisée à d’autres fins.",
+    "section4_title": "4. Partage des données avec des tiers",
+    "section4_body": "L’application ne partage aucune donnée avec des tiers. Les signaux des balises ne sont utilisés que sur l’appareil et ne sont pas envoyés à des serveurs externes ou bases de données.",
+    "section5_title": "5. Sécurité des interactions",
+    "section5_body": "L’application traite les signaux des balises localement, sans transmission de données sensibles par Internet. En cas d’accès réseau, la communication est protégée par des protocoles SSL/TLS sécurisés. Des bonnes pratiques de sécurité ont également été mises en œuvre durant le développement.",
+    "section6_title": "6. Droits des utilisateurs",
+    "section6_body": "Conformément au RGPD, les utilisateurs ont le droit d’accéder, de rectifier ou de supprimer leurs données personnelles. Toutefois, comme Autónoma GPS ne collecte ni ne traite de données personnelles identifiables, il n’est pas possible de traiter de telles demandes.",
+    "section7_title": "7. Modifications de la politique de confidentialité",
+    "section7_body": "L’Universidade Autónoma de Lisboa se réserve le droit de mettre à jour cette politique à tout moment afin de refléter les évolutions de l’application ou les changements législatifs. La date de la dernière mise à jour est indiquée en haut du document.",
+    "section8_title": "8. Contact",
+    "section8_body": "Pour toute question concernant cette politique ou l’utilisation de l’application Autónoma GPS, les utilisateurs peuvent contacter l’Universidade Autónoma de Lisboa à l’adresse suivante : mmira@autonoma.pt.",
+    "close": "Fermer"
   }
 }

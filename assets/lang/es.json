@@ -92,6 +92,27 @@
     "searching": "Buscando beacons...",
     "go_to_entrance": "Diríjase a la entrada para iniciar la visita guiada.",
     "cancel_btn": "Cancelar visita guiada"
+  },
+  "privacy_policy": {
+    "title": "Política de Privacidad",
+    "updated": "Última actualización: 29 de junio de 2025",
+    "intro": "La Universidade Autónoma de Lisboa valora la privacidad de los usuarios y se compromete a proteger cualquier información compartida durante el uso de la aplicación: Autónoma GPS.",
+    "section1_title": "1. Identidad de la Organización",
+    "section1_body": "La Universidade Autónoma de Lisboa es responsable de la operación de la aplicación Autónoma GPS, una solución de navegación interior que utiliza tecnología de balizas BLE para ayudar a los usuarios a localizar espacios y moverse por las instalaciones de la universidad. Para cualquier duda sobre esta política, los usuarios pueden contactar a mmira@autonoma.pt.",
+    "section2_title": "2. Datos Personales e Información Recogida",
+    "section2_body": "La aplicación Autónoma GPS no recoge, almacena ni comparte datos personales de los usuarios. La información procesada se limita a la detección de señales de balizas BLE para calcular la posición aproximada del usuario. No se solicita ni almacena ninguna identificación personal como nombre, correo electrónico o número de teléfono.",
+    "section3_title": "3. Finalidad del Uso de los Datos",
+    "section3_body": "La aplicación utiliza las señales de las balizas exclusivamente para ofrecer orientación de navegación en interiores. Los datos de proximidad se procesan localmente en el dispositivo y se usan sólo para determinar la ubicación aproximada del usuario y proporcionar instrucciones de navegación en tiempo real. No se almacena ni utiliza información para otros fines.",
+    "section4_title": "4. Compartición de Datos con Terceros",
+    "section4_body": "La aplicación no comparte ningún dato con terceros. Las señales de las balizas se procesan sólo en el dispositivo del usuario y no se envían a servidores o bases de datos externos.",
+    "section5_title": "5. Seguridad de las Interacciones",
+    "section5_body": "La aplicación procesa las señales de balizas localmente, sin necesidad de transmitir datos sensibles por internet. En caso de que sea necesario acceso en red, la comunicación estará protegida por protocolos seguros SSL/TLS. Asimismo, se han implementado buenas prácticas de seguridad durante el desarrollo.",
+    "section6_title": "6. Derechos de los Usuarios",
+    "section6_body": "De acuerdo con el Reglamento General de Protección de Datos (RGPD), los usuarios tienen derecho a acceder, rectificar o eliminar sus datos personales. Sin embargo, como Autónoma GPS no recopila, almacena ni procesa datos personales identificables, no es posible atender solicitudes relacionadas con acceso, rectificación o eliminación.",
+    "section7_title": "7. Cambios en la Política de Privacidad",
+    "section7_body": "La Universidade Autónoma de Lisboa se reserva el derecho a actualizar esta política de privacidad cuando sea necesario, para reflejar cambios en la aplicación o cumplir con la legislación aplicable. La fecha de la última actualización está indicada al inicio de este documento.",
+    "section8_title": "8. Contacto",
+    "section8_body": "Para cualquier consulta sobre esta política o el funcionamiento de la aplicación Autónoma GPS, los usuarios pueden contactar mediante el correo electrónico: mmira@autonoma.pt.",
+    "close": "Cerrar"
   }
-
 }

@@ -92,6 +92,27 @@
     "searching": "À procura de beacons...",
     "go_to_entrance": "Dirija-se até à entrada para iniciar a visita guiada.",
     "cancel_btn": "Cancelar Visita Guiada"
+  },
+  "privacy_policy": {
+    "title": "Política de Privacidade",
+    "updated": "Última atualização: 29 de Junho de 2025",
+    "intro": "A Universidade Autónoma de Lisboa valoriza a privacidade dos utilizadores e compromete-se a proteger qualquer informação que possa ser partilhada durante a utilização da aplicação: Autónoma GPS.",
+    "section1_title": "1. Identidade da Organização",
+    "section1_body": "A Universidade Autónoma de Lisboa é a entidade responsável pela operação da aplicação Autónoma GPS, uma solução de navegação indoor que utiliza tecnologia de beacons BLE para auxiliar os utilizadores a localizar espaços e a navegar nas instalações da universidade. Para qualquer questão relacionada com esta política, os utilizadores podem entrar em contacto através de mmira@autonoma.pt.",
+    "section2_title": "2. Dados Pessoais e Informação Coletada",
+    "section2_body": "A aplicação Autónoma GPS não recolhe, armazena ou partilha dados pessoais dos utilizadores. As informações processadas pela aplicação limitam-se à deteção de sinal de beacons BLE para calcular a posição aproximada do utilizador no espaço. Nenhuma identificação pessoal, como nome, endereço de e-mail ou número de telefone, é solicitada ou armazenada.",
+    "section3_title": "3. Finalidade do Uso dos Dados",
+    "section3_body": "A aplicação utiliza os sinais dos beacons exclusivamente para fornecer orientação de navegação no interior das instalações. Os dados de proximidade dos beacons são processados localmente no dispositivo e servem apenas para determinar a localização aproximada do utilizador e fornecer instruções de navegação em tempo real. Nenhuma informação é armazenada ou utilizada para outros fins.",
+    "section4_title": "4. Compartilhamento de Dados com Terceiros",
+    "section4_body": "A aplicação não partilha qualquer dado com terceiros. Os sinais de beacons processados são utilizados apenas no dispositivo do utilizador e não são enviados para servidores externos ou bases de dados.",
+    "section5_title": "5. Segurança das Interações",
+    "section5_body": "A aplicação processa os sinais dos beacons localmente, sem necessidade de transmissão de dados sensíveis pela internet. Em situações onde seja necessário acesso à rede, a comunicação será protegida por protocolos seguros SSL/TLS. Foram também implementadas boas práticas de segurança no desenvolvimento da aplicação.",
+    "section6_title": "6. Direitos dos Utilizadores",
+    "section6_body": "De acordo com o Regulamento Geral de Proteção de Dados (RGPD), os utilizadores têm o direito de aceder, retificar ou apagar os seus dados pessoais. No entanto, como a aplicação Autónoma GPS não recolhe, armazena ou processa dados pessoais identificáveis, não é possível atender a pedidos relacionados com acesso, retificação ou eliminação de dados.",
+    "section7_title": "7. Alterações à Política de Privacidade",
+    "section7_body": "A Universidade Autónoma de Lisboa reserva-se o direito de atualizar esta política de privacidade sempre que necessário para refletir alterações na aplicação ou em conformidade com a legislação aplicável. A data da última atualização encontra-se indicada no topo deste documento.",
+    "section8_title": "8. Contacto",
+    "section8_body": "Para qualquer questão relacionada com esta política de privacidade ou com o funcionamento da aplicação Autónoma GPS, os utilizadores podem entrar em contacto com a Universidade Autónoma de Lisboa através do email: mmira@autonoma.pt.",
+    "close": "Fechar"
   }
-
 }

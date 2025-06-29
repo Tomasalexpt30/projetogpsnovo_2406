@@ -49,14 +49,12 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                      child: Center(
-                        child: Semantics(
-                          label: 'Logótipo da aplicação Autónoma GPS',
-                          child: Image.asset(
-                            'assets/images/home/logo_gps.png',
-                            height: 140,
-                            color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8),
-                          ),
+                      child: Semantics(
+                        label: 'Logótipo da aplicação Autónoma GPS',
+                        child: Image.asset(
+                          'assets/images/home/logo_gps.png',
+                          height: 140,
+                          color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8),
                         ),
                       ),
                     ),
@@ -124,7 +122,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 30,
+              bottom: 70,
               left: 0,
               right: 0,
               child: Center(
@@ -141,8 +139,82 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned(
+              bottom: 30,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: TextButton(
+                  onPressed: () {
+                    _showPrivacyPolicy(context);
+                  },
+                  child: Text(
+                    'privacy_policy.title'.tr(),
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8),
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color(0xFF00B4D8),
+                      decorationThickness: 1,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showPrivacyPolicy(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(
+            'privacy_policy.title'.tr(),
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('privacy_policy.updated'.tr(), style: GoogleFonts.poppins(fontStyle: FontStyle.italic)),
+                const SizedBox(height: 10),
+                Text('privacy_policy.intro'.tr(), style: GoogleFonts.poppins()),
+                const SizedBox(height: 15),
+                _buildSection(context, 'privacy_policy.section1_title', 'privacy_policy.section1_body'),
+                _buildSection(context, 'privacy_policy.section2_title', 'privacy_policy.section2_body'),
+                _buildSection(context, 'privacy_policy.section3_title', 'privacy_policy.section3_body'),
+                _buildSection(context, 'privacy_policy.section4_title', 'privacy_policy.section4_body'),
+                _buildSection(context, 'privacy_policy.section5_title', 'privacy_policy.section5_body'),
+                _buildSection(context, 'privacy_policy.section6_title', 'privacy_policy.section6_body'),
+                _buildSection(context, 'privacy_policy.section7_title', 'privacy_policy.section7_body'),
+                _buildSection(context, 'privacy_policy.section8_title', 'privacy_policy.section8_body'),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('privacy_policy.close'.tr(), style: GoogleFonts.poppins(color: const Color(0xFF00B4D8))),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildSection(BuildContext context, String titleKey, String bodyKey) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(titleKey.tr(), style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
+          Text(bodyKey.tr(), style: GoogleFonts.poppins()),
+        ],
       ),
     );
   }

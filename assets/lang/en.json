@@ -92,6 +92,27 @@
     "searching": "Searching for beacons...",
     "go_to_entrance": "Proceed to the entrance to start the guided tour.",
     "cancel_btn": "Cancel Guided Tour"
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "updated": "Last update: June 29, 2025",
+    "intro": "Universidade Autónoma de Lisboa values user privacy and is committed to protecting any information shared while using the app: Autónoma GPS.",
+    "section1_title": "1. Organization Identity",
+    "section1_body": "Universidade Autónoma de Lisboa is responsible for operating the Autónoma GPS app, an indoor navigation solution using BLE beacons to help users locate spaces and navigate within the university’s facilities. For any questions regarding this policy, users may contact mmira@autonoma.pt.",
+    "section2_title": "2. Personal Data and Information Collected",
+    "section2_body": "The Autónoma GPS app does not collect, store or share personal data from users. The information processed by the app is limited to detecting BLE beacon signals to calculate the user's approximate position. No personal identification such as name, email address, or phone number is requested or stored.",
+    "section3_title": "3. Purpose of Data Use",
+    "section3_body": "The app uses beacon signals solely to provide indoor navigation guidance. Beacon proximity data is processed locally on the device and used only to determine the user's approximate location and provide real-time navigation instructions. No information is stored or used for other purposes.",
+    "section4_title": "4. Data Sharing with Third Parties",
+    "section4_body": "The app does not share any data with third parties. Beacon signals processed are used only on the user's device and are not sent to external servers or databases.",
+    "section5_title": "5. Interaction Security",
+    "section5_body": "The app processes beacon signals locally without the need to transmit sensitive data over the internet. If network access is required, communication will be protected by secure SSL/TLS protocols. Security best practices have also been implemented during app development.",
+    "section6_title": "6. User Rights",
+    "section6_body": "Under the General Data Protection Regulation (GDPR), users have the right to access, correct or delete their personal data. However, since Autónoma GPS does not collect, store, or process any identifiable personal data, it is not possible to comply with requests related to access, correction, or deletion of data.",
+    "section7_title": "7. Changes to the Privacy Policy",
+    "section7_body": "Universidade Autónoma de Lisboa reserves the right to update this privacy policy at any time to reflect changes in the app or compliance with applicable laws. The date of the last update is indicated at the top of this document.",
+    "section8_title": "8. Contact",
+    "section8_body": "For any questions about this privacy policy or the operation of the Autónoma GPS app, users may contact Universidade Autónoma de Lisboa via email: mmira@autonoma.pt.",
+    "close": "Close"
   }
-
 }

@@ -86,5 +86,29 @@
     "searching": "Suche nach Beacons...",
     "go_to_entrance": "Gehen Sie zum Eingang, um die geführte Tour zu starten.",
     "cancel_btn": "Geführte Tour abbrechen"
+  },
+  "privacy_policy": {
+    "title": "Datenschutzrichtlinie",
+    "updated": "Letzte Aktualisierung: 29. Juni 2025",
+    "intro": "Die Universidade Autónoma de Lisboa legt großen Wert auf den Schutz der Privatsphäre der Nutzer und verpflichtet sich, alle Informationen zu schützen, die bei der Nutzung der App Autónoma GPS geteilt werden.",
+    "section1_title": "1. Verantwortliche Organisation",
+    "section1_body": "Die Universidade Autónoma de Lisboa ist für den Betrieb der App Autónoma GPS verantwortlich, einer Indoor-Navigationslösung mittels BLE‑Beacons, die Nutzern hilft, sich in den Einrichtungen der Universität zurechtzufinden. Bei Fragen zu dieser Richtlinie können sich Nutzer an mmira@autonoma.pt wenden.",
+    "section2_title": "2. Erhobene personenbezogene Daten und Informationen",
+    "section2_body": "Die App Autónoma GPS erhebt, speichert oder teilt keine personenbezogenen Daten der Nutzer. Verarbeitet werden lediglich BLE‑Beacon‑Signale zur Berechnung der ungefähren Position des Nutzers. Keine persönlichen Daten wie Name, E‑Mail‑Adresse oder Telefonnummer werden abgefragt oder gespeichert.",
+    "section3_title": "3. Zweck der Datennutzung",
+    "section3_body": "Die App nutzt die Beacon‑Signale ausschließlich zur Bereitstellung der Innenraum-Navigation. Die Nähe‑Daten werden lokal auf dem Gerät verarbeitet und dienen nur der Positionsbestimmung und der Echtzeit‑Navigationsführung. Es erfolgt keine Speicherung oder anderweitige Nutzung der Daten.",
+    "section4_title": "4. Weitergabe von Daten an Dritte",
+    "section4_body": "Es findet keine Weitergabe von Daten an Dritte statt. Die Beacon‑Signale werden lediglich auf dem Gerät verarbeitet und nicht an externe Server oder Datenbanken gesendet.",
+    "section5_title": "5. Sicherheit der Interaktionen",
+    "section5_body": "Die App verarbeitet Beacon‑Signale lokal, ohne dass sensible Daten über das Internet übertragen werden müssen. Sollte Netzwerkzugriff erforderlich sein, erfolgt dieser über gesicherte SSL/TLS‑Verbindungen. Während der Entwicklung wurden Sicherheitsbest Practices umgesetzt.",
+    "section6_title": "6. Rechte der Nutzer",
+    "section6_body": "Gemäß der Datenschutz-Grundverordnung (DSGVO) haben Nutzer das Recht, auf ihre personenbezogenen Daten zuzugreifen, diese zu korrigieren oder zu löschen. Da Autónoma GPS jedoch keine identifizierbaren personenbezogenen Daten erhebt, speichert oder verarbeitet, können solche Anfragen nicht erfüllt werden.",
+    "section7_title": "7. Änderungen der Datenschutzrichtlinie",
+    "section7_body": "Die Universidade Autónoma de Lisboa behält sich das Recht vor, diese Datenschutzrichtlinie jederzeit zu aktualisieren, um Änderungen in der App oder gesetzlichen Vorgaben Rechnung zu tragen. Das Datum der letzten Aktualisierung finden Sie oben in diesem Dokument.",
+    "section8_title": "8. Kontakt",
+    "section8_body": "Bei Fragen zur Datenschutzrichtlinie oder zur Nutzung der App Autónoma GPS können sich Nutzer per E‑Mail an mmira@autonoma.pt wenden.",
+    "close": "Schließen"
   }
+
 }
+

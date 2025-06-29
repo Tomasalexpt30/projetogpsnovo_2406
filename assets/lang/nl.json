@@ -92,5 +92,27 @@
     "searching": "Beacons zoeken...",
     "go_to_entrance": "Ga naar de ingang om de rondleiding te starten.",
     "cancel_btn": "Rondleiding annuleren"
+  },
+  "privacy_policy": {
+    "title": "Privacybeleid",
+    "updated": "Laatst bijgewerkt: 29 juni 2025",
+    "intro": "Universidade Autónoma de Lisboa hecht waarde aan de privacy van gebruikers en zet zich in voor de bescherming van alle informatie die wordt gedeeld tijdens het gebruik van de app: Autónoma GPS.",
+    "section1_title": "1. Identiteit van de organisatie",
+    "section1_body": "Universidade Autónoma de Lisboa is verantwoordelijk voor de werking van de app Autónoma GPS, een indoor navigatieoplossing met BLE-beacons om gebruikers te helpen ruimtes te vinden en zich te oriënteren binnen de universiteit. Voor vragen over dit beleid kunnen gebruikers contact opnemen via mmira@autonoma.pt.",
+    "section2_title": "2. Persoonsgegevens en verzamelde informatie",
+    "section2_body": "De app Autónoma GPS verzamelt, slaat geen persoonsgegevens op en deelt die niet. De enige verwerkte informatie is het detecteren van BLE-beacon signalen om de ongeveer locatie van de gebruiker te berekenen. Er wordt geen persoonlijke identificatie (zoals naam, e-mailadres of telefoonnummer) gevraagd of opgeslagen.",
+    "section3_title": "3. Doel van gegevensgebruik",
+    "section3_body": "De app gebruikt beaconsignalen uitsluitend om richtlijnen voor indoor navigatie te bieden. De nabijheidsgegevens worden lokaal op het apparaat verwerkt en alleen gebruikt om de locatie van de gebruiker te bepalen en real-time navigatie-instructies te geven. Er worden geen gegevens opgeslagen of voor andere doeleinden gebruikt.",
+    "section4_title": "4. Delen van gegevens met derden",
+    "section4_body": "De app deelt geen gegevens met derden. De beaconsignalen worden alleen lokaal verwerkt en niet naar externe servers of databases verzonden.",
+    "section5_title": "5. Beveiliging van interacties",
+    "section5_body": "De app verwerkt beaconsignalen lokaal zonder dat gevoelige gegevens via internet hoeven te worden verzonden. Indien netwerktoegang vereist is, wordt de communicatie beveiligd met SSL/TLS. Er zijn ook best practices toegepast tijdens de ontwikkeling.",
+    "section6_title": "6. Gebruikersrechten",
+    "section6_body": "Volgens de AVG hebben gebruikers het recht op toegang tot, correctie of verwijdering van hun persoonsgegevens. Aangezien Autónoma GPS echter geen identificeerbare persoonsgegevens verzamelt, opslaat of verwerkt, kan niet aan dergelijke verzoeken worden voldaan.",
+    "section7_title": "7. Wijzigingen in het privacybeleid",
+    "section7_body": "Universidade Autónoma de Lisboa behoudt zich het recht voor dit privacybeleid op elk moment bij te werken om wijzigingen in de app of wetgeving weer te geven. De datum van de laatste update wordt bovenaan dit document vermeld.",
+    "section8_title": "8. Contact",
+    "section8_body": "Voor vragen over dit privacybeleid of de werking van de app Autónoma GPS kunnen gebruikers contact opnemen met Universidade Autónoma de Lisboa via e‑mail: mmira@autonoma.pt.",
+    "close": "Sluiten"
   }
 }

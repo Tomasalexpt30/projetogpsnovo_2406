@@ -92,5 +92,27 @@
     "searching": "Beaconlar aranıyor...",
     "go_to_entrance": "Rehberli turu başlatmak için girişe gidin.",
     "cancel_btn": "Rehberli turu iptal et"
+  },
+  "privacy_policy": {
+    "title": "Gizlilik Politikası",
+    "updated": "Son güncelleme: 29 Haziran 2025",
+    "intro": "Universidade Autónoma de Lisboa, kullanıcı gizliliğine değer verir ve Autónoma GPS uygulamasını kullanırken paylaşılan bilgileri korumaya kararlıdır.",
+    "section1_title": "1. Kurum Kimliği",
+    "section1_body": "Universidade Autónoma de Lisboa, kullanıcıların üniversite tesislerinde alan bulmalarına ve gezinmelerine yardımcı olan BLE beacon teknolojisi kullanan iç mekan navigasyon çözümü Autónoma GPS uygulamasının işletilmesinden sorumludur. Bu politika ile ilgili sorular için kullanıcılar mmira@autonoma.pt adresiyle iletişime geçebilir.",
+    "section2_title": "2. Toplanan Kişisel Veriler ve Bilgiler",
+    "section2_body": "Autónoma GPS uygulaması kullanıcıların kişisel verilerini toplamaz, saklamaz veya paylaşmaz. Uygulama tarafından işlenen bilgiler, kullanıcının yaklaşık konumunu hesaplamak için BLE beacon sinyallerinin tespit edilmesiyle sınırlıdır. Ad, e-posta veya telefon numarası gibi kişisel tanımlama bilgileri istenmez veya saklanmaz.",
+    "section3_title": "3. Verilerin Kullanım Amacı",
+    "section3_body": "Uygulama, iç mekan navigasyonu sağlamak için beacon sinyallerini yalnızca bu amaçla kullanır. Beacon yakınlık verileri cihaz üzerinde yerel olarak işlenir ve yalnızca kullanıcının yaklaşık konumunu belirlemek ve gerçek zamanlı navigasyon talimatları sağlamak için kullanılır. Başka amaçlarla hiçbir bilgi depolanmaz veya kullanılmaz.",
+    "section4_title": "4. Verilerin Üçüncü Taraflarla Paylaşımı",
+    "section4_body": "Uygulama hiçbir veriyi üçüncü taraflarla paylaşmaz. Beacon sinyalleri yalnızca kullanıcının cihazında işlenir ve harici sunuculara veya veri tabanlarına gönderilmez.",
+    "section5_title": "5. İletişim Güvenliği",
+    "section5_body": "Uygulama, internet üzerinde hassas verilerin iletilmesi gerekmeden beacon sinyallerini yerel olarak işler. Ağ erişimi gerektiğinde, iletişim SSL/TLS güvenli protokollerle korunur. Geliştirme sürecinde güvenlik en iyi uygulamaları da uygulanmıştır.",
+    "section6_title": "6. Kullanıcı Hakları",
+    "section6_body": "GDPR’a göre kullanıcıların kişisel verilerine erişme, düzeltme veya silme hakkı vardır. Ancak Autónoma GPS tanımlanabilir kişisel veri toplamadığından, saklamadığından ve işlemediğinden, bu tür talepler karşılanamaz.",
+    "section7_title": "7. Gizlilik Politikasındaki Değişiklikler",
+    "section7_body": "Universidade Autónoma de Lisboa, uygulamadaki değişiklikleri veya yasal gereklilikleri yansıtmak için bu gizlilik politikasını her zaman güncelleme hakkını saklı tutar. Son güncelleme tarihi bu belgenin üst kısmında belirtilmiştir.",
+    "section8_title": "8. İletişim",
+    "section8_body": "Bu politikayla veya Autónoma GPS uygulamasının çalışmasıyla ilgili sorular için kullanıcılar mmira@autonoma.pt adresinden Universidade Autónoma de Lisboa ile iletişime geçebilir.",
+    "close": "Kapat"
   }
 }
