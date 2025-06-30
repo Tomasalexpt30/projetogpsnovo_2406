@@ -14,6 +14,513 @@
     "timeout_alert": "Ses zaman aşımı aşıldı. Lütfen tekrar deneyin.",
     "no_match_alert": "Ne söylediğinizi algılayamadık. Lütfen tekrar deneyin."
   },
+
+  "beacons": {
+    "Beacon 1": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Portaria"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+      "beacon_instructions": {
+        "Beacon 1-Portaria": "",
+        "Beacon 1-Beacon 2": "",
+        "Beacon 1-Beacon 3": ""
+      }
+    },
+
+    "Beacon 2": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 13", "Sala 14", "Sala 15"],
+      "beacon_connections": ["Beacon 1"],
+
+      "beacon_instructions": {
+        "Beacon 2-Sala 13": "",
+        "Beacon 2-Sala 14": "",
+        "Beacon 2-Sala 15": "",
+        "Beacon 2-Beacon 1": ""
+      }
+    },
+
+    "Beacon 3": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Pátio"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+
+      "beacon_instructions": {
+        "Beacon 3-Pátio": "",
+        "Beacon 3-Beacon 1": "",
+        "Beacon 3-Beacon 4": "",
+        "Beacon 3-Beacon 8": "",
+        "Beacon 3-Beacon 15": ""
+      }
+    },
+
+    "Beacon 4": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Auditório 2", "Auditório 3", "Sala 22", "Sala 23"],
+      "beacon_connections": ["Beacon 3", "Beacon 5", "Beacon 8", "Beacon 9"],
+
+      "beacon_instructions": {
+        "Beacon 4-Auditório 2": "",
+        "Beacon 4-Auditório 3": "",
+        "Beacon 4-Sala 22": "",
+        "Beacon 4-Sala 23": "",
+        "Beacon 4-Beacon 3": "",
+        "Beacon 4-Beacon 5": "",
+        "Beacon 4-Beacon 8": "",
+        "Beacon 4-Beacon 9": ""
+      }
+    },
+
+    "Beacon 5": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Auditório 2", "Sala 24", "Sala 27", "Gabinete de Erasmus +"],
+      "beacon_connections": ["Beacon 4", "Beacon 6"],
+
+      "beacon_instructions": {
+        "Beacon 5-Auditório 02": "",
+        "Beacon 5-Sala 24": "",
+        "Beacon 5-Sala 27": "",
+        "Beacon 5-Gabinete de Erasmus +": "",
+        "Beacon 5-Beacon 4": "",
+        "Beacon 5-Beacon 6": ""
+      }
+    },
+
+    "Beacon 6": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 28", "Sala 29"],
+      "beacon_connections": ["Beacon 5", "Beacon 7"],
+
+      "beacon_instructions": {
+        "Beacon 6-Sala 28": "",
+        "Beacon 6-Sala 29": "",
+        "Beacon 6-Beacon 5": "",
+        "Beacon 6-Beacon 7": ""
+      }
+    },
+
+    "Beacon 7": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 32", "Sala 33"],
+      "beacon_connections": ["Beacon 6"],
+
+      "beacon_instructions": {
+        "Beacon 7-Sala 32": "",
+        "Beacon 7-Sala 33": "",
+        "Beacon 7-Beacon 6": ""
+      }
+    },
+
+    "Beacon 8": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 3", "Beacon 4", "Beacon 9", "Beacon 22"],
+
+      "beacon_instructions": {
+        "Beacon 8-Beacon 3": "",
+        "Beacon 8-Beacon 4": "",
+        "Beacon 8-Beacon 9": "",
+        "Beacon 8-Beacon 22": ""
+      }
+    },
+
+    "Beacon 9": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["AAUAL", "Loja Académica"],
+      "beacon_connections": ["Beacon 4", "Beacon 8", "Beacon 10"],
+
+      "beacon_instructions": {
+        "Beacon 9-AAUAL": "",
+        "Beacon 9-Loja Académica": "",
+        "Beacon 9-Beacon 4": "",
+        "Beacon 9-Beacon 8": "",
+        "Beacon 9-Beacon 10": ""
+      }
+    },
+
+    "Beacon 10": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Cacifos", "Bar"],
+      "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
+
+      "beacon_instructions": {
+        "Beacon 10-Cacifos": "",
+        "Beacon 10-Bar": "",
+        "Beacon 10-Beacon 9": "",
+        "Beacon 10-Beacon 11": "",
+        "Beacon 10-Beacon 12": ""
+      }
+    },
+
+    "Beacon 11": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 10", "Beacon 13"],
+
+      "beacon_instructions": {
+        "Beacon 11-Beacon 10": "",
+        "Beacon 11-Beacon 13": ""
+      }
+    },
+
+
+    "Beacon 12": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Bar", "Refeitório"],
+      "beacon_connections": ["Beacon 10", "Beacon 13"],
+
+      "beacon_instructions": {
+        "Beacon 12-Bar": "",
+        "Beacon 12-Refeitório": "",
+        "Beacon 12-Beacon 10": "",
+        "Beacon 12-Beacon 13": ""
+      }
+    },
+
+    "Beacon 13": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Micro-ondas", "Refeitório", "Esplanada"],
+      "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
+
+      "beacon_instructions": {
+        "Beacon 13-Micro-ondas": "",
+        "Beacon 13-Refeitório": "",
+        "Beacon 13-Esplanada": "",
+        "Beacon 13-Beacon 11": "",
+        "Beacon 13-Beacon 12": "",
+        "Beacon 13-Beacon 14": ""
+      }
+    },
+
+    "Beacon 14": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Reprografia", "WC Bar"],
+      "beacon_connections": ["Beacon 13"],
+
+      "beacon_instructions": {
+        "Beacon 14-Reprografia": "",
+        "Beacon 14-WC Bar": "",
+        "Beacon 14-Beacon 13": ""
+      }
+    },
+
+    "Beacon 15": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Camões"],
+      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+      "beacon_instructions": {
+        "Beacon 15-Camões": "",
+        "Beacon 15-Beacon 3": "",
+        "Beacon 15-Beacon 16": "",
+        "Beacon 15-Beacon 22": ""
+      }
+    },
+
+    "Beacon 16": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 10", "Sala de Informações"],
+      "beacon_connections": ["Beacon 15", "Beacon 17", "Beacon 19"],
+
+      "beacon_instructions": {
+        "Beacon 16-Sala 10": "",
+        "Beacon 16-Sala de Informações": "",
+        "Beacon 16-Beacon 15": "",
+        "Beacon 16-Beacon 17": "",
+        "Beacon 16-Beacon 19": ""
+      }
+    },
+
+    "Beacon 17": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 18"],
+      "beacon_connections": ["Beacon 16", "Beacon 18"],
+
+      "beacon_instructions": {
+        "Beacon 17-Sala 18": "",
+        "Beacon 17-Beacon 16": "",
+        "Beacon 17-Beacon 18": ""
+      }
+    },
+
+    "Beacon 18": {
+      "beacon_floor": "-1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 16"],
+      "beacon_connections": ["Beacon 17"],
+
+      "beacon_instructions": {
+        "Beacon 18-Sala 16": "",
+        "Beacon 18-Beacon 17": ""
+      }
+    },
+
+    "Beacon 19": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 10", "Biblioteca", "Sala de Computadores"],
+      "beacon_connections": ["Beacon 16", "Beacon 20", "Beacon 21"],
+
+      "beacon_instructions": {
+        "Beacon 19-Sala 10": "",
+        "Beacon 19-Biblioteca": "",
+        "Beacon 19-Sala de Computadores": "",
+        "Beacon 19-Beacon 16": "",
+        "Beacon 19-Beacon 20": "",
+        "Beacon 19-Beacon 21": ""
+      }
+    },
+
+    "Beacon 20": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala de Estudo", "Sala de Computadores"],
+      "beacon_connections": ["Beacon 19"],
+
+      "beacon_instructions": {
+        "Beacon 20-Sala de Estudo": "",
+        "Beacon 20-Sala de Computadores": "",
+        "Beacon 20-Beacon 19": ""
+      }
+    },
+
+    "Beacon 21": {
+      "beacon_floor": "2",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 80", "Sala 81", "Sala 82", "Sala 83"],
+      "beacon_connections": ["Beacon 19"],
+
+      "beacon_instructions": {
+        "Beacon 21-Sala 80": "",
+        "Beacon 21-Sala 81": "",
+        "Beacon 21-Sala 82": "",
+        "Beacon 21-Sala 83": "",
+        "Beacon 21-Beacon 19": ""
+      }
+    },
+
+    "Beacon 22": {
+      "beacon_floor": "0",
+      "beacon_description": "",
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 8", "Beacon 15", "Beacon 23"],
+
+      "beacon_instructions": {
+        "Beacon 22-Beacon 8": "",
+        "Beacon 22-Beacon 15": "",
+        "Beacon 22-Beacon 23": ""
+      }
+    },
+
+    "Beacon 23": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 22", "Beacon 24", "Beacon 33"],
+
+      "beacon_instructions": {
+        "Beacon 23-Beacon 22": "",
+        "Beacon 23-Beacon 24": "",
+        "Beacon 23-Beacon 33": ""
+      }
+    },
+
+    "Beacon 24": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 58"],
+      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
+
+      "beacon_instructions": {
+        "Beacon 24-Sala 58": "",
+        "Beacon 24-Beacon 23": "",
+        "Beacon 24-Beacon 25": "",
+        "Beacon 24-Beacon 27": "",
+        "Beacon 24-Beacon 28": ""
+      }
+    },
+
+    "Beacon 25": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 58", "UAL Media"],
+      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 27", "Beacon 28"],
+
+      "beacon_instructions": {
+        "Beacon 25-Sala 58": "",
+        "Beacon 25-UAL Media": "",
+        "Beacon 25-Beacon 24": "",
+        "Beacon 25-Beacon 26": "",
+        "Beacon 25-Beacon 27": "",
+        "Beacon 25-Beacon 28": ""
+      }
+    },
+
+    "Beacon 26": {
+      "beacon_floor": "2",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 56"],
+      "beacon_connections": ["Beacon 25"],
+
+      "beacon_instructions": {
+        "Beacon 26-Sala 56": "",
+        "Beacon 26-Beacon 25": ""
+      }
+    },
+
+    "Beacon 27": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 57", "WC Piso 1"],
+      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
+
+      "beacon_instructions": {
+        "Beacon 27-Sala 57": "",
+        "Beacon 27-WC Piso 1": "",
+        "Beacon 27-Beacon 24": "",
+        "Beacon 27-Beacon 25": "",
+        "Beacon 27-Beacon 28": ""
+      }
+    },
+
+    "Beacon 28": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
+      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
+
+      "beacon_instructions": {
+        "Beacon 28-Sala 54": "",
+        "Beacon 28-Sala 58": "",
+        "Beacon 28-Sala 59": "",
+        "Beacon 28-Beacon 24": "",
+        "Beacon 28-Beacon 25": "",
+        "Beacon 28-Beacon 27": "",
+        "Beacon 28-Beacon 29": ""
+      }
+    },
+
+    "Beacon 29": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
+      "beacon_connections": ["Beacon 28", "Beacon 30"],
+
+      "beacon_instructions": {
+        "Beacon 29-Sala 59": "",
+        "Beacon 29-Sala 60": "",
+        "Beacon 29-Sala 61": "",
+        "Beacon 29-Beacon 28": "",
+        "Beacon 29-Beacon 30": ""
+      }
+    },
+
+    "Beacon 30": {
+      "beacon_floor": "1",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 61", "Sala 62", "Sala 63"],
+      "beacon_connections": ["Beacon 29", "Beacon 31"],
+
+      "beacon_instructions": {
+        "Beacon 30-Sala 61": "",
+        "Beacon 30-Sala 62": "",
+        "Beacon 30-Sala 63": "",
+        "Beacon 30-Beacon 29": "",
+        "Beacon 30-Beacon 31": ""
+      }
+    },
+
+    "Beacon 31": {
+      "beacon_floor": "2",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala ?"],
+      "beacon_connections": ["Beacon 30", "Beacon 32"],
+
+      "beacon_instructions": {
+        "Beacon 31-Sala ?": "",
+        "Beacon 31-Beacon 30": "",
+        "Beacon 31-Beacon 32": ""
+      }
+    },
+
+    "Beacon 32": {
+      "beacon_floor": "2",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 68", "Sala 69", "Sala 70", "Laboratório de Informática"],
+      "beacon_connections": ["Beacon 31"],
+
+      "beacon_instructions": {
+        "Beacon 32-Sala 68": "",
+        "Beacon 32-Sala 69": "",
+        "Beacon 32-Sala 70": "",
+        "Beacon 32-Laboratório de Informática": "",
+        "Beacon 32-Beacon 31": ""
+      }
+    },
+
+    "Beacon 33": {
+      "beacon_floor": "2",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 37", "Sala 38", "Pátio de Enfermagem"],
+      "beacon_connections": ["Beacon 23", "Beacon 34"],
+
+      "beacon_instructions": {
+        "Beacon 33-Sala 37": "",
+        "Beacon 33-Sala 38": "",
+        "Beacon 33-Pátio de Enfermagem": "",
+        "Beacon 33-Beacon 23": "",
+        "Beacon 33-Beacon 34": ""
+      }
+    },
+
+    "Beacon 34": {
+      "beacon_floor": "3",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 39", "Sala 40", "Sala 41"],
+      "beacon_connections": ["Beacon 33", "Beacon 35"],
+
+      "beacon_instructions": {
+        "Beacon 34-Sala 39": "",
+        "Beacon 34-Sala 40": "",
+        "Beacon 34-Sala 41": "",
+        "Beacon 34-Beacon 33": "",
+        "Beacon 34-Beacon 35": ""
+      }
+    },
+
+    "Beacon 35": {
+      "beacon_floor": "4",
+      "beacon_description": "",
+      "beacon_destinations": ["Sala 42", "Sala 44", "Sala 45"],
+      "beacon_connections": ["Beacon 34"],
+
+      "beacon_instructions": {
+        "Beacon 35-Sala 42": "",
+        "Beacon 35-Sala 44": "",
+        "Beacon 35-Sala 45": "",
+        "Beacon 35-Beacon 34": ""
+      }
+    }
+  },
+
   "instructions": {
     "Entrada-Pátio": "Entrada'dan Pátio'ya düz devam edin.",
     "Pátio-Entrada": "Pátio'dan Entrada'ya geri dönün.",
@@ -22,6 +529,7 @@
     "Entrada-Corredor 1": "Entrada'dan başlayıp Pátio'dan geçerek Corredor 1'e devam edin.",
     "Corredor 1-Entrada": "Corredor 1'den çıkıp Pátio'dan geçerek Entrada'ya devam edin."
   },
+
   "voice_commands": {
     "giriş": "Entrada",
     "avlu": "Pátio",

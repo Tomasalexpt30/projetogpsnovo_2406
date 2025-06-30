@@ -40,7 +40,6 @@ class NavigationManager {
 
   Map<String, String> instrucoesCarregadas = {};
 
-  /// Lógica universal: lê o ficheiro certo para QUALQUER idioma (es, de, fr, it, pl, etc)
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
