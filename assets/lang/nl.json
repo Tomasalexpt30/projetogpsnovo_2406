@@ -80,6 +80,7 @@
     "destination": "Bestemming",
     "current_location": "Huidige Locatie",
     "next": "Volgende",
+    "description": "Beschrijving",
     "cancel_navigation": "Annuleren",
     "arrived_destination": "U heeft uw bestemming bereikt. Bedankt voor het gebruiken van onze applicatie!"
   },

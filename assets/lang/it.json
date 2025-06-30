@@ -80,6 +80,7 @@
     "destination": "Destinazione",
     "current_location": "Posizione Attuale",
     "next": "Successivo",
+    "description": "Descrizione",
     "cancel_navigation": "Annulla",
     "arrived_destination": "Sei arrivato a destinazione. Grazie per aver utilizzato la nostra applicazione!"
   },

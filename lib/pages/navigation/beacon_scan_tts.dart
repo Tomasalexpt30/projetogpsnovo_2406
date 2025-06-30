@@ -264,6 +264,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
   Future<void> falar(String texto) async {
     if (soundEnabled && texto.isNotEmpty) {
+      await flutterTts.stop();
       await flutterTts.setLanguage(selectedLanguageCode);
       await flutterTts.setSpeechRate(voiceSpeed);
       await flutterTts.setPitch(voicePitch);
@@ -284,7 +285,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   void mostrarDescricao() {
-    print('Descrição clicada');
+    if (localAtual != null && mensagens['descriptions']?[localAtual] != null) {
+      final descricao = mensagens['descriptions'][localAtual];
+      falar(descricao);
+    } else {
+      print('Descrição indisponível para o local atual.');
+    }
   }
 
   @override
@@ -454,7 +460,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                             child: ElevatedButton.icon(
                               onPressed: mostrarDescricao,
                               icon: const Icon(Icons.info),
-                              label: const Text('Descrição'),
+                              label: Text('beacon_scan_page.description'.tr()),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blueAccent,
                                 foregroundColor: Colors.white,

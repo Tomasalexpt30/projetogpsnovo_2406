@@ -22,6 +22,11 @@
     "Entrada-Corredor 1": "Siga em frente desde a Entrada, passe pelo Pátio e continue até ao Corredor 1.",
     "Corredor 1-Entrada": "Volte para trás desde o Corredor 1, passe pelo Pátio e continue até à Entrada."
   },
+  "descriptions": {
+    "Entrada": "Á sua volta tem a portaria e o Pátio",
+    "Pátio": "Á sua volta tem as escadas, a entrada e vários bancos",
+    "Corredor 1": "Á sua volta tem as escadas, o pátio e a estátua do Luis de Camões"
+  },
   "voice_commands": {
     "entrada": "Entrada",
     "pátio": "Pátio",

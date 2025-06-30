@@ -80,6 +80,7 @@
     "destination": "Cel",
     "current_location": "Aktualna Lokalizacja",
     "next": "Następny",
+    "description": "Opis",
     "cancel_navigation": "Anuluj",
     "arrived_destination": "Dotarłeś do celu. Dziękujemy za korzystanie z naszej aplikacji!"
   },
