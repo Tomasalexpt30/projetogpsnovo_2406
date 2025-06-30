@@ -1,18 +1,18 @@
 {
   "alerts": {
-    "already_there": "You are already at {location}. You have reached your destination.",
-    "path_not_found": "You are at {location}. Path not found.",
+    "already_there_alert": "You are already at {location}. You have reached your destination.",
+    "path_not_found_alert": "You are at {location}. Path not found.",
     "arrived_alert": "You have reached your destination. Thank you for using our app.",
-    "at_location": "You are at: {location}",
-    "navigation_cancelled": "Navigation cancelled",
-    "searching": "Searching...",
-    "end_of_route": "End of the route",
-    "voice_start": "Let's start the navigation to {destination}.",
-    "voice_unavailable": "Destination is not available, please repeat.",
-    "voice_selected": "Favorite destination selected: {destination}",
-    "start_navigation": "Let's start the navigation with the destination {destination}",
-    "timeout": "Audio timeout exceeded. Please try again.",
-    "no_match": "Could not recognize what you said. Please try again."
+    "at_location_alert": "You are at: {location}",
+    "navigation_cancelled_alert": "Navigation cancelled",
+    "searching_alert": "Searching...",
+    "end_of_route_alert": "End of the route",
+    "voice_start_alert": "Let's start the navigation to {destination}.",
+    "voice_unavailable_alert": "Destination is not available, please repeat.",
+    "voice_selected_alert": "Favorite destination selected: {destination}",
+    "start_navigation_alert": "Let's start the navigation with the destination {destination}",
+    "timeout_alert": "Audio timeout exceeded. Please try again.",
+    "no_match_alert": "Could not recognize what you said. Please try again."
   },
   "instructions": {
     "Entrada-Pátio": "Go straight from Entrada to Pátio.",

@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "Sie sind bereits bei {location}. Sie haben Ihr Ziel erreicht.",
-    "path_not_found": "Sie sind bei {location}. Route nicht gefunden.",
+    "already_there_alert": "Sie sind bereits bei {location}. Sie haben Ihr Ziel erreicht.",
+    "path_not_found_alert": "Sie sind bei {location}. Route nicht gefunden.",
     "arrived_alert": "Sie haben Ihr Ziel erreicht. Vielen Dank für die Nutzung unserer App.",
-    "at_location": "Sie sind bei: {location}",
-    "navigation_cancelled": "Navigation abgebrochen",
-    "searching": "Suche...",
-    "end_of_route": "Ende der Route",
-    "voice_start": "Wir starten die Navigation zum Ziel {destination}.",
-    "voice_unavailable": "Ziel ist nicht verfügbar, bitte wiederholen.",
-    "voice_selected": "Ausgewähltes Lieblingsziel: {destination}",
-    "start_navigation": "Lassen Sie uns die Navigation mit dem Ziel {destination} starten",
-    "timeout": "Audio-Zeitlimit überschritten. Bitte versuchen Sie es erneut."
+    "at_location_alert": "Sie sind bei: {location}",
+    "navigation_cancelled_alert": "Navigation abgebrochen",
+    "searching_alert": "Suche...",
+    "end_of_route_alert": "Ende der Route",
+    "voice_start_alert": "Wir starten die Navigation zum Ziel {destination}.",
+    "voice_unavailable_alert": "Ziel ist nicht verfügbar, bitte wiederholen.",
+    "voice_selected_alert": "Ausgewähltes Lieblingsziel: {destination}",
+    "start_navigation_alert": "Lassen Sie uns die Navigation mit dem Ziel {destination} starten",
+    "timeout_alert": "Audio-Zeitlimit überschritten. Bitte versuchen Sie es erneut.",
+    "no_match_alert": "Es war nicht möglich, zu erkennen, was Sie gesagt haben. Bitte versuchen Sie es erneut."
   },
   "instructions": {
     "Entrada-Pátio": "Gehen Sie geradeaus von Entrada zum Pátio.",

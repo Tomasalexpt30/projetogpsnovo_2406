@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "Ya estás en {location}. Has llegado a tu destino.",
-    "path_not_found": "Estás en {location}. Ruta no encontrada.",
+    "already_there_alert": "Ya estás en {location}. Has llegado a tu destino.",
+    "path_not_found_alert": "Estás en {location}. Ruta no encontrada.",
     "arrived_alert": "Has llegado a tu destino. Gracias por usar nuestra app.",
-    "at_location": "Estás en: {location}",
-    "navigation_cancelled": "Navegación cancelada",
-    "searching": "Buscando...",
-    "end_of_route": "Fin del recorrido",
-    "voice_start": "Vamos a iniciar la navegación hacia {destination}.",
-    "voice_unavailable": "El destino no está disponible, por favor repita.",
-    "voice_selected": "Destino favorito seleccionado: {destination}",
-    "start_navigation": "Vamos a comenzar la navegación con el destino {destination}",
-    "timeout": "Se superó el tiempo límite de audio. Por favor, inténtelo de nuevo."
+    "at_location_alert": "Estás en: {location}",
+    "navigation_cancelled_alert": "Navegación cancelada",
+    "searching_alert": "Buscando...",
+    "end_of_route_alert": "Fin del recorrido",
+    "voice_start_alert": "Vamos a iniciar la navegación hacia {destination}.",
+    "voice_unavailable_alert": "El destino no está disponible, por favor repita.",
+    "voice_selected_alert": "Destino favorito seleccionado: {destination}",
+    "start_navigation_alert": "Vamos a comenzar la navegación con el destino {destination}",
+    "timeout_alert": "Se superó el tiempo límite de audio. Por favor, inténtelo de nuevo.",
+    "no_match_alert": "No se pudo reconocer lo que dijo. Por favor, inténtelo de nuevo."
   },
   "instructions": {
     "Entrada-Pátio": "Ve recto desde Entrada hasta el Pátio.",

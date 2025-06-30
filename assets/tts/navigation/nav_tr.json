@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "{location} konumundasınız. Hedefinize ulaştınız.",
-    "path_not_found": "{location} konumundasınız. Yol bulunamadı.",
+    "already_there_alert": "{location} konumundasınız. Hedefinize ulaştınız.",
+    "path_not_found_alert": "{location} konumundasınız. Yol bulunamadı.",
     "arrived_alert": "Hedefinize ulaştınız. Uygulamamızı kullandığınız için teşekkürler.",
-    "at_location": "Şu an buradasınız: {location}",
-    "navigation_cancelled": "Navigasyon iptal edildi",
-    "searching": "Aranıyor...",
-    "end_of_route": "Rotanın sonu",
-    "voice_start": "Hedef {destination} için navigasyona başlıyoruz.",
-    "voice_unavailable": "Hedef mevcut değil, lütfen tekrar edin.",
-    "voice_selected": "Favori varış noktası seçildi: {destination}",
-    "start_navigation": "{destination} varış noktasına navigasyona başlayalım",
-    "timeout": "Ses zaman aşımı aşıldı. Lütfen tekrar deneyin."
+    "at_location_alert": "Şu an buradasınız: {location}",
+    "navigation_cancelled_alert": "Navigasyon iptal edildi",
+    "searching_alert": "Aranıyor...",
+    "end_of_route_alert": "Rotanın sonu",
+    "voice_start_alert": "Hedef {destination} için navigasyona başlıyoruz.",
+    "voice_unavailable_alert": "Hedef mevcut değil, lütfen tekrar edin.",
+    "voice_selected_alert": "Favori varış noktası seçildi: {destination}",
+    "start_navigation_alert": "{destination} varış noktasına navigasyona başlayalım",
+    "timeout_alert": "Ses zaman aşımı aşıldı. Lütfen tekrar deneyin.",
+    "no_match_alert": "Ne söylediğinizi algılayamadık. Lütfen tekrar deneyin."
   },
   "instructions": {
     "Entrada-Pátio": "Entrada'dan Pátio'ya düz devam edin.",

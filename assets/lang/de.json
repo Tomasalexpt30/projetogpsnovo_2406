@@ -80,7 +80,7 @@
     "destination": "Ziel",
     "current_location": "Aktueller Standort",
     "next": "Nächster",
-    "cancel_navigation": "Navigation abbrechen",
+    "cancel_navigation": "Abbrechen",
     "arrived_destination": "Sie haben Ihr Ziel erreicht. Vielen Dank, dass Sie unsere Anwendung verwenden!"
   },
   "tour_page": {

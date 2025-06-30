@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "Już jesteś w {location}. Dotarłeś do celu.",
-    "path_not_found": "Jesteś w {location}. Nie znaleziono trasy.",
+    "already_there_alert": "Już jesteś w {location}. Dotarłeś do celu.",
+    "path_not_found_alert": "Jesteś w {location}. Nie znaleziono trasy.",
     "arrived_alert": "Dotarłeś do celu. Dziękujemy za skorzystanie z naszej aplikacji.",
-    "at_location": "Jesteś w: {location}",
-    "navigation_cancelled": "Nawigacja anulowana",
-    "searching": "Wyszukiwanie...",
-    "end_of_route": "Koniec trasy",
-    "voice_start": "Rozpoczynamy nawigację do {destination}.",
-    "voice_unavailable": "Cel niedostępny, proszę powtórzyć.",
-    "voice_selected": "Wybrano ulubiony cel: {destination}",
-    "start_navigation": "Zacznijmy nawigację z celem {destination}",
-    "timeout": "Przekroczono limit czasu nagrania. Spróbuj ponownie."
+    "at_location_alert": "Jesteś w: {location}",
+    "navigation_cancelled_alert": "Nawigacja anulowana",
+    "searching_alert": "Wyszukiwanie...",
+    "end_of_route_alert": "Koniec trasy",
+    "voice_start_alert": "Rozpoczynamy nawigację do {destination}.",
+    "voice_unavailable_alert": "Cel niedostępny, proszę powtórzyć.",
+    "voice_selected_alert": "Wybrano ulubiony cel: {destination}",
+    "start_navigation_alert": "Zacznijmy nawigację z celem {destination}",
+    "timeout_alert": "Przekroczono limit czasu nagrania. Spróbuj ponownie.",
+    "no_match_alert": "Nie udało się rozpoznać, co powiedziałeś. Proszę spróbować ponownie."
   },
   "instructions": {
     "Entrada-Pátio": "Idź prosto z Entrada do Pátio.",

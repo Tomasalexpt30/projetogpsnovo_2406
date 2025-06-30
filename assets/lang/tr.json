@@ -80,7 +80,7 @@
     "destination": "Varış Noktası",
     "current_location": "Mevcut Konum",
     "next": "Sonraki",
-    "cancel_navigation": "Navigasyonu İptal Et",
+    "cancel_navigation": "İptal",
     "arrived_destination": "Varış noktanıza ulaştınız. Uygulamamızı kullandığınız için teşekkür ederiz!"
   },
   "tour_page": {

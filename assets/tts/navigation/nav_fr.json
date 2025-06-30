@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "Vous êtes déjà à {location}. Vous êtes arrivé à destination.",
-    "path_not_found": "Vous êtes à {location}. Itinéraire introuvable.",
+    "already_there_alert": "Vous êtes déjà à {location}. Vous êtes arrivé à destination.",
+    "path_not_found_alert": "Vous êtes à {location}. Itinéraire introuvable.",
     "arrived_alert": "Vous êtes arrivé à destination. Merci d'utiliser notre application.",
-    "at_location": "Vous êtes à : {location}",
-    "navigation_cancelled": "Navigation annulée",
-    "searching": "Recherche...",
-    "end_of_route": "Fin du parcours",
-    "voice_start": "Nous allons commencer la navigation vers {destination}.",
-    "voice_unavailable": "La destination n'est pas disponible, veuillez répéter.",
-    "voice_selected": "Destination favorite sélectionnée : {destination}",
-    "start_navigation": "Commençons la navigation avec la destination {destination}",
-    "timeout": "Délai audio dépassé. Veuillez réessayer."
+    "at_location_alert": "Vous êtes à : {location}",
+    "navigation_cancelled_alert": "Navigation annulée",
+    "searching_alert": "Recherche...",
+    "end_of_route_alert": "Fin du parcours",
+    "voice_start_alert": "Nous allons commencer la navigation vers {destination}.",
+    "voice_unavailable_alert": "La destination n'est pas disponible, veuillez répéter.",
+    "voice_selected_alert": "Destination favorite sélectionnée : {destination}",
+    "start_navigation_alert": "Commençons la navigation avec la destination {destination}",
+    "timeout_alert": "Délai audio dépassé. Veuillez réessayer.",
+    "no_match_alert": "Impossible de reconnaître ce que vous avez dit. Veuillez réessayer."
   },
   "instructions": {
     "Entrada-Pátio": "Allez tout droit de l'Entrada au Pátio.",

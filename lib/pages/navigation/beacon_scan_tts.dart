@@ -179,7 +179,6 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             }
 
             setState(() {
-              falar(mensagens['alerts']?['at_location_alert'] ?? '');
               mostrarSeta = true;
             });
           } else {
@@ -193,9 +192,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
           localAtual = local;
           atualizarPosicaoVisual(local);
 
-          setState(() {
-            falar(mensagens['alerts']?['at_location_alert'] ?? '');
-          });
+          setState(() {});
 
           if (proximoPasso == rota.length - 1) {
             falar(mensagens['alerts']?['arrived_alert'] ?? '');
@@ -284,6 +281,10 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     flutterTts.stop();
 
     Navigator.pop(context);
+  }
+
+  void mostrarDescricao() {
+    print('Descrição clicada');
   }
 
   @override
@@ -447,14 +448,32 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                         ),
                       ],
                       const SizedBox(height: 20),
-                      ElevatedButton.icon(
-                        onPressed: cancelarNavegacao,
-                        icon: const Icon(Icons.cancel),
-                        label: Text('beacon_scan_page.cancel_navigation'.tr()),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.redAccent,
-                          foregroundColor: Colors.white,
-                        ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: mostrarDescricao,
+                              icon: const Icon(Icons.info),
+                              label: const Text('Descrição'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                foregroundColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: cancelarNavegacao,
+                              icon: const Icon(Icons.cancel),
+                              label: Text('beacon_scan_page.cancel_navigation'.tr()),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.redAccent,
+                                foregroundColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

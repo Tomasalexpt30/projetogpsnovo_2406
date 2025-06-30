@@ -80,7 +80,7 @@
     "destination": "Пункт назначения",
     "current_location": "Текущее местоположение",
     "next": "Следующий",
-    "cancel_navigation": "Отменить навигацию",
+    "cancel_navigation": "Отмена",
     "arrived_destination": "Вы прибыли в пункт назначения. Спасибо, что используете наше приложение!"
   },
   "tour_page": {

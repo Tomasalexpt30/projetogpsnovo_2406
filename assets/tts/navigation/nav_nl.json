@@ -1,17 +1,18 @@
 {
   "alerts": {
-    "already_there": "U bent al bij {location}. U bent op uw bestemming aangekomen.",
-    "path_not_found": "U bent bij {location}. Route niet gevonden.",
+    "already_there_alert": "U bent al bij {location}. U bent op uw bestemming aangekomen.",
+    "path_not_found_alert": "U bent bij {location}. Route niet gevonden.",
     "arrived_alert": "U bent op uw bestemming aangekomen. Bedankt voor het gebruiken van onze app.",
-    "at_location": "U bent bij: {location}",
-    "navigation_cancelled": "Navigatie geannuleerd",
-    "searching": "Zoeken...",
-    "end_of_route": "Einde van de route",
-    "voice_start": "We gaan navigeren naar {destination}.",
-    "voice_unavailable": "Bestemming is niet beschikbaar, gelieve te herhalen.",
-    "voice_selected": "Favoriete bestemming geselecteerd: {destination}",
-    "start_navigation": "Laten we de navigatie starten met de bestemming {destination}",
-    "timeout": "Audiotime-out overschreden. Probeer het opnieuw."
+    "at_location_alert": "U bent bij: {location}",
+    "navigation_cancelled_alert": "Navigatie geannuleerd",
+    "searching_alert": "Zoeken...",
+    "end_of_route_alert": "Einde van de route",
+    "voice_start_alert": "We gaan navigeren naar {destination}.",
+    "voice_unavailable_alert": "Bestemming is niet beschikbaar, gelieve te herhalen.",
+    "voice_selected_alert": "Favoriete bestemming geselecteerd: {destination}",
+    "start_navigation_alert": "Laten we de navigatie starten met de bestemming {destination}",
+    "timeout_alert": "Audiotime-out overschreden. Probeer het opnieuw.",
+    "no_match_alert": "Het was niet mogelijk te herkennen wat u zei. Probeer het alstublieft opnieuw."
   },
   "instructions": {
     "Entrada-Pátio": "Ga rechtdoor van Entrada naar Pátio.",
