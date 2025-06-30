@@ -105,7 +105,6 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   Future<void> _carregarMensagens() async {
-    // Prepara os possíveis nomes de ficheiro: nav_de.json, nav_de-de.json, nav_en.json, etc
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [
@@ -123,7 +122,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     }
     setState(() {
       mensagens = jsonString != null ? json.decode(jsonString) : {};
-      status = mensagens['alerts']?['searching'] ?? '';
+      status = mensagens['alerts']?['searching_alert'] ?? '';
     });
   }
 
@@ -141,9 +140,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
         if (local == null) continue;
 
         final agora = DateTime.now();
-        if (ultimaDetecao != null &&
-            agora.difference(ultimaDetecao!) < cooldown &&
-            local == localAtual) {
+        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
           continue;
         }
 
@@ -151,8 +148,16 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         if (rota.isEmpty) {
           if (local == widget.destino) {
-            falar(_mensagemAlerta('already_there', local));
-            finalizar();
+            falar(mensagens['alerts']?['arrived_alert'] ?? '');
+            if (vibrationEnabled) {
+              Vibration.hasVibrator().then((hasVibrator) {
+                if (hasVibrator ?? false) Vibration.vibrate(duration: 600);
+              });
+            }
+            setState(() {
+              chegou = true;
+              status = 'beacon_scan_page.arrived_destination'.tr();
+            });
             return;
           }
 
@@ -166,12 +171,19 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
             final instrucao = nav.getInstrucoes(caminho)[0];
             falar(instrucao);
+
+            if (vibrationEnabled) {
+              Vibration.hasVibrator().then((hasVibrator) {
+                if (hasVibrator ?? false) Vibration.vibrate(duration: 400);
+              });
+            }
+
             setState(() {
-              status = _mensagemAlerta('at_location', local);
+              falar(mensagens['alerts']?['at_location_alert'] ?? '');
               mostrarSeta = true;
             });
           } else {
-            falar(_mensagemAlerta('path_not_found', local));
+            falar(mensagens['alerts']?['path_not_found_alert'] ?? '');
             finalizar();
           }
           return;
@@ -182,15 +194,30 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
           atualizarPosicaoVisual(local);
 
           setState(() {
-            status = _mensagemAlerta('at_location', local);
+            falar(mensagens['alerts']?['at_location_alert'] ?? '');
           });
 
           if (proximoPasso == rota.length - 1) {
-            falar(_mensagemAlerta('arrived', local));
-            finalizar();
+            falar(mensagens['alerts']?['arrived_alert'] ?? '');
+            if (vibrationEnabled) {
+              Vibration.hasVibrator().then((hasVibrator) {
+                if (hasVibrator ?? false) Vibration.vibrate(duration: 600);
+              });
+            }
+            setState(() {
+              chegou = true;
+              status = 'beacon_scan_page.arrived_destination'.tr();
+            });
           } else {
             final instrucao = nav.getInstrucoes(rota)[proximoPasso];
             falar(instrucao);
+
+            if (vibrationEnabled) {
+              Vibration.hasVibrator().then((hasVibrator) {
+                if (hasVibrator ?? false) Vibration.vibrate(duration: 400);
+              });
+            }
+
             proximoPasso++;
           }
           return;
@@ -250,12 +277,11 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   void cancelarNavegacao() {
     setState(() {
       isNavigationCanceled = true;
-      status = mensagens['alerts']?['navigation_cancelled'] ?? '';
+      status = mensagens['alerts']?['navigation_cancelled_alert'] ?? '';
     });
 
     FlutterBluePlus.stopScan();
     flutterTts.stop();
-    Vibration.vibrate(duration: 600);
 
     Navigator.pop(context);
   }
@@ -269,12 +295,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   String obterLocalAtual() {
-    return localAtual ?? (mensagens['alerts']?['searching'] ?? '');
+    return localAtual ?? (mensagens['alerts']?['searching_alert'] ?? '');
   }
 
   String obterProximaParagem() {
     if (rota.isEmpty || proximoPasso >= rota.length) {
-      return mensagens['alerts']?['end_of_route'] ?? '';
+      return mensagens['alerts']?['end_of_route_alert'] ?? '';
     }
     return rota[proximoPasso];
   }
@@ -343,58 +369,83 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.blue[50],
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'beacon_scan_page.current_location'.tr(),
-                                    style: const TextStyle(fontSize: 16, color: Colors.black54),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    obterLocalAtual(),
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 15),
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.green[50],
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'beacon_scan_page.next'.tr(),
-                                    style: const TextStyle(fontSize: 16, color: Colors.black54),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    obterProximaParagem(),
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                      if (!chegou) ...[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'beacon_scan_page.current_location'.tr(),
+                                      style: const TextStyle(fontSize: 16, color: Colors.black54),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      obterLocalAtual(),
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
+                            const SizedBox(width: 15),
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.green[50],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'beacon_scan_page.next'.tr(),
+                                      style: const TextStyle(fontSize: 16, color: Colors.black54),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      obterProximaParagem(),
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ] else ...[
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.green[100],
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                        ],
-                      ),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.check_circle, color: Colors.green, size: 30),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    status,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                       const SizedBox(height: 20),
                       ElevatedButton.icon(
                         onPressed: cancelarNavegacao,

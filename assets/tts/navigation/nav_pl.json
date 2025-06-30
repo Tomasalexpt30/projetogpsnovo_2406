@@ -2,7 +2,7 @@
   "alerts": {
     "already_there": "Już jesteś w {location}. Dotarłeś do celu.",
     "path_not_found": "Jesteś w {location}. Nie znaleziono trasy.",
-    "arrived": "Dotarłeś do celu. Dziękujemy za skorzystanie z naszej aplikacji.",
+    "arrived_alert": "Dotarłeś do celu. Dziękujemy za skorzystanie z naszej aplikacji.",
     "at_location": "Jesteś w: {location}",
     "navigation_cancelled": "Nawigacja anulowana",
     "searching": "Wyszukiwanie...",

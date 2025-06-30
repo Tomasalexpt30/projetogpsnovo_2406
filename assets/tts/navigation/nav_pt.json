@@ -1,18 +1,18 @@
 {
   "alerts": {
-    "already_there": "Já se encontra em {location}. Chegou ao seu destino.",
-    "path_not_found": "Encontra-se em {location}. Caminho não encontrado.",
-    "arrived": "Chegou ao seu destino. Obrigado por usar a nossa aplicação.",
-    "at_location": "Encontra-se em: {location}",
-    "navigation_cancelled": "Navegação cancelada",
-    "searching": "A procurar...",
-    "end_of_route": "Fim da rota",
-    "voice_start": "Vamos iniciar a navegação com o destino {destination}.",
-    "voice_unavailable": "Destino não se encontra disponível, repita por favor.",
-    "voice_selected": "Destino favorito selecionado: {destination}",
-    "start_navigation": "Vamos iniciar a navegação com o destino {destination}",
-    "timeout": "Tempo limite de áudio excedido. Por favor, tente novamente.",
-    "no_match": "Não foi possível reconhecer o que disse. Por favor, tente novamente."
+    "already_there_alert": "Já se encontra em {location}. Chegou ao seu destino.",
+    "path_not_found_alert": "Encontra-se em {location}. Caminho não encontrado.",
+    "arrived_alert": "Chegou ao seu destino. Obrigado por usar a nossa aplicação.",
+    "at_location_alert": "Encontra-se em: {location}",
+    "navigation_cancelled_alert": "Navegação cancelada",
+    "searching_alert": "A procurar...",
+    "end_of_route_alert": "Fim da rota",
+    "voice_start_alert": "Vamos iniciar a navegação com o destino {destination}.",
+    "voice_unavailable_alert": "Destino não se encontra disponível, repita por favor.",
+    "voice_selected_alert": "Destino favorito selecionado: {destination}",
+    "start_navigation_alert": "Vamos iniciar a navegação com o destino {destination}",
+    "timeout_alert": "Tempo limite de áudio excedido. Por favor, tente novamente.",
+    "no_match_alert": "Não foi possível reconhecer o que disse. Por favor, tente novamente."
   },
   "instructions": {
     "Entrada-Pátio": "Siga em frente desde a Entrada até ao Pátio.",

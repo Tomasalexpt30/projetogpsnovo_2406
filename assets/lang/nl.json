@@ -80,7 +80,8 @@
     "destination": "Bestemming",
     "current_location": "Huidige Locatie",
     "next": "Volgende",
-    "cancel_navigation": "Navigatie Annuleren"
+    "cancel_navigation": "Navigatie Annuleren",
+    "arrived_destination": "U heeft uw bestemming bereikt. Bedankt voor het gebruiken van onze applicatie!"
   },
   "tour_page": {
     "title": "Rondleiding",

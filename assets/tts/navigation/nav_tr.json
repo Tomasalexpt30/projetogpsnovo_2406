@@ -2,7 +2,7 @@
   "alerts": {
     "already_there": "{location} konumundasınız. Hedefinize ulaştınız.",
     "path_not_found": "{location} konumundasınız. Yol bulunamadı.",
-    "arrived": "Hedefinize ulaştınız. Uygulamamızı kullandığınız için teşekkürler.",
+    "arrived_alert": "Hedefinize ulaştınız. Uygulamamızı kullandığınız için teşekkürler.",
     "at_location": "Şu an buradasınız: {location}",
     "navigation_cancelled": "Navigasyon iptal edildi",
     "searching": "Aranıyor...",

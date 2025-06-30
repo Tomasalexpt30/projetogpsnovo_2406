@@ -80,7 +80,8 @@
     "destination": "Destination",
     "current_location": "Emplacement Actuel",
     "next": "Suivant",
-    "cancel_navigation": "Annuler la Navigation"
+    "cancel_navigation": "Annuler la Navigation",
+    "arrived_destination": "Vous êtes arrivé à destination. Merci d'utiliser notre application !"
   },
   "tour_page": {
     "title": "Visite Guidée",

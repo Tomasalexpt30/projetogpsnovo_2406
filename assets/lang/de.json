@@ -76,6 +76,13 @@
     "add_favorite": "Zu Favoriten hinzufügen",
     "close_popup": "Schließen"
   },
+  "beacon_scan_page": {
+    "destination": "Ziel",
+    "current_location": "Aktueller Standort",
+    "next": "Nächster",
+    "cancel_navigation": "Navigation abbrechen",
+    "arrived_destination": "Sie haben Ihr Ziel erreicht. Vielen Dank, dass Sie unsere Anwendung verwenden!"
+  },
   "tour_page": {
     "title": "Geführte Tour",
     "description": "Starten Sie Ihre geführte Tour durch die wichtigsten Orte der Universität.",

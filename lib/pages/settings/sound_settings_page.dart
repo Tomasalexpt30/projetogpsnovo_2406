@@ -19,7 +19,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   bool soundEnabled = true;
   bool vibrationEnabled = true;
   String selectedLanguageCode = 'pt-PT';
-  double voiceSpeed = 0.6;
+  double voiceSpeed = 0.5;
   double voicePitch = 1.0;
 
   final Map<String, String> voiceTests = {
@@ -181,9 +181,9 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
           Text('sound_settings_page.voice_speed'.tr(namedArgs: {'speed': voiceSpeed.toStringAsFixed(1)}), style: subtitleStyle),
           Slider(
             value: voiceSpeed,
-            min: 0.5,
+            min: 0,
             max: 2.0,
-            divisions: 6,
+            divisions: 20,
             label: '${voiceSpeed.toStringAsFixed(1)}x',
             activeColor: const Color(0xFF00B4D8),
             onChanged: (value) {

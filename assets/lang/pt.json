@@ -80,7 +80,8 @@
     "destination": "Destino",
     "current_location": "Local Atual",
     "next": "Próximo",
-    "cancel_navigation": "Cancelar Navegação"
+    "cancel_navigation": "Cancelar Navegação",
+    "arrived_destination": "Chegou ao seu destino. Obrigado por usar a nossa aplicação!"
   },
   "tour_page": {
     "title": "Visita Guiada",

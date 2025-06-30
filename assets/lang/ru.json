@@ -77,10 +77,11 @@
     "close_popup": "Закрыть"
   },
   "beacon_scan_page": {
-    "destination": "Место назначения",
+    "destination": "Пункт назначения",
     "current_location": "Текущее местоположение",
-    "next": "Далее",
-    "cancel_navigation": "Отменить Навигацию"
+    "next": "Следующий",
+    "cancel_navigation": "Отменить навигацию",
+    "arrived_destination": "Вы прибыли в пункт назначения. Спасибо, что используете наше приложение!"
   },
   "tour_page": {
     "title": "Экскурсия",

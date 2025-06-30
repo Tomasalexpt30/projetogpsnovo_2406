@@ -2,7 +2,7 @@
   "alerts": {
     "already_there": "U bent al bij {location}. U bent op uw bestemming aangekomen.",
     "path_not_found": "U bent bij {location}. Route niet gevonden.",
-    "arrived": "U bent op uw bestemming aangekomen. Bedankt voor het gebruiken van onze app.",
+    "arrived_alert": "U bent op uw bestemming aangekomen. Bedankt voor het gebruiken van onze app.",
     "at_location": "U bent bij: {location}",
     "navigation_cancelled": "Navigatie geannuleerd",
     "searching": "Zoeken...",

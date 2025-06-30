@@ -91,11 +91,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
           if (error.errorMsg == 'error_speech_timeout') {
             await _speech.stop();
             await _playStopRecordingSound();
-            mensagemErro = _mensagem('timeout');
+            mensagemErro = _mensagem('timeout_alert');
           } else if (error.errorMsg == 'error_no_match') {
             await _speech.stop();
             await _playStopRecordingSound();
-            mensagemErro = _mensagem('no_match');
+            mensagemErro = _mensagem('no_match_alert');
           }
           if (mensagemErro.isNotEmpty && soundEnabled) {
             await _tts.speak(mensagemErro);
@@ -268,7 +268,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: destinosPorPiso.entries.expand((entry) {
-                        // Filtrar apenas destinos com beacon
                         final destinosFiltrados = entry.value.where((destino) => destinosComBeacon.contains(destino)).toList();
 
                         if (destinosFiltrados.isEmpty) return <Widget>[];
@@ -341,7 +340,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     setState(() => _isListening = false);
 
     if (soundEnabled) {
-      await _tts.speak(_mensagem('voice_unavailable'));
+      await _tts.speak(_mensagem('voice_unavailable_alert'));
       await _tts.awaitSpeakCompletion(true);
     }
   }
@@ -371,7 +370,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               await _speech.stop();
               await _playStopRecordingSound();
               if (soundEnabled) {
-                await _tts.speak(_mensagem('voice_start', valor: destino));
+                await _tts.speak(_mensagem('voice_start_alert', valor: destino));
                 await _tts.awaitSpeakCompletion(true);
               }
               await Future.delayed(const Duration(seconds: 1));
@@ -484,7 +483,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                             onPressed: destinoSelecionado == null || isSpeaking
                                 ? null
                                 : () async {
-                              String mensagemIniciar = mensagens['alerts']?['start_navigation'] ?? 'Mensagem de início não encontrada';
+                              String mensagemIniciar = mensagens['alerts']?['start_navigation_alert'] ?? 'Mensagem de início não encontrada';
                               mensagemIniciar = mensagemIniciar.replaceAll('{destination}', destinoSelecionado!);
                               await speakAndBlock(mensagemIniciar);
 
@@ -542,7 +541,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                         setState(() {
                                           destinoSelecionado = favorito;
                                         });
-                                        await speakAndBlock(_mensagem('voice_selected', valor: favorito));
+                                        await speakAndBlock(_mensagem('voice_selected_alert', valor: favorito));
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,

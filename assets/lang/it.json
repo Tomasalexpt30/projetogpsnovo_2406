@@ -78,9 +78,10 @@
   },
   "beacon_scan_page": {
     "destination": "Destinazione",
-    "current_location": "Posizione attuale",
+    "current_location": "Posizione Attuale",
     "next": "Successivo",
-    "cancel_navigation": "Annulla navigazione"
+    "cancel_navigation": "Annulla Navigazione",
+    "arrived_destination": "Sei arrivato a destinazione. Grazie per aver utilizzato la nostra applicazione!"
   },
   "tour_page": {
     "title": "Tour",

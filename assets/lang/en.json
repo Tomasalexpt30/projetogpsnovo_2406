@@ -80,7 +80,8 @@
     "destination": "Destination",
     "current_location": "Current Location",
     "next": "Next",
-    "cancel_navigation": "Cancel Navigation"
+    "cancel_navigation": "Cancel Navigation",
+    "arrived_destination": "You have reached your destination. Thank you for using our application!"
   },
   "tour_page": {
     "title": "Guided Tour",

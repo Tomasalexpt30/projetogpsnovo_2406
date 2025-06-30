@@ -2,7 +2,7 @@
   "alerts": {
     "already_there": "Vous êtes déjà à {location}. Vous êtes arrivé à destination.",
     "path_not_found": "Vous êtes à {location}. Itinéraire introuvable.",
-    "arrived": "Vous êtes arrivé à destination. Merci d'utiliser notre application.",
+    "arrived_alert": "Vous êtes arrivé à destination. Merci d'utiliser notre application.",
     "at_location": "Vous êtes à : {location}",
     "navigation_cancelled": "Navigation annulée",
     "searching": "Recherche...",

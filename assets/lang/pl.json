@@ -80,7 +80,8 @@
     "destination": "Cel",
     "current_location": "Aktualna Lokalizacja",
     "next": "Następny",
-    "cancel_navigation": "Anuluj Nawigację"
+    "cancel_navigation": "Anuluj Nawigację",
+    "arrived_destination": "Dotarłeś do celu. Dziękujemy za korzystanie z naszej aplikacji!"
   },
   "tour_page": {
     "title": "Wycieczka z przewodnikiem",
