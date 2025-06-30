@@ -69,11 +69,12 @@
   },
   "navigation_map_selector": {
     "where_to_go": "Wohin möchten Sie gehen?",
-    "select_destination": "Ziel auswählen",
+    "select_destination": "Ziel Auswählen",
     "start_navigation": "Navigation starten",
     "by_voice": "Per Spracheingabe",
     "favorites": "Favoriten",
-    "add_favorite": "Zu Favoriten hinzufügen"
+    "add_favorite": "Zu Favoriten hinzufügen",
+    "close_popup": "Schließen"
   },
   "tour_page": {
     "title": "Geführte Tour",

@@ -69,11 +69,12 @@
   },
   "navigation_map_selector": {
     "where_to_go": "Waar wil je naartoe?",
-    "select_destination": "Selecteer bestemming",
+    "select_destination": "Selecteer Bestemming",
     "start_navigation": "Navigatie starten",
     "by_voice": "Via spraak",
     "favorites": "Favorieten",
-    "add_favorite": "Toevoegen aan favorieten"
+    "add_favorite": "Toevoegen aan favorieten",
+    "close_popup": "Sluiten"
   },
   "beacon_scan_page": {
     "destination": "Bestemming",

@@ -73,7 +73,8 @@
     "start_navigation": "Начать навигацию",
     "by_voice": "Голосом",
     "favorites": "Избранное",
-    "add_favorite": "Добавить в избранное"
+    "add_favorite": "Добавить в избранное",
+    "close_popup": "Закрыть"
   },
   "beacon_scan_page": {
     "destination": "Место назначения",

@@ -16,6 +16,28 @@ class NavigationMapSelectorPage extends StatefulWidget {
 }
 
 class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
+
+  final Map<String, List<String>> destinosPorPiso = {
+    'Piso -1': [
+      'Entrada',
+    ],
+    'Piso 0': [
+      'Pátio',
+    ],
+    'Piso 1': [
+      'Corredor 1',
+    ],
+    'Piso 2': [
+
+    ],
+    'Piso 3': [
+
+    ],
+    'Piso 4': [
+
+    ],
+  };
+
   final Map<String, String> destinosMap = {
     'entrada': 'Entrada',
     'pátio': 'Pátio',
@@ -23,6 +45,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   };
   final Set<String> destinosComBeacon = {'Entrada', 'Pátio', 'Corredor 1'};
   String? destinoSelecionado;
+
   late stt.SpeechToText _speech;
   final FlutterTts _tts = FlutterTts();
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -59,11 +82,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     _speech = stt.SpeechToText();
     _speechAvailable = await _speech.initialize(
       onStatus: (status) {
-        print('[STATUS] $status');
         _speechStatus = status;
       },
       onError: (error) async {
-        print('[ERRO] ${error.errorMsg}');
         if (_isListening) {
           setState(() => _isListening = false);
           String mensagemErro = "";
@@ -154,26 +175,147 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   void _mostrarAdicionarFavorito() {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('navigation_map_selector.add_favorite'.tr()),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: destinosDisponiveis.map((destino) {
-                return ListTile(
-                  title: Text(destino),
-                  onTap: () {
-                    _adicionarFavorito(destino);
-                    Navigator.of(context).pop();
-                  },
-                );
-              }).toList(),
+      builder: (context) {
+        return Dialog(
+          insetPadding: const EdgeInsets.symmetric(horizontal: 50, vertical: 80),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(
+                  child: Text(
+                    'navigation_map_selector.add_favorite'.tr(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Divider(),
+                SizedBox(
+                  height: 325,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: destinosPorPiso.entries.expand((entry) {
+                        final destinosFiltrados = entry.value.where((destino) =>
+                        destinosDisponiveis.contains(destino) && destinosComBeacon.contains(destino)).toList();
+
+                        if (destinosFiltrados.isEmpty) return <Widget>[];
+
+                        return [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: Text(
+                              entry.key,
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          ...destinosFiltrados.map((destino) {
+                            return ListTile(
+                              title: Text(destino),
+                              onTap: () {
+                                _adicionarFavorito(destino);
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          }).toList(),
+                          const Divider(),
+                        ];
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'privacy_policy.close'.tr(),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         );
       },
     );
   }
+
+  void _mostrarPopupDestinos() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          insetPadding: const EdgeInsets.symmetric(horizontal: 50, vertical: 80),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(
+                  child: Text(
+                    'navigation_map_selector.select_destination'.tr(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Divider(),
+                SizedBox(
+                  height: 325,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: destinosPorPiso.entries.expand((entry) {
+                        // Filtrar apenas destinos com beacon
+                        final destinosFiltrados = entry.value.where((destino) => destinosComBeacon.contains(destino)).toList();
+
+                        if (destinosFiltrados.isEmpty) return <Widget>[];
+
+                        return [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: Text(
+                              entry.key,
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          ...destinosFiltrados.map((destino) {
+                            return ListTile(
+                              title: Text(destino),
+                              onTap: () {
+                                setState(() {
+                                  destinoSelecionado = destino;
+                                });
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          }).toList(),
+                          const Divider(),
+                        ];
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(
+                      'privacy_policy.close'.tr(),
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 
   String _mensagem(String chave, {String? valor}) {
     String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ?? '';
@@ -209,7 +351,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     await _tts.stop();
     setState(() => _isListening = true);
 
-    // Start listening and wait until mic is ready
     _speechStatus = '';
     await _speech.listen(
       localeId: selectedLanguageCode,
@@ -252,18 +393,17 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       },
     );
 
-    // Espera até status ser "listening" (máx 1 segundo)
     int tentativas = 0;
     while (_speechStatus != 'listening' && tentativas < 20) {
       await Future.delayed(const Duration(milliseconds: 50));
       tentativas++;
     }
 
-    // Só agora toca o som, e o user pode falar
     await _playStartRecordingSoundAndWait();
   }
 
   String get imagemPiso => 'assets/images/map/00_piso.png';
+
   Future<void> speakAndBlock(String texto) async {
     if (soundEnabled) {
       setState(() {
@@ -319,21 +459,22 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
-                      DropdownButtonFormField<String>(
-                        decoration: const InputDecoration(border: OutlineInputBorder()),
-                        value: destinoSelecionado,
-                        hint: Text('navigation_map_selector.select_destination'.tr()),
-                        items: destinosMap.entries
-                            .map((entry) => DropdownMenuItem(
-                          value: entry.value,
-                          child: Text(entry.value),
-                        ))
-                            .toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            destinoSelecionado = value;
-                          });
-                        },
+                      GestureDetector(
+                        onTap: _mostrarPopupDestinos,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade600),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Center(
+                            child: Text(
+                              destinoSelecionado ?? 'navigation_map_selector.select_destination'.tr(),
+                              style: TextStyle(fontSize: 16, color: destinoSelecionado == null ? Colors.grey.shade600 : Colors.black),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Row(

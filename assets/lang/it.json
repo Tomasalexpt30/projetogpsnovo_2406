@@ -69,11 +69,12 @@
   },
   "navigation_map_selector": {
     "where_to_go": "Dove vuoi andare?",
-    "select_destination": "Seleziona destinazione",
+    "select_destination": "Seleziona Destinazione",
     "start_navigation": "Avvia navigazione",
     "by_voice": "Tramite voce",
     "favorites": "Preferiti",
-    "add_favorite": "Aggiungi ai preferiti"
+    "add_favorite": "Aggiungi ai preferiti",
+    "close_popup": "Chiudi"
   },
   "beacon_scan_page": {
     "destination": "Destinazione",

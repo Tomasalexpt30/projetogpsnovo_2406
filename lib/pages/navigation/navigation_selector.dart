@@ -9,11 +9,9 @@ class NavigationSelectorPage extends StatefulWidget {
 }
 
 class _NavigationSelectorPageState extends State<NavigationSelectorPage> {
-  // Mapear nomes técnicos para nomes amigáveis (se necessário)
-  final List<String> destinos = ['Entrada', 'Patio', 'Corredor 1'];
+  final List<String> destinos = ['Entrada', 'Patio', 'Corredor 1', 'Corredor 1', 'Corredor 1', 'Corredor 1', 'Corredor 1', 'Corredor 1'];
   String? destinoSelecionado;
 
-  // Mapeamento de destinos para nomes amigáveis
   final Map<String, String> destinosMap = {
     'entrada': 'Entrada',
     'pátio': 'Pátio',
@@ -61,7 +59,7 @@ class _NavigationSelectorPageState extends State<NavigationSelectorPage> {
                     MaterialPageRoute(
                       builder: (context) => BeaconScanPage(
                         destino: destinoSelecionado!,
-                        destinosMap: destinosMap, // Passando destinosMap
+                        destinosMap: destinosMap,
                       ),
                     ),
                   );

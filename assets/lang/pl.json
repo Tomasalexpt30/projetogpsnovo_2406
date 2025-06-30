@@ -69,11 +69,12 @@
   },
   "navigation_map_selector": {
     "where_to_go": "Dokąd chcesz się udać?",
-    "select_destination": "Wybierz cel",
+    "select_destination": "Wybierz Cel",
     "start_navigation": "Rozpocznij nawigację",
     "by_voice": "Głosem",
     "favorites": "Ulubione",
-    "add_favorite": "Dodaj do ulubionych"
+    "add_favorite": "Dodaj do ulubionych",
+    "close_popup": "Zamknij"
   },
   "beacon_scan_page": {
     "destination": "Cel",

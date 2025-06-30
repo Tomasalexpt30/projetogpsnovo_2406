@@ -69,11 +69,12 @@
   },
   "navigation_map_selector": {
     "where_to_go": "Nereye gitmek istiyorsunuz?",
-    "select_destination": "Hedef seçin",
+    "select_destination": "Hedef Seçin",
     "start_navigation": "Navigasyonu başlat",
     "by_voice": "Sesle",
     "favorites": "Favoriler",
-    "add_favorite": "Favorilere ekle"
+    "add_favorite": "Favorilere ekle",
+    "close_popup": "Kapat"
   },
   "beacon_scan_page": {
     "destination": "Hedef",
