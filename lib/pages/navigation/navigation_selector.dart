@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'beacon_scan_tts.dart';
+import 'navigation_scan.dart';
 
 class NavigationSelectorPage extends StatefulWidget {
   const NavigationSelectorPage({super.key});

@@ -130,7 +130,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   }
 
   Future<void> _loadMensagensTTS() async {
-    // Lógica universal para carregar o JSON correto do tour!
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [

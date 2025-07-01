@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'tour_scan_beacons.dart';
+import 'tour_scan.dart';
 
 class TourPage extends StatefulWidget {
   const TourPage({super.key});
