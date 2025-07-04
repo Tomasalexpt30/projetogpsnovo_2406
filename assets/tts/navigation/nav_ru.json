@@ -12,22 +12,24 @@
     "voice_selected_alert": "Выбран любимый пункт назначения: {destination}",
     "start_navigation_alert": "Давайте начнем навигацию с места назначения {destination}",
     "timeout_alert": "Превышено время ожидания аудио. Пожалуйста, попробуйте снова.",
-    "no_match_alert": "Не удалось распознать, что вы сказали. Пожалуйста, попробуйте еще раз."
+    "no_match_alert": "Не удалось распознать, что вы сказали. Пожалуйста, попробуйте еще раз.",
+    "navigation_end_alert": "Навигация завершена. Спасибо, что пользуетесь нашим приложением!"
   },
 
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Portaria"],
+      "beacon_description": "Описание Beacon 1",
+      "beacon_destinations": ["Вход", "Ресепшн"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
-
       "beacon_instructions": {
-        "Beacon 1-Portaria": "",
-        "Beacon 1-Beacon 2": "",
-        "Beacon 1-Beacon 3": ""
+        "Beacon 1-Вход": "Инструкция от Beacon 1 до Входа",
+        "Beacon 1-Ресепшн": "Инструкция от Beacon 1 до Ресепшн",
+        "Beacon 1-Beacon 2": "Инструкция от Beacon 1 до Beacon 2",
+        "Beacon 1-Beacon 3": "Инструкция от Beacon 1 до Beacon 3"
       }
     },
+
 
     "Beacon 2": {
       "beacon_floor": "-1",
@@ -45,18 +47,18 @@
 
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Pátio"],
+      "beacon_description": "Описание Beacon 3",
+      "beacon_destinations": ["Двор"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
-
       "beacon_instructions": {
-        "Beacon 3-Pátio": "",
-        "Beacon 3-Beacon 1": "",
-        "Beacon 3-Beacon 4": "",
-        "Beacon 3-Beacon 8": "",
-        "Beacon 3-Beacon 15": ""
+        "Beacon 3-Двор": "Инструкция от Beacon 3 до Двора",
+        "Beacon 3-Beacon 1": "Инструкция от Beacon 3 до Beacon 1",
+        "Beacon 3-Beacon 4": "Инструкция от Beacon 3 до Beacon 4",
+        "Beacon 3-Beacon 8": "Инструкция от Beacon 3 до Beacon 8",
+        "Beacon 3-Beacon 15": "Инструкция от Beacon 3 до Beacon 15"
       }
     },
+
 
     "Beacon 4": {
       "beacon_floor": "0",
@@ -221,17 +223,17 @@
 
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "Описание Beacon 15",
       "beacon_destinations": ["Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
-
       "beacon_instructions": {
-        "Beacon 15-Camões": "",
-        "Beacon 15-Beacon 3": "",
-        "Beacon 15-Beacon 16": "",
-        "Beacon 15-Beacon 22": ""
+        "Beacon 15-Camões": "Инструкция от Beacon 15 до Camões",
+        "Beacon 15-Beacon 3": "Инструкция от Beacon 15 до Beacon 3",
+        "Beacon 15-Beacon 16": "Инструкция от Beacon 15 до Beacon 16",
+        "Beacon 15-Beacon 22": "Инструкция от Beacon 15 до Beacon 22"
       }
     },
+
 
     "Beacon 16": {
       "beacon_floor": "0",
@@ -520,19 +522,11 @@
       }
     }
   },
-
-  "instructions": {
-    "Entrada-Pátio": "Идите прямо от Entrada к Pátio.",
-    "Pátio-Entrada": "Вернитесь от Pátio к Entrada.",
-    "Pátio-Corredor 1": "Идите прямо от Pátio к Corredor 1.",
-    "Corredor 1-Pátio": "Вернитесь от Corredor 1 к Pátio.",
-    "Entrada-Corredor 1": "Идите прямо от Entrada, пройдите через Pátio и продолжайте до Corredor 1.",
-    "Corredor 1-Entrada": "Вернитесь от Corredor 1, пройдите через Pátio и продолжайте до Entrada."
-  },
-
   "voice_commands": {
-    "вход": "Entrada",
-    "внутренний двор": "Pátio",
-    "коридор 1": "Corredor 1"
+    "вход": "Вход",
+    "ресепшн": "Ресепшн",
+    "двор": "Двор",
+    "camões": "Camões"
   }
+
 }

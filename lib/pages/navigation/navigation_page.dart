@@ -11,41 +11,22 @@ import 'package:diacritic/diacritic.dart';
 
 class NavigationMapSelectorPage extends StatefulWidget {
   const NavigationMapSelectorPage({super.key});
+
   @override
   State<NavigationMapSelectorPage> createState() => _NavigationMapSelectorPageState();
 }
 
 class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
+  // JSON carregado
+  Map<String, dynamic> mensagens = {};
+  Map<String, dynamic> beacons = {};
+  Map<String, String> voiceCommandsMap = {};
 
-  final Map<String, List<String>> destinosPorPiso = {
-    'Piso -1': [
-      'Entrada',
-    ],
-    'Piso 0': [
-      'Pátio',
-    ],
-    'Piso 1': [
-      'Corredor 1',
-    ],
-    'Piso 2': [
+  // Beacons ativos
+  List<String> beaconsAtivos = ['Beacon 1', 'Beacon 3', 'Beacon 15'];
 
-    ],
-    'Piso 3': [
-
-    ],
-    'Piso 4': [
-
-    ],
-  };
-
-  final Map<String, String> destinosMap = {
-    'entrada': 'Entrada',
-    'pátio': 'Pátio',
-    'corredor 1': 'Corredor 1',
-  };
-  final Set<String> destinosComBeacon = {'Entrada', 'Pátio', 'Corredor 1'};
+  // Estado
   String? destinoSelecionado;
-
   late stt.SpeechToText _speech;
   final FlutterTts _tts = FlutterTts();
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -53,22 +34,13 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   bool _speechAvailable = false;
   bool _isListening = false;
   String selectedLanguageCode = 'pt-PT';
-  Map<String, dynamic> mensagens = {};
-  Map<String, String> voiceCommandsMap = {};
   bool soundEnabled = true;
   bool isSpeaking = false;
   String _speechStatus = '';
 
-  List<String> favoritos = [
-    'Entrada',
-    'Corredor 1',
-    'Pátio',
-  ];
-  List<String> destinosDisponiveis = [
-    'Entrada',
-    'Corredor 1',
-    'Pátio',
-  ];
+  // Favoritos
+  List<String> favoritos = [];
+  List<String> destinosDisponiveis = [];
 
   @override
   void initState() {
@@ -76,6 +48,51 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     _initSpeech();
     _loadSettings();
     _loadFavorites();
+  }
+
+  Set<String> get destinosComBeacon {
+    Set<String> destinos = {};
+    for (var beaconId in beaconsAtivos) {
+      final beacon = beacons[beaconId];
+      if (beacon != null && beacon['beacon_destinations'] != null) {
+        destinos.addAll(List<String>.from(beacon['beacon_destinations']));
+      }
+    }
+    return destinos;
+  }
+
+  Map<String, List<String>> get destinosPorPiso {
+    Map<String, List<String>> pisos = {
+      'Piso -1': [],
+      'Piso 0': [],
+      'Piso 1': [],
+      'Piso 2': [],
+      'Piso 3': [],
+      'Piso 4': [],
+    };
+
+    for (var beaconId in beaconsAtivos) {
+      final beacon = beacons[beaconId];
+      if (beacon != null) {
+        String piso = 'Piso ${beacon['beacon_floor']}';
+        List<String> destinos = List<String>.from(beacon['beacon_destinations'] ?? []);
+        if (pisos.containsKey(piso)) {
+          pisos[piso]?.addAll(destinos);
+        }
+      }
+    }
+
+    return pisos;
+  }
+
+  Map<String, String> get destinosMap {
+    Map<String, String> map = {};
+    for (var entry in voiceCommandsMap.entries) {
+      if (destinosComBeacon.contains(entry.value)) {
+        map[entry.key] = entry.value;
+      }
+    }
+    return map;
   }
 
   Future<void> _initSpeech() async {
@@ -135,7 +152,12 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     setState(() {
       mensagens = jsonString != null ? json.decode(jsonString) : {};
       voiceCommandsMap = Map<String, String>.from(mensagens['voice_commands'] ?? {});
+      beacons = mensagens['beacons'] ?? {};
     });
+
+    // Atualizar destinos disponíveis com base no JSON carregado
+    destinosDisponiveis = destinosComBeacon.toList();
+    destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
   }
 
   String normalizarTexto(String texto) {
@@ -170,6 +192,106 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       favoritos = favoritosGuardados;
       destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
     });
+  }
+
+  String _mensagem(String chave, {String? valor}) {
+    String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ?? '';
+    if (valor != null) {
+      raw = raw.replaceAll('{destination}', valor);
+    }
+    return raw;
+  }
+
+  Future<void> _playStartRecordingSoundAndWait() async {
+    await _audioPlayer.play(AssetSource('sounds/start_recording_sound.mp3'));
+    await Future.delayed(const Duration(milliseconds: 700));
+  }
+
+  Future<void> _playStopRecordingSound() async {
+    await _audioPlayer.play(AssetSource('sounds/stop_recording_sound.mp3'));
+  }
+
+  Future<void> _tratarComandoInvalido() async {
+    await _speech.stop();
+    await _playStopRecordingSound();
+
+    setState(() => _isListening = false);
+
+    if (soundEnabled) {
+      await _tts.speak(_mensagem('voice_unavailable_alert'));
+      await _tts.awaitSpeakCompletion(true);
+    }
+  }
+
+  Future<void> _ouvirComando() async {
+    if (!_speechAvailable) return;
+    await _tts.stop();
+    setState(() => _isListening = true);
+
+    _speechStatus = '';
+    await _speech.listen(
+      localeId: selectedLanguageCode,
+      listenMode: stt.ListenMode.dictation,
+      listenFor: const Duration(minutes: 5),
+      pauseFor: const Duration(minutes: 2),
+      onResult: (result) async {
+        if (!result.finalResult) return;
+        final textoReconhecido = normalizarTexto(result.recognizedWords);
+        for (final entrada in voiceCommandsMap.entries) {
+          if (textoReconhecido.contains(normalizarTexto(entrada.key))) {
+            final destino = entrada.value;
+            if (destinosComBeacon.contains(destino)) {
+              setState(() {
+                destinoSelecionado = destino;
+                _isListening = false;
+              });
+              await _speech.stop();
+              await _playStopRecordingSound();
+              if (soundEnabled) {
+                await _tts.speak(_mensagem('voice_start_alert', valor: destino));
+                await _tts.awaitSpeakCompletion(true);
+              }
+              await Future.delayed(const Duration(seconds: 1));
+              if (!mounted) return;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BeaconScanPage(
+                    destino: destino,
+                    destinosMap: destinosMap,
+                  ),
+                ),
+              );
+              return;
+            }
+          }
+        }
+        await _tratarComandoInvalido();
+      },
+    );
+
+    int tentativas = 0;
+    while (_speechStatus != 'listening' && tentativas < 20) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      tentativas++;
+    }
+
+    await _playStartRecordingSoundAndWait();
+  }
+
+  String get imagemPiso => 'assets/images/map/00_piso.png';
+
+  Future<void> speakAndBlock(String texto) async {
+    if (soundEnabled) {
+      setState(() {
+        isSpeaking = true;
+      });
+      await _tts.speak(texto);
+      await _tts.awaitSpeakCompletion(true);
+      setState(() {
+        isSpeaking = false;
+      });
+    }
   }
 
   void _mostrarAdicionarFavorito() {
@@ -313,107 +435,6 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
         );
       },
     );
-  }
-
-
-  String _mensagem(String chave, {String? valor}) {
-    String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ?? '';
-    if (valor != null) {
-      raw = raw.replaceAll('{destination}', valor);
-    }
-    return raw;
-  }
-
-  Future<void> _playStartRecordingSoundAndWait() async {
-    await _audioPlayer.play(AssetSource('sounds/start_recording_sound.mp3'));
-    await Future.delayed(const Duration(milliseconds: 700));
-  }
-
-  Future<void> _playStopRecordingSound() async {
-    await _audioPlayer.play(AssetSource('sounds/stop_recording_sound.mp3'));
-  }
-
-  Future<void> _tratarComandoInvalido() async {
-    await _speech.stop();
-    await _playStopRecordingSound();
-
-    setState(() => _isListening = false);
-
-    if (soundEnabled) {
-      await _tts.speak(_mensagem('voice_unavailable_alert'));
-      await _tts.awaitSpeakCompletion(true);
-    }
-  }
-
-  Future<void> _ouvirComando() async {
-    if (!_speechAvailable) return;
-    await _tts.stop();
-    setState(() => _isListening = true);
-
-    _speechStatus = '';
-    await _speech.listen(
-      localeId: selectedLanguageCode,
-      listenMode: stt.ListenMode.dictation,
-      listenFor: const Duration(minutes: 5),
-      pauseFor: const Duration(minutes: 2),
-      onResult: (result) async {
-        if (!result.finalResult) return;
-        final textoReconhecido = normalizarTexto(result.recognizedWords);
-        for (final entrada in voiceCommandsMap.entries) {
-          if (textoReconhecido.contains(normalizarTexto(entrada.key))) {
-            final destino = entrada.value;
-            if (destinosComBeacon.contains(destino)) {
-              setState(() {
-                destinoSelecionado = destino;
-                _isListening = false;
-              });
-              await _speech.stop();
-              await _playStopRecordingSound();
-              if (soundEnabled) {
-                await _tts.speak(_mensagem('voice_start_alert', valor: destino));
-                await _tts.awaitSpeakCompletion(true);
-              }
-              await Future.delayed(const Duration(seconds: 1));
-              if (!mounted) return;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BeaconScanPage(
-                    destino: destino,
-                    destinosMap: destinosMap,
-                  ),
-                ),
-              );
-              return;
-            }
-          }
-        }
-        await _tratarComandoInvalido();
-      },
-    );
-
-    int tentativas = 0;
-    while (_speechStatus != 'listening' && tentativas < 20) {
-      await Future.delayed(const Duration(milliseconds: 50));
-      tentativas++;
-    }
-
-    await _playStartRecordingSoundAndWait();
-  }
-
-  String get imagemPiso => 'assets/images/map/00_piso.png';
-
-  Future<void> speakAndBlock(String texto) async {
-    if (soundEnabled) {
-      setState(() {
-        isSpeaking = true;
-      });
-      await _tts.speak(texto);
-      await _tts.awaitSpeakCompletion(true);
-      setState(() {
-        isSpeaking = false;
-      });
-    }
   }
 
   @override

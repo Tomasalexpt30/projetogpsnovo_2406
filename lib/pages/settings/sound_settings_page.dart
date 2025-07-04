@@ -172,8 +172,13 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
                 setState(() {
                   selectedLanguageCode = selected;
                 });
+                await _preferencesHelper.clearFavorites(); // Limpar favoritos ao mudar de idioma
                 await _configurarTTS();
-                _saveSoundSettings();
+                await _saveSoundSettings();
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Os favoritos foram limpos devido à mudança de idioma.')),
+                );
               }
             },
           ),

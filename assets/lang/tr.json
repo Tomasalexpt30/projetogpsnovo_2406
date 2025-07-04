@@ -82,7 +82,8 @@
     "next": "Sonraki",
     "description": "Açıklama",
     "cancel_navigation": "İptal",
-    "arrived_destination": "Varış noktanıza ulaştınız. Uygulamamızı kullandığınız için teşekkür ederiz!"
+    "navigation_end": "Navigasyon tamamlandı. Uygulamamızı kullandığınız için teşekkür ederiz!"
+
   },
   "tour_page": {
     "title": "Rehberli Tur",

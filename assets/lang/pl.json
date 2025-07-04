@@ -82,7 +82,8 @@
     "next": "Następny",
     "description": "Opis",
     "cancel_navigation": "Anuluj",
-    "arrived_destination": "Dotarłeś do celu. Dziękujemy za korzystanie z naszej aplikacji!"
+    "navigation_end": "Nawigacja zakończona. Dziękujemy za korzystanie z naszej aplikacji!"
+
   },
   "tour_page": {
     "title": "Wycieczka z przewodnikiem",

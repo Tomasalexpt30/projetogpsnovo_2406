@@ -82,7 +82,8 @@
     "next": "Siguiente",
     "description": "Descripción",
     "cancel_navigation": "Cancelar",
-    "arrived_destination": "Ha llegado a su destino. ¡Gracias por usar nuestra aplicación!"
+    "navigation_end": "Navegación completada. ¡Gracias por usar nuestra aplicación!"
+
   },
   "tour_page": {
     "title": "Visita Guiada",

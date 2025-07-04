@@ -2,7 +2,6 @@
   "alerts": {
     "already_there_alert": "Já se encontra em {location}. Chegou ao seu destino.",
     "path_not_found_alert": "Encontra-se em {location}. Caminho não encontrado.",
-    "arrived_alert": "Chegou ao seu destino. Obrigado por usar a nossa aplicação.",
     "at_location_alert": "Encontra-se em: {location}",
     "navigation_cancelled_alert": "Navegação cancelada",
     "searching_alert": "A procurar...",
@@ -12,20 +11,22 @@
     "voice_selected_alert": "Destino favorito selecionado: {destination}",
     "start_navigation_alert": "Vamos iniciar a navegação com o destino {destination}",
     "timeout_alert": "Tempo limite de áudio excedido. Por favor, tente novamente.",
-    "no_match_alert": "Não foi possível reconhecer o que disse. Por favor, tente novamente."
+    "no_match_alert": "Não foi possível reconhecer o que disse. Por favor, tente novamente.",
+    "navigation_end_alert": "Navegação concluida. Obrigado por usar a nossa aplicação!"
   },
 
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Portaria"],
+      "beacon_description": "Descrição do Beacon 1",
+      "beacon_destinations": ["Entrada","Portaria"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
 
       "beacon_instructions": {
-        "Beacon 1-Portaria": "",
-        "Beacon 1-Beacon 2": "",
-        "Beacon 1-Beacon 3": ""
+        "Beacon 1-Entrada": "Instrução Beacon 1 para Entrada",
+        "Beacon 1-Portaria": "Instrução Beacon 1 para Portaria",
+        "Beacon 1-Beacon 2": "Instrução Beacon 1 para Beacon 2",
+        "Beacon 1-Beacon 3": "Instrução Beacon 1 para Beacon 3"
       }
     },
 
@@ -45,16 +46,16 @@
 
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "Descrição do Beacon 3",
       "beacon_destinations": ["Pátio"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
 
       "beacon_instructions": {
-        "Beacon 3-Pátio": "",
-        "Beacon 3-Beacon 1": "",
-        "Beacon 3-Beacon 4": "",
-        "Beacon 3-Beacon 8": "",
-        "Beacon 3-Beacon 15": ""
+        "Beacon 3-Pátio": "Instrução Beacon 3 para Pátio",
+        "Beacon 3-Beacon 1": "Instrução Beacon 3 para Beacon 1",
+        "Beacon 3-Beacon 4": "Instrução Beacon 3 para Beacon 4",
+        "Beacon 3-Beacon 8": "Instrução Beacon 3 para Beacon 8",
+        "Beacon 3-Beacon 15": "Instrução Beacon 3 para Beacon 15"
       }
     },
 
@@ -221,15 +222,15 @@
 
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "Descrição do Beacon 15",
       "beacon_destinations": ["Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
 
       "beacon_instructions": {
-        "Beacon 15-Camões": "",
-        "Beacon 15-Beacon 3": "",
-        "Beacon 15-Beacon 16": "",
-        "Beacon 15-Beacon 22": ""
+        "Beacon 15-Camões": "Instrução Beacon 15 para Camões",
+        "Beacon 15-Beacon 3": "Instrução Beacon 15 para Beacon 3",
+        "Beacon 15-Beacon 16": "Instrução Beacon 15 para Beacon 16",
+        "Beacon 15-Beacon 22": "Instrução Beacon 15 para Beacon 22"
       }
     },
 
@@ -520,26 +521,11 @@
       }
     }
   },
-
-  "instructions": {
-    "Entrada-Pátio": "Siga em frente desde a Entrada até ao Pátio.",
-    "Pátio-Entrada": "Volte para trás desde o Pátio até à Entrada.",
-    "Pátio-Corredor 1": "Continue em frente desde o Pátio até ao Corredor 1.",
-    "Corredor 1-Pátio": "Volte para trás desde o Corredor 1 até ao Pátio.",
-    "Entrada-Corredor 1": "Siga em frente desde a Entrada, passe pelo Pátio e continue até ao Corredor 1.",
-    "Corredor 1-Entrada": "Volte para trás desde o Corredor 1, passe pelo Pátio e continue até à Entrada."
-  },
-
-  "descriptions": {
-    "Entrada": "Á sua volta tem a portaria e o Pátio",
-    "Pátio": "Á sua volta tem as escadas, a entrada e vários bancos",
-    "Corredor 1": "Á sua volta tem as escadas, o pátio e a estátua do Luis de Camões"
-  },
-
   "voice_commands": {
     "entrada": "Entrada",
     "pátio": "Pátio",
-    "corredor 1": "Corredor 1"
+    "camões": "Camões",
+    "portaria": "Portaria"
   }
 }
 

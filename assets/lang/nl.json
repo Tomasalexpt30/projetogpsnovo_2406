@@ -82,7 +82,8 @@
     "next": "Volgende",
     "description": "Beschrijving",
     "cancel_navigation": "Annuleren",
-    "arrived_destination": "U heeft uw bestemming bereikt. Bedankt voor het gebruiken van onze applicatie!"
+    "navigation_end": "Navigatie voltooid. Bedankt voor het gebruiken van onze applicatie!"
+
   },
   "tour_page": {
     "title": "Rondleiding",

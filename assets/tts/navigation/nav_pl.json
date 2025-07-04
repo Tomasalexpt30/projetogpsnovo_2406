@@ -12,22 +12,24 @@
     "voice_selected_alert": "Wybrano ulubiony cel: {destination}",
     "start_navigation_alert": "Zacznijmy nawigację z celem {destination}",
     "timeout_alert": "Przekroczono limit czasu nagrania. Spróbuj ponownie.",
-    "no_match_alert": "Nie udało się rozpoznać, co powiedziałeś. Proszę spróbować ponownie."
+    "no_match_alert": "Nie udało się rozpoznać, co powiedziałeś. Proszę spróbować ponownie.",
+    "navigation_end_alert": "Nawigacja zakończona. Dziękujemy za korzystanie z naszej aplikacji!"
   },
 
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Portaria"],
+      "beacon_description": "Opis Beacon 1",
+      "beacon_destinations": ["Wejście", "Recepcja"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
-
       "beacon_instructions": {
-        "Beacon 1-Portaria": "",
-        "Beacon 1-Beacon 2": "",
-        "Beacon 1-Beacon 3": ""
+        "Beacon 1-Wejście": "Instrukcja od Beacon 1 do Wejścia",
+        "Beacon 1-Recepcja": "Instrukcja od Beacon 1 do Recepcji",
+        "Beacon 1-Beacon 2": "Instrukcja od Beacon 1 do Beacon 2",
+        "Beacon 1-Beacon 3": "Instrukcja od Beacon 1 do Beacon 3"
       }
     },
+
 
     "Beacon 2": {
       "beacon_floor": "-1",
@@ -45,16 +47,15 @@
 
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Pátio"],
+      "beacon_description": "Opis Beacon 3",
+      "beacon_destinations": ["Dziedziniec"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
-
       "beacon_instructions": {
-        "Beacon 3-Pátio": "",
-        "Beacon 3-Beacon 1": "",
-        "Beacon 3-Beacon 4": "",
-        "Beacon 3-Beacon 8": "",
-        "Beacon 3-Beacon 15": ""
+        "Beacon 3-Dziedziniec": "Instrukcja od Beacon 3 do Dziedzińca",
+        "Beacon 3-Beacon 1": "Instrukcja od Beacon 3 do Beacon 1",
+        "Beacon 3-Beacon 4": "Instrukcja od Beacon 3 do Beacon 4",
+        "Beacon 3-Beacon 8": "Instrukcja od Beacon 3 do Beacon 8",
+        "Beacon 3-Beacon 15": "Instrukcja od Beacon 3 do Beacon 15"
       }
     },
 
@@ -221,17 +222,17 @@
 
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "Opis Beacon 15",
       "beacon_destinations": ["Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
-
       "beacon_instructions": {
-        "Beacon 15-Camões": "",
-        "Beacon 15-Beacon 3": "",
-        "Beacon 15-Beacon 16": "",
-        "Beacon 15-Beacon 22": ""
+        "Beacon 15-Camões": "Instrukcja od Beacon 15 do Camões",
+        "Beacon 15-Beacon 3": "Instrukcja od Beacon 15 do Beacon 3",
+        "Beacon 15-Beacon 16": "Instrukcja od Beacon 15 do Beacon 16",
+        "Beacon 15-Beacon 22": "Instrukcja od Beacon 15 do Beacon 22"
       }
     },
+
 
     "Beacon 16": {
       "beacon_floor": "0",
@@ -520,19 +521,10 @@
       }
     }
   },
-
-  "instructions": {
-    "Entrada-Pátio": "Idź prosto z Entrada do Pátio.",
-    "Pátio-Entrada": "Wróć z Pátio do Entrada.",
-    "Pátio-Corredor 1": "Idź prosto z Pátio do Corredor 1.",
-    "Corredor 1-Pátio": "Wróć z Corredor 1 do Pátio.",
-    "Entrada-Corredor 1": "Idź prosto z Entrada, przejdź przez Pátio i kontynuuj do Corredor 1.",
-    "Corredor 1-Entrada": "Wróć z Corredor 1, przejdź przez Pátio i kontynuuj do Entrada."
-  },
-
   "voice_commands": {
-    "wejście": "Entrada",
-    "dziedziniec": "Pátio",
-    "korytarz 1": "Corredor 1"
+    "wejście": "Wejście",
+    "recepcja": "Recepcja",
+    "dziedziniec": "Dziedziniec",
+    "camões": "Camões"
   }
 }

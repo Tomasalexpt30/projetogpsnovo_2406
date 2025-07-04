@@ -12,22 +12,24 @@
     "voice_selected_alert": "Favoriete bestemming geselecteerd: {destination}",
     "start_navigation_alert": "Laten we de navigatie starten met de bestemming {destination}",
     "timeout_alert": "Audiotime-out overschreden. Probeer het opnieuw.",
-    "no_match_alert": "Het was niet mogelijk te herkennen wat u zei. Probeer het alstublieft opnieuw."
+    "no_match_alert": "Het was niet mogelijk te herkennen wat u zei. Probeer het alstublieft opnieuw.",
+    "navigation_end_alert": "Navigatie voltooid. Bedankt voor het gebruiken van onze applicatie!"
   },
 
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Portaria"],
+      "beacon_description": "Beschrijving van Beacon 1",
+      "beacon_destinations": ["Ingang", "Receptie"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
-
       "beacon_instructions": {
-        "Beacon 1-Portaria": "",
-        "Beacon 1-Beacon 2": "",
-        "Beacon 1-Beacon 3": ""
+        "Beacon 1-Ingang": "Instructie van Beacon 1 naar de Ingang",
+        "Beacon 1-Receptie": "Instructie van Beacon 1 naar de Receptie",
+        "Beacon 1-Beacon 2": "Instructie van Beacon 1 naar Beacon 2",
+        "Beacon 1-Beacon 3": "Instructie van Beacon 1 naar Beacon 3"
       }
     },
+
 
     "Beacon 2": {
       "beacon_floor": "-1",
@@ -45,18 +47,18 @@
 
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Pátio"],
+      "beacon_description": "Beschrijving van Beacon 3",
+      "beacon_destinations": ["Binnenplaats"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
-
       "beacon_instructions": {
-        "Beacon 3-Pátio": "",
-        "Beacon 3-Beacon 1": "",
-        "Beacon 3-Beacon 4": "",
-        "Beacon 3-Beacon 8": "",
-        "Beacon 3-Beacon 15": ""
+        "Beacon 3-Binnenplaats": "Instructie van Beacon 3 naar de Binnenplaats",
+        "Beacon 3-Beacon 1": "Instructie van Beacon 3 naar Beacon 1",
+        "Beacon 3-Beacon 4": "Instructie van Beacon 3 naar Beacon 4",
+        "Beacon 3-Beacon 8": "Instructie van Beacon 3 naar Beacon 8",
+        "Beacon 3-Beacon 15": "Instructie van Beacon 3 naar Beacon 15"
       }
     },
+
 
     "Beacon 4": {
       "beacon_floor": "0",
@@ -221,17 +223,17 @@
 
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "Beschrijving van Beacon 15",
       "beacon_destinations": ["Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
-
       "beacon_instructions": {
-        "Beacon 15-Camões": "",
-        "Beacon 15-Beacon 3": "",
-        "Beacon 15-Beacon 16": "",
-        "Beacon 15-Beacon 22": ""
+        "Beacon 15-Camões": "Instructie van Beacon 15 naar Camões",
+        "Beacon 15-Beacon 3": "Instructie van Beacon 15 naar Beacon 3",
+        "Beacon 15-Beacon 16": "Instructie van Beacon 15 naar Beacon 16",
+        "Beacon 15-Beacon 22": "Instructie van Beacon 15 naar Beacon 22"
       }
     },
+
 
     "Beacon 16": {
       "beacon_floor": "0",
@@ -520,19 +522,10 @@
       }
     }
   },
-
-  "instructions": {
-    "Entrada-Pátio": "Ga rechtdoor van Entrada naar Pátio.",
-    "Pátio-Entrada": "Ga terug van Pátio naar Entrada.",
-    "Pátio-Corredor 1": "Ga rechtdoor van Pátio naar Corredor 1.",
-    "Corredor 1-Pátio": "Ga terug van Corredor 1 naar Pátio.",
-    "Entrada-Corredor 1": "Ga rechtdoor van Entrada, door Pátio en verder naar Corredor 1.",
-    "Corredor 1-Entrada": "Ga terug van Corredor 1, door Pátio en verder naar Entrada."
-  },
-
   "voice_commands": {
-    "ingang": "Entrada",
-    "binnenplaats": "Pátio",
-    "gang 1": "Corredor 1"
+    "ingang": "Ingang",
+    "receptie": "Receptie",
+    "binnenplaats": "Binnenplaats",
+    "camões": "Camões"
   }
 }

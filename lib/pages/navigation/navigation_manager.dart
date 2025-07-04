@@ -27,22 +27,20 @@ class BeaconInfo {
 
 class NavigationManager {
   final Map<BeaconInfo, String> beaconLocations = {
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:CA'): 'Entrada',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:E3'): 'Pátio',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:B2'): 'Corredor 1',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:CA'): 'Beacon 1',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:E3'): 'Beacon 3',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:B2'): 'Beacon 15',
   };
 
-  final Map<String, Map<String, int>> mapaFaculdade = {
-    'Entrada': {'Pátio': 2},
-    'Pátio': {'Entrada': 2, 'Corredor 1': 2},
-    'Corredor 1': {'Pátio': 2},
-  };
-
+  Map<String, Map<String, int>> mapaFaculdade = {};
   Map<String, String> instrucoesCarregadas = {};
+  Map<String, dynamic> jsonBeacons = {};
 
+  /// Carrega as instruções e o mapa com as conexões e destinos dos beacons operacionais
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+
     List<String> paths = [
       'assets/tts/navigation/nav_$fullCode.json',
       'assets/tts/navigation/nav_$langCode.json',
@@ -56,8 +54,42 @@ class NavigationManager {
         break;
       } catch (_) {}
     }
+
     final Map<String, dynamic> jsonData = jsonString != null ? json.decode(jsonString) : {};
     instrucoesCarregadas = Map<String, String>.from(jsonData['instructions'] ?? {});
+    jsonBeacons = jsonData['beacons'] ?? {};
+
+    _construirMapa();
+  }
+
+  /// Constrói o mapa considerando apenas os beacons operacionais
+  void _construirMapa() {
+    mapaFaculdade.clear();
+
+    List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 15'];
+
+    for (var beaconKey in beaconsOperacionais) {
+      if (jsonBeacons.containsKey(beaconKey)) {
+        final beaconData = jsonBeacons[beaconKey];
+        final destinos = List<String>.from(beaconData['beacon_destinations'] ?? []);
+        final conexoes = List<String>.from(beaconData['beacon_connections'] ?? []);
+
+        mapaFaculdade[beaconKey] = {};
+
+        // Adiciona conexões
+        for (var conexao in conexoes) {
+          if (beaconsOperacionais.contains(conexao)) {
+            mapaFaculdade[beaconKey]![conexao] = 1; // Distância arbitrária
+          }
+        }
+
+        // Adiciona destinos como nós diretos (para que Dijkstra funcione)
+        for (var destino in destinos) {
+          mapaFaculdade[beaconKey]![destino] = 1; // Distância arbitrária
+          mapaFaculdade[destino] = {beaconKey: 1}; // Ligação reversa
+        }
+      }
+    }
   }
 
   String? getLocalizacao(BeaconInfo beacon) {
@@ -97,6 +129,7 @@ class NavigationManager {
       path.insert(0, u);
       u = prev[u];
     }
+
     return path.isNotEmpty && path.first == origem ? path : null;
   }
 
@@ -107,10 +140,46 @@ class NavigationManager {
       final chave = '${caminho[i]}-${caminho[i + 1]}';
       if (instrucoesCarregadas.containsKey(chave)) {
         instr.add(instrucoesCarregadas[chave]!);
+      } else {
+        // Se não houver instrução carregada, tenta buscar no beacon_instructions
+        final instruction = buscarInstrucaoNoBeacon(caminho[i], caminho[i + 1]);
+        if (instruction != null && instruction.isNotEmpty) {
+          instr.add(instruction);
+        }
       }
     }
 
     return instr;
+  }
+
+  /// Busca a instrução no JSON original se não tiver sido carregada para TTS
+  String? buscarInstrucaoNoBeacon(String origem, String destino) {
+    if (jsonBeacons.containsKey(origem)) {
+      final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {};
+      final chave = '$origem-$destino';
+      return instructions[chave] ?? '';
+    }
+    return '';
+  }
+
+  /// Verifica se o próximo passo é um destino final (não é outro beacon)
+  bool isDestinoFinal(String localAtual, String proximoPasso) {
+    if (jsonBeacons.containsKey(localAtual)) {
+      final destinos = List<String>.from(jsonBeacons[localAtual]['beacon_destinations'] ?? []);
+      return destinos.contains(proximoPasso);
+    }
+    return false;
+  }
+
+  /// Devolve o beacon associado a um destino
+  String? getBeaconDoDestino(String destino) {
+    for (var beaconKey in jsonBeacons.keys) {
+      final destinos = List<String>.from(jsonBeacons[beaconKey]['beacon_destinations'] ?? []);
+      if (destinos.contains(destino)) {
+        return beaconKey;
+      }
+    }
+    return null;
   }
 
   BeaconInfo? parseBeaconData(ScanResult result) {

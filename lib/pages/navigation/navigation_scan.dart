@@ -1,3 +1,5 @@
+// beacon_scan_page.dart
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
@@ -26,7 +28,13 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   final NavigationManager nav = NavigationManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
+  bool isFinalizing = false;
+
   Map<String, dynamic> mensagens = {};
+
+  late String? beaconDoDestino;
+
+  String ultimaInstrucaoFalada = '';
 
   String? localAtual;
   List<String> rota = [];
@@ -64,9 +72,9 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   String status = '';
 
   final Map<String, Offset> beaconPositions = {
-    'Entrada': Offset(300, 500),
-    'Pátio': Offset(300, 250),
-    'Corredor 1': Offset(380, 95),
+    'Beacon 1': Offset(300, 500),
+    'Beacon 3': Offset(300, 250),
+    'Beacon 15': Offset(380, 95),
   };
 
   @override
@@ -79,6 +87,26 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     pedirPermissoes();
   }
 
+  Future<void> finalizarNavegacao() async {
+    print('[DEBUG] Scan parado - navegação concluída');
+    FlutterBluePlus.stopScan();
+
+    if (vibrationEnabled) {
+      print('[DEBUG] Vibração longa - navegação concluída');
+      Vibration.vibrate(duration: 800);
+    }
+
+    await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluida.');
+
+    setState(() {
+      chegou = true;
+      status = 'beacon_scan_page.navigation_end'.tr();
+    });
+
+    isFinalizing = true; // 🔒 Bloquear novas leituras
+  }
+
+
   Future<void> pedirPermissoes() async {
     await [
       Permission.bluetooth,
@@ -89,6 +117,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
     await _loadSettings();
     await nav.carregarInstrucoes(selectedLanguageCode);
+    beaconDoDestino = nav.getBeaconDoDestino(widget.destino);
     iniciarScan();
   }
 
@@ -129,8 +158,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   void iniciarScan() {
     FlutterBluePlus.startScan();
 
-    FlutterBluePlus.scanResults.listen((results) {
-      if (chegou || isNavigationCanceled) return;
+    FlutterBluePlus.scanResults.listen((results) async {
+      if (chegou || isNavigationCanceled || isFinalizing) return;
 
       for (final result in results) {
         final beacon = nav.parseBeaconData(result);
@@ -146,87 +175,130 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         ultimaDetecao = agora;
 
+        // 🔹 Caso 1: O utilizador já está no beacon do destino
         if (rota.isEmpty) {
-          if (local == widget.destino) {
-            falar(mensagens['alerts']?['arrived_alert'] ?? '');
+          if (local == nav.getBeaconDoDestino(widget.destino)) {
+            isFinalizing = true;
+
+            print('[DEBUG] Já está no beacon do destino: $local');
+
             if (vibrationEnabled) {
-              Vibration.hasVibrator().then((hasVibrator) {
-                if (hasVibrator ?? false) Vibration.vibrate(duration: 600);
-              });
+              print('[DEBUG] Vibração curta - já está no beacon do destino');
+              Vibration.vibrate(duration: 400);
             }
+
+            final instrucaoDireta = nav.buscarInstrucaoNoBeacon(local, widget.destino);
+            if (instrucaoDireta != null && instrucaoDireta.isNotEmpty) {
+              print('[DEBUG] A falar instrução direta: $instrucaoDireta');
+              atualizarPosicaoVisual(local); // 👉 Mostra seta
+              setState(() {
+                mostrarSeta = true;
+              });
+              await falar(instrucaoDireta);
+            }
+
+            FlutterBluePlus.stopScan();
+            print('[DEBUG] Scan parado - navegação concluída');
+            if (vibrationEnabled) {
+              print('[DEBUG] Vibração longa - navegação concluída');
+              Vibration.vibrate(duration: 600);
+            }
+
             setState(() {
               chegou = true;
-              status = 'beacon_scan_page.arrived_destination'.tr();
+              status = 'beacon_scan_page.navigation_end'.tr();
             });
+
+            await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
+            return;
+          } else {
+            // Criar rota normalmente
+            final caminho = nav.dijkstra(local, widget.destino);
+            if (caminho != null && caminho.length > 1) {
+              rota = caminho;
+              proximoPasso = 1;
+              localAtual = local;
+
+              atualizarPosicaoVisual(local);
+
+              final instrucao = nav.getInstrucoes(caminho)[0];
+              print('[DEBUG] Instrução inicial: $instrucao');
+              await falar(instrucao);
+
+              if (vibrationEnabled) {
+                print('[DEBUG] Vibração curta - início de navegação');
+                Vibration.vibrate(duration: 400);
+              }
+
+              setState(() {
+                mostrarSeta = true;
+              });
+            } else {
+              print('[DEBUG] Caminho não encontrado.');
+              await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
+              finalizar();
+            }
             return;
           }
-
-          final caminho = nav.dijkstra(local, widget.destino);
-          if (caminho != null && caminho.length > 1) {
-            rota = caminho;
-            proximoPasso = 1;
-            localAtual = local;
-
-            atualizarPosicaoVisual(local);
-
-            final instrucao = nav.getInstrucoes(caminho)[0];
-            falar(instrucao);
-
-            if (vibrationEnabled) {
-              Vibration.hasVibrator().then((hasVibrator) {
-                if (hasVibrator ?? false) Vibration.vibrate(duration: 400);
-              });
-            }
-
-            setState(() {
-              mostrarSeta = true;
-            });
-          } else {
-            falar(mensagens['alerts']?['path_not_found_alert'] ?? '');
-            finalizar();
-          }
-          return;
         }
 
+        // 🔹 Caso 2: Percurso a decorrer
         if (proximoPasso < rota.length && local == rota[proximoPasso]) {
           localAtual = local;
           atualizarPosicaoVisual(local);
 
-          setState(() {});
+          final destinosDoBeaconAtual = List<String>.from(nav.jsonBeacons[localAtual]?['beacon_destinations'] ?? []);
 
-          if (proximoPasso == rota.length - 1) {
-            falar(mensagens['alerts']?['arrived_alert'] ?? '');
+          if (!isFinalizing && destinosDoBeaconAtual.contains(widget.destino)) {
+            isFinalizing = true;
+
             if (vibrationEnabled) {
-              Vibration.hasVibrator().then((hasVibrator) {
-                if (hasVibrator ?? false) Vibration.vibrate(duration: 600);
-              });
+              print('[DEBUG] Vibração curta - último passo');
+              Vibration.vibrate(duration: 400);
             }
+
+            final instrucaoFinal = nav.buscarInstrucaoNoBeacon(localAtual!, widget.destino);
+            if (instrucaoFinal != null && instrucaoFinal.isNotEmpty) {
+              print('[DEBUG] Instrução direta de beacon para destino: $instrucaoFinal');
+              await falar(instrucaoFinal);
+            }
+
+            FlutterBluePlus.stopScan();
+            print('[DEBUG] Scan parado - navegação concluída');
+            if (vibrationEnabled) {
+              print('[DEBUG] Vibração longa - navegação concluída');
+              Vibration.vibrate(duration: 600);
+            }
+
             setState(() {
               chegou = true;
-              status = 'beacon_scan_page.arrived_destination'.tr();
+              status = 'beacon_scan_page.navigation_end'.tr();
             });
-          } else {
+
+            await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
+            return;
+          }
+
+          if (!isFinalizing) {
             final instrucao = nav.getInstrucoes(rota)[proximoPasso];
-            falar(instrucao);
+            print('[DEBUG] Instrução intermédia: $instrucao');
 
             if (vibrationEnabled) {
-              Vibration.hasVibrator().then((hasVibrator) {
-                if (hasVibrator ?? false) Vibration.vibrate(duration: 400);
-              });
+              print('[DEBUG] Vibração curta - passo intermédio');
+              Vibration.vibrate(duration: 400);
             }
 
+            await falar(instrucao);
             proximoPasso++;
           }
+
           return;
         }
       }
     });
   }
 
-  String _mensagemAlerta(String chave, String local) {
-    final raw = mensagens['alerts']?[chave] ?? '';
-    return raw.replaceAll('{location}', local);
-  }
+
 
   void atualizarPosicaoVisual(String local) {
     final newPosition = beaconPositions[local] ?? const Offset(300, 500);
@@ -264,6 +336,9 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
   Future<void> falar(String texto) async {
     if (soundEnabled && texto.isNotEmpty) {
+      setState(() {
+        ultimaInstrucaoFalada = texto;
+      });
       await flutterTts.stop();
       await flutterTts.setLanguage(selectedLanguageCode);
       await flutterTts.setSpeechRate(voiceSpeed);
@@ -284,12 +359,20 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     Navigator.pop(context);
   }
 
-  void mostrarDescricao() {
-    if (localAtual != null && mensagens['descriptions']?[localAtual] != null) {
-      final descricao = mensagens['descriptions'][localAtual];
-      falar(descricao);
+  void mostrarDescricao() async {
+    if (localAtual != null && mensagens['beacons']?[localAtual] != null) {
+      final descricao = mensagens['beacons']?[localAtual]?['beacon_description'];
+
+      if (descricao != null && descricao.isNotEmpty) {
+        print('[DEBUG] A falar descrição do beacon atual: $descricao');
+        await falar(descricao);
+      } else {
+        print('[DEBUG] Descrição indisponível para o beacon atual: $localAtual');
+        await falar('Descrição indisponível para o beacon atual.');
+      }
     } else {
-      print('Descrição indisponível para o local atual.');
+      print('[DEBUG] Ainda não foi detetado nenhum beacon.');
+      await falar('Ainda não foi detetado nenhum beacon.');
     }
   }
 
@@ -377,59 +460,40 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                       ),
                       const SizedBox(height: 20),
                       if (!chegou) ...[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Colors.blue[50],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'beacon_scan_page.current_location'.tr(),
-                                      style: const TextStyle(fontSize: 16, color: Colors.black54),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: ultimaInstrucaoFalada.isEmpty ? Colors.yellow[100] : Colors.blue[100],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                ultimaInstrucaoFalada.isEmpty ? Icons.warning : Icons.campaign,
+                                color: ultimaInstrucaoFalada.isEmpty ? Colors.orange : Colors.blue,
+                                size: 30,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    ultimaInstrucaoFalada.isNotEmpty
+                                        ? ultimaInstrucaoFalada
+                                        : '${mensagens['alerts']?['searching_alert'] ?? 'A procurar...'}',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: ultimaInstrucaoFalada.isEmpty ? Colors.orange[900] : Colors.blue[900],
                                     ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      obterLocalAtual(),
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 15),
-                            Expanded(
-                              child: Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Colors.green[50],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      'beacon_scan_page.next'.tr(),
-                                      style: const TextStyle(fontSize: 16, color: Colors.black54),
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      obterProximaParagem(),
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ] else ...[
+                      ]
+                      else ...[
                         Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
