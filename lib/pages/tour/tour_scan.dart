@@ -416,7 +416,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                       child: ElevatedButton.icon(
                         onPressed: cancelarNavegacao,
                         icon: const Icon(Icons.cancel),
-                        label: Text('tour_scan_page.cancel_navigation'.tr()),
+                        label: Text('tour_scan_page.cancel_tour'.tr()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent,
                           foregroundColor: Colors.white,

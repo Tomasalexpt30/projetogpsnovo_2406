@@ -1,122 +1,112 @@
 {
-  "Modo Navegação": "Navigatiemodus",
-  "Modo Visita": "Bezoekmodus",
-  "welcome": "Welkom",
-  "splash_screen": {
-    "start": "Start"
-  },
   "sound_settings_page": {
-    "general_preferences": "Algemene voorkeuren",
-    "sound": "Geluid",
-    "sound_description": "Schakel geluid in of uit.",
-    "vibration": "Trilling",
-    "vibration_description": "Schakel trilling in of uit.",
-    "voice": "Stem",
-    "language": "Stemtaal",
+    "general_preferences": "Preferencje ogólne",
+    "sound": "Dźwięk",
+    "sound_description": "Włącz lub wyłącz dźwięk.",
+    "vibration": "Wibracja",
+    "vibration_description": "Włącz lub wyłącz wibrację.",
+    "voice": "Głos",
+    "language": "Język głosu",
     "select_language": "Wybierz język",
-    "current_language": "Huidige: {language}",
-    "voice_speed": "Snelheid van de stem",
-    "voice_pitch": "Toonhoogte van de stem",
-    "test_voice": "Test Stem"
+    "current_language": "Aktualny: {language}",
+    "voice_speed": "Szybkość głosu",
+    "voice_pitch": "Ton głosu",
+    "test_voice": "Testuj głos"
   },
   "settings_page": {
     "settings": "Ustawienia",
-    "sound": "Geluid",
-    "accessibility": "Toegankelijkheid",
-    "map": "Kaart",
-    "personalization": "Personalisatie",
-    "language": "Taal"
+    "sound": "Dźwięk",
+    "accessibility": "Dostępność",
+    "map": "Mapa",
+    "personalization": "Personalizacja",
+    "language": "Język"
   },
   "personalization_page": {
-    "theme": "Thema",
-    "theme_description": "Wissel tussen de lichte en donkere modus.",
-    "light_mode": "Lichte modus",
-    "dark_mode": "Donkere modus"
+    "theme": "Motyw",
+    "theme_description": "Zmieniaj między trybem jasnym a ciemnym.",
+    "light_mode": "Tryb jasny",
+    "dark_mode": "Tryb ciemny"
   },
   "map_settings_page": {
-    "map_appearance": "Kaartweergave",
-    "dark_map": "Donkere kaartmodus",
-    "dark_map_description": "Schakel een donkere thema in.",
-    "icon_style": "Pictogramstijl",
-    "default_style": "Standaard",
-    "accessible_style": "Toegankelijk"
+    "map_appearance": "Wygląd mapy",
+    "dark_map": "Ciemny tryb mapy",
+    "dark_map_description": "Włącz ciemny motyw.",
+    "icon_style": "Styl ikon",
+    "default_style": "Domyślny",
+    "accessible_style": "Dostępny"
   },
   "language_settings_page": {
-    "language": "Taal",
-    "language_description": "Selecteer de gewenste taal.",
-    "current_language": "Huidige taal",
-    "select_language": "Selecteer taal"
+    "language": "Język",
+    "language_description": "Wybierz pożądany język.",
+    "current_language": "Aktualny język",
+    "select_language": "Wybierz język"
   },
   "accessibility_settings_page": {
-    "vision": "Zicht",
-    "high_contrast": "Hoge contrasten",
-    "high_contrast_description": "Verhoog het contrast tussen kleuren om lezen gemakkelijker te maken.",
-    "hearing": "Horen",
-    "screen_reader": "Schermlezer",
-    "screen_reader_description": "Schakel tekst-naar-spraak in voor schermelementen."
-  },
-  "map_page": {
-    "search_hint": "Bestemming?",
-    "route_button": "Start route",
-    "start_route_message": "Naar Kamer 10..."
+    "vision": "Wzrok",
+    "high_contrast": "Wysoki kontrast",
+    "high_contrast_description": "Zwiększa kontrast między kolorami, aby ułatwić czytanie.",
+    "hearing": "Słuch",
+    "screen_reader": "Czytnik ekranu",
+    "screen_reader_description": "Włącz czytanie na głos elementów na ekranie."
   },
   "my_home_page": {
-    "mode_navigation": "Navigatiemodus",
-    "mode_visit": "Bezoekmodus",
+    "mode_navigation": "Tryb nawigacji",
+    "mode_visit": "Tryb zwiedzania",
     "welcome": "Autónoma GPS",
-    "settings": "Instellingen",
-    "language": "Taal"
+    "settings": "Ustawienia",
+    "language": "Język"
   },
   "navigation_map_selector": {
-    "where_to_go": "Dokąd chcesz się udać?",
-    "select_destination": "Wybierz Cel",
+    "where_to_go": "Dokąd chcesz iść?",
+    "select_destination": "Wybierz cel",
     "start_navigation": "Rozpocznij nawigację",
-    "by_voice": "Głosem",
+    "by_voice": "Głosowo",
     "favorites": "Ulubione",
     "add_favorite": "Dodaj do ulubionych",
     "close_popup": "Zamknij"
   },
   "beacon_scan_page": {
     "destination": "Cel",
-    "current_location": "Aktualna Lokalizacja",
+    "current_location": "Aktualna lokalizacja",
     "next": "Następny",
     "description": "Opis",
     "cancel_navigation": "Anuluj",
     "navigation_end": "Nawigacja zakończona. Dziękujemy za korzystanie z naszej aplikacji!"
-
   },
   "tour_page": {
-    "title": "Wycieczka z przewodnikiem",
-    "description": "Rozpocznij wycieczkę z przewodnikiem po głównych punktach uniwersytetu.",
-    "start_btn": "Rozpocznij wycieczkę"
+    "guided_tour_title": "Wycieczka z przewodnikiem",
+    "guided_tour_description": "Przyjdź i odkryj Universidade Autónoma de Lisboa za pomocą interaktywnej i historycznej wycieczki!",
+    "start_guided_tour": "Rozpocznij wycieczkę",
+    "guided_tour_info": "O wycieczce",
+    "guided_tour_info_description": "Wycieczka z przewodnikiem umożliwia interaktywne i angażujące odkrywanie głównych przestrzeni i historii Universidade Autónoma de Lisboa. Podczas wycieczki będziesz prowadzony przez starannie dobrane etapy, które podkreślają ważne punkty instytucji, historyczne ciekawostki i informacje o interesujących miejscach. To doświadczenie oferuje wzbogacający i edukacyjny sposób na odkrywanie każdego miejsca we własnym tempie, umożliwiając pogłębienie wiedzy na temat naszej uniwersytetu w dynamiczny i dostępny sposób.",
+    "guided_tour_popup": "Czym jest wycieczka z przewodnikiem?",
+    "close_popup": "Zamknij"
   },
   "tour_scan_page": {
-    "current_location": "Aktualna lokalizacja",
-    "next": "Następny",
-    "searching": "Wyszukiwanie beaconów...",
-    "go_to_entrance": "Przejdź do wejścia, aby rozpocząć zwiedzanie.",
-    "cancel_btn": "Anuluj wycieczkę z przewodnikiem"
+    "tour_title": "Wycieczka z przewodnikiem",
+    "cancel_tour": "Anuluj wycieczkę",
+    "tour_end": "Wycieczka z przewodnikiem zakończona. Dziękujemy za korzystanie z naszej aplikacji!"
   },
   "privacy_policy": {
     "title": "Polityka prywatności",
     "updated": "Ostatnia aktualizacja: 29 czerwca 2025",
-    "intro": "Universidade Autónoma de Lisboa szanuje prywatność użytkowników i zobowiązuje się chronić wszelkie informacje udostępniane podczas korzystania z aplikacji: Autónoma GPS.",
+    "intro": "Universidade Autónoma de Lisboa ceni prywatność użytkowników i zobowiązuje się do ochrony wszelkich informacji, które mogą zostać udostępnione podczas korzystania z aplikacji: Autónoma GPS.",
     "section1_title": "1. Tożsamość organizacji",
-    "section1_body": "Universidade Autónoma de Lisboa jest odpowiedzialna za działanie aplikacji Autónoma GPS – rozwiązania nawigacyjnego do użytku wewnątrz budynków, wykorzystującego beacon’y BLE, które pomagają użytkownikom zlokalizować przestrzenie i poruszać się po obiektach uniwersyteckich. W razie pytań dotyczących tej polityki, użytkownicy mogą kontaktować się pod adresem mmira@autonoma.pt.",
-    "section2_title": "2. Dane osobowe i gromadzone informacje",
-    "section2_body": "Aplikacja Autónoma GPS nie zbiera, nie przechowuje ani nie udostępnia danych osobowych użytkowników. Przetwarzane są jedynie sygnały beacon BLE w celu obliczenia przybliżonej pozycji użytkownika. Nie są żądane ani przechowywane żadne dane identyfikacyjne, takie jak imię, adres e‑mail czy numer telefonu.",
+    "section1_body": "Universidade Autónoma de Lisboa jest podmiotem odpowiedzialnym za funkcjonowanie aplikacji Autónoma GPS, rozwiązania nawigacji wewnętrznej, które wykorzystuje technologię beaconów BLE, aby pomóc użytkownikom w lokalizowaniu przestrzeni i nawigowaniu po terenie uniwersytetu. W przypadku jakichkolwiek pytań związanych z tą polityką, użytkownicy mogą skontaktować się z nami pod adresem mmira@autonoma.pt.",
+    "section2_title": "2. Dane osobowe i zebrane informacje",
+    "section2_body": "Aplikacja Autónoma GPS nie zbiera, nie przechowuje ani nie udostępnia danych osobowych użytkowników. Informacje przetwarzane przez aplikację ograniczają się do wykrywania sygnału beaconów BLE w celu obliczenia przybliżonej lokalizacji użytkownika w przestrzeni. Żadne dane osobowe, takie jak imię, adres e-mail lub numer telefonu, nie są zbierane ani przechowywane.",
     "section3_title": "3. Cel wykorzystania danych",
-    "section3_body": "Aplikacja wykorzystuje sygnały beacon wyłącznie do zapewnienia wskazówek nawigacyjnych wewnątrz budynków. Dane dotyczące bliskości są przetwarzane lokalnie na urządzeniu i służą jedynie do określenia przybliżonej lokalizacji użytkownika i dostarczania instrukcji nawigacyjnych w czasie rzeczywistym. Żadne informacje nie są przechowywane lub używane do innych celów.",
-    "section4_title": "4. Udostępnianie danych stronom trzecim",
-    "section4_body": "Aplikacja nie udostępnia żadnych danych osobom trzecim. Sygnały beacon są przetwarzane tylko na urządzeniu i nie są wysyłane do zewnętrznych serwerów ani baz danych.",
+    "section3_body": "Aplikacja wykorzystuje sygnały beaconów wyłącznie do zapewnienia wskazówek nawigacyjnych wewnątrz obiektów. Dane dotyczące bliskości beaconów są przetwarzane lokalnie na urządzeniu i służą tylko do określenia przybliżonej lokalizacji użytkownika oraz do udzielania instrukcji nawigacyjnych w czasie rzeczywistym. Żadne informacje nie są przechowywane ani wykorzystywane w innych celach.",
+    "section4_title": "4. Udostępnianie danych osobom trzecim",
+    "section4_body": "Aplikacja nie udostępnia żadnych danych osobom trzecim. Przetworzone sygnały beaconów są wykorzystywane tylko na urządzeniu użytkownika i nie są wysyłane do zewnętrznych serwerów ani baz danych.",
     "section5_title": "5. Bezpieczeństwo interakcji",
-    "section5_body": "Aplikacja przetwarza sygnały beacon lokalnie, bez potrzeby przesyłania wrażliwych danych przez internet. W przypadku potrzeby dostępu do sieci komunikacja będzie chroniona bezpiecznymi protokołami SSL/TLS. Wdrożono również dobre praktyki bezpieczeństwa podczas rozwoju aplikacji.",
+    "section5_body": "Aplikacja przetwarza sygnały beaconów lokalnie, bez konieczności przesyłania wrażliwych danych przez internet. W sytuacjach, gdy wymagany jest dostęp do sieci, komunikacja jest zabezpieczona protokołami SSL/TLS. Podczas tworzenia aplikacji zastosowano również dobre praktyki bezpieczeństwa.",
     "section6_title": "6. Prawa użytkowników",
-    "section6_body": "Zgodnie z RODO użytkownicy mają prawo dostępu, sprostowania lub usunięcia swoich danych osobowych. Jednak ponieważ Autónoma GPS nie zbiera, przechowuje ani przetwarza danych identyfikowalnych, realizacja takich żądań nie jest możliwa.",
+    "section6_body": "Zgodnie z Ogólnym rozporządzeniem o ochronie danych osobowych (RODO), użytkownicy mają prawo do dostępu, poprawiania lub usuwania swoich danych osobowych. Jednak ponieważ aplikacja Autónoma GPS nie zbiera, nie przechowuje ani nie przetwarza danych osobowych, nie jest możliwe rozpatrzenie wniosków o dostęp, poprawienie lub usunięcie danych.",
     "section7_title": "7. Zmiany w polityce prywatności",
-    "section7_body": "Universidade Autónoma de Lisboa zastrzega sobie prawo do aktualizacji tej polityki prywatności w dowolnym momencie, aby odzwierciedlić zmiany w aplikacji lub zgodność z obowiązującymi przepisami. Data ostatniej aktualizacji znajduje się na początku dokumentu.",
+    "section7_body": "Universidade Autónoma de Lisboa zastrzega sobie prawo do aktualizacji niniejszej polityki prywatności w razie potrzeby, aby odzwierciedlić zmiany w aplikacji lub dostosować się do obowiązujących przepisów prawnych. Data ostatniej aktualizacji znajduje się na górze tego dokumentu.",
     "section8_title": "8. Kontakt",
-    "section8_body": "W przypadku pytań dotyczących tej polityki prywatności lub działania aplikacji Autónoma GPS, użytkownicy mogą się skontaktować z Universidade Autónoma de Lisboa pod adresem mmira@autonoma.pt.",
+    "section8_body": "W przypadku pytań dotyczących tej polityki prywatności lub funkcjonowania aplikacji Autónoma GPS użytkownicy mogą skontaktować się z Universidade Autónoma de Lisboa pod adresem e-mail: mmira@autonoma.pt.",
     "close": "Zamknij"
   }
 }

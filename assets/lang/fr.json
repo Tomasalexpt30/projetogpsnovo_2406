@@ -1,10 +1,4 @@
 {
-  "Modo Navegação": "Mode de Navigation",
-  "Modo Visita": "Mode de Visite",
-  "welcome": "Bienvenue",
-  "splash_screen": {
-    "start": "Démarrer"
-  },
   "sound_settings_page": {
     "general_preferences": "Préférences générales",
     "sound": "Son",
@@ -12,11 +6,11 @@
     "vibration": "Vibration",
     "vibration_description": "Activez ou désactivez la vibration.",
     "voice": "Voix",
-    "language": "Langue de la Voix",
+    "language": "Langue de la voix",
     "select_language": "Sélectionner la langue",
-    "current_language": "Actuel: {language}",
+    "current_language": "Actuel : {language}",
     "voice_speed": "Vitesse de la voix",
-    "voice_pitch": "Ton de la voix",
+    "voice_pitch": "Tonalité de la voix",
     "test_voice": "Tester la voix"
   },
   "settings_page": {
@@ -29,9 +23,9 @@
   },
   "personalization_page": {
     "theme": "Thème",
-    "theme_description": "Alterner entre le mode clair et sombre.",
-    "light_mode": "Mode Clair",
-    "dark_mode": "Mode Sombre"
+    "theme_description": "Basculer entre le mode clair et sombre.",
+    "light_mode": "Mode clair",
+    "dark_mode": "Mode sombre"
   },
   "map_settings_page": {
     "map_appearance": "Apparence de la carte",
@@ -50,73 +44,69 @@
   "accessibility_settings_page": {
     "vision": "Vision",
     "high_contrast": "Contraste élevé",
-    "high_contrast_description": "Augmentez le contraste des couleurs pour faciliter la lecture.",
+    "high_contrast_description": "Augmente le contraste entre les couleurs pour faciliter la lecture.",
     "hearing": "Audition",
     "screen_reader": "Lecteur d'écran",
-    "screen_reader_description": "Activez la lecture des éléments à l'écran."
-  },
-  "map_page": {
-    "search_hint": "Destination?",
-    "route_button": "Démarrer le trajet",
-    "start_route_message": "Approche de la Salle 10..."
+    "screen_reader_description": "Activez la lecture à haute voix des éléments à l'écran."
   },
   "my_home_page": {
-    "mode_navigation": "Mode de Navigation",
-    "mode_visit": "Mode de Visite",
+    "mode_navigation": "Mode navigation",
+    "mode_visit": "Mode visite",
     "welcome": "Autónoma GPS",
     "settings": "Paramètres",
     "language": "Langue"
   },
   "navigation_map_selector": {
-    "where_to_go": "Où voulez-vous aller ?",
-    "select_destination": "Sélectionner une Destination",
-    "start_navigation": "Démarrer navigation",
-    "by_voice": "Par la voix",
+    "where_to_go": "Où souhaitez-vous aller ?",
+    "select_destination": "Sélectionner la destination",
+    "start_navigation": "Démarrer la navigation",
+    "by_voice": "Par voix",
     "favorites": "Favoris",
     "add_favorite": "Ajouter aux favoris",
     "close_popup": "Fermer"
   },
   "beacon_scan_page": {
     "destination": "Destination",
-    "current_location": "Emplacement Actuel",
+    "current_location": "Emplacement actuel",
     "next": "Suivant",
     "description": "Description",
     "cancel_navigation": "Annuler",
     "navigation_end": "Navigation terminée. Merci d'utiliser notre application !"
-
   },
   "tour_page": {
-    "title": "Visite Guidée",
-    "description": "Commencez votre visite guidée des principaux lieux de l'université.",
-    "start_btn": "Commencer la visite"
+    "guided_tour_title": "Visite guidée",
+    "guided_tour_description": "Venez découvrir l'Université Autónoma de Lisboa à travers un parcours interactif et historique !",
+    "start_guided_tour": "Démarrer la visite",
+    "guided_tour_info": "À propos",
+    "guided_tour_info_description": "La visite guidée vous permet d'explorer de manière interactive et engageante les principaux espaces et l'histoire de l'Université Autónoma de Lisboa. Tout au long du parcours, vous serez guidé par des étapes soigneusement sélectionnées mettant en valeur des points importants de l'institution, des curiosités historiques et des informations intéressantes. Cette expérience offre une manière enrichissante et éducative de découvrir chaque lieu à votre rythme, vous permettant d'approfondir vos connaissances sur notre université de manière dynamique et accessible.",
+    "guided_tour_popup": "Qu'est-ce que la visite guidée ?",
+    "close_popup": "Fermer"
   },
   "tour_scan_page": {
-    "current_location": "Emplacement actuel",
-    "next": "Suivant",
-    "searching": "Recherche de balises...",
-    "go_to_entrance": "Rendez-vous à l'entrée pour commencer la visite guidée.",
-    "cancel_btn": "Annuler la visite guidée"
+    "tour_title": "Visite guidée",
+    "cancel_tour": "Annuler la visite",
+    "tour_end": "La visite guidée est terminée. Merci d'utiliser notre application !"
   },
   "privacy_policy": {
     "title": "Politique de confidentialité",
-    "updated": "Dernière mise à jour : 29 juin 2025",
-    "intro": "L’Universidade Autónoma de Lisboa valorise la vie privée des utilisateurs et s’engage à protéger toute information partagée lors de l’utilisation de l’application : Autónoma GPS.",
-    "section1_title": "1. Identité de l’organisation",
-    "section1_body": "L’Universidade Autónoma de Lisboa est responsable de l’exploitation de l’application Autónoma GPS, une solution de navigation intérieure utilisant des balises BLE pour aider les utilisateurs à se repérer dans les locaux de l’université. Pour toute question concernant cette politique, les utilisateurs peuvent contacter mmira@autonoma.pt.",
+    "updated": "Dernière mise à jour : 29 juin 2025",
+    "intro": "L'Université Autónoma de Lisboa accorde une grande importance à la confidentialité des utilisateurs et s'engage à protéger toutes les informations partagées lors de l'utilisation de l'application : Autónoma GPS.",
+    "section1_title": "1. Identité de l'organisation",
+    "section1_body": "L'Université Autónoma de Lisboa est l'entité responsable du fonctionnement de l'application Autónoma GPS, une solution de navigation intérieure utilisant la technologie de balises BLE pour aider les utilisateurs à localiser des espaces et à naviguer dans les installations de l'université. Pour toute question concernant cette politique, les utilisateurs peuvent nous contacter à l'adresse mmira@autonoma.pt.",
     "section2_title": "2. Données personnelles et informations collectées",
-    "section2_body": "L’application Autónoma GPS ne collecte, n’enregistre ni ne partage de données personnelles. Les seules informations traitées concernent la détection des signaux des balises BLE afin de calculer la position approximative de l’utilisateur. Aucune donnée d’identification personnelle (nom, e‑mail, numéro de téléphone) n’est demandée ni stockée.",
-    "section3_title": "3. Finalité de l’utilisation des données",
-    "section3_body": "L’application utilise uniquement les signaux des balises pour fournir les directives de navigation intérieure. Les données de proximité sont traitées localement sur l’appareil et servent seulement à déterminer la position approximative de l’utilisateur et à fournir des instructions de navigation en temps réel. Aucune information n’est enregistrée ou utilisée à d’autres fins.",
+    "section2_body": "L'application Autónoma GPS ne collecte, ne stocke ni ne partage de données personnelles des utilisateurs. Les informations traitées par l'application se limitent à la détection du signal BLE des balises pour calculer la position approximative de l'utilisateur dans l'espace. Aucune information personnelle, telle que le nom, l'adresse e-mail ou le numéro de téléphone, n'est demandée ou stockée.",
+    "section3_title": "3. Objectif de l'utilisation des données",
+    "section3_body": "L'application utilise les signaux des balises exclusivement pour fournir des indications de navigation à l'intérieur des installations. Les données de proximité des balises sont traitées localement sur l'appareil et servent uniquement à déterminer la position approximative de l'utilisateur et à fournir des instructions de navigation en temps réel. Aucune information n'est stockée ou utilisée à d'autres fins.",
     "section4_title": "4. Partage des données avec des tiers",
-    "section4_body": "L’application ne partage aucune donnée avec des tiers. Les signaux des balises ne sont utilisés que sur l’appareil et ne sont pas envoyés à des serveurs externes ou bases de données.",
+    "section4_body": "L'application ne partage aucune donnée avec des tiers. Les signaux des balises traités sont utilisés uniquement sur l'appareil de l'utilisateur et ne sont pas envoyés à des serveurs externes ou à des bases de données.",
     "section5_title": "5. Sécurité des interactions",
-    "section5_body": "L’application traite les signaux des balises localement, sans transmission de données sensibles par Internet. En cas d’accès réseau, la communication est protégée par des protocoles SSL/TLS sécurisés. Des bonnes pratiques de sécurité ont également été mises en œuvre durant le développement.",
+    "section5_body": "L'application traite les signaux des balises localement, sans avoir besoin de transmettre des données sensibles par Internet. Lorsque l'accès au réseau est nécessaire, la communication sera protégée par des protocoles SSL/TLS sécurisés. Des bonnes pratiques de sécurité ont également été mises en place lors du développement de l'application.",
     "section6_title": "6. Droits des utilisateurs",
-    "section6_body": "Conformément au RGPD, les utilisateurs ont le droit d’accéder, de rectifier ou de supprimer leurs données personnelles. Toutefois, comme Autónoma GPS ne collecte ni ne traite de données personnelles identifiables, il n’est pas possible de traiter de telles demandes.",
+    "section6_body": "Conformément au Règlement général sur la protection des données (RGPD), les utilisateurs ont le droit d'accéder, de rectifier ou de supprimer leurs données personnelles. Toutefois, comme l'application Autónoma GPS ne collecte pas, ne stocke ni ne traite de données personnelles identifiables, il n'est pas possible de répondre aux demandes d'accès, de rectification ou de suppression de données.",
     "section7_title": "7. Modifications de la politique de confidentialité",
-    "section7_body": "L’Universidade Autónoma de Lisboa se réserve le droit de mettre à jour cette politique à tout moment afin de refléter les évolutions de l’application ou les changements législatifs. La date de la dernière mise à jour est indiquée en haut du document.",
+    "section7_body": "L'Université Autónoma de Lisboa se réserve le droit de mettre à jour cette politique de confidentialité chaque fois que cela est nécessaire pour refléter des changements dans l'application ou pour se conformer à la législation applicable. La date de la dernière mise à jour est indiquée en haut de ce document.",
     "section8_title": "8. Contact",
-    "section8_body": "Pour toute question concernant cette politique ou l’utilisation de l’application Autónoma GPS, les utilisateurs peuvent contacter l’Universidade Autónoma de Lisboa à l’adresse suivante : mmira@autonoma.pt.",
+    "section8_body": "Pour toute question relative à cette politique de confidentialité ou au fonctionnement de l'application Autónoma GPS, les utilisateurs peuvent contacter l'Université Autónoma de Lisboa par e-mail à l'adresse : mmira@autonoma.pt.",
     "close": "Fermer"
   }
 }

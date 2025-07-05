@@ -1,30 +1,60 @@
 {
   "alerts": {
-    "start_tour": "Zwiedzanie z przewodnikiem",
-    "tour_description": "Rozpocznij zwiedzanie najważniejszych punktów uczelni.",
-    "start_btn": "Rozpocznij zwiedzanie",
-    "searching": "Wyszukiwanie beaconów...",
-    "start_tour_info": "Zwiedzanie rozpoczęte! Przejdź do kolejnego punktu.",
-    "go_to_entrance": "Przejdź do wejścia, aby rozpocząć zwiedzanie.",
-    "at_location": "Jesteś w: {location}.",
-    "please_proceed_entrance": "Przejdź do wejścia, aby rozpocząć.",
-    "tour_cancelled": "Zwiedzanie anulowane.",
-    "tour_completed": "Zwiedzanie zakończone. Dziękujemy!",
-    "repeat_entrance": "Przejdź do wejścia, aby rozpocząć zwiedzanie.",
-    "voice_entrance": "Jesteś przy wejściu. Zaczynamy zwiedzanie!"
+    "guided_tour_start_alert": "Inizieremo la Visita Guidata della Universidade Autónoma de Lisboa",
+    "tour_end_alert": "Wycieczka Zorganizowana zakończona. Dziękujemy za korzystanie z naszej aplikacji!",
+    "searching_alert": "Szukam..."
   },
-  "tour_points": {
-    "entrada": {
-      "name": "Wejście",
-      "text": "Witamy na Uniwersytecie Autonomicznym w Lizbonie. Tutaj zaczyna się Twoje zwiedzanie. Poznaj najważniejsze miejsca kampusu!"
+
+
+  "beacons": {
+    "Beacon 1": {
+      "beacon_floor": "0",
+      "beacon_description": "Opis Beacon 1",
+      "beacon_destinations": ["Wejście", "Recepcja"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+      "historical_point_name": "Główne Wejście",
+      "historical_point_message": "To główne wejście do Universidade Autónoma de Lisboa, miejsce, przez które codziennie przechodzi setki studentów.",
+
+      "beacon_instructions": {
+        "Beacon 1-Wejście": "Instrukcja od Beacon 1 do Wejścia",
+        "Beacon 1-Recepcja": "Instrukcja od Beacon 1 do Recepcji",
+        "Beacon 1-Beacon 2": "Instrukcja od Beacon 1 do Beacon 2",
+        "Beacon 1-Beacon 3": "Instrukcja od Beacon 1 do Beacon 3"
+      }
     },
-    "patio": {
-      "name": "Atrium",
-      "text": "To jest główny hol uczelni. Odbywają się tu różne wydarzenia i jest to miejsce spotkań studentów."
+    "Beacon 3": {
+      "beacon_floor": "0",
+      "beacon_description": "Opis Beacon 3",
+      "beacon_destinations": ["Dziedziniec"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+      "beacon_instructions": {
+        "Beacon 3-Dziedziniec": "Instrukcja od Beacon 3 do Dziedzińca",
+        "Beacon 3-Beacon 1": "Instrukcja od Beacon 3 do Beacon 1",
+        "Beacon 3-Beacon 4": "Instrukcja od Beacon 3 do Beacon 4",
+        "Beacon 3-Beacon 8": "Instrukcja od Beacon 3 do Beacon 8",
+        "Beacon 3-Beacon 15": "Instrukcja od Beacon 3 do Beacon 15"
+      }
     },
-    "camoes": {
-      "name": "Camões",
-      "text": "Posąg Camõesa symbolizuje wartość portugalskiej literatury i kultury. To jeden z najbardziej charakterystycznych symboli naszego kampusu."
+    "Beacon 15": {
+      "beacon_floor": "0",
+      "beacon_description": "Opis Beacon 15",
+      "beacon_destinations": ["Camões"],
+      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+      "historical_point_name": "Posąg Camõesa",
+      "historical_point_message": "W tym miejscu znajduje się posąg Luís de Camões, jednej z najbardziej emblematycznych postaci literatury portugalskiej.",
+
+      "beacon_instructions": {
+        "Beacon 15-Camões": "Instrukcja od Beacon 15 do Camões",
+        "Beacon 15-Beacon 3": "Instrukcja od Beacon 15 do Beacon 3",
+        "Beacon 15-Beacon 16": "Instrukcja od Beacon 15 do Beacon 16",
+        "Beacon 15-Beacon 22": "Instrukcja od Beacon 15 do Beacon 22"
+      }
     }
-  }
+  },
+  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
 }
+
+
+

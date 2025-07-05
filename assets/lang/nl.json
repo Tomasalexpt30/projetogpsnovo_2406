@@ -1,122 +1,112 @@
 {
-  "Modo Navegação": "Mode de Navigation",
-  "Modo Visita": "Mode de Visite",
-  "welcome": "Bienvenue",
-  "splash_screen": {
-    "start": "Démarrer"
-  },
   "sound_settings_page": {
-    "general_preferences": "Préférences générales",
-    "sound": "Son",
-    "sound_description": "Activez ou désactivez le son.",
-    "vibration": "Vibration",
-    "vibration_description": "Activez ou désactivez la vibration.",
-    "voice": "Voix",
-    "language": "Langue de la Voix",
-    "select_language": "Selecteer taal",
-    "current_language": "Actuel: {language}}",
-    "voice_speed": "Vitesse de la voix",
-    "voice_pitch": "Ton de la voix",
-    "test_voice": "Tester la voix"
+    "general_preferences": "Algemene voorkeuren",
+    "sound": "Geluid",
+    "sound_description": "Schakel geluid in of uit.",
+    "vibration": "Trilling",
+    "vibration_description": "Schakel trilling in of uit.",
+    "voice": "Stem",
+    "language": "Stemsprache",
+    "select_language": "Taal selecteren",
+    "current_language": "Huidige: {language}",
+    "voice_speed": "Snelheid van de stem",
+    "voice_pitch": "Toon van de stem",
+    "test_voice": "Test stem"
   },
   "settings_page": {
     "settings": "Instellingen",
-    "sound": "Son",
-    "accessibility": "Accessibilité",
-    "map": "Carte",
-    "personalization": "Personnalisation",
-    "language": "Langue"
+    "sound": "Geluid",
+    "accessibility": "Toegankelijkheid",
+    "map": "Kaart",
+    "personalization": "Personalisatie",
+    "language": "Taal"
   },
   "personalization_page": {
-    "theme": "Thème",
-    "theme_description": "Alterner entre le mode clair et sombre.",
-    "light_mode": "Mode Clair",
-    "dark_mode": "Mode Sombre"
+    "theme": "Thema",
+    "theme_description": "Wissel tussen licht- en donkerstand.",
+    "light_mode": "Lichte modus",
+    "dark_mode": "Donkere modus"
   },
   "map_settings_page": {
-    "map_appearance": "Apparence de la carte",
-    "dark_map": "Mode sombre de la carte",
-    "dark_map_description": "Activez un thème sombre.",
-    "icon_style": "Style des icônes",
-    "default_style": "Par défaut",
-    "accessible_style": "Accessible"
+    "map_appearance": "Kaartweergave",
+    "dark_map": "Donkere kaartmodus",
+    "dark_map_description": "Schakel een donkere thema in.",
+    "icon_style": "Icoonstijl",
+    "default_style": "Standaard",
+    "accessible_style": "Toegankelijk"
   },
   "language_settings_page": {
-    "language": "Langue",
-    "language_description": "Sélectionnez la langue souhaitée.",
-    "current_language": "Langue actuelle",
-    "select_language": "Sélectionner la langue"
+    "language": "Taal",
+    "language_description": "Selecteer de gewenste taal.",
+    "current_language": "Huidige taal",
+    "select_language": "Taal selecteren"
   },
   "accessibility_settings_page": {
-    "vision": "Vision",
-    "high_contrast": "Contraste élevé",
-    "high_contrast_description": "Augmentez le contraste des couleurs pour faciliter la lecture.",
-    "hearing": "Audition",
-    "screen_reader": "Lecteur d'écran",
-    "screen_reader_description": "Activez la lecture des éléments à l'écran."
-  },
-  "map_page": {
-    "search_hint": "Destination?",
-    "route_button": "Démarrer le trajet",
-    "start_route_message": "Approche de la Salle 10..."
+    "vision": "Zicht",
+    "high_contrast": "Hoge contrast",
+    "high_contrast_description": "Verhoogt het contrast tussen kleuren om lezen gemakkelijker te maken.",
+    "hearing": "Gehoor",
+    "screen_reader": "Schermlezer",
+    "screen_reader_description": "Schakel schermlezen in voor elementen op het scherm."
   },
   "my_home_page": {
-    "mode_navigation": "Mode de Navigation",
-    "mode_visit": "Mode de Visite",
+    "mode_navigation": "Navigatiemodus",
+    "mode_visit": "Bezoekmodus",
     "welcome": "Autónoma GPS",
-    "settings": "Paramètres",
-    "language": "Langue"
+    "settings": "Instellingen",
+    "language": "Taal"
   },
   "navigation_map_selector": {
-    "where_to_go": "Waar wil je naartoe?",
-    "select_destination": "Selecteer Bestemming",
-    "start_navigation": "Navigatie starten",
-    "by_voice": "Via spraak",
+    "where_to_go": "Waar wilt u naartoe?",
+    "select_destination": "Selecteer bestemming",
+    "start_navigation": "Start navigatie",
+    "by_voice": "Met stem",
     "favorites": "Favorieten",
-    "add_favorite": "Toevoegen aan favorieten",
+    "add_favorite": "Voeg toe aan favorieten",
     "close_popup": "Sluiten"
   },
   "beacon_scan_page": {
     "destination": "Bestemming",
-    "current_location": "Huidige Locatie",
-    "next": "Volgende",
-    "description": "Beschrijving",
-    "cancel_navigation": "Annuleren",
-    "navigation_end": "Navigatie voltooid. Bedankt voor het gebruiken van onze applicatie!"
-
-  },
-  "tour_page": {
-    "title": "Rondleiding",
-    "description": "Begin uw rondleiding langs de belangrijkste plekken van de universiteit.",
-    "start_btn": "Rondleiding starten"
-  },
-  "tour_scan_page": {
     "current_location": "Huidige locatie",
     "next": "Volgende",
-    "searching": "Beacons zoeken...",
-    "go_to_entrance": "Ga naar de ingang om de rondleiding te starten.",
-    "cancel_btn": "Rondleiding annuleren"
+    "description": "Beschrijving",
+    "cancel_navigation": "Annuleer",
+    "navigation_end": "Navigatie voltooid. Bedankt voor het gebruik van onze applicatie!"
+  },
+  "tour_page": {
+    "guided_tour_title": "Rondleiding",
+    "guided_tour_description": "Kom de Universidade Autónoma de Lisboa ontdekken via een interactieve en historische rondleiding!",
+    "start_guided_tour": "Start rondleiding",
+    "guided_tour_info": "Over",
+    "guided_tour_info_description": "De rondleiding biedt een interactieve en boeiende manier om de belangrijkste ruimtes en de geschiedenis van de Universidade Autónoma de Lisboa te ontdekken. Gedurende de rondleiding wordt u begeleid door zorgvuldig geselecteerde etappes die belangrijke punten van de instelling, historische curiositeiten en interessante informatie benadrukken. Deze ervaring biedt een verrijkende en educatieve manier om elk gebied op uw eigen tempo te ontdekken en uw kennis van onze universiteit op een dynamische en toegankelijke manier te verdiepen.",
+    "guided_tour_popup": "Wat is de rondleiding?",
+    "close_popup": "Sluiten"
+  },
+  "tour_scan_page": {
+    "tour_title": "Rondleiding",
+    "cancel_tour": "Annuleer rondleiding",
+    "tour_end": "De rondleiding is beëindigd. Bedankt voor het gebruik van onze applicatie!"
   },
   "privacy_policy": {
     "title": "Privacybeleid",
-    "updated": "Laatst bijgewerkt: 29 juni 2025",
-    "intro": "Universidade Autónoma de Lisboa hecht waarde aan de privacy van gebruikers en zet zich in voor de bescherming van alle informatie die wordt gedeeld tijdens het gebruik van de app: Autónoma GPS.",
+    "updated": "Laatste update: 29 juni 2025",
+    "intro": "De Universidade Autónoma de Lisboa waardeert de privacy van gebruikers en zet zich in om alle informatie te beschermen die tijdens het gebruik van de toepassing: Autónoma GPS kan worden gedeeld.",
     "section1_title": "1. Identiteit van de organisatie",
-    "section1_body": "Universidade Autónoma de Lisboa is verantwoordelijk voor de werking van de app Autónoma GPS, een indoor navigatieoplossing met BLE-beacons om gebruikers te helpen ruimtes te vinden en zich te oriënteren binnen de universiteit. Voor vragen over dit beleid kunnen gebruikers contact opnemen via mmira@autonoma.pt.",
-    "section2_title": "2. Persoonsgegevens en verzamelde informatie",
-    "section2_body": "De app Autónoma GPS verzamelt, slaat geen persoonsgegevens op en deelt die niet. De enige verwerkte informatie is het detecteren van BLE-beacon signalen om de ongeveer locatie van de gebruiker te berekenen. Er wordt geen persoonlijke identificatie (zoals naam, e-mailadres of telefoonnummer) gevraagd of opgeslagen.",
-    "section3_title": "3. Doel van gegevensgebruik",
-    "section3_body": "De app gebruikt beaconsignalen uitsluitend om richtlijnen voor indoor navigatie te bieden. De nabijheidsgegevens worden lokaal op het apparaat verwerkt en alleen gebruikt om de locatie van de gebruiker te bepalen en real-time navigatie-instructies te geven. Er worden geen gegevens opgeslagen of voor andere doeleinden gebruikt.",
-    "section4_title": "4. Delen van gegevens met derden",
-    "section4_body": "De app deelt geen gegevens met derden. De beaconsignalen worden alleen lokaal verwerkt en niet naar externe servers of databases verzonden.",
+    "section1_body": "De Universidade Autónoma de Lisboa is de entiteit die verantwoordelijk is voor het functioneren van de toepassing Autónoma GPS, een oplossing voor binnen-navigatie die gebruik maakt van BLE beacon-technologie om gebruikers te helpen ruimtes te vinden en door de faciliteiten van de universiteit te navigeren. Voor vragen over dit beleid kunnen gebruikers contact opnemen via mmira@autonoma.pt.",
+    "section2_title": "2. Persoonlijke gegevens en verzamelde informatie",
+    "section2_body": "De toepassing Autónoma GPS verzamelt, slaat geen persoonlijke gegevens op en deelt deze niet met derden. De informatie die door de toepassing wordt verwerkt, is beperkt tot het detecteren van het BLE beacon-signaal om de geschatte locatie van de gebruiker in de ruimte te berekenen. Er wordt geen persoonlijke identificatie, zoals naam, e-mailadres of telefoonnummer, gevraagd of opgeslagen.",
+    "section3_title": "3. Doel van het gebruik van gegevens",
+    "section3_body": "De toepassing gebruikt beacon-signalen uitsluitend voor het bieden van navigatie-instructies binnen de faciliteiten. De nabijheidsgegevens van de beacons worden lokaal op het apparaat verwerkt en dienen alleen om de geschatte locatie van de gebruiker te bepalen en real-time navigatie-instructies te geven. Geen informatie wordt opgeslagen of voor andere doeleinden gebruikt.",
+    "section4_title": "4. Gegevensdeling met derden",
+    "section4_body": "De toepassing deelt geen gegevens met derden. De verwerkte beacon-signalen worden alleen op het apparaat van de gebruiker gebruikt en niet naar externe servers of databases gestuurd.",
     "section5_title": "5. Beveiliging van interacties",
-    "section5_body": "De app verwerkt beaconsignalen lokaal zonder dat gevoelige gegevens via internet hoeven te worden verzonden. Indien netwerktoegang vereist is, wordt de communicatie beveiligd met SSL/TLS. Er zijn ook best practices toegepast tijdens de ontwikkeling.",
-    "section6_title": "6. Gebruikersrechten",
-    "section6_body": "Volgens de AVG hebben gebruikers het recht op toegang tot, correctie of verwijdering van hun persoonsgegevens. Aangezien Autónoma GPS echter geen identificeerbare persoonsgegevens verzamelt, opslaat of verwerkt, kan niet aan dergelijke verzoeken worden voldaan.",
+    "section5_body": "De toepassing verwerkt beacon-signalen lokaal, zonder dat gevoelige gegevens via internet hoeven te worden verzonden. Wanneer netwerktoegang vereist is, wordt de communicatie beveiligd door middel van veilige SSL/TLS-protocollen. Ook zijn er goede beveiligingspraktijken geïmplementeerd tijdens de ontwikkeling van de toepassing.",
+    "section6_title": "6. Rechten van gebruikers",
+    "section6_body": "In overeenstemming met de Algemene Verordening Gegevensbescherming (AVG) hebben gebruikers het recht om hun persoonlijke gegevens in te zien, te corrigeren of te verwijderen. Aangezien de toepassing Autónoma GPS geen identificeerbare persoonlijke gegevens verzamelt, opslaat of verwerkt, kunnen verzoeken om toegang, correctie of verwijdering van gegevens niet worden verwerkt.",
     "section7_title": "7. Wijzigingen in het privacybeleid",
-    "section7_body": "Universidade Autónoma de Lisboa behoudt zich het recht voor dit privacybeleid op elk moment bij te werken om wijzigingen in de app of wetgeving weer te geven. De datum van de laatste update wordt bovenaan dit document vermeld.",
+    "section7_body": "De Universidade Autónoma de Lisboa behoudt zich het recht voor om dit privacybeleid bij te werken wanneer dit nodig is om wijzigingen in de toepassing of in overeenstemming met de geldende wetgeving weer te geven. De datum van de laatste update wordt bovenaan dit document vermeld.",
     "section8_title": "8. Contact",
-    "section8_body": "Voor vragen over dit privacybeleid of de werking van de app Autónoma GPS kunnen gebruikers contact opnemen met Universidade Autónoma de Lisboa via e‑mail: mmira@autonoma.pt.",
+    "section8_body": "Voor vragen over dit privacybeleid of het functioneren van de toepassing Autónoma GPS kunnen gebruikers contact opnemen met de Universidade Autónoma de Lisboa via e-mail: mmira@autonoma.pt.",
     "close": "Sluiten"
   }
 }

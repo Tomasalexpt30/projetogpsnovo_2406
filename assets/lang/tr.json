@@ -1,19 +1,13 @@
 {
-  "Modo Navegação": "Navigasyon Modu",
-  "Modo Visita": "Ziyaret Modu",
-  "welcome": "Hoş geldiniz",
-  "splash_screen": {
-    "start": "Başlat"
-  },
   "sound_settings_page": {
     "general_preferences": "Genel Tercihler",
     "sound": "Ses",
-    "sound_description": "Sesi açma veya kapama.",
+    "sound_description": "Sesi açıp kapatın.",
     "vibration": "Titreşim",
-    "vibration_description": "Titreşimi açma veya kapama.",
+    "vibration_description": "Titreşimi açıp kapatın.",
     "voice": "Ses",
     "language": "Ses Dili",
-    "select_language": "Dil Seç",
+    "select_language": "Dil seçin",
     "current_language": "Mevcut: {language}",
     "voice_speed": "Ses Hızı",
     "voice_pitch": "Ses Tonu",
@@ -36,29 +30,24 @@
   "map_settings_page": {
     "map_appearance": "Harita Görünümü",
     "dark_map": "Koyu Harita Modu",
-    "dark_map_description": "Koyu bir tema etkinleştir.",
+    "dark_map_description": "Koyu bir tema etkinleştirir.",
     "icon_style": "Simge Stili",
     "default_style": "Varsayılan",
     "accessible_style": "Erişilebilir"
   },
   "language_settings_page": {
     "language": "Dil",
-    "language_description": "Tercih edilen dili seçin.",
+    "language_description": "İstediğiniz dili seçin.",
     "current_language": "Mevcut Dil",
     "select_language": "Dil Seçin"
   },
   "accessibility_settings_page": {
     "vision": "Görme",
     "high_contrast": "Yüksek Kontrast",
-    "high_contrast_description": "Okumayı kolaylaştırmak için renkler arasındaki kontrastı artırın.",
+    "high_contrast_description": "Okumayı kolaylaştırmak için renkler arasındaki kontrastı artırır.",
     "hearing": "İşitme",
     "screen_reader": "Ekran Okuyucu",
-    "screen_reader_description": "Ekran öğelerini sesli okumayı etkinleştirin."
-  },
-  "map_page": {
-    "search_hint": "Hedef?",
-    "route_button": "Rota Başlat",
-    "start_route_message": "Oda 10'a yaklaşıyoruz..."
+    "screen_reader_description": "Ekrandaki öğelerin sesli okumasını açın."
   },
   "my_home_page": {
     "mode_navigation": "Navigasyon Modu",
@@ -68,55 +57,56 @@
     "language": "Dil"
   },
   "navigation_map_selector": {
-    "where_to_go": "Nereye gitmek istiyorsunuz?",
+    "where_to_go": "Nereye gitmek istersiniz?",
     "select_destination": "Hedef Seçin",
-    "start_navigation": "Navigasyonu başlat",
-    "by_voice": "Sesle",
+    "start_navigation": "Navigasyonu Başlat",
+    "by_voice": "Sesli",
     "favorites": "Favoriler",
-    "add_favorite": "Favorilere ekle",
+    "add_favorite": "Favorilere Ekle",
     "close_popup": "Kapat"
   },
   "beacon_scan_page": {
-    "destination": "Varış Noktası",
+    "destination": "Hedef",
     "current_location": "Mevcut Konum",
     "next": "Sonraki",
     "description": "Açıklama",
-    "cancel_navigation": "İptal",
+    "cancel_navigation": "Navigasyonu İptal Et",
     "navigation_end": "Navigasyon tamamlandı. Uygulamamızı kullandığınız için teşekkür ederiz!"
-
   },
   "tour_page": {
-    "title": "Rehberli Tur",
-    "description": "Üniversitenin ana noktalarında rehberli turunuzu başlatın.",
-    "start_btn": "Turu Başlat"
+    "guided_tour_title": "Rehberli Tur",
+    "guided_tour_description": "Universidade Autónoma de Lisboa'yı interaktif ve tarihi bir turla keşfedin!",
+    "start_guided_tour": "Turu Başlat",
+    "guided_tour_info": "Hakkında",
+    "guided_tour_info_description": "Rehberli tur, Universidade Autónoma de Lisboa'nın ana alanlarını ve tarihini interaktif ve ilgi çekici bir şekilde keşfetmenizi sağlar. Tur boyunca, kurumun önemli noktalarını, tarihi ilginçliklerini ve ilgilenebileceğiniz bilgileri vurgulayan dikkatlice seçilmiş adımlarla yönlendirileceksiniz. Bu deneyim, her yeri kendi hızınızda keşfetmek için zenginleştirici ve eğitimsel bir yol sunar ve üniversitemiz hakkında dinamik ve erişilebilir bir şekilde bilgi edinmenizi sağlar.",
+    "guided_tour_popup": "Rehberli Tur nedir?",
+    "close_popup": "Kapat"
   },
   "tour_scan_page": {
-    "current_location": "Mevcut Konum",
-    "next": "Sonraki",
-    "searching": "Beaconlar aranıyor...",
-    "go_to_entrance": "Rehberli turu başlatmak için girişe gidin.",
-    "cancel_btn": "Rehberli turu iptal et"
+    "tour_title": "Rehberli Tur",
+    "cancel_tour": "Turu İptal Et",
+    "tour_end": "Rehberli Tur sona erdi. Uygulamamızı kullandığınız için teşekkür ederiz!"
   },
   "privacy_policy": {
     "title": "Gizlilik Politikası",
     "updated": "Son güncelleme: 29 Haziran 2025",
-    "intro": "Universidade Autónoma de Lisboa, kullanıcı gizliliğine değer verir ve Autónoma GPS uygulamasını kullanırken paylaşılan bilgileri korumaya kararlıdır.",
-    "section1_title": "1. Kurum Kimliği",
-    "section1_body": "Universidade Autónoma de Lisboa, kullanıcıların üniversite tesislerinde alan bulmalarına ve gezinmelerine yardımcı olan BLE beacon teknolojisi kullanan iç mekan navigasyon çözümü Autónoma GPS uygulamasının işletilmesinden sorumludur. Bu politika ile ilgili sorular için kullanıcılar mmira@autonoma.pt adresiyle iletişime geçebilir.",
-    "section2_title": "2. Toplanan Kişisel Veriler ve Bilgiler",
-    "section2_body": "Autónoma GPS uygulaması kullanıcıların kişisel verilerini toplamaz, saklamaz veya paylaşmaz. Uygulama tarafından işlenen bilgiler, kullanıcının yaklaşık konumunu hesaplamak için BLE beacon sinyallerinin tespit edilmesiyle sınırlıdır. Ad, e-posta veya telefon numarası gibi kişisel tanımlama bilgileri istenmez veya saklanmaz.",
-    "section3_title": "3. Verilerin Kullanım Amacı",
-    "section3_body": "Uygulama, iç mekan navigasyonu sağlamak için beacon sinyallerini yalnızca bu amaçla kullanır. Beacon yakınlık verileri cihaz üzerinde yerel olarak işlenir ve yalnızca kullanıcının yaklaşık konumunu belirlemek ve gerçek zamanlı navigasyon talimatları sağlamak için kullanılır. Başka amaçlarla hiçbir bilgi depolanmaz veya kullanılmaz.",
-    "section4_title": "4. Verilerin Üçüncü Taraflarla Paylaşımı",
-    "section4_body": "Uygulama hiçbir veriyi üçüncü taraflarla paylaşmaz. Beacon sinyalleri yalnızca kullanıcının cihazında işlenir ve harici sunuculara veya veri tabanlarına gönderilmez.",
-    "section5_title": "5. İletişim Güvenliği",
-    "section5_body": "Uygulama, internet üzerinde hassas verilerin iletilmesi gerekmeden beacon sinyallerini yerel olarak işler. Ağ erişimi gerektiğinde, iletişim SSL/TLS güvenli protokollerle korunur. Geliştirme sürecinde güvenlik en iyi uygulamaları da uygulanmıştır.",
+    "intro": "Universidade Autónoma de Lisboa, kullanıcıların gizliliğine değer verir ve uygulama kullanımı sırasında paylaşılan tüm bilgileri korumayı taahhüt eder: Autónoma GPS.",
+    "section1_title": "1. Kuruluş Kimliği",
+    "section1_body": "Universidade Autónoma de Lisboa, Autónoma GPS uygulamasının işletmesinden sorumlu kuruluştur. Bu uygulama, BLE beacon teknolojisi kullanarak kullanıcıların mekanları bulmalarına ve üniversite kampüsünde gezinmelerine yardımcı olan bir iç mekan navigasyon çözümüdür. Bu politika ile ilgili herhangi bir soru için kullanıcılar, mmira@autonoma.pt adresiyle bizimle iletişime geçebilirler.",
+    "section2_title": "2. Kişisel Veriler ve Toplanan Bilgiler",
+    "section2_body": "Autónoma GPS uygulaması, kullanıcıların kişisel verilerini toplamaz, saklamaz veya paylaşmaz. Uygulama tarafından işlenen bilgiler, kullanıcının mekandaki tahmini konumunu hesaplamak için BLE beacon sinyallerinin algılanmasıyla sınırlıdır. Hiçbir kişisel bilgi, ad, e-posta adresi veya telefon numarası istenmez veya saklanmaz.",
+    "section3_title": "3. Verilerin Kullanılma Amacı",
+    "section3_body": "Uygulama, beacon sinyallerini yalnızca iç mekanlarda navigasyon talimatları sağlamak için kullanır. Beaconların yakınlık verileri, cihazda yerel olarak işlenir ve yalnızca kullanıcının tahmini konumunu belirlemek ve gerçek zamanlı navigasyon talimatları sağlamak için kullanılır. Hiçbir bilgi saklanmaz veya başka amaçlar için kullanılmaz.",
+    "section4_title": "4. Üçüncü Taraflarla Veri Paylaşımı",
+    "section4_body": "Uygulama, herhangi bir veriyi üçüncü taraflarla paylaşmaz. İşlenen beacon sinyalleri yalnızca kullanıcının cihazında kullanılır ve harici sunuculara veya veritabanlarına gönderilmez.",
+    "section5_title": "5. Etkileşimlerin Güvenliği",
+    "section5_body": "Uygulama, beacon sinyallerini yerel olarak işler, internet üzerinden hassas verilerin iletilmesine gerek yoktur. Ağ erişimi gerektiğinde iletişim, güvenli SSL/TLS protokolleriyle korunacaktır. Ayrıca, uygulamanın geliştirilmesinde güvenlik için en iyi uygulamalar uygulanmıştır.",
     "section6_title": "6. Kullanıcı Hakları",
-    "section6_body": "GDPR’a göre kullanıcıların kişisel verilerine erişme, düzeltme veya silme hakkı vardır. Ancak Autónoma GPS tanımlanabilir kişisel veri toplamadığından, saklamadığından ve işlemediğinden, bu tür talepler karşılanamaz.",
+    "section6_body": "Genel Veri Koruma Yönetmeliği'ne (GDPR) göre, kullanıcıların kişisel verilerine erişme, düzeltme veya silme hakkı vardır. Ancak, Autónoma GPS uygulaması, tanımlanabilir kişisel verileri toplamadığı, saklamadığı veya işlemediği için, verilere erişim, düzeltme veya silme taleplerine yanıt verilemez.",
     "section7_title": "7. Gizlilik Politikasındaki Değişiklikler",
-    "section7_body": "Universidade Autónoma de Lisboa, uygulamadaki değişiklikleri veya yasal gereklilikleri yansıtmak için bu gizlilik politikasını her zaman güncelleme hakkını saklı tutar. Son güncelleme tarihi bu belgenin üst kısmında belirtilmiştir.",
+    "section7_body": "Universidade Autónoma de Lisboa, bu gizlilik politikasını, uygulamadaki değişiklikleri veya geçerli mevzuatla uyumu yansıtacak şekilde gerektiğinde güncelleme hakkını saklı tutar. Son güncelleme tarihi bu belgenin başında belirtilmiştir.",
     "section8_title": "8. İletişim",
-    "section8_body": "Bu politikayla veya Autónoma GPS uygulamasının çalışmasıyla ilgili sorular için kullanıcılar mmira@autonoma.pt adresinden Universidade Autónoma de Lisboa ile iletişime geçebilir.",
+    "section8_body": "Bu gizlilik politikası veya Autónoma GPS uygulamasının işleyişi ile ilgili herhangi bir sorunuz varsa, kullanıcılar Universidade Autónoma de Lisboa ile mmira@autonoma.pt e-posta adresi üzerinden iletişime geçebilirler.",
     "close": "Kapat"
   }
 }

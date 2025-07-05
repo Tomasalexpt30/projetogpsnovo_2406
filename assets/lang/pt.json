@@ -1,10 +1,4 @@
 {
-  "Modo Navegação": "Modo Navegação",
-  "Modo Visita": "Modo Visita",
-  "welcome": "Bem-vindo",
-  "splash_screen": {
-    "start": "Iniciar"
-  },
   "sound_settings_page": {
     "general_preferences": "Preferências gerais",
     "sound": "Som",
@@ -55,11 +49,6 @@
     "screen_reader": "Leitura de Ecrã",
     "screen_reader_description": "Ativa a leitura em voz alta dos elementos no ecrã."
   },
-  "map_page": {
-    "search_hint": "Destino?",
-    "route_button": "Iniciar Rota",
-    "start_route_message": "A aproximar da Sala 10..."
-  },
   "my_home_page": {
     "mode_navigation": "Modo Navegação",
     "mode_visit": "Modo Visita",
@@ -95,12 +84,8 @@
   },
   "tour_scan_page": {
     "tour_title": "Visita Guiada",
-    "current_location": "Local Atual",
-    "next": "Próximo",
-    "description": "Descrição",
-    "cancel_navigation": "Cancelar Visita",
-    "tour_end": "A Visita Guiada chegou ao fim. Obrigado por usar a nossa aplicação!",
-    "got_to_entrance": "Dirija-se à entrada para iniciar a visita guiada"
+    "cancel_tour": "Cancelar Visita",
+    "tour_end": "A Visita Guiada chegou ao fim. Obrigado por usar a nossa aplicação!"
   },
   "privacy_policy": {
     "title": "Política de Privacidade",

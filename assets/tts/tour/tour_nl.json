@@ -1,30 +1,57 @@
 {
   "alerts": {
-    "start_tour": "Gids Tour",
-    "tour_description": "Begin je rondleiding langs de belangrijkste punten van de universiteit.",
-    "start_btn": "Start Tour",
-    "searching": "Beacons zoeken...",
-    "start_tour_info": "Tour gestart! Ga verder naar het volgende punt.",
-    "go_to_entrance": "Ga naar de ingang om de rondleiding te starten.",
-    "at_location": "U bent bij: {location}.",
-    "please_proceed_entrance": "Ga alstublieft naar de ingang om te beginnen.",
-    "tour_cancelled": "Tour geannuleerd.",
-    "tour_completed": "Tour voltooid. Dank u!",
-    "repeat_entrance": "Ga naar de ingang om de rondleiding te starten.",
-    "voice_entrance": "U bent bij de ingang. Laten we de rondleiding beginnen!"
+    "guided_tour_start_alert": "Inizieremo la Visita Guidata della Universidade Autónoma de Lisboa",
+    "tour_end_alert": "De Rondleiding is beëindigd. Bedankt voor het gebruik van onze applicatie!",
+    "searching_alert": "Zoeken..."
   },
-  "tour_points": {
-    "entrada": {
-      "name": "Ingang",
-      "text": "Welkom aan de Autonome Universiteit van Lissabon. Hier begint je tour. Ontdek de belangrijkste punten van de campus!"
+
+
+  "beacons": {
+    "Beacon 1": {
+      "beacon_floor": "0",
+      "beacon_description": "Beschrijving van Beacon 1",
+      "beacon_destinations": ["Ingang", "Receptie"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+      "historical_point_name": "Hoofdingang",
+      "historical_point_message": "Dit is de hoofdingang van de Universidade Autónoma de Lisboa, een plek waar dagelijks honderden studenten passeren.",
+
+      "beacon_instructions": {
+        "Beacon 1-Ingang": "Instructie van Beacon 1 naar de Ingang",
+        "Beacon 1-Receptie": "Instructie van Beacon 1 naar de Receptie",
+        "Beacon 1-Beacon 2": "Instructie van Beacon 1 naar Beacon 2",
+        "Beacon 1-Beacon 3": "Instructie van Beacon 1 naar Beacon 3"
+      }
     },
-    "patio": {
-      "name": "Atrium",
-      "text": "Dit is de centrale hal van de universiteit. Hier vinden verschillende evenementen plaats en ontmoeten studenten elkaar."
+    "Beacon 3": {
+      "beacon_floor": "0",
+      "beacon_description": "Beschrijving van Beacon 3",
+      "beacon_destinations": ["Binnenplaats"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+      "beacon_instructions": {
+        "Beacon 3-Binnenplaats": "Instructie van Beacon 3 naar de Binnenplaats",
+        "Beacon 3-Beacon 1": "Instructie van Beacon 3 naar Beacon 1",
+        "Beacon 3-Beacon 4": "Instructie van Beacon 3 naar Beacon 4",
+        "Beacon 3-Beacon 8": "Instructie van Beacon 3 naar Beacon 8",
+        "Beacon 3-Beacon 15": "Instructie van Beacon 3 naar Beacon 15"
+      }
     },
-    "camoes": {
-      "name": "Camões",
-      "text": "Het standbeeld van Camões staat voor de waarde van de Portugese literatuur en cultuur. Het is een van de meest iconische symbolen van onze campus."
+    "Beacon 15": {
+      "beacon_floor": "0",
+      "beacon_description": "Beschrijving van Beacon 15",
+      "beacon_destinations": ["Camões"],
+      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+      "historical_point_name": "Standbeeld van Camões",
+      "historical_point_message": "Op deze plaats bevindt zich het standbeeld van Luís de Camões, een van de meest emblematische figuren in de Portugese literatuur.",
+
+      "beacon_instructions": {
+        "Beacon 15-Camões": "Instructie van Beacon 15 naar Camões",
+        "Beacon 15-Beacon 3": "Instructie van Beacon 15 naar Beacon 3",
+        "Beacon 15-Beacon 16": "Instructie van Beacon 15 naar Beacon 16",
+        "Beacon 15-Beacon 22": "Instructie van Beacon 15 naar Beacon 22"
+      }
     }
-  }
+  },
+  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
 }

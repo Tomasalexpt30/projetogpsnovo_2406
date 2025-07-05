@@ -1,30 +1,57 @@
 {
   "alerts": {
-    "start_tour": "Экскурсия",
-    "tour_description": "Начните экскурсию по главным точкам университета.",
-    "start_btn": "Начать экскурсию",
-    "searching": "Поиск маячков...",
-    "start_tour_info": "Экскурсия началась! Перейдите к следующей точке.",
-    "go_to_entrance": "Пройдите к входу, чтобы начать экскурсию.",
-    "at_location": "Вы находитесь: {location}.",
-    "please_proceed_entrance": "Пожалуйста, пройдите к входу для начала.",
-    "tour_cancelled": "Экскурсия отменена.",
-    "tour_completed": "Экскурсия завершена. Спасибо!",
-    "repeat_entrance": "Пройдите к входу, чтобы начать экскурсию.",
-    "voice_entrance": "Вы на входе. Давайте начнем экскурсию!"
+    "guided_tour_start_alert": "Мы начинаем экскурсию по Universidade Autónoma de Lisboa",
+    "tour_end_alert": "Экскурсия с гидом завершена. Спасибо, что использовали наше приложение!",
+    "searching_alert": "Поиск..."
   },
-  "tour_points": {
-    "entrada": {
-      "name": "Вход",
-      "text": "Добро пожаловать в Автономный университет Лиссабона. Здесь начинается ваш тур. Откройте для себя главные точки кампуса!"
+
+
+  "beacons": {
+    "Beacon 1": {
+      "beacon_floor": "0",
+      "beacon_description": "Описание Beacon 1",
+      "beacon_destinations": ["Вход", "Ресепшн"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+      "historical_point_name": "Главный вход",
+      "historical_point_message": "Это главный вход в Universidade Autónoma de Lisboa, место, через которое ежедневно проходят сотни студентов.",
+
+      "beacon_instructions": {
+        "Beacon 1-Вход": "Инструкция от Beacon 1 до Входа",
+        "Beacon 1-Ресепшн": "Инструкция от Beacon 1 до Ресепшн",
+        "Beacon 1-Beacon 2": "Инструкция от Beacon 1 до Beacon 2",
+        "Beacon 1-Beacon 3": "Инструкция от Beacon 1 до Beacon 3"
+      }
     },
-    "patio": {
-      "name": "Атриум",
-      "text": "Это главный холл университета. Здесь проходят различные мероприятия и встречаются студенты."
+    "Beacon 3": {
+      "beacon_floor": "0",
+      "beacon_description": "Описание Beacon 3",
+      "beacon_destinations": ["Двор"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+      "beacon_instructions": {
+        "Beacon 3-Двор": "Инструкция от Beacon 3 до Двора",
+        "Beacon 3-Beacon 1": "Инструкция от Beacon 3 до Beacon 1",
+        "Beacon 3-Beacon 4": "Инструкция от Beacon 3 до Beacon 4",
+        "Beacon 3-Beacon 8": "Инструкция от Beacon 3 до Beacon 8",
+        "Beacon 3-Beacon 15": "Инструкция от Beacon 3 до Beacon 15"
+      }
     },
-    "camoes": {
-      "name": "Камойнш",
-      "text": "Статуя Камойнша символизирует ценность португальской литературы и культуры. Это один из самых известных символов нашего кампуса."
+    "Beacon 15": {
+      "beacon_floor": "0",
+      "beacon_description": "Описание Beacon 15",
+      "beacon_destinations": ["Camões"],
+      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+      "historical_point_name": "Статуя Камоэша",
+      "historical_point_message": "На этом месте находится статуя Луиша де Камоэша, одной из самых знаковых фигур португальской литературы.",
+
+      "beacon_instructions": {
+        "Beacon 15-Camões": "Инструкция от Beacon 15 до Camões",
+        "Beacon 15-Beacon 3": "Инструкция от Beacon 15 до Beacon 3",
+        "Beacon 15-Beacon 16": "Инструкция от Beacon 15 до Beacon 16",
+        "Beacon 15-Beacon 22": "Инструкция от Beacon 15 до Beacon 22"
+      }
     }
-  }
+  },
+  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
 }

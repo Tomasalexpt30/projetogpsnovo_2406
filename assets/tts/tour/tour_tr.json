@@ -1,30 +1,56 @@
 {
   "alerts": {
-    "start_tour": "Rehberli Tur",
-    "tour_description": "Üniversitenin ana noktalarında rehberli turunuza başlayın.",
-    "start_btn": "Turu Başlat",
-    "searching": "Beaconlar aranıyor...",
-    "start_tour_info": "Tur başladı! Sonraki noktaya devam edin.",
-    "go_to_entrance": "Rehberli turu başlatmak için girişe gidin.",
-    "at_location": "{location} konumundasınız.",
-    "please_proceed_entrance": "Başlamak için lütfen girişe gidin.",
-    "tour_cancelled": "Tur iptal edildi.",
-    "tour_completed": "Tur tamamlandı. Teşekkürler!",
-    "repeat_entrance": "Rehberli turu başlatmak için girişe gidin.",
-    "voice_entrance": "Giriştesiniz. Rehberli turu başlatalım!"
+    "guided_tour_start_alert": "Universidade Autónoma de Lisboa'da Rehberli Tura başlıyoruz",
+    "tour_end_alert": "Rehberli Tur sona erdi. Uygulamamızı kullandığınız için teşekkür ederiz!",
+    "searching_alert": "Aranıyor..."
   },
-  "tour_points": {
-    "entrada": {
-      "name": "Giriş",
-      "text": "Lizbon Özerk Üniversitesi'ne hoş geldiniz. Turunuz burada başlar. Kampüsün ana noktalarını keşfetmeye başlayın!"
+
+  "beacons": {
+    "Beacon 1": {
+      "beacon_floor": "0",
+      "beacon_description": "Beacon 1'in Açıklaması",
+      "beacon_destinations": ["Giriş", "Resepsiyon"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+      "historical_point_name": "Ana Giriş",
+      "historical_point_message": "Burası Universidade Autónoma de Lisboa'nın ana girişi, her gün yüzlerce öğrencinin geçtiği bir yer.",
+
+      "beacon_instructions": {
+        "Beacon 1-Giriş": "Beacon 1'den Giriş'e Talimat",
+        "Beacon 1-Resepsiyon": "Beacon 1'den Resepsiyon'a Talimat",
+        "Beacon 1-Beacon 2": "Beacon 1'den Beacon 2'ye Talimat",
+        "Beacon 1-Beacon 3": "Beacon 1'den Beacon 3'e Talimat"
+      }
     },
-    "patio": {
-      "name": "Avlu",
-      "text": "Burası üniversitenin ana salonudur. Burada çeşitli etkinlikler yapılır ve öğrenciler burada buluşur."
+    "Beacon 3": {
+      "beacon_floor": "0",
+      "beacon_description": "Beacon 3'ün Açıklaması",
+      "beacon_destinations": ["Avlu"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+      "beacon_instructions": {
+        "Beacon 3-Avlu": "Beacon 3'ten Avlu'ya Talimat",
+        "Beacon 3-Beacon 1": "Beacon 3'ten Beacon 1'e Talimat",
+        "Beacon 3-Beacon 4": "Beacon 3'ten Beacon 4'e Talimat",
+        "Beacon 3-Beacon 8": "Beacon 3'ten Beacon 8'e Talimat",
+        "Beacon 3-Beacon 15": "Beacon 3'ten Beacon 15'e Talimat"
+      }
     },
-    "camoes": {
-      "name": "Camões",
-      "text": "Camões heykeli, Portekiz edebiyatı ve kültürünün değerini simgeler. Kampüsümüzün en önemli sembollerinden biridir."
+    "Beacon 15": {
+      "beacon_floor": "0",
+      "beacon_description": "Beacon 15'in Açıklaması",
+      "beacon_destinations": ["Camões"],
+      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+      "historical_point_name": "Camões Heykeli",
+      "historical_point_message": "Bu noktada, Portekiz edebiyatının en emblematik figürlerinden biri olan Luís de Camões'un heykeli bulunmaktadır.",
+
+      "beacon_instructions": {
+        "Beacon 15-Camões": "Beacon 15'ten Camões'e Talimat",
+        "Beacon 15-Beacon 3": "Beacon 15'ten Beacon 3'e Talimat",
+        "Beacon 15-Beacon 16": "Beacon 15'ten Beacon 16'ya Talimat",
+        "Beacon 15-Beacon 22": "Beacon 15'ten Beacon 22'ye Talimat"
+      }
     }
-  }
+  },
+  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
 }

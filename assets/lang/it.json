@@ -1,23 +1,17 @@
 {
-  "Modo Navegação": "Modalità Navigazione",
-  "Modo Visita": "Modalità Visita",
-  "welcome": "Benvenuto",
-  "splash_screen": {
-    "start": "Inizia"
-  },
   "sound_settings_page": {
     "general_preferences": "Preferenze generali",
     "sound": "Suono",
-    "sound_description": "Abilita o disabilita il suono.",
+    "sound_description": "Attiva o disattiva il suono.",
     "vibration": "Vibrazione",
-    "vibration_description": "Abilita o disabilita la vibrazione.",
+    "vibration_description": "Attiva o disattiva la vibrazione.",
     "voice": "Voce",
     "language": "Lingua della voce",
     "select_language": "Seleziona lingua",
     "current_language": "Attuale: {language}",
     "voice_speed": "Velocità della voce",
     "voice_pitch": "Tono della voce",
-    "test_voice": "Testa la voce"
+    "test_voice": "Prova voce"
   },
   "settings_page": {
     "settings": "Impostazioni",
@@ -29,36 +23,31 @@
   },
   "personalization_page": {
     "theme": "Tema",
-    "theme_description": "Passa tra la modalità chiara e quella scura.",
-    "light_mode": "Modalità chiara",
-    "dark_mode": "Modalità scura"
+    "theme_description": "Alterna tra modalità chiara e scura.",
+    "light_mode": "Modalità Chiara",
+    "dark_mode": "Modalità Scura"
   },
   "map_settings_page": {
-    "map_appearance": "Aspetto della mappa",
-    "dark_map": "Modalità mappa scura",
-    "dark_map_description": "Abilita il tema scuro.",
+    "map_appearance": "Aspetto della Mappa",
+    "dark_map": "Modalità Mappa Scura",
+    "dark_map_description": "Abilita un tema scuro.",
     "icon_style": "Stile delle icone",
     "default_style": "Predefinito",
     "accessible_style": "Accessibile"
   },
   "language_settings_page": {
     "language": "Lingua",
-    "language_description": "Seleziona la tua lingua preferita.",
+    "language_description": "Seleziona la lingua desiderata.",
     "current_language": "Lingua attuale",
     "select_language": "Seleziona lingua"
   },
   "accessibility_settings_page": {
     "vision": "Vista",
-    "high_contrast": "Alto contrasto",
-    "high_contrast_description": "Aumenta il contrasto dei colori per facilitare la lettura.",
+    "high_contrast": "Contrasto Elevato",
+    "high_contrast_description": "Aumenta il contrasto tra i colori per facilitare la lettura.",
     "hearing": "Udito",
-    "screen_reader": "Lettore schermo",
-    "screen_reader_description": "Abilita la lettura vocale degli elementi sullo schermo."
-  },
-  "map_page": {
-    "search_hint": "Destinazione?",
-    "route_button": "Avvia percorso",
-    "start_route_message": "Avvicinamento alla stanza 10..."
+    "screen_reader": "Lettore Schermo",
+    "screen_reader_description": "Attiva la lettura ad alta voce degli elementi sullo schermo."
   },
   "my_home_page": {
     "mode_navigation": "Modalità Navigazione",
@@ -70,53 +59,54 @@
   "navigation_map_selector": {
     "where_to_go": "Dove vuoi andare?",
     "select_destination": "Seleziona Destinazione",
-    "start_navigation": "Avvia navigazione",
-    "by_voice": "Tramite voce",
+    "start_navigation": "Avvia Navigazione",
+    "by_voice": "Per Voce",
     "favorites": "Preferiti",
-    "add_favorite": "Aggiungi ai preferiti",
+    "add_favorite": "Aggiungi ai Preferiti",
     "close_popup": "Chiudi"
   },
   "beacon_scan_page": {
     "destination": "Destinazione",
     "current_location": "Posizione Attuale",
-    "next": "Successivo",
+    "next": "Prossimo",
     "description": "Descrizione",
     "cancel_navigation": "Annulla",
     "navigation_end": "Navigazione completata. Grazie per aver utilizzato la nostra applicazione!"
-
   },
   "tour_page": {
-    "title": "Tour",
-    "description": "Inizia il tour delle principali attrazioni dell'università.",
-    "start_btn": "Inizia tour"
+    "guided_tour_title": "Tour Guidato",
+    "guided_tour_description": "Vieni a scoprire l'Universidade Autónoma de Lisboa attraverso un percorso interattivo e storico!",
+    "start_guided_tour": "Avvia il Tour",
+    "guided_tour_info": "Informazioni",
+    "guided_tour_info_description": "Il tour guidato ti permette di esplorare in modo interattivo e coinvolgente gli spazi principali e la storia dell'Universidade Autónoma de Lisboa. Durante il percorso, sarai guidato da tappe accuratamente selezionate che evidenziano i punti più importanti dell'istituzione, curiosità storiche e informazioni di interesse. Questa esperienza offre un modo arricchente ed educativo per scoprire ogni luogo al tuo ritmo, permettendoti di approfondire la tua conoscenza della nostra università in modo dinamico e accessibile.",
+    "guided_tour_popup": "Cos'è il Tour Guidato?",
+    "close_popup": "Chiudi"
   },
   "tour_scan_page": {
-    "current_location": "Posizione attuale",
-    "next": "Successivo",
-    "searching": "Ricerca beacon in corso...",
-    "go_to_entrance": "Vai all'ingresso per iniziare il tour.",
-    "cancel_btn": "Annulla tour"
+    "tour_title": "Tour Guidato",
+    "cancel_tour": "Annulla Tour",
+    "tour_end": "Il Tour Guidato è terminato. Grazie per aver utilizzato la nostra applicazione!"
   },
   "privacy_policy": {
-    "title": "Informativa sulla privacy",
-    "updated": "Ultimo aggiornamento: 29 giugno 2025",
-    "intro": "L’Universidade Autónoma de Lisboa valorizza la privacy degli utenti e si impegna a proteggere qualsiasi informazione condivisa durante l’utilizzo dell’app: Autónoma GPS.",
-    "section1_title": "1. Identità dell’organizzazione",
-    "section1_body": "L’Universidade Autónoma de Lisboa è responsabile del funzionamento dell’app Autónoma GPS, una soluzione di navigazione interna che utilizza beacon BLE per aiutare gli utenti a orientarsi all’interno delle strutture universitarie. Per qualsiasi domanda relativa a questa informativa, gli utenti possono contattare mmira@autonoma.pt.",
-    "section2_title": "2. Dati personali e informazioni raccolte",
-    "section2_body": "L’app Autónoma GPS non raccoglie, memorizza né condivide dati personali degli utenti. Le uniche informazioni elaborate riguardano il rilevamento di segnali beacon BLE per calcolare la posizione approssimativa dell’utente. Non vengono richieste o archiviate identificazioni personali (nome, email, numero di telefono).",
-    "section3_title": "3. Finalità dell’uso dei dati",
-    "section3_body": "L’app utilizza i segnali beacon esclusivamente per fornire indicazioni di navigazione interna. I dati di prossimità vengono elaborati localmente sul dispositivo e servono solo a determinare la posizione approssimativa dell’utente e fornire istruzioni in tempo reale. Nessuna informazione viene memorizzata o usata per altri scopi.",
-    "section4_title": "4. Condivisione dei dati con terze parti",
-    "section4_body": "L’app non condivide alcun dato con terze parti. I segnali beacon vengono utilizzati solo sul dispositivo dell’utente e non inviati a server esterni o database.",
-    "section5_title": "5. Sicurezza delle interazioni",
-    "section5_body": "L’app elabora i segnali beacon localmente, senza trasmettere dati sensibili via internet. Se necessario l’accesso in rete, la comunicazione è protetta da protocolli SSL/TLS sicuri. Sono state implementate anche buone pratiche di sicurezza durante lo sviluppo.",
-    "section6_title": "6. Diritti degli utenti",
-    "section6_body": "In base al GDPR, gli utenti hanno diritto a accedere, rettificare o cancellare i propri dati personali. Tuttavia, dato che Autónoma GPS non raccoglie né tratta dati identificabili, non è possibile soddisfare tali richieste.",
-    "section7_title": "7. Modifiche all’informativa sulla privacy",
-    "section7_body": "L’Universidade Autónoma de Lisboa si riserva il diritto di aggiornare questa informativa sulla privacy in qualsiasi momento per riflettere modifiche all’app o requisiti di legge. La data dell’ultimo aggiornamento è indicata in cima al documento.",
+    "title": "Politica sulla Privacy",
+    "updated": "Ultimo aggiornamento: 29 Giugno 2025",
+    "intro": "L'Universidade Autónoma de Lisboa apprezza la privacy degli utenti e si impegna a proteggere tutte le informazioni che potrebbero essere condivise durante l'uso dell'applicazione: Autónoma GPS.",
+    "section1_title": "1. Identità dell'Organizzazione",
+    "section1_body": "L'Universidade Autónoma de Lisboa è l'entità responsabile del funzionamento dell'applicazione Autónoma GPS, una soluzione di navigazione indoor che utilizza la tecnologia BLE beacon per aiutare gli utenti a localizzare spazi e a navigare nelle strutture dell'università. Per qualsiasi domanda relativa a questa politica, gli utenti possono contattarci tramite mmira@autonoma.pt.",
+    "section2_title": "2. Dati Personali e Informazioni Raccoglie",
+    "section2_body": "L'applicazione Autónoma GPS non raccoglie, memorizza o condivide dati personali degli utenti. Le informazioni elaborate dall'applicazione si limitano a rilevare il segnale BLE dei beacon per calcolare la posizione approssimativa dell'utente nello spazio. Nessuna informazione personale, come nome, indirizzo e-mail o numero di telefono, viene richiesta o memorizzata.",
+    "section3_title": "3. Scopo dell'Uso dei Dati",
+    "section3_body": "L'applicazione utilizza i segnali dei beacon esclusivamente per fornire indicazioni di navigazione all'interno delle strutture. I dati di prossimità dei beacon sono elaborati localmente sul dispositivo e servono solo per determinare la posizione approssimativa dell'utente e fornire istruzioni di navigazione in tempo reale. Nessuna informazione viene memorizzata o utilizzata per altri scopi.",
+    "section4_title": "4. Condivisione dei Dati con Terzi",
+    "section4_body": "L'applicazione non condivide alcun dato con terzi. I segnali dei beacon elaborati vengono utilizzati solo sul dispositivo dell'utente e non vengono inviati a server esterni o database.",
+    "section5_title": "5. Sicurezza delle Interazioni",
+    "section5_body": "L'applicazione elabora i segnali dei beacon localmente, senza necessità di trasmettere dati sensibili su Internet. Quando è necessario l'accesso alla rete, la comunicazione sarà protetta tramite protocolli sicuri SSL/TLS. Sono state inoltre implementate buone pratiche di sicurezza durante lo sviluppo dell'applicazione.",
+    "section6_title": "6. Diritti degli Utenti",
+    "section6_body": "In conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR), gli utenti hanno il diritto di accedere, correggere o cancellare i loro dati personali. Tuttavia, poiché l'applicazione Autónoma GPS non raccoglie, memorizza o elabora dati personali identificabili, non è possibile soddisfare le richieste di accesso, correzione o eliminazione dei dati.",
+    "section7_title": "7. Modifiche alla Politica sulla Privacy",
+    "section7_body": "L'Universidade Autónoma de Lisboa si riserva il diritto di aggiornare questa politica sulla privacy ogni volta che sarà necessario per riflettere modifiche nell'applicazione o per conformarsi alla legislazione applicabile. La data dell'ultimo aggiornamento è indicata in cima a questo documento.",
     "section8_title": "8. Contatto",
-    "section8_body": "Per qualsiasi domanda su questa informativa o il funzionamento dell’app Autónoma GPS, gli utenti possono contattare l’Universidade Autónoma de Lisboa via email: mmira@autonoma.pt.",
+    "section8_body": "Per qualsiasi domanda relativa a questa politica sulla privacy o al funzionamento dell'applicazione Autónoma GPS, gli utenti possono contattare l'Universidade Autónoma de Lisboa tramite e-mail: mmira@autonoma.pt.",
     "close": "Chiudi"
   }
 }

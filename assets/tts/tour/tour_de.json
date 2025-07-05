@@ -1,30 +1,58 @@
 {
   "alerts": {
-    "start_tour": "Geführte Tour",
-    "tour_description": "Beginnen Sie Ihre geführte Tour zu den wichtigsten Punkten der Universität.",
-    "start_btn": "Tour starten",
-    "searching": "Suche nach Beacons...",
-    "start_tour_info": "Tour gestartet! Gehen Sie zum nächsten Punkt.",
-    "go_to_entrance": "Gehen Sie zum Eingang, um die Tour zu starten.",
-    "at_location": "Sie sind bei: {location}.",
-    "please_proceed_entrance": "Bitte gehen Sie zum Eingang, um zu beginnen.",
-    "tour_cancelled": "Tour abgebrochen.",
-    "tour_completed": "Tour abgeschlossen. Danke!",
-    "repeat_entrance": "Gehen Sie zum Eingang, um die Tour zu starten.",
-    "voice_entrance": "Sie sind am Eingang. Beginnen wir die geführte Tour!"
+    "guided_tour_start_alert": "Wir beginnen die geführte Tour durch die Universidade Autónoma de Lisboa",
+    "tour_end_alert": "Die geführte Tour ist zu Ende. Vielen Dank, dass Sie unsere Anwendung verwendet haben!",
+    "searching_alert": "Auf der Suche..."
   },
-  "tour_points": {
-    "entrada": {
-      "name": "Eingang",
-      "text": "Willkommen an der Autonomen Universität Lissabon. Hier beginnt Ihre Tour. Entdecken Sie die wichtigsten Punkte des Campus!"
-    },
-    "patio": {
-      "name": "Atrium",
-      "text": "Dies ist die Haupthalle der Universität. Hier finden verschiedene Veranstaltungen statt, und es ist ein Treffpunkt für Studierende."
-    },
-    "camoes": {
-      "name": "Camões",
-      "text": "Die Statue von Camões steht für den Wert der portugiesischen Literatur und Kultur. Sie ist eines der markantesten Symbole unseres Campus."
+
+
+  "beacons": {
+  "Beacon 1": {
+    "beacon_floor": "0",
+    "beacon_description": "Beschreibung des Beacon 1",
+    "beacon_destinations": ["Eingang", "Empfang"],
+    "beacon_connections": ["Beacon 2", "Beacon 3"],
+
+    "historical_point_name": "Haupteingang",
+    "historical_point_message": "Dies ist der Haupteingang der Universidade Autónoma de Lisboa, ein Ort, an dem täglich Hunderte von Studenten vorbeigehen.",
+
+    "beacon_instructions": {
+      "Beacon 1-Eingang": "Anweisung von Beacon 1 zum Eingang",
+      "Beacon 1-Empfang": "Anweisung von Beacon 1 zum Empfang",
+      "Beacon 1-Beacon 2": "Anweisung von Beacon 1 zu Beacon 2",
+      "Beacon 1-Beacon 3": "Anweisung von Beacon 1 zu Beacon 3"
+    }
+  },
+  "Beacon 3": {
+    "beacon_floor": "0",
+    "beacon_description": "Beschreibung des Beacon 3",
+    "beacon_destinations": ["Innenhof"],
+    "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+    "beacon_instructions": {
+      "Beacon 3-Innenhof": "Anweisung von Beacon 3 zum Innenhof",
+      "Beacon 3-Beacon 1": "Anweisung von Beacon 3 zu Beacon 1",
+      "Beacon 3-Beacon 4": "Anweisung von Beacon 3 zu Beacon 4",
+      "Beacon 3-Beacon 8": "Anweisung von Beacon 3 zu Beacon 8",
+      "Beacon 3-Beacon 15": "Anweisung von Beacon 3 zu Beacon 15"
+    }
+  },
+  "Beacon 15": {
+    "beacon_floor": "0",
+    "beacon_description": "Beschreibung des Beacon 15",
+    "beacon_destinations": ["Camões"],
+    "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+
+    "historical_point_name": "Statue von Camões",
+    "historical_point_message": "An diesem Ort befindet sich die Statue von Luís de Camões, eine der bekanntesten Figuren der portugiesischen Literatur.",
+
+    "beacon_instructions": {
+      "Beacon 15-Camões": "Anweisung von Beacon 15 zu Camões",
+      "Beacon 15-Beacon 3": "Anweisung von Beacon 15 zu Beacon 3",
+      "Beacon 15-Beacon 16": "Anweisung von Beacon 15 zu Beacon 16",
+      "Beacon 15-Beacon 22": "Anweisung von Beacon 15 zu Beacon 22"
     }
   }
+},
+  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
 }
+
