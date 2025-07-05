@@ -275,7 +275,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     print('[DEBUG] Atualizando a posição visual no mapa para: $newPosition');
   }
 
-  Future<void> falar(String texto) async {
+  Future<void> falar(String texto, {bool isFinalMessage = false}) async {
     if (soundEnabled && texto.isNotEmpty) {
       setState(() {
         ultimaInstrucaoFalada = texto;
@@ -285,6 +285,21 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       await flutterTts.setSpeechRate(voiceSpeed);
       await flutterTts.setPitch(voicePitch);
       await flutterTts.speak(texto);
+
+      // Adicionando vibração com base no tipo de mensagem
+      if (isFinalMessage) {
+        // Vibração longa para mensagens finais
+        if (vibrationEnabled) {
+          print('[DEBUG] Vibração longa - mensagem final');
+          Vibration.vibrate(duration: 800); // Long vibration
+        }
+      } else {
+        // Vibração curta para instruções
+        if (vibrationEnabled) {
+          print('[DEBUG] Vibração curta - mensagem de instrução');
+          Vibration.vibrate(duration: 400); // Short vibration
+        }
+      }
     }
   }
 
