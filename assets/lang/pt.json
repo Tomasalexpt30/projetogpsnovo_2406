@@ -85,16 +85,21 @@
     "navigation_end": "Navegação concluida. Obrigado por usar a nossa aplicação!"
   },
   "tour_page": {
-    "title": "Visita Guiada",
-    "description": "Inicie a sua visita guiada pelos principais pontos da universidade.",
-    "start_btn": "Iniciar Visita"
+    "guided_tour_title": "Visita Guiada",
+    "guided_tour_description": "Venha conhecer a Universidade Autónoma de Lisboa através de um percurso interativo e histórico!",
+    "start_guided_tour": "Iniciar Visita",
+    "guided_tour_info": "Sobre",
+    "guided_tour_info_description": "A visita guiada permite explorar de forma interativa e envolvente os principais espaços e a história da Universidade Autónoma de Lisboa.\n\nAo longo do percurso, será guiado por etapas cuidadosamente selecionadas que destacam pontos relevantes da instituição, curiosidades históricas e informações de interesse.\n\nEsta experiência proporciona uma forma enriquecedora e educativa de conhecer cada local ao seu ritmo, permitindo aprofundar o seu conhecimento sobre a nossa universidade de forma dinâmica e acessível.",
+    "guided_tour_popup": "O que é a Visita Guiada?",
+    "close_popup": "Fechar"
   },
   "tour_scan_page": {
+    "destination": "Destino",
     "current_location": "Local Atual",
     "next": "Próximo",
-    "searching": "À procura de beacons...",
-    "go_to_entrance": "Dirija-se até à entrada para iniciar a visita guiada.",
-    "cancel_btn": "Cancelar Visita Guiada"
+    "description": "Descrição",
+    "cancel_navigation": "Cancelar Visita",
+    "tour_end": "A Visita Guiada chegou ao fim. Obrigado por usar a nossa aplicação!"
   },
   "privacy_policy": {
     "title": "Política de Privacidade",

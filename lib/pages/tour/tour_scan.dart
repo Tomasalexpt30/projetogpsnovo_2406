@@ -7,41 +7,19 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:vibration/vibration.dart';
-import 'package:easy_localization/easy_localization.dart';
-import '../navigation/navigation_manager.dart';
+import 'tour_manager.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
-
-class TourStop {
-  final String id;
-  final Offset position;
-  final String piso;
-  final String uuid;
-  final int major;
-  final int minor;
-  final String macAddress;
-
-  const TourStop({
-    required this.id,
-    required this.position,
-    required this.piso,
-    required this.uuid,
-    required this.major,
-    required this.minor,
-    required this.macAddress,
-  });
-
-  bool matches(BeaconInfo beacon) {
-    return beacon.uuid.toLowerCase() == uuid.toLowerCase() &&
-        beacon.major == major &&
-        beacon.minor == minor &&
-        beacon.macAddress.toLowerCase() == macAddress.toLowerCase();
-  }
-}
+import 'package:easy_localization/easy_localization.dart';
 
 class TourScanPage extends StatefulWidget {
-  final List<TourStop> tourStops;
+  final String destino;
+  final Map<String, String> destinosMap;
 
-  const TourScanPage({super.key, required this.tourStops});
+  // Tornando o GlobalKey final e removendo o const
+  final GlobalKey _messageKey = GlobalKey(); // Adicionando um GlobalKey para o widget do texto
+  double messageHeight = 0; // Variável não pode ser final devido à atualização em tempo de execução
+
+  TourScanPage({super.key, required this.destino, required this.destinosMap});
 
   @override
   State<TourScanPage> createState() => _TourScanPageState();
@@ -49,46 +27,44 @@ class TourScanPage extends StatefulWidget {
 
 class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMixin {
   final FlutterTts flutterTts = FlutterTts();
-  final NavigationManager nav = NavigationManager();
+  final TourManager nav = TourManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
-  late Map<String, dynamic> mensagens;
-  int currentIndex = 0;
+  bool isFinalizing = false;
+  Map<String, dynamic> mensagens = {};
+  String ultimaInstrucaoFalada = '';
+  String? localAtual;
+  List<String> rota = [];
+  int proximoPasso = 0;
   bool chegou = false;
-  bool tourStarted = false;
-  bool isTourCanceled = false;
-  bool entradaDetetada = false;
-
-  String status = '';
+  bool isNavigationCanceled = false;
+  bool isProcessingBeacon = false;
+  DateTime? ultimaDetecao;
+  final Duration cooldown = const Duration(seconds: 4);
   String selectedLanguageCode = 'pt-PT';
   bool soundEnabled = true;
   bool vibrationEnabled = true;
   double voiceSpeed = 0.6;
   double voicePitch = 1.0;
-
-  DateTime? ultimaDetecao;
-  final Duration cooldown = const Duration(seconds: 4);
-
-  Offset currentPosition = const Offset(0, 0);
-  Offset previousPosition = const Offset(0, 0);
-  String currentFloor = 'Piso 0';
+  Offset currentPosition = const Offset(300, 500);
+  Offset previousPosition = const Offset(300, 500);
+  Offset cameraOffset = const Offset(300, 500);
   double rotationAngle = 0.0;
-
+  bool mostrarSeta = false;
   late AnimationController _cameraController;
   late Animation<Offset> _cameraAnimation;
-  Offset cameraOffset = const Offset(0, 0);
-
-  bool ignorarBeacons = false;
-  bool estaAProucurar = true;
-  bool mostrarCamoes = false;
-  String textoAtual = '';
-  Timer? avisoTimer;
-
+  String currentFloor = 'Piso 0';
   final Map<String, String> imagensPorPiso = {
     'Piso -1': 'assets/images/map/-01_piso.png',
     'Piso 0': 'assets/images/map/00_piso.png',
     'Piso 1': 'assets/images/map/01_piso.png',
     'Piso 2': 'assets/images/map/02_piso.png',
+  };
+  String status = '';
+  final Map<String, Offset> beaconPositions = {
+    'Beacon 1': Offset(300, 500),
+    'Beacon 3': Offset(300, 250),
+    'Beacon 15': Offset(380, 95),
   };
 
   @override
@@ -98,15 +74,30 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    _initTour();
+    pedirPermissoes();
   }
 
-  Future<void> _initTour() async {
-    await pedirPermissoes();
-    await _loadSettings();
-    await _loadMensagensTTS();
-    _setupInitialState();
-    verificarLocalizacaoInicial();
+  Future<void> finalizarNavegacao() async {
+    print('[DEBUG] Scan parado - navegação concluída');
+    FlutterBluePlus.stopScan();
+
+    if (vibrationEnabled) {
+      print('[DEBUG] Vibração longa - navegação concluída');
+      Vibration.vibrate(duration: 800);
+    }
+
+    // Garantir que a mensagem de fim da visita só seja chamada uma vez
+    if (!chegou) {
+      print('[DEBUG] Chegou ao último ponto da rota, exibindo mensagem final');
+      await falar(mensagens['alerts']?['tour_end_alert'] ?? "A Visita Guiada chegou ao fim. Obrigado por usar a nossa aplicação!");
+
+      setState(() {
+        chegou = true;
+        status = 'tour_scan_page.tour_end'.tr(); // Mensagem final de conclusão
+      });
+
+      isFinalizing = true;  // Marca que a navegação foi finalizada
+    }
   }
 
   Future<void> pedirPermissoes() async {
@@ -116,6 +107,38 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       Permission.bluetoothConnect,
       Permission.locationWhenInUse,
     ].request();
+
+    await _loadSettings();
+    await nav.carregarInstrucoes(selectedLanguageCode);
+    iniciarScan();
+  }
+
+  Future<void> falarHistoricoEInstrucao(String local) async {
+    final beaconData = mensagens['beacons']?[local];
+
+    if (beaconData != null && beaconData['historical_point_name'] != null && beaconData['historical_point_message'] != null) {
+      String nomePonto = beaconData['historical_point_name'];
+      String mensagemPonto = beaconData['historical_point_message'];
+
+      print('[DEBUG] Ponto histórico detectado: $nomePonto');
+      print('[DEBUG] A falar: Chegou a $nomePonto.');
+      await falar(nomePonto);
+      await flutterTts.awaitSpeakCompletion(true);
+
+      print('[DEBUG] A falar mensagem histórica: $mensagemPonto');
+      await falar(mensagemPonto);
+      await flutterTts.awaitSpeakCompletion(true);
+    }
+
+    String? instrucao = '';
+    if (proximoPasso < rota.length - 1) {
+      instrucao = nav.buscarInstrucaoNoBeacon(local, rota[proximoPasso + 1]);
+    }
+
+    if (instrucao != null && instrucao.isNotEmpty) {
+      print('[DEBUG] A falar instrução: $instrucao');
+      await falar(instrucao);
+    }
   }
 
   Future<void> _loadSettings() async {
@@ -127,9 +150,10 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       voiceSpeed = settings['voiceSpeed'] ?? 0.6;
       voicePitch = settings['voicePitch'] ?? 1.0;
     });
+    await _carregarMensagens();
   }
 
-  Future<void> _loadMensagensTTS() async {
+  Future<void> _carregarMensagens() async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [
@@ -137,213 +161,145 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       'assets/tts/tour/tour_$langCode.json',
       'assets/tts/tour/tour_en.json',
     ];
-    String? jsonStr;
+
+    String? jsonString;
     for (String path in paths) {
       try {
-        jsonStr = await rootBundle.loadString(path);
+        jsonString = await rootBundle.loadString(path);
         break;
       } catch (_) {}
     }
     setState(() {
-      mensagens = jsonStr != null ? json.decode(jsonStr) : {};
+      mensagens = jsonString != null ? json.decode(jsonString) : {};
+      status = mensagens['alerts']?['searching_alert'] ?? '';
     });
   }
 
-  void _setupInitialState() {
-    final firstStop = widget.tourStops[0];
-    setState(() {
-      currentFloor = firstStop.piso;
-      currentPosition = firstStop.position;
-      previousPosition = currentPosition;
-      cameraOffset = currentPosition;
-      textoAtual = _getTourPointText(firstStop.id);
-      status = '';
-    });
-  }
-
-  String _getTourPointText(String id) => mensagens['tour_points']?[id]?['text'] ?? '';
-  String _getTourPointName(String id) => mensagens['tour_points']?[id]?['name'] ?? '';
-  String _alertTTS(String key) => mensagens['alerts']?[key] ?? '';
-
-  void verificarLocalizacaoInicial() {
-    FlutterBluePlus.startScan();
-    FlutterBluePlus.scanResults.listen((results) {
-      if (tourStarted || isTourCanceled) return;
-
-      for (final result in results) {
-        final beacon = nav.parseBeaconData(result);
-        if (beacon == null) continue;
-
-        final agora = DateTime.now();
-        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown) {
-          continue;
-        }
-        ultimaDetecao = agora;
-
-        for (final stop in widget.tourStops) {
-          if (stop.matches(beacon)) {
-            final newPosition = stop.position;
-            final delta = newPosition - currentPosition;
-            final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
-
-            _cameraAnimation = Tween<Offset>(begin: cameraOffset, end: newPosition).animate(
-              CurvedAnimation(parent: _cameraController, curve: Curves.easeInOut),
-            )..addListener(() {
-              setState(() {
-                cameraOffset = _cameraAnimation.value;
-              });
-            });
-
-            _cameraController.forward(from: 0);
-
-            setState(() {
-              previousPosition = currentPosition;
-              currentPosition = newPosition;
-              rotationAngle = angle;
-              currentFloor = stop.piso;
-              estaAProucurar = false;
-              textoAtual = _getTourPointText(stop.id);
-            });
-
-            if (stop == widget.tourStops[0]) {
-              iniciarScan();
-              tourStarted = true;
-              entradaDetetada = true;
-              ignorarBeacons = false;
-              cancelarAvisoRepetido();
-              mostrarCamoes = true;
-              status = '';
-              if (soundEnabled) {
-                flutterTts.setLanguage(selectedLanguageCode);
-                flutterTts.setSpeechRate(voiceSpeed);
-                flutterTts.setPitch(voicePitch);
-                flutterTts.speak(_alertTTS('voice_entrance'));
-              }
-            } else {
-              if (!ignorarBeacons) {
-                ignorarBeacons = true;
-                entradaDetetada = false;
-                status = '';
-                if (soundEnabled) {
-                  flutterTts.setLanguage(selectedLanguageCode);
-                  flutterTts.setSpeechRate(voiceSpeed);
-                  flutterTts.setPitch(voicePitch);
-                  flutterTts.speak(_alertTTS('go_to_entrance'));
-                }
-                iniciarAvisoRepetido();
-              }
-            }
-            break;
-          }
-        }
-      }
-    });
-  }
-
-  void iniciarAvisoRepetido() {
-    avisoTimer?.cancel();
-    avisoTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
-      if (!entradaDetetada && soundEnabled && !tourStarted) {
-        flutterTts.setLanguage(selectedLanguageCode);
-        flutterTts.setSpeechRate(voiceSpeed);
-        flutterTts.setPitch(voicePitch);
-        flutterTts.speak(_alertTTS('repeat_entrance'));
-      }
-    });
-  }
-
-  void cancelarAvisoRepetido() {
-    avisoTimer?.cancel();
-    avisoTimer = null;
+  // Função para medir a altura do texto
+  void _measureTextHeight() {
+    final RenderBox renderBox = widget._messageKey.currentContext?.findRenderObject() as RenderBox;
+    if (renderBox != null) {
+      setState(() {
+        widget.messageHeight = renderBox.size.height;
+      });
+    }
   }
 
   void iniciarScan() {
-    FlutterBluePlus.stopScan();
+    if (isFinalizing) {
+      print('[DEBUG] Navegação já finalizada, não iniciando novo scan.');
+      return; // Impede iniciar o scan novamente após a navegação ter sido finalizada
+    }
+
     FlutterBluePlus.startScan();
-    FlutterBluePlus.scanResults.listen((results) {
-      if (chegou || isTourCanceled) return;
+    print('[DEBUG] Iniciando scan para detectar beacons...');
+
+    FlutterBluePlus.scanResults.listen((results) async {
+      if (chegou || isNavigationCanceled || isFinalizing || isProcessingBeacon) return;
 
       for (final result in results) {
         final beacon = nav.parseBeaconData(result);
         if (beacon == null) continue;
 
+        final local = nav.getLocalizacao(beacon);
+        if (local == null) continue;
+
         final agora = DateTime.now();
-        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown) {
+        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
           continue;
         }
-        final stop = widget.tourStops[currentIndex];
-        if (stop.matches(beacon)) {
-          ultimaDetecao = agora;
 
-          _anunciarParagem(stop);
+        ultimaDetecao = agora;
 
-          final newPosition = stop.position;
-          final delta = newPosition - currentPosition;
-          final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
+        if (rota.isEmpty) {
+          rota = nav.rotaPreDefinida;
+          proximoPasso = 0;
+          print('[DEBUG] Rota carregada: $rota');
+        }
 
-          _cameraAnimation = Tween<Offset>(begin: cameraOffset, end: newPosition).animate(
-            CurvedAnimation(parent: _cameraController, curve: Curves.easeInOut),
-          )..addListener(() {
-            setState(() {
-              cameraOffset = _cameraAnimation.value;
-            });
-          });
+        if (proximoPasso >= rota.length) return;
 
-          _cameraController.forward(from: 0);
+        final beaconEsperado = rota[proximoPasso];
+
+        if (local == beaconEsperado) {
+          print('[DEBUG] Ponto esperado alcançado: $local');
+          isProcessingBeacon = true;
+          localAtual = local;
+          atualizarPosicaoVisual(local);
+
+          if (vibrationEnabled) {
+            print('[DEBUG] Vibração curta - passo correto');
+            Vibration.vibrate(duration: 400);
+          }
+
+          await falarHistoricoEInstrucao(local);
+
+          proximoPasso++;
+
+          if (proximoPasso >= rota.length) {
+            print('[DEBUG] Fim da rota atingido.');
+            await finalizarNavegacao();  // Exibe a mensagem apenas uma vez
+          }
 
           setState(() {
-            previousPosition = currentPosition;
-            currentPosition = newPosition;
-            rotationAngle = angle;
-            currentFloor = stop.piso;
-            textoAtual = _getTourPointText(stop.id);
+            mostrarSeta = true;
           });
 
-          if (currentIndex == widget.tourStops.length - 1) {
-            finalizar();
-          } else {
-            setState(() {
-              currentIndex++;
-            });
-          }
-          break;
+          isProcessingBeacon = false;
+        } else {
+          print('[DEBUG] Beacon detetado fora de sequência: $local (esperado: $beaconEsperado)');
         }
       }
     });
   }
 
-  void _anunciarParagem(TourStop stop) async {
-    if (soundEnabled) {
+  void atualizarPosicaoVisual(String local) {
+    final newPosition = beaconPositions[local] ?? const Offset(300, 500);
+    final delta = newPosition - currentPosition;
+    final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
+
+    _cameraAnimation = Tween<Offset>(begin: cameraOffset, end: newPosition).animate(
+      CurvedAnimation(parent: _cameraController, curve: Curves.easeInOut),
+    )..addListener(() {
+      setState(() {
+        cameraOffset = _cameraAnimation.value;
+      });
+    });
+
+    _cameraController.forward(from: 0);
+
+    setState(() {
+      previousPosition = currentPosition;
+      currentPosition = newPosition;
+      rotationAngle = angle;
+      mostrarSeta = true;
+    });
+
+    print('[DEBUG] Atualizando a posição visual no mapa para: $newPosition');
+  }
+
+  Future<void> falar(String texto) async {
+    if (soundEnabled && texto.isNotEmpty) {
+      setState(() {
+        ultimaInstrucaoFalada = texto;
+      });
+      await flutterTts.stop();
       await flutterTts.setLanguage(selectedLanguageCode);
       await flutterTts.setSpeechRate(voiceSpeed);
       await flutterTts.setPitch(voicePitch);
-      await flutterTts.speak(_getTourPointText(stop.id));
-    }
-    if (vibrationEnabled) {
-      if (await Vibration.hasVibrator() ?? false) {
-        Vibration.vibrate(duration: 600);
-      }
+      await flutterTts.speak(texto);
     }
   }
 
-  void finalizar() {
-    FlutterBluePlus.stopScan();
-    chegou = true;
-    cancelarAvisoRepetido();
-    flutterTts.setLanguage(selectedLanguageCode);
-    flutterTts.setSpeechRate(voiceSpeed);
-    flutterTts.setPitch(voicePitch);
-    flutterTts.speak(_alertTTS('tour_completed'));
-  }
-
-  void cancelarTour() {
+  void cancelarNavegacao() {
     setState(() {
-      isTourCanceled = true;
+      isNavigationCanceled = true;
+      status = mensagens['alerts']?['navigation_cancelled_alert'] ?? '';
     });
+
     FlutterBluePlus.stopScan();
     flutterTts.stop();
-    cancelarAvisoRepetido();
-    Vibration.vibrate(duration: 600);
+
     Navigator.pop(context);
   }
 
@@ -351,110 +307,68 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   void dispose() {
     flutterTts.stop();
     FlutterBluePlus.stopScan();
-    cancelarAvisoRepetido();
     _cameraController.dispose();
     super.dispose();
   }
 
+  String obterLocalAtual() {
+    return localAtual ?? (mensagens['alerts']?['searching_alert'] ?? '');
+  }
+
+  String obterProximaParagem() {
+    if (rota.isEmpty || proximoPasso >= rota.length) {
+      return mensagens['alerts']?['end_of_route_alert'] ?? '';
+    }
+    return rota[proximoPasso];
+  }
+
   @override
   Widget build(BuildContext context) {
-    String localAtual = '';
-    String proximaParagem = '';
-
-    if (tourStarted) {
-      if (currentIndex == 0) {
-        localAtual = _getTourPointName(widget.tourStops[0].id);
-        proximaParagem = _getTourPointName(widget.tourStops[1].id);
-      } else {
-        localAtual = _getTourPointName(widget.tourStops[currentIndex - 1].id);
-        if (currentIndex < widget.tourStops.length) {
-          proximaParagem = _getTourPointName(widget.tourStops[currentIndex].id);
-        } else {
-          proximaParagem = tr('tour_scan_page.next');
-        }
-      }
-    }
-
     return Scaffold(
       body: Stack(
         children: [
           Positioned.fill(
-            child: Semantics(
-              label: 'Mapa da visita guiada',
-              child: InteractiveViewer(
-                panEnabled: true,
-                scaleEnabled: true,
-                minScale: 1.0,
-                maxScale: 3.5,
-                constrained: false,
-                boundaryMargin: const EdgeInsets.all(100),
-                child: Stack(
-                  children: [
-                    Transform.translate(
-                      offset: Offset(-cameraOffset.dx + 150, -cameraOffset.dy + 320),
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            imagensPorPiso[currentFloor]!,
-                            fit: BoxFit.none,
-                            alignment: Alignment.topLeft,
-                          ),
-                          if (!estaAProucurar)
-                            AnimatedPositioned(
-                              duration: const Duration(milliseconds: 1000),
-                              curve: Curves.easeInOut,
-                              left: currentPosition.dx,
-                              top: currentPosition.dy,
-                              child: Transform.rotate(
-                                angle: rotationAngle,
-                                child: Semantics(
-                                  label: 'Seta de localização',
-                                  hint: 'Indica a posição atual e direção no tour',
-                                  child: const Icon(Icons.navigation, size: 40, color: Colors.red),
-                                ),
-                              ),
+            child: InteractiveViewer(
+              panEnabled: true,
+              scaleEnabled: true,
+              minScale: 1.0,
+              maxScale: 3.5,
+              constrained: false,
+              boundaryMargin: const EdgeInsets.all(100),
+              child: Stack(
+                children: [
+                  Transform.translate(
+                    offset: Offset(-cameraOffset.dx + 150, -cameraOffset.dy + 320),
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          imagensPorPiso[currentFloor]!,
+
+                          fit: BoxFit.none,
+                          alignment: Alignment.topLeft,
+                        ),
+                        if (mostrarSeta)
+                          AnimatedPositioned(
+                            duration: const Duration(milliseconds: 1000),
+                            curve: Curves.easeInOut,
+                            left: currentPosition.dx,
+                            top: currentPosition.dy,
+                            child: Transform.rotate(
+                              angle: rotationAngle,
+                              child: const Icon(Icons.navigation, size: 40, color: Colors.red),
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
-          if (mostrarCamoes)
-            Positioned(
-              top: 40,
-              right: 20,
-              child: Image.asset(
-                'assets/images/home/foto_camoes.png',
-                width: 80,
-                height: 80,
-              ),
-            ),
-          if (mostrarCamoes)
-            Positioned(
-              top: 130,
-              right: 20,
-              left: 20,
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 6)],
-                ),
-                child: Text(
-                  textoAtual,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
-              ),
-            ),
           DraggableScrollableSheet(
-            minChildSize: 0.20,
-            maxChildSize: 0.32,
-            initialChildSize: 0.32,
+            minChildSize: 0.2,
+            maxChildSize: 0.8, // Tamanho máximo ajustado
+            initialChildSize: _calculateDynamicHeight(), // Ajuste dinâmico baseado no tamanho do texto
             builder: (context, controller) {
               return Container(
                 padding: const EdgeInsets.all(16),
@@ -463,125 +377,130 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                   boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 6)],
                 ),
-                child: SingleChildScrollView(
-                  controller: controller,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 20),
-                      estaAProucurar
-                          ? Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.yellow[100],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${'tour_scan_page.destination'.tr()}: ${widget.destino}',
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        controller: controller,
+                        child: Column(
                           children: [
-                            const Icon(Icons.search, color: Colors.orange, size: 30),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  mensagens['alerts']?['searching'] ?? 'À procura de beacons...',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
+                            if (!chegou) ...[
+                              _buildMessageContainer(), // Message container with dynamic positioning
+                            ] else ...[
+                              _buildFinalMessageContainer(),
+                            ],
                           ],
                         ),
-                      )
-                          : ignorarBeacons
-                          ? Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.yellow[100],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.warning, color: Colors.orange, size: 30),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  mensagens['alerts']?['go_to_entrance'] ?? 'Dirija-se até à entrada para iniciar a visita guiada.',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                          : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.blue[50],
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'tour_scan_page.current_location'.tr(),
-                                    style: const TextStyle(fontSize: 16, color: Colors.black54),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    localAtual,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 15),
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.green[50],
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'tour_scan_page.next'.tr(),
-                                    style: const TextStyle(fontSize: 16, color: Colors.black54),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    proximaParagem,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
-                      const SizedBox(height: 20),
-                      ElevatedButton.icon(
-                        onPressed: cancelarTour,
+                    ),
+                    const SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ElevatedButton.icon(
+                        onPressed: cancelarNavegacao,
                         icon: const Icon(Icons.cancel),
-                        label: Text('tour_scan_page.cancel_btn'.tr()),
+                        label: Text('tour_scan_page.cancel_navigation'.tr()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.redAccent,
                           foregroundColor: Colors.white,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
             },
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Função para calcular a altura dinamicamente com base no tamanho do texto
+  double _calculateDynamicHeight() {
+    final textHeight = widget.messageHeight > 0 ? widget.messageHeight : 150; // Valor padrão se ainda não medido
+    final minHeight = 0.2;
+    final maxHeight = 0.8;
+
+    double calculatedHeight = (textHeight / 1000); // Ajuste de escala para o tamanho do texto
+    return calculatedHeight.clamp(minHeight, maxHeight);
+  }
+
+  // Função para medir a altura do texto com base no número de linhas
+  double _getTextHeight(String text) {
+    final textPainter = TextPainter(
+      text: TextSpan(text: text, style: TextStyle(fontSize: 16)),
+      maxLines: null,
+      textAlign: TextAlign.start,
+      textDirection: TextDirection.ltr,
+    )..layout(maxWidth: MediaQuery.of(context).size.width - 32); // Considerando margens do lado
+
+    return textPainter.size.height; // Retorna a altura do texto
+  }
+
+  // Widget para exibir o contêiner de mensagens
+  Widget _buildMessageContainer() {
+    return Container(
+      key: widget._messageKey, // Atribui a chave global ao widget de texto
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: ultimaInstrucaoFalada.isEmpty ? Colors.yellow[100] : Colors.blue[100],
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            ultimaInstrucaoFalada.isEmpty ? Icons.warning : Icons.campaign,
+            color: ultimaInstrucaoFalada.isEmpty ? Colors.orange : Colors.blue,
+            size: 30,
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Center(
+              child: Text(
+                ultimaInstrucaoFalada.isNotEmpty
+                    ? ultimaInstrucaoFalada
+                    : '${mensagens['alerts']?['searching_alert'] ?? 'A procurar...'}',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: ultimaInstrucaoFalada.isEmpty ? Colors.orange[900] : Colors.blue[900],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Widget para exibir o contêiner de mensagem final
+  Widget _buildFinalMessageContainer() {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.green[100],  // Cor de fundo verde
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.check_circle, color: Colors.green, size: 30),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Center(
+              child: Text(
+                status,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
         ],
       ),
