@@ -3,7 +3,7 @@
     "tour_end_alert": "A Visita Guiada chegou ao fim. Obrigado por usar a nossa aplicação!",
     "searching_alert": "A procurar...",
     "guided_tour_arrived": "Chegou a",
-    "got_to_entrance_alert": "Dirija-se à entrada para iniciar a visita guiada."
+    "go_to_entrance_alert": "Dirija-se à entrada para iniciar a visita guiada."
   },
 
 
@@ -15,7 +15,7 @@
       "beacon_connections": ["Beacon 2", "Beacon 3"],
 
       "historical_point_name": "Entrada Principal",
-      "historical_point_message": "O busto de Luís de Camões, em bronze, é do Mestre Escultor Joaquim Correia datada de 1957, encomendado pela família de Frank Silva e doada à cidade de Toronto.\nO busto foi oficialmente inaugurado a 10 de junho de 1982 numa cerimónia pública presidida por Arthur C. Eggleton, então presidente da Câmara Municipal de Toronto. \nA 30 de maio de 2001, foi reinaugurado pelo Presidente da República Portuguesa de então, Jorge Sampaio e em 2013 por iniciativa do comendador Manuel da Costa, por ocasião do 60.º aniversário da chegada oficial dos portugueses ao Canadá o espaço envolvente foi reformulado dando origem à Camões Square. \nTal como em Toronto a evocação em bronze do patrono da Universidade Autónoma de Lisboa aqui presente relembra a importância do épico para a expansão da cultura e da língua portuguesa.\n",
+      "historical_point_message": "O busto de Luís de Camões, em bronze, é do Mestre Escultor Joaquim Correia datada de 1957, encomendado pela família de Frank Silva.",
 
       "beacon_instructions": {
         "Beacon 1-Entrada": "Instrução Beacon 1 para Entrada",

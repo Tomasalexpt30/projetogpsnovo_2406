@@ -441,7 +441,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                 ultimaInstrucaoFalada.isNotEmpty
                     ? ultimaInstrucaoFalada
                     : '${mensagens['alerts']?['searching_alert'] ?? 'A procurar...'}',
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.left,  // Alterado de center para left
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
