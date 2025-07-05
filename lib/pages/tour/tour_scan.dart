@@ -15,11 +15,7 @@ class TourScanPage extends StatefulWidget {
   final String destino;
   final Map<String, String> destinosMap;
 
-  // Tornando o GlobalKey final e removendo o const
-  final GlobalKey _messageKey = GlobalKey(); // Adicionando um GlobalKey para o widget do texto
-  double messageHeight = 0; // Variável não pode ser final devido à atualização em tempo de execução
-
-  TourScanPage({super.key, required this.destino, required this.destinosMap});
+  const TourScanPage({super.key, required this.destino, required this.destinosMap});
 
   @override
   State<TourScanPage> createState() => _TourScanPageState();
@@ -31,14 +27,18 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
   bool isFinalizing = false;
+
   Map<String, dynamic> mensagens = {};
+
   String ultimaInstrucaoFalada = '';
+
   String? localAtual;
   List<String> rota = [];
   int proximoPasso = 0;
   bool chegou = false;
   bool isNavigationCanceled = false;
   bool isProcessingBeacon = false;
+
   DateTime? ultimaDetecao;
   final Duration cooldown = const Duration(seconds: 4);
   String selectedLanguageCode = 'pt-PT';
@@ -46,21 +46,28 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   bool vibrationEnabled = true;
   double voiceSpeed = 0.6;
   double voicePitch = 1.0;
+
   Offset currentPosition = const Offset(300, 500);
   Offset previousPosition = const Offset(300, 500);
   Offset cameraOffset = const Offset(300, 500);
   double rotationAngle = 0.0;
+
   bool mostrarSeta = false;
+
   late AnimationController _cameraController;
   late Animation<Offset> _cameraAnimation;
+
   String currentFloor = 'Piso 0';
+
   final Map<String, String> imagensPorPiso = {
     'Piso -1': 'assets/images/map/-01_piso.png',
     'Piso 0': 'assets/images/map/00_piso.png',
     'Piso 1': 'assets/images/map/01_piso.png',
     'Piso 2': 'assets/images/map/02_piso.png',
   };
+
   String status = '';
+
   final Map<String, Offset> beaconPositions = {
     'Beacon 1': Offset(300, 500),
     'Beacon 3': Offset(300, 250),
@@ -173,16 +180,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
       mensagens = jsonString != null ? json.decode(jsonString) : {};
       status = mensagens['alerts']?['searching_alert'] ?? '';
     });
-  }
-
-  // Função para medir a altura do texto
-  void _measureTextHeight() {
-    final RenderBox renderBox = widget._messageKey.currentContext?.findRenderObject() as RenderBox;
-    if (renderBox != null) {
-      setState(() {
-        widget.messageHeight = renderBox.size.height;
-      });
-    }
   }
 
   void iniciarScan() {
@@ -343,7 +340,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                       children: [
                         Image.asset(
                           imagensPorPiso[currentFloor]!,
-
                           fit: BoxFit.none,
                           alignment: Alignment.topLeft,
                         ),
@@ -366,9 +362,9 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
             ),
           ),
           DraggableScrollableSheet(
-            minChildSize: 0.2,
-            maxChildSize: 0.8, // Tamanho máximo ajustado
-            initialChildSize: _calculateDynamicHeight(), // Ajuste dinâmico baseado no tamanho do texto
+            minChildSize: 0.20,
+            maxChildSize: 0.80,
+            initialChildSize: _calculateInitialChildSize(), // Dynamic size based on content
             builder: (context, controller) {
               return Container(
                 padding: const EdgeInsets.all(16),
@@ -422,32 +418,18 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     );
   }
 
-  // Função para calcular a altura dinamicamente com base no tamanho do texto
-  double _calculateDynamicHeight() {
-    final textHeight = widget.messageHeight > 0 ? widget.messageHeight : 150; // Valor padrão se ainda não medido
-    final minHeight = 0.2;
-    final maxHeight = 0.8;
-
-    double calculatedHeight = (textHeight / 1000); // Ajuste de escala para o tamanho do texto
-    return calculatedHeight.clamp(minHeight, maxHeight);
+// Função para calcular o tamanho inicial com base no comprimento da mensagem
+  double _calculateInitialChildSize() {
+    if (ultimaInstrucaoFalada.length > 100) { // Ajuste do limite conforme necessário
+      return 0.6; // Aumenta o tamanho se a mensagem for longa
+    } else {
+      return 0.32; // Tamanho padrão
+    }
   }
 
-  // Função para medir a altura do texto com base no número de linhas
-  double _getTextHeight(String text) {
-    final textPainter = TextPainter(
-      text: TextSpan(text: text, style: TextStyle(fontSize: 16)),
-      maxLines: null,
-      textAlign: TextAlign.start,
-      textDirection: TextDirection.ltr,
-    )..layout(maxWidth: MediaQuery.of(context).size.width - 32); // Considerando margens do lado
-
-    return textPainter.size.height; // Retorna a altura do texto
-  }
-
-  // Widget para exibir o contêiner de mensagens
+// Widget para exibir o contêiner de mensagens
   Widget _buildMessageContainer() {
     return Container(
-      key: widget._messageKey, // Atribui a chave global ao widget de texto
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: ultimaInstrucaoFalada.isEmpty ? Colors.yellow[100] : Colors.blue[100],
@@ -481,7 +463,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     );
   }
 
-  // Widget para exibir o contêiner de mensagem final
+// Widget para exibir o contêiner de mensagem final
   Widget _buildFinalMessageContainer() {
     return Container(
       padding: const EdgeInsets.all(12),
