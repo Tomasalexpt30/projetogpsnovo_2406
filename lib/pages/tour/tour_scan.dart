@@ -362,9 +362,9 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
             ),
           ),
           DraggableScrollableSheet(
-            minChildSize: 0.20,
-            maxChildSize: 0.80,
-            initialChildSize: _calculateInitialChildSize(), // Dynamic size based on content
+            minChildSize: 0.45,
+            maxChildSize: 0.45,
+            initialChildSize: 0.45, // Dynamic size based on content
             builder: (context, controller) {
               return Container(
                 padding: const EdgeInsets.all(16),
@@ -377,7 +377,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '${'tour_scan_page.destination'.tr()}: ${widget.destino}',
+                      '${'tour_scan_page.tour_title'.tr()}',
                       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 20),
@@ -418,14 +418,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
     );
   }
 
-// Função para calcular o tamanho inicial com base no comprimento da mensagem
-  double _calculateInitialChildSize() {
-    if (ultimaInstrucaoFalada.length > 100) { // Ajuste do limite conforme necessário
-      return 0.6; // Aumenta o tamanho se a mensagem for longa
-    } else {
-      return 0.32; // Tamanho padrão
-    }
-  }
 
 // Widget para exibir o contêiner de mensagens
   Widget _buildMessageContainer() {
