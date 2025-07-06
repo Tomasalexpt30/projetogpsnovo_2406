@@ -1,5 +1,6 @@
 // beacon_scan_page.dart
 
+// Importações necessárias para funcionalidades como TTS, Bluetooth, permissões, etc.
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
@@ -13,9 +14,10 @@ import 'navigation_manager.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+// Definição da página de scan de beacons para navegação
 class BeaconScanPage extends StatefulWidget {
-  final String destino;
-  final Map<String, String> destinosMap;
+  final String destino; // Nome do destino escolhido
+  final Map<String, String> destinosMap; // Mapa com os nomes dos destinos e beacons associados
 
   const BeaconScanPage({super.key, required this.destino, required this.destinosMap});
 
@@ -24,53 +26,56 @@ class BeaconScanPage extends StatefulWidget {
 }
 
 class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStateMixin {
-  final FlutterTts flutterTts = FlutterTts();
-  final NavigationManager nav = NavigationManager();
-  final PreferencesHelper _preferencesHelper = PreferencesHelper();
+  final FlutterTts flutterTts = FlutterTts(); // Inicialização do TTS (text-to-speech)
+  final NavigationManager nav = NavigationManager(); // Instância do gestor de navegação
+  final PreferencesHelper _preferencesHelper = PreferencesHelper(); // Helper para ler definições do utilizador (som, idioma, etc.)
 
-  bool isFinalizing = false;
+  bool isFinalizing = false; // Estado que indica se a navegação está a ser finalizada
 
-  Map<String, dynamic> mensagens = {};
+  Map<String, dynamic> mensagens = {}; // Mapa com mensagens multilíngua carregadas
 
-  late String? beaconDoDestino;
+  late String? beaconDoDestino; // Beacon associado ao destino final
 
-  String ultimaInstrucaoFalada = '';
+  String ultimaInstrucaoFalada = ''; //Guarda a última instrução falada, para evitar repetições
 
-  String? localAtual;
-  List<String> rota = [];
-  int proximoPasso = 0;
-  bool chegou = false;
-  bool isNavigationCanceled = false;
+  String? localAtual; // Guarda o nome do local atual
+  List<String> rota = []; // Lista com a rota definida (lista de beacons)
+  int proximoPasso = 0; // Índice do próximo passo na rota
+  bool chegou = false; // Indica se o utilizador já chegou ao destino
+  bool isNavigationCanceled = false; // Estado para verificar se a navegação foi cancelada
 
-  DateTime? ultimaDetecao;
-  final Duration cooldown = const Duration(seconds: 4);
-  String selectedLanguageCode = 'pt-PT';
+  DateTime? ultimaDetecao;  // Regista o tempo da última deteção de beacon (para aplicar cooldown)
+  final Duration cooldown = const Duration(seconds: 4); // Duração de cooldown entre deteções sucessivas
+  String selectedLanguageCode = 'pt-PT'; // Idioma selecionado (padrão: português de Portugal)
+  // Preferências de som e vibração
   bool soundEnabled = true;
   bool vibrationEnabled = true;
+  // Configurações da voz (velocidade e tom)
   double voiceSpeed = 0.6;
   double voicePitch = 1.0;
 
-  Offset currentPosition = const Offset(300, 500);
-  Offset previousPosition = const Offset(300, 500);
-  Offset cameraOffset = const Offset(300, 500);
-  double rotationAngle = 0.0;
+  Offset currentPosition = const Offset(300, 500); // Posição atual (em coordenadas relativas ao mapa)
+  Offset previousPosition = const Offset(300, 500); // Posição anterior (para calcular deslocamento)
+  Offset cameraOffset = const Offset(300, 500); // Posição da câmara (utilizada para animação de movimento no mapa)
+  double rotationAngle = 0.0; // Ângulo de rotação do indicador (ex: seta de direção)
 
-  bool mostrarSeta = false;
+  bool mostrarSeta = false; // Controla a visibilidade da seta de direção
 
-  late AnimationController _cameraController;
-  late Animation<Offset> _cameraAnimation;
+  late AnimationController _cameraController; // Controlador da animação da câmara
+  late Animation<Offset> _cameraAnimation;  // Animação de transição da câmara entre posições
 
-  String currentFloor = 'Piso 0';
+  String currentFloor = 'Piso 0';  // Piso atual em exibição
 
-  final Map<String, String> imagensPorPiso = {
+  final Map<String, String> imagensPorPiso = { // Mapeamento de cada piso para a respetiva imagem do mapa
     'Piso -1': 'assets/images/map/-01_piso.png',
     'Piso 0': 'assets/images/map/00_piso.png',
     'Piso 1': 'assets/images/map/01_piso.png',
     'Piso 2': 'assets/images/map/02_piso.png',
   };
 
-  String status = '';
+  String status = ''; // Texto de estado (pode ser usado para feedback visual)
 
+  // Coordenadas relativas no mapa para cada beacon
   final Map<String, Offset> beaconPositions = {
     'Beacon 1': Offset(300, 500),
     'Beacon 3': Offset(300, 250),
@@ -80,34 +85,35 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    _cameraController = AnimationController(
+    _cameraController = AnimationController( // Inicializa o controlador de animação para a câmara
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    pedirPermissoes();
+    pedirPermissoes();  // Solicita permissões necessárias ao utilizador (Bluetooth, localização, etc.)
   }
 
+  /// Função para finalizar a navegação
   Future<void> finalizarNavegacao() async {
     print('[DEBUG] Scan parado - navegação concluída');
-    FlutterBluePlus.stopScan();
+    FlutterBluePlus.stopScan();  // Para o scan de Bluetooth
 
+    // Caso a vibração esteja ativa, vibra o dispositivo para notificar fim da navegação
     if (vibrationEnabled) {
       print('[DEBUG] Vibração longa - navegação concluída');
       Vibration.vibrate(duration: 800);
     }
 
-    await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluida.');
+    await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluida.'); // Fala a mensagem final de navegação (localizada por idioma)
 
+    // Atualiza o estado para indicar que o utilizador chegou ao destino
     setState(() {
-      chegou = true;
-      status = 'beacon_scan_page.navigation_end'.tr();
-    });
-
+      chegou = true; // Estado que bloqueia novas interações e exibe mensagem final
+      status = 'beacon_scan_page.navigation_end'.tr(); // Mensagem localizada de fim de navegação
+    }); // Flag que impede novas leituras de beacons enquanto finaliza
     isFinalizing = true; // 🔒 Bloquear novas leituras
   }
 
-
-  Future<void> pedirPermissoes() async {
+  Future<void> pedirPermissoes() async { // Solicita permissões necessárias para funcionamento da navegação via Bluetooth
     await [
       Permission.bluetooth,
       Permission.bluetoothScan,
@@ -115,12 +121,13 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       Permission.locationWhenInUse,
     ].request();
 
-    await _loadSettings();
-    await nav.carregarInstrucoes(selectedLanguageCode);
-    beaconDoDestino = nav.getBeaconDoDestino(widget.destino);
-    iniciarScan();
+    await _loadSettings(); // Carrega definições de som, voz, idioma, etc.
+    await nav.carregarInstrucoes(selectedLanguageCode); // Carrega instruções de navegação no idioma selecionado
+    beaconDoDestino = nav.getBeaconDoDestino(widget.destino); // Obtém o beacon associado ao destino
+    iniciarScan(); // Inicia o processo de scan de beacons
   }
 
+  // Carrega as definições do utilizador guardadas em preferências
   Future<void> _loadSettings() async {
     final settings = await _preferencesHelper.loadSoundSettings();
     setState(() {
@@ -130,52 +137,55 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       voiceSpeed = settings['voiceSpeed'] ?? 0.6;
       voicePitch = settings['voicePitch'] ?? 1.0;
     });
-    await _carregarMensagens();
+    await _carregarMensagens();  // Carrega mensagens de voz localizadas conforme o idioma
   }
 
+  // Carrega o ficheiro JSON com as mensagens de voz correspondentes ao idioma
   Future<void> _carregarMensagens() async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [
       'assets/tts/navigation/nav_$fullCode.json',
       'assets/tts/navigation/nav_$langCode.json',
-      'assets/tts/navigation/nav_en.json',
+      'assets/tts/navigation/nav_en.json', // fallback para inglês
     ];
 
     String? jsonString;
     for (String path in paths) {
       try {
         jsonString = await rootBundle.loadString(path);
-        break;
+        break; // Sai assim que encontrar o primeiro válido
       } catch (_) {}
     }
     setState(() {
       mensagens = jsonString != null ? json.decode(jsonString) : {};
-      status = mensagens['alerts']?['searching_alert'] ?? '';
+      status = mensagens['alerts']?['searching_alert'] ?? ''; // Mensagem "A procurar..."
     });
   }
 
+  // Inicia o scan por beacons Bluetooth
   void iniciarScan() {
-    FlutterBluePlus.startScan();
+    FlutterBluePlus.startScan(); // Inicia o scan
 
+    // Escuta os resultados do scan em tempo real
     FlutterBluePlus.scanResults.listen((results) async {
-      if (chegou || isNavigationCanceled || isFinalizing) return;
+      if (chegou || isNavigationCanceled || isFinalizing) return; // Ignora se a navegação já terminou
 
       for (final result in results) {
-        final beacon = nav.parseBeaconData(result);
+        final beacon = nav.parseBeaconData(result); // Tenta interpretar os dados do beacon
         if (beacon == null) continue;
 
-        final local = nav.getLocalizacao(beacon);
+        final local = nav.getLocalizacao(beacon); // Converte para localização conhecida
         if (local == null) continue;
 
         final agora = DateTime.now();
         if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
-          continue;
+          continue; // Aplica cooldown para evitar spam de leituras repetidas
         }
 
         ultimaDetecao = agora;
 
-        // 🔹 Caso 1: O utilizador já está no beacon do destino
+        // 🔹 Caso 1: o utilizador já está no beacon do destino e não há rota definida
         if (rota.isEmpty) {
           if (local == nav.getBeaconDoDestino(widget.destino)) {
             isFinalizing = true;
@@ -187,16 +197,19 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
               Vibration.vibrate(duration: 400);
             }
 
+            // Busca a instrução associada diretamente ao beacon final
             final instrucaoDireta = nav.buscarInstrucaoNoBeacon(local, widget.destino);
             if (instrucaoDireta != null && instrucaoDireta.isNotEmpty) {
               print('[DEBUG] A falar instrução direta: $instrucaoDireta');
+              // Atualiza a visualização com a seta no local
               atualizarPosicaoVisual(local); // 👉 Mostra seta
               setState(() {
                 mostrarSeta = true;
               });
-              await falar(instrucaoDireta);
+              await falar(instrucaoDireta);  // Fala a instrução de chegada
             }
 
+            // Encerra o scan de Bluetooth
             FlutterBluePlus.stopScan();
             print('[DEBUG] Scan parado - navegação concluída');
             if (vibrationEnabled) {
@@ -205,94 +218,109 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             }
 
             setState(() {
-              chegou = true;
-              status = 'beacon_scan_page.navigation_end'.tr();
+              chegou = true; // Atualiza o estado indicando que o utilizador chegou ao destino
+              status = 'beacon_scan_page.navigation_end'.tr(); // Mostra mensagem traduzida de fim de navegação
             });
 
+            // Fala a mensagem final de navegação (ex: "Navegação concluída.")
             await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
             return;
           } else {
-            // Criar rota normalmente
+            // 🔹 Caso o utilizador esteja num beacon inicial mas ainda não está no destino
+            // Gerar a rota do beacon atual até ao destino usando o algoritmo de Dijkstra
             final caminho = nav.dijkstra(local, widget.destino);
+
+            // Se o caminho for válido e tiver mais de um passo
             if (caminho != null && caminho.length > 1) {
-              rota = caminho;
-              proximoPasso = 1;
-              localAtual = local;
+              rota = caminho; // Define a rota
+              proximoPasso = 1; // Define o próximo passo (posição 1 da rota)
+              localAtual = local; // Guarda a localização atual
 
-              atualizarPosicaoVisual(local);
+              atualizarPosicaoVisual(local); // Atualiza a seta no mapa
 
-              final instrucao = nav.getInstrucoes(caminho)[0];
+              final instrucao = nav.getInstrucoes(caminho)[0]; // Pega a primeira instrução
               print('[DEBUG] Instrução inicial: $instrucao');
-              await falar(instrucao);
+              await falar(instrucao); // Fala a primeira instrução
 
               if (vibrationEnabled) {
                 print('[DEBUG] Vibração curta - início de navegação');
-                Vibration.vibrate(duration: 400);
+                Vibration.vibrate(duration: 400); // Vibração para indicar início da rota
               }
 
               setState(() {
-                mostrarSeta = true;
+                mostrarSeta = true; // Ativa visualização da seta
               });
             } else {
+              // Se não for possível calcular o caminho até o destino
               print('[DEBUG] Caminho não encontrado.');
               await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
-              finalizar();
+              finalizar(); // Encerra o processo de navegação
             }
             return;
           }
         }
 
-        // 🔹 Caso 2: Percurso a decorrer
+        // 🔹 Caso 2: O utilizador está a meio do percurso (não é início nem destino)
         if (proximoPasso < rota.length && local == rota[proximoPasso]) {
-          localAtual = local;
-          atualizarPosicaoVisual(local);
+          localAtual = local; // Atualiza a localização atual
+          atualizarPosicaoVisual(local); // Atualiza visual no mapa (ex. seta)
 
-          final destinosDoBeaconAtual = List<String>.from(nav.jsonBeacons[localAtual]?['beacon_destinations'] ?? []);
+          // Verifica se este beacon leva diretamente ao destino
+          final destinosDoBeaconAtual = List<String>.from(
+            nav.jsonBeacons[localAtual]?['beacon_destinations'] ?? [],
+          );
 
+          // 🔸 Se for o último passo antes do destino
           if (!isFinalizing && destinosDoBeaconAtual.contains(widget.destino)) {
-            isFinalizing = true;
+            isFinalizing = true; // Impede novas instruções ou atualizações
 
             if (vibrationEnabled) {
               print('[DEBUG] Vibração curta - último passo');
-              Vibration.vibrate(duration: 400);
+              Vibration.vibrate(duration: 400); // Vibração curta para indicar chegada iminente
             }
 
+            // Busca a instrução específica do beacon para o destino (ex: "Chegou ao Auditório")
             final instrucaoFinal = nav.buscarInstrucaoNoBeacon(localAtual!, widget.destino);
             if (instrucaoFinal != null && instrucaoFinal.isNotEmpty) {
               print('[DEBUG] Instrução direta de beacon para destino: $instrucaoFinal');
-              await falar(instrucaoFinal);
+              await falar(instrucaoFinal); // Fala a instrução final
             }
 
+            // Finaliza o scan
             FlutterBluePlus.stopScan();
             print('[DEBUG] Scan parado - navegação concluída');
+
             if (vibrationEnabled) {
               print('[DEBUG] Vibração longa - navegação concluída');
-              Vibration.vibrate(duration: 600);
+              Vibration.vibrate(duration: 600); // Vibração longa para indicar fim de navegação
             }
 
+            // Atualiza estado para refletir que a navegação terminou
             setState(() {
               chegou = true;
               status = 'beacon_scan_page.navigation_end'.tr();
             });
 
+            // Fala a mensagem de fim de navegação
             await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
             return;
           }
 
+          // 🔸 Caso intermédio: ainda está a seguir o percurso, mas não é o último beacon
           if (!isFinalizing) {
-            final instrucao = nav.getInstrucoes(rota)[proximoPasso];
+            final instrucao = nav.getInstrucoes(rota)[proximoPasso]; // Busca instrução da etapa atual
             print('[DEBUG] Instrução intermédia: $instrucao');
 
             if (vibrationEnabled) {
               print('[DEBUG] Vibração curta - passo intermédio');
-              Vibration.vibrate(duration: 400);
+              Vibration.vibrate(duration: 400); // Vibração curta como feedback
             }
 
-            await falar(instrucao);
-            proximoPasso++;
+            await falar(instrucao); // Fala a instrução da etapa atual
+            proximoPasso++; // Avança para o próximo passo da rota
           }
 
-          return;
+          return; // Termina processamento deste ciclo
         }
       }
     });
@@ -301,33 +329,34 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
 
   void atualizarPosicaoVisual(String local) {
-    final newPosition = beaconPositions[local] ?? const Offset(300, 500);
-    final delta = newPosition - currentPosition;
-    final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
+    final newPosition = beaconPositions[local] ?? const Offset(300, 500); // Obtém a nova posição do beacon (ou posição padrão se não estiver no mapa)
+    final delta = newPosition - currentPosition; // Calcula o vetor entre a posição atual e a nova
+    final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2; // Calcula o ângulo de rotação com base no vetor de movimento (em radianos)
 
+    // Define a animação de movimento da câmara (suaviza o movimento no mapa)
     _cameraAnimation = Tween<Offset>(begin: cameraOffset, end: newPosition).animate(
       CurvedAnimation(parent: _cameraController, curve: Curves.easeInOut),
     )..addListener(() {
-      setState(() {
+      setState(() { // Atualiza a posição da câmara animada
         cameraOffset = _cameraAnimation.value;
       });
     });
 
-    _cameraController.forward(from: 0);
+    _cameraController.forward(from: 0); // Inicia a animação da câmara
 
-    setState(() {
+    setState(() { // Atualiza os estados visuais da posição e seta
       previousPosition = currentPosition;
       currentPosition = newPosition;
-      rotationAngle = angle;
-      mostrarSeta = true;
+      rotationAngle = angle;      // Atualiza rotação da seta
+      mostrarSeta = true;         // Mostra a seta no ecrã
     });
   }
 
   void finalizar() {
-    FlutterBluePlus.stopScan();
-    chegou = true;
+    FlutterBluePlus.stopScan(); // Encerra o scan de beacons
+    chegou = true;              // Marca que o destino foi alcançado
 
-    if (vibrationEnabled) {
+    if (vibrationEnabled) { // Se o dispositivo suportar vibração, ativa vibração longa
       Vibration.hasVibrator().then((hasVibrator) {
         if (hasVibrator ?? false) Vibration.vibrate(duration: 600);
       });
@@ -335,37 +364,38 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   Future<void> falar(String texto) async {
-    if (soundEnabled && texto.isNotEmpty) {
+    if (soundEnabled && texto.isNotEmpty) { // Se o som estiver ativado e houver texto válido
       setState(() {
-        ultimaInstrucaoFalada = texto;
+        ultimaInstrucaoFalada = texto; // Guarda o último texto falado
       });
-      await flutterTts.stop();
-      await flutterTts.setLanguage(selectedLanguageCode);
-      await flutterTts.setSpeechRate(voiceSpeed);
-      await flutterTts.setPitch(voicePitch);
-      await flutterTts.speak(texto);
+
+      await flutterTts.stop();                        // Garante que não sobrepõe falas
+      await flutterTts.setLanguage(selectedLanguageCode); // Define idioma
+      await flutterTts.setSpeechRate(voiceSpeed);     // Define velocidade da fala
+      await flutterTts.setPitch(voicePitch);          // Define tom da fala
+      await flutterTts.speak(texto);                  // Fala o texto
     }
   }
 
   void cancelarNavegacao() {
     setState(() {
-      isNavigationCanceled = true;
-      status = mensagens['alerts']?['navigation_cancelled_alert'] ?? '';
+      isNavigationCanceled = true; // Marca navegação como cancelada
+      status = mensagens['alerts']?['navigation_cancelled_alert'] ?? ''; // Mensagem de cancelamento
     });
 
-    FlutterBluePlus.stopScan();
-    flutterTts.stop();
+    FlutterBluePlus.stopScan(); // Para o scan de beacons
+    flutterTts.stop();          // Para qualquer fala em andamento
 
-    Navigator.pop(context);
+    Navigator.pop(context);     // Volta à página anterior
   }
 
   void mostrarDescricao() async {
-    if (localAtual != null && mensagens['beacons']?[localAtual] != null) {
+    if (localAtual != null && mensagens['beacons']?[localAtual] != null) { // Verifica se há um beacon atual detetado e se tem descrição
       final descricao = mensagens['beacons']?[localAtual]?['beacon_description'];
 
       if (descricao != null && descricao.isNotEmpty) {
         print('[DEBUG] A falar descrição do beacon atual: $descricao');
-        await falar(descricao);
+        await falar(descricao); // Fala a descrição associada ao beacon
       } else {
         print('[DEBUG] Descrição indisponível para o beacon atual: $localAtual');
         await falar('Descrição indisponível para o beacon atual.');
@@ -378,21 +408,22 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
   @override
   void dispose() {
-    flutterTts.stop();
-    FlutterBluePlus.stopScan();
-    _cameraController.dispose();
-    super.dispose();
+    flutterTts.stop();                // Para qualquer fala pendente
+    FlutterBluePlus.stopScan();      // Para o scan de beacons
+    _cameraController.dispose();     // Liberta recursos da animação
+    super.dispose();                 // Chama o metodo base
   }
 
   String obterLocalAtual() {
+    // Retorna o nome do local atual, ou a mensagem "A procurar..." se ainda não houver localização
     return localAtual ?? (mensagens['alerts']?['searching_alert'] ?? '');
   }
 
   String obterProximaParagem() {
-    if (rota.isEmpty || proximoPasso >= rota.length) {
+    if (rota.isEmpty || proximoPasso >= rota.length) { // Se a rota estiver vazia ou o índice estiver fora dos limites, retorna mensagem de fim
       return mensagens['alerts']?['end_of_route_alert'] ?? '';
     }
-    return rota[proximoPasso];
+    return rota[proximoPasso]; // Caso contrário, retorna o próximo beacon da rota
   }
 
   @override
@@ -402,23 +433,26 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
         children: [
           Positioned.fill(
             child: InteractiveViewer(
-              panEnabled: true,
-              scaleEnabled: true,
+              panEnabled: true, // Permite arrastar
+              scaleEnabled: true, // Permite zoom
               minScale: 1.0,
               maxScale: 3.5,
               constrained: false,
-              boundaryMargin: const EdgeInsets.all(100),
+              boundaryMargin: const EdgeInsets.all(100), // Margem ao arrastar
               child: Stack(
                 children: [
+                  // Aplica offset da câmara ao mapa
                   Transform.translate(
                     offset: Offset(-cameraOffset.dx + 150, -cameraOffset.dy + 320),
                     child: Stack(
                       children: [
+                        // Imagem do piso atual
                         Image.asset(
                           imagensPorPiso[currentFloor]!,
                           fit: BoxFit.none,
                           alignment: Alignment.topLeft,
                         ),
+                        // Seta animada para mostrar a posição atual
                         if (mostrarSeta)
                           AnimatedPositioned(
                             duration: const Duration(milliseconds: 1000),
@@ -426,7 +460,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                             left: currentPosition.dx,
                             top: currentPosition.dy,
                             child: Transform.rotate(
-                              angle: rotationAngle,
+                              angle: rotationAngle, // Aponta na direção do movimento
                               child: const Icon(Icons.navigation, size: 40, color: Colors.red),
                             ),
                           ),
@@ -437,46 +471,60 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
               ),
             ),
           ),
+
+          // Widget deslizante na parte inferior da tela (como uma folha que pode ser expandida)
           DraggableScrollableSheet(
-            minChildSize: 0.20,
-            maxChildSize: 0.32,
-            initialChildSize: 0.32,
+            minChildSize: 0.20,  // Altura mínima (20% da tela)
+            maxChildSize: 0.32,  // Altura máxima (32% da tela)
+            initialChildSize: 0.32,  // Altura inicial ao abrir a página
             builder: (context, controller) {
               return Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),  // Espaçamento interno do painel
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.95),
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-                  boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 6)],
+                  color: Colors.white.withOpacity(0.95),  // Fundo branco com ligeira transparência
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),  // Cantos arredondados no topo
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,  // Sombra leve
+                      blurRadius: 6,          // Suaviza a sombra
+                    ),
+                  ],
                 ),
                 child: SingleChildScrollView(
-                  controller: controller,
+                  controller: controller,  // Controlador que sincroniza com o deslize da folha
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,  // Centraliza conteúdo horizontalmente
                     children: [
+                      // Título com o destino selecionado, traduzido
                       Text(
                         '${'beacon_scan_page.destination'.tr()}: ${widget.destino}',
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      const SizedBox(height: 20),
-                      if (!chegou) ...[
+                      const SizedBox(height: 20),  // Espaço entre o título e os próximos widgets
+                      if (!chegou) ...[ // Se ainda não chegou ao destino, mostra informação do estado atual
                         Container(
-                          padding: const EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12), // Espaçamento interno
                           decoration: BoxDecoration(
+                            // Cor de fundo muda conforme se há ou não instrução falada
                             color: ultimaInstrucaoFalada.isEmpty ? Colors.yellow[100] : Colors.blue[100],
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10), // Cantos arredondados
                           ),
                           child: Row(
                             children: [
+                              // Ícone que representa o estado atual: alerta ou voz
                               Icon(
-                                ultimaInstrucaoFalada.isEmpty ? Icons.warning : Icons.campaign,
-                                color: ultimaInstrucaoFalada.isEmpty ? Colors.orange : Colors.blue,
+                                ultimaInstrucaoFalada.isEmpty ? Icons.warning : Icons.campaign, // Se não há fala → alerta, senão → megafone
+                                color: ultimaInstrucaoFalada.isEmpty ? Colors.orange : Colors.blue, // Cor de acordo com o ícone
                                 size: 30,
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 10), // Espaço entre ícone e texto
                               Expanded(
                                 child: Center(
                                   child: Text(
+                                    // Mostra a última instrução falada ou a mensagem "A procurar..."
                                     ultimaInstrucaoFalada.isNotEmpty
                                         ? ultimaInstrucaoFalada
                                         : '${mensagens['alerts']?['searching_alert'] ?? 'A procurar...'}',
@@ -484,6 +532,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
+                                      // Cor muda conforme há ou não instrução falada
                                       color: ultimaInstrucaoFalada.isEmpty ? Colors.orange[900] : Colors.blue[900],
                                     ),
                                   ),
@@ -493,23 +542,27 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                           ),
                         ),
                       ]
-                      else ...[
+                      else ...[ // Caso o utilizador já tenha chegado ao destino
+                        // Mostra mensagem de navegação concluída
                         Container(
-                          padding: const EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12), // Espaçamento interno
                           decoration: BoxDecoration(
-                            color: Colors.green[100],
-                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.green[100], // Fundo verde claro para indicar sucesso
+                            borderRadius: BorderRadius.circular(10), // Cantos arredondados
                           ),
                           child: Row(
-                            children: [
+                              children: [
+                              // Ícone de sucesso (check verde)
                               const Icon(Icons.check_circle, color: Colors.green, size: 30),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Center(
-                                  child: Text(
-                                    status,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          const SizedBox(width: 10), // Espaço entre ícone e texto
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                status, // Mensagem de estado (ex: "Navegação concluída.")
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,)
                                   ),
                                 ),
                               ),
@@ -517,29 +570,34 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
                           ),
                         ),
                       ],
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 20), // Espaçamento vertical antes da linha de botões
+
                       Row(
                         children: [
-                          Expanded(
+                          // 📘 Botão para ouvir a descrição do local atual
+                          Expanded( // Ocupa metade da largura disponível
                             child: ElevatedButton.icon(
-                              onPressed: mostrarDescricao,
-                              icon: const Icon(Icons.info),
-                              label: Text('beacon_scan_page.description'.tr()),
+                              onPressed: mostrarDescricao, // Chama a função que lê a descrição do beacon atual
+                              icon: const Icon(Icons.info), // Ícone de informação
+                              label: Text('beacon_scan_page.description'.tr()), // Texto traduzido do botão
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blueAccent,
-                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.blueAccent, // Fundo azul
+                                foregroundColor: Colors.white, // Texto e ícone brancos
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
+
+                          const SizedBox(width: 10), // Espaço entre os dois botões
+
+                          // ❌ Botão para cancelar a navegação
                           Expanded(
                             child: ElevatedButton.icon(
-                              onPressed: cancelarNavegacao,
-                              icon: const Icon(Icons.cancel),
-                              label: Text('beacon_scan_page.cancel_navigation'.tr()),
+                              onPressed: cancelarNavegacao, // Chama a função para cancelar e sair da navegação
+                              icon: const Icon(Icons.cancel), // Ícone de cancelamento
+                              label: Text('beacon_scan_page.cancel_navigation'.tr()), // Texto traduzido do botão
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.redAccent,
-                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.redAccent, // Fundo vermelho
+                                foregroundColor: Colors.white, // Texto e ícone brancos
                               ),
                             ),
                           ),
