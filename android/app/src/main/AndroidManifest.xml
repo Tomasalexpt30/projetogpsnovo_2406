@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.projetogpsnovo">
+    package="autogps.projetogpsnovo">
 
     <!-- Permissões de áudio para comando de voz -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />

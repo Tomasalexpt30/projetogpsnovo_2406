@@ -1,4 +1,4 @@
-package com.example.projetogpsnovo
+package autogps.projetogpsnovo
 
 import io.flutter.embedding.android.FlutterActivity
 
