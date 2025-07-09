@@ -1,25 +1,24 @@
-import 'dart:convert'; // Necessário para trabalhar com JSON (decodificar os ficheiros de instruções)
-import 'package:flutter/services.dart'; // Permite aceder a assets (como ficheiros dentro de assets/)
-import 'package:flutter_blue_plus/flutter_blue_plus.dart'; // Biblioteca para comunicação Bluetooth LE
-
+import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 class BeaconInfo {
-  final String uuid;       // UUID do beacon (identificador único universal)
-  final int major;         // Identificador major (agrupamento)
-  final int minor;         // Identificador minor (subagrupamento)
-  final String macAddress; // Endereço MAC do beacon (identifica fisicamente o dispositivo)
+  final String uuid;
+  final int major;
+  final int minor;
+  final String macAddress;
 
   BeaconInfo(this.uuid, this.major, this.minor, this.macAddress);
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || // Verifica se são a mesma instância
+      identical(this, other) ||
           other is BeaconInfo &&
               runtimeType == other.runtimeType &&
               uuid == other.uuid &&
               major == other.major &&
               minor == other.minor &&
-              macAddress.toUpperCase() == other.macAddress.toUpperCase(); // Ignora maiúsculas no MAC
+              macAddress.toUpperCase() == other.macAddress.toUpperCase();
 
   @override
   int get hashCode =>
@@ -28,39 +27,34 @@ class BeaconInfo {
 
 class TourManager {
   final Map<BeaconInfo, String> beaconLocations = {
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:CA'): 'Beacon 1',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:E3'): 'Beacon 3',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:B2'): 'Beacon 15',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 1, 'FF:87:6D:60:E2:CE'): 'Beacon 1',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 2, 'DC:ED:EA:6E:0B:2D'): 'Beacon 3',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 3, 'F2:29:76:B1:E1:4D'): 'Beacon 15',
   };
 
-  Map<String, String> instrucoesCarregadas = {}; // Ligações diretas entre pontos (ex: A-B)
-  Map<String, dynamic> jsonBeacons = {};         // Estrutura detalhada de cada beacon no JSON
-  List<String> rotaPreDefinida = [];             // Ordem da rota da visita guiada
+  Map<String, String> instrucoesCarregadas = {};
+  Map<String, dynamic> jsonBeacons = {};
+  List<String> rotaPreDefinida = [];
 
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
-    // Extrai apenas o código de idioma (ex: "pt" de "pt-PT")
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
 
-    // Tenta várias localizações por ordem de prioridade
     List<String> paths = [
-      'assets/tts/tour/tour_$fullCode.json', // Exato (ex: pt-pt)
-      'assets/tts/tour/tour_$langCode.json', // Apenas idioma base (pt)
-      'assets/tts/tour/tour_en.json',        // Fallback para inglês
+      'assets/tts/tour/tour_$fullCode.json',
+      'assets/tts/tour/tour_$langCode.json',
+      'assets/tts/tour/tour_en.json',
     ];
 
     String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path); // Tenta carregar o ficheiro
-        break; // Se conseguir, sai do ciclo
+        jsonString = await rootBundle.loadString(path);
+        break;
       } catch (_) {}
     }
 
-    // Decodifica o conteúdo do JSON, se existir
     final Map<String, dynamic> jsonData = jsonString != null ? json.decode(jsonString) : {};
-
-    // Extrai secções importantes
     instrucoesCarregadas = Map<String, String>.from(jsonData['instructions'] ?? {});
     jsonBeacons = jsonData['beacons'] ?? {};
     rotaPreDefinida = List<String>.from(jsonData['tour_route'] ?? []);
@@ -69,22 +63,20 @@ class TourManager {
   }
 
   String? getLocalizacao(BeaconInfo beacon) {
-    return beaconLocations[beacon]; // Retorna "Beacon 1", "Beacon 3", etc.
+    return beaconLocations[beacon];
   }
 
-
   List<String> getInstrucoes(List<String> caminho) {
-    final instr = <String>[]; // Lista a devolver
+    final instr = <String>[];
 
     for (var i = 0; i < caminho.length - 1; i++) {
-      final chave = '${caminho[i]}-${caminho[i + 1]}'; // Ex: "Entrada-Camões"
-
+      final chave = '${caminho[i]}-${caminho[i + 1]}';
       if (instrucoesCarregadas.containsKey(chave)) {
-        instr.add(instrucoesCarregadas[chave]!); // Usa instrução direta
+        instr.add(instrucoesCarregadas[chave]!);
       } else {
         final instruction = buscarInstrucaoNoBeacon(caminho[i], caminho[i + 1]);
         if (instruction != null && instruction.isNotEmpty) {
-          instr.add(instruction); // Caso não exista direta, procura no beacon
+          instr.add(instruction);
         }
       }
     }
@@ -93,46 +85,43 @@ class TourManager {
   }
 
   String? buscarInstrucaoNoBeacon(String origem, String destino) {
-    if (jsonBeacons.containsKey(origem)) { // Verifica se o beacon de origem existe no JSON carregado
-      final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {}; // Acede ao campo "beacon_instructions" do beacon de origem
-      final chave = '$origem-$destino'; // Define a chave composta "origem-destino", ex: "Entrada-Camões"
-      return instructions[chave] ?? ''; // Retorna a instrução, se existir, ou string vazia
+    if (jsonBeacons.containsKey(origem)) {
+      final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {};
+      final chave = '$origem-$destino';
+      return instructions[chave] ?? '';
     }
-    return ''; // Se a origem não estiver no JSON, retorna string vazia
+    return '';
   }
 
   bool isDestinoFinal(String localAtual, String proximoPasso) {
-    if (jsonBeacons.containsKey(localAtual)) { // Verifica se existe definição do beacon correspondente ao localAtual no JSON
-      final destinos = List<String>.from( // Extrai a lista de destinos possíveis (ex: ["Camões", "Sala 10", ...])
-          jsonBeacons[localAtual]['beacon_destinations'] ?? []
-      );
-      return destinos.contains(proximoPasso); // Verifica se o destino atual está na lista de destinos do beacon
+    if (jsonBeacons.containsKey(localAtual)) {
+      final destinos = List<String>.from(jsonBeacons[localAtual]['beacon_destinations'] ?? []);
+      return destinos.contains(proximoPasso);
     }
-    return false; // Se não houver informação sobre o localAtual, assume que não é destino final
+    return false;
   }
 
   BeaconInfo? parseBeaconData(ScanResult result) {
     final md = result.advertisementData.manufacturerData;
-    if (md.isEmpty) return null; // Sem dados de fabricante? Ignorar.
+    if (md.isEmpty) return null;
 
-    if (!md.containsKey(76)) return null; // iBeacon Apple usa 0x004C (76)
+    if (!md.containsKey(76)) return null;
+    final data = md[76]!;
 
-    final data = md[76]!; // Extrai os bytes da entrada
-    if (data.length < 23) return null; // Verifica se é válido
+    if (data.length < 23) return null;
 
-    final uuidBytes = data.sublist(2, 18); // UUID começa na posição 2
+    final uuidBytes = data.sublist(2, 18);
     final uuid = uuidBytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
-
     final formattedUuid =
         '${uuid.substring(0, 8)}-${uuid.substring(8, 12)}-${uuid.substring(12, 16)}-${uuid.substring(16, 20)}-${uuid.substring(20)}';
 
-    final major = (data[18] << 8) + data[19]; // Junta os bytes major
-    final minor = (data[20] << 8) + data[21]; // Junta os bytes minor
+    final major = (data[18] << 8) + data[19];
+    final minor = (data[20] << 8) + data[21];
 
-    final mac = result.device.id.id.toUpperCase(); // Obtém o MAC formatado
+    final mac = result.device.id.id.toUpperCase();
 
     print('[DEBUG] Beacon detetado → UUID: $formattedUuid | Major: $major | Minor: $minor | MAC: $mac');
 
-    return BeaconInfo(formattedUuid, major, minor, mac); // Cria e retorna objeto
+    return BeaconInfo(formattedUuid, major, minor, mac);
   }
 }

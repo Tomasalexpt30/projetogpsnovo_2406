@@ -1,19 +1,15 @@
-/// Importações necessárias para trabalhar com JSON, assets locais e Bluetooth
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
-/// Classe que representa um beacon individual com UUID, major, minor e endereço MAC
 class BeaconInfo {
   final String uuid;
   final int major;
   final int minor;
   final String macAddress;
 
-  // Construtor
   BeaconInfo(this.uuid, this.major, this.minor, this.macAddress);
 
-  // Sobrescreve o operador de igualdade para comparar beacons corretamente
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -24,31 +20,27 @@ class BeaconInfo {
               minor == other.minor &&
               macAddress.toUpperCase() == other.macAddress.toUpperCase();
 
-  // Sobrescreve o hashCode para suportar utilização em Mapas e Sets
   @override
   int get hashCode =>
       uuid.hashCode ^ major.hashCode ^ minor.hashCode ^ macAddress.toUpperCase().hashCode;
 }
 
-/// Classe responsável por gerir a lógica de navegação com base em beacons
 class NavigationManager {
-  /// Mapa que associa cada beacon (por BeaconInfo) ao seu identificador lógico
   final Map<BeaconInfo, String> beaconLocations = {
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:CA'): 'Beacon 1',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:E3'): 'Beacon 3',
-    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 1, 2, '51:00:24:12:01:B2'): 'Beacon 15',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 1, 'FF:87:6D:60:E2:CE'): 'Beacon 1',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 2, 'DC:ED:EA:6E:0B:2D'): 'Beacon 3',
+    BeaconInfo('fda50693-a4e2-4fb1-afcf-c6eb07647825', 10001, 3, 'F2:29:76:B1:E1:4D'): 'Beacon 15',
   };
 
-  Map<String, Map<String, int>> mapaFaculdade = {}; // Grafo com as ligações entre beacons e destinos
-  Map<String, String> instrucoesCarregadas = {}; // Instruções já traduzidas para o TTS
-  Map<String, dynamic> jsonBeacons = {}; // Dados completos carregados do JSON
+  Map<String, Map<String, int>> mapaFaculdade = {};
+  Map<String, String> instrucoesCarregadas = {};
+  Map<String, dynamic> jsonBeacons = {};
 
-  /// Carrega o ficheiro de instruções com base no idioma selecionado
+  /// Carrega as instruções e o mapa com as conexões e destinos dos beacons operacionais
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
-    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];  // ex: pt
-    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-'); // ex: pt-pt
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
 
-    // Tenta carregar primeiro o mais específico, depois mais genérico, por fim inglês
     List<String> paths = [
       'assets/tts/navigation/nav_$fullCode.json',
       'assets/tts/navigation/nav_$langCode.json',
@@ -58,24 +50,22 @@ class NavigationManager {
     String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path); // Tenta carregar o ficheiro
+        jsonString = await rootBundle.loadString(path);
         break;
       } catch (_) {}
     }
 
-    // Decodifica o JSON carregado
     final Map<String, dynamic> jsonData = jsonString != null ? json.decode(jsonString) : {};
     instrucoesCarregadas = Map<String, String>.from(jsonData['instructions'] ?? {});
     jsonBeacons = jsonData['beacons'] ?? {};
 
-    _construirMapa(); // Constrói o grafo com base nos dados carregados
+    _construirMapa();
   }
 
-  /// Constrói o grafo de navegação com base nos beacons operacionais
+  /// Constrói o mapa considerando apenas os beacons operacionais
   void _construirMapa() {
     mapaFaculdade.clear();
 
-    // Lista dos beacons ativos
     List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 15'];
 
     for (var beaconKey in beaconsOperacionais) {
@@ -86,28 +76,26 @@ class NavigationManager {
 
         mapaFaculdade[beaconKey] = {};
 
-        // Adiciona conexões diretas entre beacons
+        // Adiciona conexões
         for (var conexao in conexoes) {
           if (beaconsOperacionais.contains(conexao)) {
-            mapaFaculdade[beaconKey]![conexao] = 1;
+            mapaFaculdade[beaconKey]![conexao] = 1; // Distância arbitrária
           }
         }
 
-        // Adiciona destinos como nós do grafo com ligação ao beacon
+        // Adiciona destinos como nós diretos (para que Dijkstra funcione)
         for (var destino in destinos) {
-          mapaFaculdade[beaconKey]![destino] = 1;
-          mapaFaculdade[destino] = {beaconKey: 1}; // Ligação reversa para o algoritmo funcionar
+          mapaFaculdade[beaconKey]![destino] = 1; // Distância arbitrária
+          mapaFaculdade[destino] = {beaconKey: 1}; // Ligação reversa
         }
       }
     }
   }
 
-  /// Devolve o nome lógico de um beacon detetado, se existir
   String? getLocalizacao(BeaconInfo beacon) {
     return beaconLocations[beacon];
   }
 
-  /// Algoritmo de Dijkstra para calcular o caminho mais curto entre dois pontos
   List<String>? dijkstra(String origem, String destino) {
     final dist = <String, int>{};
     final prev = <String, String?>{};
@@ -120,7 +108,6 @@ class NavigationManager {
     }
 
     while (unvisited.isNotEmpty) {
-      // Seleciona o nó com menor distância atual
       final current = unvisited.reduce((a, b) => dist[a]! < dist[b]! ? a : b);
       if (current == destino) break;
       unvisited.remove(current);
@@ -136,7 +123,6 @@ class NavigationManager {
       });
     }
 
-    // Reconstrói o caminho
     final path = <String>[];
     String? u = destino;
     while (u != null) {
@@ -147,17 +133,15 @@ class NavigationManager {
     return path.isNotEmpty && path.first == origem ? path : null;
   }
 
-  /// Obtém as instruções de navegação para um determinado caminho
   List<String> getInstrucoes(List<String> caminho) {
     final instr = <String>[];
 
     for (var i = 0; i < caminho.length - 1; i++) {
       final chave = '${caminho[i]}-${caminho[i + 1]}';
-
       if (instrucoesCarregadas.containsKey(chave)) {
         instr.add(instrucoesCarregadas[chave]!);
       } else {
-        // Se não houver instrução no ficheiro traduzido, tenta buscar no JSON original
+        // Se não houver instrução carregada, tenta buscar no beacon_instructions
         final instruction = buscarInstrucaoNoBeacon(caminho[i], caminho[i + 1]);
         if (instruction != null && instruction.isNotEmpty) {
           instr.add(instruction);
@@ -168,7 +152,7 @@ class NavigationManager {
     return instr;
   }
 
-  /// Procura a instrução diretamente no JSON original se não estiver pré-carregada
+  /// Busca a instrução no JSON original se não tiver sido carregada para TTS
   String? buscarInstrucaoNoBeacon(String origem, String destino) {
     if (jsonBeacons.containsKey(origem)) {
       final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {};
@@ -187,7 +171,7 @@ class NavigationManager {
     return false;
   }
 
-  /// Encontra o beacon responsável por um destino final
+  /// Devolve o beacon associado a um destino
   String? getBeaconDoDestino(String destino) {
     for (var beaconKey in jsonBeacons.keys) {
       final destinos = List<String>.from(jsonBeacons[beaconKey]['beacon_destinations'] ?? []);
@@ -198,28 +182,23 @@ class NavigationManager {
     return null;
   }
 
-  /// Extrai a informação de um beacon a partir de um resultado Bluetooth
   BeaconInfo? parseBeaconData(ScanResult result) {
     final md = result.advertisementData.manufacturerData;
     if (md.isEmpty) return null;
 
-    // Verifica se o pacote iBeacon está presente (Apple: 0x004C = 76)
     if (!md.containsKey(76)) return null;
-
     final data = md[76]!;
+
     if (data.length < 23) return null;
 
-    // Extrai e formata UUID
     final uuidBytes = data.sublist(2, 18);
     final uuid = uuidBytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
     final formattedUuid =
         '${uuid.substring(0, 8)}-${uuid.substring(8, 12)}-${uuid.substring(12, 16)}-${uuid.substring(16, 20)}-${uuid.substring(20)}';
 
-    // Extrai major e minor
     final major = (data[18] << 8) + data[19];
     final minor = (data[20] << 8) + data[21];
 
-    // Extrai MAC address
     final mac = result.device.id.id.toUpperCase();
 
     print('[DEBUG] Beacon detetado → UUID: $formattedUuid | Major: $major | Minor: $minor | MAC: $mac');

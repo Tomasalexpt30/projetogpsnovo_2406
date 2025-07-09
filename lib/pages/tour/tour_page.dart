@@ -1,106 +1,100 @@
-import 'dart:convert'; // Importa biblioteca para decodificar JSON
-import 'package:flutter/material.dart'; // Importa widgets principais do Flutter
-import 'package:flutter/services.dart'; // Necessário para ler assets da aplicação
-import 'package:flutter_tts/flutter_tts.dart'; // Biblioteca de Text-to-Speech
-import 'tour_scan.dart'; // Importa a próxima página da visita guiada
-import 'package:projetogpsnovo/helpers/preferences_helpers.dart'; // Helper para guardar e ler preferências
-import 'package:easy_localization/easy_localization.dart'; // Biblioteca para tradução automática
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'tour_scan.dart';
+import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-// Widget principal da página de introdução à visita guiada
 class TourPage extends StatefulWidget {
-  const TourPage({super.key}); // Construtor padrão com chave opcional
+  const TourPage({super.key});
 
   @override
-  State<TourPage> createState() => _TourPageState(); // Associa estado ao widget
+  State<TourPage> createState() => _TourPageState();
 }
 
-// Estado associado ao widget TourPage
 class _TourPageState extends State<TourPage> {
-  Map<String, dynamic> mensagens = {}; // Armazena mensagens do JSON
-  final FlutterTts _tts = FlutterTts(); // Instância do motor de voz
-  final PreferencesHelper _preferencesHelper = PreferencesHelper(); // Instância de helper para preferências
+  Map<String, dynamic> mensagens = {};
+  final FlutterTts _tts = FlutterTts();
+  final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
-  String selectedLanguageCode = 'pt-PT'; // Idioma por defeito
-  bool soundEnabled = true; // Flag para verificar se som está ativo
-  bool isSpeaking = false; // Flag para saber se TTS está atualmente a falar
+  String selectedLanguageCode = 'pt-PT';
+  bool soundEnabled = true;
+  bool isSpeaking = false;
 
   @override
   void initState() {
-    super.initState(); // Chama initState da superclasse
-    _loadSettings(); // Carrega definições guardadas
+    super.initState();
+    _loadSettings();
   }
 
-  // Carrega as preferências do utilizador (idioma e som) e configura o TTS
   Future<void> _loadSettings() async {
-    final settings = await _preferencesHelper.loadSoundSettings(); // Lê ficheiro de preferências
+    final settings = await _preferencesHelper.loadSoundSettings();
     setState(() {
-      selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT'; // Atualiza idioma
-      soundEnabled = settings['soundEnabled']; // Atualiza flag do som
+      selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
+      soundEnabled = settings['soundEnabled'];
     });
-    await _tts.setLanguage(selectedLanguageCode); // Define idioma no TTS
-    await _tts.setSpeechRate(0.5); // Define velocidade da voz
-    await _loadMessages(); // Carrega as mensagens da visita
+    await _tts.setLanguage(selectedLanguageCode);
+    await _tts.setSpeechRate(0.5);
+    await _loadMessages();
   }
 
-  // Carrega ficheiros JSON com mensagens para o idioma atual
   Future<void> _loadMessages() async {
-    String langCode = selectedLanguageCode.toLowerCase().split('-')[0]; // Ex: pt
-    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-'); // Ex: pt-pt
+    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
     List<String> paths = [
-      'assets/tts/tour/tour_$fullCode.json', // Caminho com idioma completo
-      'assets/tts/tour/tour_$langCode.json', // Caminho com apenas idioma base
-      'assets/tts/tour/tour_en.json', // Caminho de fallback (inglês)
+      'assets/tts/tour/tour_$fullCode.json',
+      'assets/tts/tour/tour_$langCode.json',
+      'assets/tts/tour/tour_en.json',
     ];
-    String? jsonString; // String para guardar conteúdo do ficheiro
+    String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path); // Tenta ler ficheiro
-        break; // Se conseguir, sai do ciclo
-      } catch (_) {} // Ignora erros e tenta o próximo
+        jsonString = await rootBundle.loadString(path);
+        break;
+      } catch (_) {}
     }
     setState(() {
-      mensagens = jsonString != null ? json.decode(jsonString) : {}; // Decodifica JSON
+      mensagens = jsonString != null ? json.decode(jsonString) : {};
     });
   }
 
-  // Fala o texto passado e espera até terminar
   Future<void> speakAndBlock(String texto) async {
-    if (soundEnabled) { // Só fala se som estiver ativo
+    if (soundEnabled) {
       setState(() {
-        isSpeaking = true; // Atualiza flag para indicar que está a falar
+        isSpeaking = true;
       });
-      await _tts.speak(texto); // Inicia fala
-      await _tts.awaitSpeakCompletion(true); // Espera até que termine
+      await _tts.speak(texto);
+      await _tts.awaitSpeakCompletion(true);
       setState(() {
-        isSpeaking = false; // Marca como terminou
+        isSpeaking = false;
       });
     }
   }
 
-  // Mostra popup com a descrição da visita
   void _mostrarPopupDescricaoVisita() {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           title: Text(
-            'tour_page.guided_tour_popup'.tr(), // Título traduzido
+            'tour_page.guided_tour_popup'.tr(),
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             textAlign: TextAlign.center,
           ),
           content: Text(
-            'tour_page.guided_tour_info_description'.tr(), // Corpo traduzido
+            'tour_page.guided_tour_info_description'.tr(),
             style: const TextStyle(fontSize: 15),
-            textAlign: TextAlign.left, // Alinhado à esquerda
+            textAlign: TextAlign.left, // 🔹 Alinhamento à esquerda
           ),
-          actionsAlignment: MainAxisAlignment.center, // Centraliza botão
+          actionsAlignment: MainAxisAlignment.center,
           actions: [
             GestureDetector(
-              onTap: () => Navigator.of(context).pop(), // Fecha popup
+              onTap: () => Navigator.of(context).pop(),
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  'privacy_policy.close'.tr(), // Texto traduzido
+                  'privacy_policy.close'.tr(),
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black),
                 ),
               ),
@@ -111,7 +105,10 @@ class _TourPageState extends State<TourPage> {
     );
   }
 
-  // Getter com caminho da imagem do piso base da visita
+
+
+
+
   String get imagemPiso => 'assets/images/map/00_piso.png';
 
   @override
@@ -119,24 +116,21 @@ class _TourPageState extends State<TourPage> {
     return Scaffold(
       body: Stack(
         children: [
-          // Camada base com o mapa interativo
           Positioned.fill(
             child: InteractiveViewer(
-              panEnabled: true, // Permite arrastar
-              scaleEnabled: true, // Permite zoom
-              minScale: 1.0, // Zoom mínimo
-              maxScale: 3.5, // Zoom máximo
-              constrained: false, // Sem restrições de tamanho
-              boundaryMargin: const EdgeInsets.all(100), // Margem de navegação
+              panEnabled: true,
+              scaleEnabled: true,
+              minScale: 1.0,
+              maxScale: 3.5,
+              constrained: false,
+              boundaryMargin: const EdgeInsets.all(100),
               child: Image.asset(
-                imagemPiso, // Caminho da imagem do piso
-                fit: BoxFit.none, // Não ajusta a imagem ao tamanho
-                alignment: Alignment.topLeft, // Alinha no canto superior esquerdo
+                imagemPiso,
+                fit: BoxFit.none,
+                alignment: Alignment.topLeft,
               ),
             ),
           ),
-
-          // Painel inferior que pode ser expandido ou recolhido
           DraggableScrollableSheet(
             minChildSize: 0.20,
             maxChildSize: 0.35,
@@ -173,13 +167,15 @@ class _TourPageState extends State<TourPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          // Botão para iniciar visita
                           ElevatedButton.icon(
                             onPressed: isSpeaking ? null : () async {
                               String mensagemIniciar = mensagens['alerts']?['guided_tour_start_alert'] ?? 'Vamos iniciar a visita guiada pela Universidade Autónoma de Lisboa.';
+
                               await _tts.speak(mensagemIniciar);
                               await _tts.awaitSpeakCompletion(true);
+
                               if (!mounted) return;
+
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -197,7 +193,6 @@ class _TourPageState extends State<TourPage> {
                               foregroundColor: Colors.white,
                             ),
                           ),
-                          // Botão para mostrar popup informativo
                           ElevatedButton.icon(
                             onPressed: _mostrarPopupDescricaoVisita,
                             icon: const Icon(Icons.info_outline),
@@ -215,15 +210,13 @@ class _TourPageState extends State<TourPage> {
               );
             },
           ),
-
-          // Botão "voltar" no topo esquerdo
           Positioned(
             top: 40,
             left: 10,
             child: IconButton(
               icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () {
-                Navigator.pop(context); // Volta à página anterior
+                Navigator.pop(context);
               },
             ),
           ),
