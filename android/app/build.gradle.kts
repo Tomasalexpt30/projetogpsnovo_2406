@@ -2,7 +2,6 @@
 import java.util.Properties
 import java.io.File
 
-
 /* ---------- signing-key ---------- */
 val keystoreProps = Properties().apply {
     val propsFile = rootProject.file("key.properties")
