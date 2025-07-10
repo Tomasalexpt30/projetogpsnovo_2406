@@ -1,4 +1,3 @@
-// android/app/build.gradle.kts
 import java.util.Properties
 import java.io.File
 
@@ -16,7 +15,7 @@ val versionProps     = Properties().apply {
 }
 val currentCode = (versionProps["VERSION_CODE"] as String?)?.trim()?.toIntOrNull() ?: 1
 val newCode     = currentCode + 1                 // the only Int we need
-val newName     = "1.$newCode.0"                  // or any pattern you like
+val newName     = "1.$newCode.0"                 // or any pattern you like
 
 versionProps["VERSION_CODE"] = newCode.toString()
 versionProps["VERSION_NAME"] = newName
@@ -24,6 +23,7 @@ versionProps.store(versionPropsFile.outputStream(), null)
 
 /* --- optional log --- */
 println("▶︎ versionCode bumped: $currentCode → $newCode")
+
 /* ---------- plugins ---------- */
 plugins {
     id("com.android.application")
@@ -47,10 +47,19 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile     = file(keystoreProps["storeFile"]!!)
-            storePassword = keystoreProps["storePassword"] as String
-            keyAlias      = keystoreProps["keyAlias"] as String
-            keyPassword   = keystoreProps["keyPassword"] as String
+            val storeFileProp     = keystoreProps["storeFile"] as? String
+            val storePasswordProp = keystoreProps["storePassword"] as? String
+            val keyAliasProp      = keystoreProps["keyAlias"] as? String
+            val keyPasswordProp   = keystoreProps["keyPassword"] as? String
+
+            if (storeFileProp != null && storePasswordProp != null && keyAliasProp != null && keyPasswordProp != null) {
+                storeFile     = file(storeFileProp)
+                storePassword = storePasswordProp
+                keyAlias      = keyAliasProp
+                keyPassword   = keyPasswordProp
+            } else {
+                println("⚠️ Warning: key.properties is missing or incomplete. Release signing will not be configured.")
+            }
         }
     }
 
