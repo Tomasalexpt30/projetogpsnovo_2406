@@ -58,7 +58,7 @@ android {
                 keyAlias      = keyAliasProp
                 keyPassword   = keyPasswordProp
             } else {
-                println("⚠️ Warning: key.properties is missing or incomplete. Release signing will not be configured.")
+                println("Warning: key.properties is missing")
             }
         }
     }

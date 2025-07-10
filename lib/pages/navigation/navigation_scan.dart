@@ -26,6 +26,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   final NavigationManager nav = NavigationManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
+  final Set<String> beaconsOperacionais = {'Beacon 1', 'Beacon 3', 'Beacon 15'};
+
   bool isFinalizing = false;
 
   Map<String, dynamic> mensagens = {};
@@ -70,9 +72,9 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   String status = '';
 
   final Map<String, Offset> beaconPositions = {
-    'Beacon 1': Offset(300, 500),
-    'Beacon 3': Offset(300, 250),
-    'Beacon 15': Offset(380, 95),
+    'Beacon 1': Offset(300, 560),
+    'Beacon 3': Offset(346, 295),
+    'Beacon 15': Offset(345, 50),
   };
 
   @override
@@ -165,6 +167,8 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         final local = nav.getLocalizacao(beacon);
         if (local == null) continue;
+
+        if (!beaconsOperacionais.contains(local)) continue;
 
         final agora = DateTime.now();
         if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
@@ -295,6 +299,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       }
     });
   }
+
 
 
 
