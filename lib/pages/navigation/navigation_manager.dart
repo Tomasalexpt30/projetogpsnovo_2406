@@ -73,8 +73,8 @@ class NavigationManager {
     //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 34, ''): 'Beacon 34',
     //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10005, 35, ''): 'Beacon 35',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 36, 'DC:ED:EA:6E:0B:2D'): 'Beacon 36',
-    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 37, 'C5:14:B9:27:15:D0'): 'Beacon 37',
-    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
+    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 37, 'C5:14:B9:27:15:D0'): 'Beacon 37',
+    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
   };
 
   Map<String, Map<String, int>> mapaFaculdade = {};
@@ -111,7 +111,8 @@ class NavigationManager {
   void _construirMapa() {
     mapaFaculdade.clear();
 
-    List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 15'];
+    //FALTA BEACON 2, 34 E 35
+    List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8', 'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15', 'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22', 'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29', 'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'];
 
     for (var beaconKey in beaconsOperacionais) {
       if (jsonBeacons.containsKey(beaconKey)) {

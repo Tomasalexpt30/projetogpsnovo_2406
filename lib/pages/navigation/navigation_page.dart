@@ -22,8 +22,10 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   Map<String, dynamic> beacons = {};
   Map<String, String> voiceCommandsMap = {};
 
+
+  //FALTA BEACON 2, 34 E 35
   // Beacons ativos
-  List<String> beaconsAtivos = ['Beacon 1', 'Beacon 3', 'Beacon 15'];
+  List<String> beaconsAtivos = ['Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8', 'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15', 'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22', 'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29', 'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'];
 
   // Estado
   String? destinoSelecionado;
@@ -54,8 +56,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     Set<String> destinos = {};
     for (var beaconId in beaconsAtivos) {
       final beacon = beacons[beaconId];
-      if (beacon != null && beacon['beacon_destinations'] != null) {
-        destinos.addAll(List<String>.from(beacon['beacon_destinations']));
+      if (beacon != null) {
+        List<String> destinosFiltrados = List<String>.from(beacon['beacon_destinations'] ?? [])
+            .where((d) => d.trim().isNotEmpty && d.toLowerCase() != 'none')
+            .toList();
+        destinos.addAll(destinosFiltrados);
       }
     }
     return destinos;
@@ -75,15 +80,24 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       final beacon = beacons[beaconId];
       if (beacon != null) {
         String piso = 'Piso ${beacon['beacon_floor']}';
-        List<String> destinos = List<String>.from(beacon['beacon_destinations'] ?? []);
+        List<String> destinos = List<String>.from(beacon['beacon_destinations'] ?? [])
+            .where((d) => d.trim().isNotEmpty && d.toLowerCase() != 'none')
+            .toList();
         if (pisos.containsKey(piso)) {
           pisos[piso]?.addAll(destinos);
         }
       }
     }
 
+    // Remover duplicados e ordenar cada lista
+    pisos.updateAll((key, value) {
+      final unique = value.toSet().toList()..sort();
+      return unique;
+    });
+
     return pisos;
   }
+
 
   Map<String, String> get destinosMap {
     Map<String, String> map = {};
@@ -156,7 +170,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     });
 
     // Atualizar destinos disponíveis com base no JSON carregado
-    destinosDisponiveis = destinosComBeacon.toList();
+    destinosDisponiveis = destinosComBeacon.toList()..sort();
     destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
   }
 
@@ -319,8 +333,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: destinosPorPiso.entries.expand((entry) {
-                        final destinosFiltrados = entry.value.where((destino) =>
-                        destinosDisponiveis.contains(destino) && destinosComBeacon.contains(destino)).toList();
+                        final destinosFiltrados = entry.value
+                            .where((destino) => destinosDisponiveis.contains(destino) && destinosComBeacon.contains(destino))
+                            .toList()
+                          ..sort();
+
 
                         if (destinosFiltrados.isEmpty) return <Widget>[];
 
@@ -390,7 +407,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: destinosPorPiso.entries.expand((entry) {
-                        final destinosFiltrados = entry.value.where((destino) => destinosComBeacon.contains(destino)).toList();
+                        final destinosFiltrados = entry.value
+                            .where((destino) => destinosComBeacon.contains(destino))
+                            .toList()
+                          ..sort();
+
 
                         if (destinosFiltrados.isEmpty) return <Widget>[];
 

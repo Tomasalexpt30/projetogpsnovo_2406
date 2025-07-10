@@ -26,7 +26,9 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   final NavigationManager nav = NavigationManager();
   final PreferencesHelper _preferencesHelper = PreferencesHelper();
 
-  final Set<String> beaconsOperacionais = {'Beacon 1', 'Beacon 3', 'Beacon 15'};
+
+  //FALTA BEACON 2, 34 E 35
+  List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8', 'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15', 'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22', 'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29', 'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'];
 
   bool isFinalizing = false;
 
@@ -67,15 +69,55 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     'Piso 0': 'assets/images/map/00_piso.png',
     'Piso 1': 'assets/images/map/01_piso.png',
     'Piso 2': 'assets/images/map/02_piso.png',
+    'Piso 3': 'assets/images/map/03_piso.png',
+    'Piso 4': 'assets/images/map/04_piso.png',
   };
 
   String status = '';
-
-  final Map<String, Offset> beaconPositions = {
-    'Beacon 1': Offset(300, 560),
-    'Beacon 3': Offset(346, 295),
-    'Beacon 15': Offset(345, 50),
+//Offset(x, y)
+  // X Maior = Mais a direita
+  // Y Maior = Mais abaixo
+  final Map<String, Map<String, dynamic>> beaconPositions = {
+    'Beacon 1': {'offset': Offset(300, 560), 'floor': 'Piso 0'},
+    //'Beacon 2': {'offset': Offset(144, 599), 'floor': 'Piso -1'},
+    'Beacon 3': {'offset': Offset(346, 295), 'floor': 'Piso 0'},
+    'Beacon 4': {'offset': Offset(519, 378), 'floor': 'Piso 0'},
+    'Beacon 5': {'offset': Offset(878, 463), 'floor': 'Piso 0'},
+    'Beacon 6': {'offset': Offset(1216, 488), 'floor': 'Piso 0'},
+    'Beacon 7': {'offset': Offset(1293, 549), 'floor': 'Piso -1'},
+    'Beacon 8': {'offset': Offset(523, 208), 'floor': 'Piso 0'},
+    'Beacon 9': {'offset': Offset(610, 291), 'floor': 'Piso 0'},
+    'Beacon 10': {'offset': Offset(588, 203), 'floor': 'Piso -1'},
+    'Beacon 11': {'offset': Offset(733, 178), 'floor': 'Piso -1'},
+    'Beacon 12': {'offset': Offset(623, 388), 'floor': 'Piso -1'},
+    'Beacon 13': {'offset': Offset(758, 311), 'floor': 'Piso -1'},
+    'Beacon 14': {'offset': Offset(1003, 320), 'floor': 'Piso -1'},
+    'Beacon 15': {'offset': Offset(345, 50), 'floor': 'Piso 0'},
+    'Beacon 16': {'offset': Offset(138, 38), 'floor': 'Piso 0'},
+    'Beacon 17': {'offset': Offset(53, 128), 'floor': 'Piso 0'},
+    'Beacon 18': {'offset': Offset(71, 93), 'floor': 'Piso -1'},
+    'Beacon 19': {'offset': Offset(129, 299), 'floor': 'Piso 1'},
+    'Beacon 20': {'offset': Offset(153, 154), 'floor': 'Piso 1'},
+    'Beacon 21': {'offset': Offset(36, 510), 'floor': 'Piso 2'},
+    'Beacon 22': {'offset': Offset(528, 43), 'floor': 'Piso 0'},
+    'Beacon 23': {'offset': Offset(603, 498), 'floor': 'Piso 1'},
+    'Beacon 24': {'offset': Offset(687, 630), 'floor': 'Piso 1'},
+    'Beacon 25': {'offset': Offset(609, 738), 'floor': 'Piso 1'},
+    'Beacon 26': {'offset': Offset(612, 1084), 'floor': 'Piso 2'},
+    'Beacon 27': {'offset': Offset(834, 597), 'floor': 'Piso 1'},
+    'Beacon 28': {'offset': Offset(834, 725), 'floor': 'Piso 1'},
+    'Beacon 29': {'offset': Offset(1056, 729), 'floor': 'Piso 1'},
+    'Beacon 30': {'offset': Offset(1170, 721), 'floor': 'Piso 1'},
+    'Beacon 31': {'offset': Offset(1166, 774), 'floor': 'Piso 2'},
+    'Beacon 32': {'offset': Offset(1140, 904), 'floor': 'Piso 2'},
+    'Beacon 33': {'offset': Offset(553, 374), 'floor': 'Piso 2'},
+    //'Beacon 34': {'offset': Offset(630, 242), 'floor': 'Piso 3'},
+    //'Beacon 35': {'offset': Offset(1463, 239), 'floor': 'Piso 4'},
+    'Beacon 36': {'offset': Offset(406, 240), 'floor': 'Piso 2'}, //Mas tambêm aparece no piso 3
+    'Beacon 37': {'offset': Offset(234, 236), 'floor': 'Piso 2'},
+    'Beacon 38': {'offset': Offset(200, 200), 'floor': 'Piso 3'},
   };
+
 
   @override
   void initState() {
@@ -300,11 +342,19 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
     });
   }
 
-
-
-
   void atualizarPosicaoVisual(String local) {
-    final newPosition = beaconPositions[local] ?? const Offset(300, 500);
+    final beaconInfo = beaconPositions[local];
+    if (beaconInfo == null) return;
+
+    final newPosition = beaconInfo['offset'] as Offset;
+    final newFloor = beaconInfo['floor'] as String;
+
+    if (newFloor != currentFloor) {
+      setState(() {
+        currentFloor = newFloor;
+      });
+    }
+
     final delta = newPosition - currentPosition;
     final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
 
@@ -325,6 +375,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       mostrarSeta = true;
     });
   }
+
 
   void finalizar() {
     FlutterBluePlus.stopScan();

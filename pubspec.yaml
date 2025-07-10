@@ -45,6 +45,8 @@ flutter:
     - assets/images/map/-01_piso.png
     - assets/images/map/01_piso.png
     - assets/images/map/02_piso.png
+    - assets/images/map/03_piso.png
+    - assets/images/map/04_piso.png
     - assets/tts/navigation/nav_pt.json
     - assets/tts/navigation/nav_en.json
     - assets/tts/navigation/nav_de.json

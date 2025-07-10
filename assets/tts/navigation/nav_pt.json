@@ -77,7 +77,7 @@
     "Beacon 5": {
       "beacon_floor": "0",
       "beacon_description": "Descrição do Beacon 5",
-      "beacon_destinations": ["Auditório 02","Sala 24","Sala 27","Gabinete de Erasmus +"],
+      "beacon_destinations": ["Auditório 02","Sala 24","Sala 27","Gabinete de Erasmus"],
       "beacon_connections": ["Beacon 4","Beacon 6"],
       "beacon_instructions": {
         "Beacon 5-Auditório 02": "Instrução Beacon 5 para Auditório 02",
@@ -118,7 +118,7 @@
     "Beacon 8": {
       "beacon_floor": "0",
       "beacon_description": "Descrição do Beacon 8",
-      "beacon_destinations": [],
+      "beacon_destinations": [""],
       "beacon_connections": ["Beacon 3","Beacon 4","Beacon 9","Beacon 22"],
       "beacon_instructions": {
         "Beacon 8-Beacon 3": "Instrução Beacon 8 para Beacon 3",
@@ -199,11 +199,11 @@
     "Beacon 14": {
       "beacon_floor": "-1",
       "beacon_description": "Descrição do Beacon 14",
-      "beacon_destinations": ["Livraria","WC do Bar"],
+      "beacon_destinations": ["Livraria","WC Bar"],
       "beacon_connections": ["Beacon 13"],
       "beacon_instructions": {
         "Beacon 14-Livraria": "Instrução Beacon 14 para Livraria",
-        "Beacon 14-WC do Bar": "Instrução Beacon 14 para WC do Bar",
+        "Beacon 14-WC Bar": "Instrução Beacon 14 para WC Bar",
         "Beacon 14-Beacon 13": "Instrução Beacon 14 para Beacon 13"
       }
     },
@@ -278,13 +278,13 @@
       "beacon_floor": "1",
       "beacon_description": "Descrição do Beacon 20",
       "beacon_destinations": ["Sala de Estudo","Sala de Computadores","GIRU"],
-      "beacon_connections": ["Beacon 19","Beacon 36"],
+      "beacon_connections": ["Beacon 19","Beacon 37"],
       "beacon_instructions": {
         "Beacon 20-Sala de Estudo": "Instrução Beacon 20 para Sala de Estudo",
         "Beacon 20-Sala de Computadores": "Instrução Beacon 20 para Sala de Computadores",
         "Beacon 20-GIRU": "Instrução Beacon 20 para GIRU",
         "Beacon 20-Beacon 19": "Instrução Beacon 20 para Beacon 19",
-        "Beacon 20-Beacon 36": "Instrução Beacon 20 para Beacon 36"
+        "Beacon 20-Beacon 37": "Instrução Beacon 20 para Beacon 37"
       }
     },
 
@@ -370,11 +370,11 @@
     "Beacon 27": {
       "beacon_floor": "1",
       "beacon_description": "Descrição do Beacon 27",
-      "beacon_destinations": ["Sala 57","WC do Piso 1"],
+      "beacon_destinations": ["Sala 57","WC Piso 1"],
       "beacon_connections": ["Beacon 24","Beacon 25","Beacon 28"],
       "beacon_instructions": {
         "Beacon 27-Sala 57": "Instrução Beacon 27 para Sala 57",
-        "Beacon 27-WC do Piso 1": "Instrução Beacon 27 para WC do Piso 1",
+        "Beacon 27-WC Piso 1": "Instrução Beacon 27 para WC Piso 1",
         "Beacon 27-Beacon 24": "Instrução Beacon 27 para Beacon 24",
         "Beacon 27-Beacon 25": "Instrução Beacon 27 para Beacon 25",
         "Beacon 27-Beacon 28": "Instrução Beacon 27 para Beacon 28"
@@ -459,7 +459,7 @@
       "beacon_instructions": {
         "Beacon 33-Sala 37": "Instrução Beacon 33 para Sala 37",
         "Beacon 33-Sala 38": "Instrução Beacon 33 para Sala 38",
-        "Beacon 33-WC Piso 2": "Instrução Beacon 33 para WC do Piso 2",
+        "Beacon 33-WC Piso 2": "Instrução Beacon 33 para WC Piso 2",
         "Beacon 33-Beacon 23": "Instrução Beacon 33 para Beacon 23",
         "Beacon 33-Beacon 34": "Instrução Beacon 33 para Beacon 34",
         "Beacon 33-Beacon 36": "Instrução Beacon 33 para Beacon 36"
@@ -497,37 +497,37 @@
       "beacon_floor": "2",
       "beacon_description": "Descrição do Beacon 36",
       "beacon_destinations": ["Pátio de Enfermagem","WC Piso 2"],
-      "beacon_connections": ["Beacon 20","Beacon 33","Beacon 37"],
+      "beacon_connections": ["Beacon 33","Beacon 37", "Beacon 38"],
       "beacon_instructions": {
         "Beacon 36-Pátio de Enfermagem": "Instrução Beacon 36 para Pátio de Enfermagem",
         "Beacon 36-WC Piso 2": "Instrução Beacon 36 para WC Piso 2",
-        "Beacon 36-Beacon 20": "Instrução Beacon 36 para Beacon 20",
         "Beacon 36-Beacon 33": "Instrução Beacon 36 para Beacon 33",
-        "Beacon 36-Beacon 37": "Instrução Beacon 36 para Beacon 37"
+        "Beacon 36-Beacon 37": "Instrução Beacon 36 para Beacon 37",
+        "Beacon 36-Beacon 38": "Instrução Beacon 36 para Beacon 38"
       }
     },
 
     "Beacon 37": {
-      "beacon_floor": "3",
+      "beacon_floor": "2",
       "beacon_description": "Descrição do Beacon 37",
-      "beacon_destinations": ["Auditório 01","Sala 90"],
-      "beacon_connections": ["Beacon 36","Beacon 38"],
+      "beacon_destinations": ["Sala 80"],
+      "beacon_connections": ["Beacon 20","Beacon 36"],
       "beacon_instructions": {
-        "Beacon 37-Auditório 01": "Instrução Beacon 37 para Auditório 01",
-        "Beacon 37-Sala 90": "Instrução Beacon 37 para Sala 90",
-        "Beacon 37-Beacon 36": "Instrução Beacon 37 para Beacon 36",
-        "Beacon 37-Beacon 38": "Instrução Beacon 37 para Beacon 38"
+        "Beacon 37-Sala 80": "Instrução Beacon 37 para Sala 80",
+        "Beacon 37-Beacon 20": "Instrução Beacon 37 para Beacon 20",
+        "Beacon 37-Beacon 36": "Instrução Beacon 37 para Beacon 36"
       }
     },
 
     "Beacon 38": {
-      "beacon_floor": "2",
+      "beacon_floor": "3",
       "beacon_description": "Descrição do Beacon 38",
-      "beacon_destinations": ["Sala 80"],
-      "beacon_connections": ["Beacon 37"],
+      "beacon_destinations": ["Auditório 01", "Sala 90"],
+      "beacon_connections": ["Beacon 36"],
       "beacon_instructions": {
-        "Beacon 38-Sala 80": "Instrução Beacon 38 para Sala 80",
-        "Beacon 38-Beacon 37": "Instrução Beacon 38 para Beacon 37"
+        "Beacon 38-Auditório 01": "Instrução Beacon 38 para Auditório 01",
+        "Beacon 38-Sala 90": "Instrução Beacon 38 para Sala 90",
+        "Beacon 38-Beacon 36": "Instrução Beacon 38 para Beacon 36"
       }
     }
   },
@@ -599,9 +599,8 @@
     "sala dos atos": "Sala dos Atos",
     "sala dos micro-ondas": "Sala dos Micro-ondas",
     "ual media": "UAL Media",
-    "wc do bar": "WC do Bar",
-    "wc do piso 1": "WC do Piso 1",
-    "wc do piso 2": "WC do Piso 2",
+    "wc bar": "WC Bar",
+    "wc piso 1": "WC Piso 1",
     "wc piso 2": "WC Piso 2"
   }
 
