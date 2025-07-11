@@ -119,6 +119,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   };
 
 
+
   @override
   void initState() {
     super.initState();
