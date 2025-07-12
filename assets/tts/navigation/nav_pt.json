@@ -199,10 +199,11 @@
     "Beacon 14": {
       "beacon_floor": "-1",
       "beacon_description": "Descrição do Beacon 14",
-      "beacon_destinations": ["Livraria","WC Bar"],
+      "beacon_destinations": ["Livraria","Esplanada","WC Bar"],
       "beacon_connections": ["Beacon 13"],
       "beacon_instructions": {
         "Beacon 14-Livraria": "Instrução Beacon 14 para Livraria",
+        "Beacon 14-Esplanada": "Instrução Beacon 14 para Esplanada",
         "Beacon 14-WC Bar": "Instrução Beacon 14 para WC Bar",
         "Beacon 14-Beacon 13": "Instrução Beacon 14 para Beacon 13"
       }
