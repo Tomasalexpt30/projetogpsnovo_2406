@@ -208,13 +208,21 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
         final beacon = nav.parseBeaconData(result);
         if (beacon == null) continue;
 
+        // ✅ Filtrar apenas beacons com UUID específico
+        if (beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
+          print('[DEBUG] Ignorado beacon com UUID ${beacon.uuid}');
+          continue;
+        }
+
         final local = nav.getLocalizacao(beacon);
         if (local == null) continue;
 
         if (!beaconsOperacionais.contains(local)) continue;
 
         final agora = DateTime.now();
-        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
+        if (ultimaDetecao != null &&
+            agora.difference(ultimaDetecao!) < cooldown &&
+            local == localAtual) {
           continue;
         }
 
