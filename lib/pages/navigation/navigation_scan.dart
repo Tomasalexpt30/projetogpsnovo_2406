@@ -209,7 +209,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
         final beacon = nav.parseBeaconData(result);
         if (beacon == null) continue;
 
-        // ✅ Filtrar apenas beacons com UUID específico
+        // Filtrar apenas beacons com UUID específico
         if (beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
           print('[DEBUG] Ignorado beacon com UUID ${beacon.uuid}');
           continue;
@@ -244,7 +244,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             final instrucaoDireta = nav.buscarInstrucaoNoBeacon(local, widget.destino);
             if (instrucaoDireta != null && instrucaoDireta.isNotEmpty) {
               print('[DEBUG] A falar instrução direta: $instrucaoDireta');
-              atualizarPosicaoVisual(local); // 👉 Mostra seta
+              atualizarPosicaoVisual(local); //
               setState(() {
                 mostrarSeta = true;
               });
@@ -296,7 +296,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
           }
         }
 
-        // 🔹 Caso 2: Percurso a decorrer
+        // Caso 2: Percurso a decorrer
         if (proximoPasso < rota.length && local == rota[proximoPasso]) {
           beaconAnterior = localAtual; // PATCH: guarda de onde veio
           localAtual = local;
