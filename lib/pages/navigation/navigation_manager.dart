@@ -25,20 +25,9 @@ class BeaconInfo {
       uuid.hashCode ^ major.hashCode ^ minor.hashCode ^ macAddress.toUpperCase().hashCode;
 }
 
-// Piso -1 = 10000
-// Piso 0 = 10001
-// Piso 1 = 10002
-// Piso 2 = 10003
-// Piso 3 = 10004
-// Piso 4 = 10005
-// uuid 107e0a1390f342bfb980181d93c3ccd2
-// pw aa14061112
-//3175
-
 class NavigationManager {
   final Map<BeaconInfo, String> beaconLocations = {
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 1, 'FF:87:6D:60:E2:CE'): 'Beacon 1',
-    //BeaconInfo('', 1, 2, ''): 'Beacon 2',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 3, 'F2:29:76:B1:E1:4D'): 'Beacon 3',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 4, 'FD:F3:6B:A2:22:DD'): 'Beacon 4',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 5, 'EC:3B:82:29:F8:2D'): 'Beacon 5',
@@ -70,8 +59,6 @@ class NavigationManager {
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 31, 'F6:AD:B9:EA:40:63'): 'Beacon 31',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 32, 'FE:31:74:78:F8:C9'): 'Beacon 32',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 33, 'EB:C0:32:AE:59:7F'): 'Beacon 33',
-    //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 34, ''): 'Beacon 34',
-    //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10005, 35, ''): 'Beacon 35',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 36, 'DC:ED:EA:6E:0B:2D'): 'Beacon 36',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 37, 'C5:14:B9:27:15:D0'): 'Beacon 37',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
@@ -81,7 +68,6 @@ class NavigationManager {
   Map<String, String> instrucoesCarregadas = {};
   Map<String, dynamic> jsonBeacons = {};
 
-  /// Carrega as instruções e o mapa com as conexões e destinos dos beacons operacionais
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
     String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
@@ -107,12 +93,16 @@ class NavigationManager {
     _construirMapa();
   }
 
-  /// Constrói o mapa considerando apenas os beacons operacionais
   void _construirMapa() {
     mapaFaculdade.clear();
 
-    //FALTA BEACON 2, 34 E 35
-    List<String> beaconsOperacionais = ['Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8', 'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15', 'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22', 'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29', 'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'];
+    List<String> beaconsOperacionais = [
+      'Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8',
+      'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15',
+      'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22',
+      'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29',
+      'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'
+    ];
 
     for (var beaconKey in beaconsOperacionais) {
       if (jsonBeacons.containsKey(beaconKey)) {
@@ -122,17 +112,15 @@ class NavigationManager {
 
         mapaFaculdade[beaconKey] = {};
 
-        // Adiciona conexões
         for (var conexao in conexoes) {
           if (beaconsOperacionais.contains(conexao)) {
-            mapaFaculdade[beaconKey]![conexao] = 1; // Distância arbitrária
+            mapaFaculdade[beaconKey]![conexao] = 1;
           }
         }
 
-        // Adiciona destinos como nós diretos (para que Dijkstra funcione)
         for (var destino in destinos) {
-          mapaFaculdade[beaconKey]![destino] = 1; // Distância arbitrária
-          mapaFaculdade[destino] = {beaconKey: 1}; // Ligação reversa
+          mapaFaculdade[beaconKey]![destino] = 1;
+          mapaFaculdade[destino] = {beaconKey: 1};
         }
       }
     }
@@ -183,32 +171,36 @@ class NavigationManager {
     final instr = <String>[];
 
     for (var i = 0; i < caminho.length - 1; i++) {
-      final chave = '${caminho[i]}-${caminho[i + 1]}';
-      if (instrucoesCarregadas.containsKey(chave)) {
-        instr.add(instrucoesCarregadas[chave]!);
-      } else {
-        // Se não houver instrução carregada, tenta buscar no beacon_instructions
-        final instruction = buscarInstrucaoNoBeacon(caminho[i], caminho[i + 1]);
-        if (instruction != null && instruction.isNotEmpty) {
-          instr.add(instruction);
-        }
+      String? origem = i > 0 ? caminho[i - 1] : null;
+      final atual = caminho[i];
+      final destino = caminho[i + 1];
+
+      final instruction = buscarInstrucaoNoBeacon(atual, destino, origem);
+      if (instruction != null && instruction.isNotEmpty) {
+        instr.add(instruction);
       }
     }
 
     return instr;
   }
 
-  /// Busca a instrução no JSON original se não tiver sido carregada para TTS
-  String? buscarInstrucaoNoBeacon(String origem, String destino) {
-    if (jsonBeacons.containsKey(origem)) {
-      final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {};
-      final chave = '$origem-$destino';
-      return instructions[chave] ?? '';
+  String? buscarInstrucaoNoBeacon(String atual, String destino, [String? origem]) {
+    if (jsonBeacons.containsKey(atual)) {
+      final instructions = jsonBeacons[atual]['beacon_instructions'] ?? {};
+
+      if (origem != null) {
+        final chaveTripla = '$origem-$atual-$destino';
+        if (instructions.containsKey(chaveTripla)) {
+          return instructions[chaveTripla];
+        }
+      }
+
+      final chaveSimples = '$atual-$destino';
+      return instructions[chaveSimples] ?? '';
     }
     return '';
   }
 
-  /// Verifica se o próximo passo é um destino final (não é outro beacon)
   bool isDestinoFinal(String localAtual, String proximoPasso) {
     if (jsonBeacons.containsKey(localAtual)) {
       final destinos = List<String>.from(jsonBeacons[localAtual]['beacon_destinations'] ?? []);
@@ -217,7 +209,6 @@ class NavigationManager {
     return false;
   }
 
-  /// Devolve o beacon associado a um destino
   String? getBeaconDoDestino(String destino) {
     for (var beaconKey in jsonBeacons.keys) {
       final destinos = List<String>.from(jsonBeacons[beaconKey]['beacon_destinations'] ?? []);

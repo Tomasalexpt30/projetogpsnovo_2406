@@ -39,6 +39,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   String ultimaInstrucaoFalada = '';
 
   String? localAtual;
+  String? beaconAnterior; // PATCH: guarda o beacon anterior
   List<String> rota = [];
   int proximoPasso = 0;
   bool chegou = false;
@@ -297,6 +298,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         // 🔹 Caso 2: Percurso a decorrer
         if (proximoPasso < rota.length && local == rota[proximoPasso]) {
+          beaconAnterior = localAtual; // PATCH: guarda de onde veio
           localAtual = local;
           atualizarPosicaoVisual(local);
 
@@ -310,7 +312,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
               Vibration.vibrate(duration: 400);
             }
 
-            final instrucaoFinal = nav.buscarInstrucaoNoBeacon(localAtual!, widget.destino);
+            final instrucaoFinal = nav.buscarInstrucaoNoBeacon(localAtual!, widget.destino, beaconAnterior); // PATCH: passa origem também
             if (instrucaoFinal != null && instrucaoFinal.isNotEmpty) {
               print('[DEBUG] Instrução direta de beacon para destino: $instrucaoFinal');
               await falar(instrucaoFinal);
