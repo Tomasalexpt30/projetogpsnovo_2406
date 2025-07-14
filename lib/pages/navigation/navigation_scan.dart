@@ -45,8 +45,16 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   bool chegou = false;
   bool isNavigationCanceled = false;
 
-  DateTime? ultimaDetecao;
-  final Duration cooldown = const Duration(seconds: 4);
+  // Cooldown individual por beacon
+  final Map<String, DateTime> ultimaDeteccaoPorBeacon = {};
+  // Tempo mínimo entre processamentos do mesmo beacon
+  final Duration cooldown = const Duration(seconds: 1);
+  // Limiar de RSSI (em dBm) para considerar o utilizador “próximo” do beacon
+  static const int rssiThreshold = -60;
+
+  Timer? _scanRestartTimer;
+  StreamSubscription<List<ScanResult>>? _scanSub;  // ← nova linha
+
   String selectedLanguageCode = 'pt-PT';
   bool soundEnabled = true;
   bool vibrationEnabled = true;
@@ -128,7 +136,21 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
+    _startListening();   // ← subscrever ao scanResults UMA vez
     pedirPermissoes();
+  }
+
+  /// Subscreve UMA vez ao stream de resultados BLE
+  void _startListening() {
+    _scanSub = FlutterBluePlus.scanResults.listen(_processScanResults);
+  }
+
+  /// Lida com cada batch de scanResults
+  Future<void> _processScanResults(List<ScanResult> results) async {
+    if (chegou || isNavigationCanceled || isFinalizing) return;
+    for (final result in results) {
+      // … todo o teu for(result) { … lógica de RSSI, UUID, cooldown, navegação … }
+    }
   }
 
   Future<void> finalizarNavegacao() async {
@@ -200,34 +222,46 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   void iniciarScan() {
-    FlutterBluePlus.startScan();
+    // 0) limpa qualquer subscrição anterior
+    _scanSub?.cancel();
 
-    FlutterBluePlus.scanResults.listen((results) async {
+    // 1) faz o primeiro startScan com duplicados e low latency
+    FlutterBluePlus.startScan(
+      continuousUpdates: true,
+      androidScanMode: AndroidScanMode.lowLatency,
+      androidUsesFineLocation: true,
+    );
+
+    // 3) subscreve UMA vez ao stream de resultados (agora guardamos a subscrição)
+    _scanSub = FlutterBluePlus.scanResults.listen((results) async {
       if (chegou || isNavigationCanceled || isFinalizing) return;
 
       for (final result in results) {
+        // 2) filtrar sinais fracos: só processa se RSSI >= rssiThreshold
+        if (result.rssi < rssiThreshold) {
+          debugPrint('[DEBUG] Ignorado ${result.device.id} com RSSI fraco (${result.rssi} dBm)');
+          continue;
+        }
+
         final beacon = nav.parseBeaconData(result);
         if (beacon == null) continue;
 
-        // Filtrar apenas beacons com UUID específico
+        // 3) filtrar pelo UUID da tua rede de beacons
         if (beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
-          print('[DEBUG] Ignorado beacon com UUID ${beacon.uuid}');
+          debugPrint('[DEBUG] Ignorado beacon com UUID ${beacon.uuid}');
           continue;
         }
 
         final local = nav.getLocalizacao(beacon);
-        if (local == null) continue;
+        if (local == null || !beaconsOperacionais.contains(local)) continue;
 
-        if (!beaconsOperacionais.contains(local)) continue;
-
+        // 4) cooldown individual por beacon
         final agora = DateTime.now();
-        if (ultimaDetecao != null &&
-            agora.difference(ultimaDetecao!) < cooldown &&
-            local == localAtual) {
+        final ultimo = ultimaDeteccaoPorBeacon[local];
+        if (ultimo != null && agora.difference(ultimo) < cooldown) {
           continue;
         }
-
-        ultimaDetecao = agora;
+        ultimaDeteccaoPorBeacon[local] = agora;
 
         // 🔹 Caso 1: O utilizador já está no beacon do destino
         if (rota.isEmpty) {
@@ -443,6 +477,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
   @override
   void dispose() {
+    _scanRestartTimer?.cancel();
     flutterTts.stop();
     FlutterBluePlus.stopScan();
     _cameraController.dispose();
