@@ -45,6 +45,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   bool chegou = false;
   bool isNavigationCanceled = false;
 
+  final Set<String> _processedBeacons = {};
   // Cooldown individual por beacon
   final Map<String, DateTime> ultimaDeteccaoPorBeacon = {};
   // Tempo mínimo entre processamentos do mesmo beacon
@@ -222,169 +223,142 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
   }
 
   void iniciarScan() {
-    // 0) limpa qualquer subscrição anterior
+    // 0) Cancela qualquer subscrição anterior
     _scanSub?.cancel();
 
-    // 1) faz o primeiro startScan com duplicados e low latency
+    // 1) Inicia o scan contínuo
     FlutterBluePlus.startScan(
       continuousUpdates: true,
       androidScanMode: AndroidScanMode.lowLatency,
       androidUsesFineLocation: true,
     );
 
-    // 3) subscreve UMA vez ao stream de resultados (agora guardamos a subscrição)
+    // 2) Subscreve ao stream de resultados
     _scanSub = FlutterBluePlus.scanResults.listen((results) async {
       if (chegou || isNavigationCanceled || isFinalizing) return;
 
       for (final result in results) {
-        // 2) filtrar sinais fracos: só processa se RSSI >= rssiThreshold
-        if (result.rssi < rssiThreshold) {
-          debugPrint('[DEBUG] Ignorado ${result.device.id} com RSSI fraco (${result.rssi} dBm)');
-          continue;
-        }
+        // 2.1) Filtrar sinais fracos
+        if (result.rssi < rssiThreshold) continue;
 
         final beacon = nav.parseBeaconData(result);
-        if (beacon == null) continue;
-
-        // 3) filtrar pelo UUID da tua rede de beacons
-        if (beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
-          debugPrint('[DEBUG] Ignorado beacon com UUID ${beacon.uuid}');
+        if (beacon == null ||
+            beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
           continue;
         }
 
         final local = nav.getLocalizacao(beacon);
         if (local == null || !beaconsOperacionais.contains(local)) continue;
 
-        // 4) cooldown individual por beacon
-        final agora = DateTime.now();
-        final ultimo = ultimaDeteccaoPorBeacon[local];
-        if (ultimo != null && agora.difference(ultimo) < cooldown) {
-          continue;
-        }
-        ultimaDeteccaoPorBeacon[local] = agora;
+        // 2.2) “Process‑once”: ignora se já processado nesta rota
+        if (_processedBeacons.contains(local)) continue;
+        _processedBeacons.add(local);
 
-        // 🔹 Caso 1: O utilizador já está no beacon do destino
+        // —— Caso 1: rota ainda não iniciada ——
         if (rota.isEmpty) {
+          // Se já está no destino
           if (local == nav.getBeaconDoDestino(widget.destino)) {
-            isFinalizing = true;
-
-            print('[DEBUG] Já está no beacon do destino: $local');
-
-            if (vibrationEnabled) {
-              print('[DEBUG] Vibração curta - já está no beacon do destino');
-              Vibration.vibrate(duration: 400);
-            }
-
-            final instrucaoDireta = nav.buscarInstrucaoNoBeacon(local, widget.destino);
-            if (instrucaoDireta != null && instrucaoDireta.isNotEmpty) {
-              print('[DEBUG] A falar instrução direta: $instrucaoDireta');
-              atualizarPosicaoVisual(local); //
-              setState(() {
-                mostrarSeta = true;
-              });
-              await falar(instrucaoDireta);
-            }
-
-            FlutterBluePlus.stopScan();
-            print('[DEBUG] Scan parado - navegação concluída');
-            if (vibrationEnabled) {
-              print('[DEBUG] Vibração longa - navegação concluída');
-              Vibration.vibrate(duration: 600);
-            }
-
-            setState(() {
-              chegou = true;
-              status = 'beacon_scan_page.navigation_end'.tr();
-            });
-
-            await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
-            return;
-          } else {
-            // Criar rota normalmente
-            final caminho = nav.dijkstra(local, widget.destino);
-            if (caminho != null && caminho.length > 1) {
-              rota = caminho;
-              proximoPasso = 1;
-              localAtual = local;
-
-              atualizarPosicaoVisual(local);
-
-              final instrucao = nav.getInstrucoes(caminho)[0];
-              print('[DEBUG] Instrução inicial: $instrucao');
-              await falar(instrucao);
-
-              if (vibrationEnabled) {
-                print('[DEBUG] Vibração curta - início de navegação');
-                Vibration.vibrate(duration: 400);
-              }
-
-              setState(() {
-                mostrarSeta = true;
-              });
-            } else {
-              print('[DEBUG] Caminho não encontrado.');
-              await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
-              finalizar();
-            }
+            await _handleArrivalDirect(local);
             return;
           }
+          // Senão, planeia a rota a partir daqui
+          final caminho = nav.dijkstra(local, widget.destino);
+          if (caminho != null && caminho.length > 1) {
+            rota = caminho;
+            proximoPasso = 1;
+            localAtual = local;
+            atualizarPosicaoVisual(local);
+            final instr = nav.getInstrucoes(caminho)[0];
+            await _speakWithVibe(instr);
+            setState(() => mostrarSeta = true);
+          } else {
+            await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
+            finalizar();
+          }
+          return;
         }
 
-        // Caso 2: Percurso a decorrer
+        // —— Caso 2: passo esperado na rota ——
         if (proximoPasso < rota.length && local == rota[proximoPasso]) {
-          beaconAnterior = localAtual; // PATCH: guarda de onde veio
+          beaconAnterior = localAtual;
           localAtual = local;
           atualizarPosicaoVisual(local);
 
-          final destinosDoBeaconAtual = List<String>.from(nav.jsonBeacons[localAtual]?['beacon_destinations'] ?? []);
-
-          if (!isFinalizing && destinosDoBeaconAtual.contains(widget.destino)) {
-            isFinalizing = true;
-
-            if (vibrationEnabled) {
-              print('[DEBUG] Vibração curta - último passo');
-              Vibration.vibrate(duration: 400);
-            }
-
-            final instrucaoFinal = nav.buscarInstrucaoNoBeacon(localAtual!, widget.destino, beaconAnterior); // PATCH: passa origem também
-            if (instrucaoFinal != null && instrucaoFinal.isNotEmpty) {
-              print('[DEBUG] Instrução direta de beacon para destino: $instrucaoFinal');
-              await falar(instrucaoFinal);
-            }
-
-            FlutterBluePlus.stopScan();
-            print('[DEBUG] Scan parado - navegação concluída');
-            if (vibrationEnabled) {
-              print('[DEBUG] Vibração longa - navegação concluída');
-              Vibration.vibrate(duration: 600);
-            }
-
-            setState(() {
-              chegou = true;
-              status = 'beacon_scan_page.navigation_end'.tr();
-            });
-
-            await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
+          final destinosHere = List<String>.from(
+            nav.jsonBeacons[localAtual]?['beacon_destinations'] ?? [],
+          );
+          // Último passo?
+          if (destinosHere.contains(widget.destino)) {
+            await _handleFinalStep(local);
             return;
           }
-
-          if (!isFinalizing) {
-            final instrucao = nav.getInstrucoes(rota)[proximoPasso];
-            print('[DEBUG] Instrução intermédia: $instrucao');
-
-            if (vibrationEnabled) {
-              print('[DEBUG] Vibração curta - passo intermédio');
-              Vibration.vibrate(duration: 400);
-            }
-
-            await falar(instrucao);
-            proximoPasso++;
-          }
-
+          // Passo intermédio
+          final instr = nav.getInstrucoes(rota)[proximoPasso];
+          await _speakWithVibe(instr);
+          proximoPasso++;
           return;
         }
+
+        // —— Caso 3: beacon inesperado — recalcula a rota ——
+        _processedBeacons
+          ..clear()
+          ..add(local);
+
+        final novoCaminho = nav.dijkstra(local, widget.destino);
+        if (novoCaminho != null && novoCaminho.length > 1) {
+          rota = novoCaminho;
+          proximoPasso = 1;
+          localAtual = local;
+          atualizarPosicaoVisual(local);
+          final instr = nav.getInstrucoes(novoCaminho)[0];
+          await _speakWithVibe(instr);
+          setState(() => mostrarSeta = true);
+        } else {
+          await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
+          finalizar();
+        }
+        return;
       }
     });
+  }
+
+// Auxiliares a incluir na classe:
+
+  Future<void> _speakWithVibe(String texto) async {
+    if (vibrationEnabled) Vibration.vibrate(duration: 400);
+    await falar(texto);
+  }
+
+  Future<void> _handleArrivalDirect(String local) async {
+    isFinalizing = true;
+    if (vibrationEnabled) Vibration.vibrate(duration: 400);
+    final instr = nav.buscarInstrucaoNoBeacon(local, widget.destino) ?? '';
+    atualizarPosicaoVisual(local);
+    setState(() => mostrarSeta = true);
+    if (instr.isNotEmpty) await falar(instr);
+
+    FlutterBluePlus.stopScan();
+    if (vibrationEnabled) Vibration.vibrate(duration: 600);
+    setState(() {
+      chegou = true;
+      status = 'beacon_scan_page.navigation_end'.tr();
+    });
+    await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
+  }
+
+  Future<void> _handleFinalStep(String local) async {
+    isFinalizing = true;
+    if (vibrationEnabled) Vibration.vibrate(duration: 400);
+    final instrFinal = nav.buscarInstrucaoNoBeacon(local, widget.destino, beaconAnterior) ?? '';
+    if (instrFinal.isNotEmpty) await falar(instrFinal);
+
+    FlutterBluePlus.stopScan();
+    if (vibrationEnabled) Vibration.vibrate(duration: 600);
+    setState(() {
+      chegou = true;
+      status = 'beacon_scan_page.navigation_end'.tr();
+    });
+    await falar(mensagens['alerts']?['navigation_end_alert'] ?? 'Navegação concluída.');
   }
 
   void atualizarPosicaoVisual(String local) {
