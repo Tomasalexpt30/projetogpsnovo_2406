@@ -28,7 +28,6 @@ class BeaconInfo {
 class TourManager {
   final Map<BeaconInfo, String> beaconLocations = {
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 1, 'FF:87:6D:60:E2:CE'): 'Beacon 1',
-    //BeaconInfo('', 1, 2, ''): 'Beacon 2',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 3, 'F2:29:76:B1:E1:4D'): 'Beacon 3',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 4, 'FD:F3:6B:A2:22:DD'): 'Beacon 4',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10001, 5, 'EC:3B:82:29:F8:2D'): 'Beacon 5',
@@ -60,11 +59,9 @@ class TourManager {
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 31, 'F6:AD:B9:EA:40:63'): 'Beacon 31',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 32, 'FE:31:74:78:F8:C9'): 'Beacon 32',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 33, 'EB:C0:32:AE:59:7F'): 'Beacon 33',
-    //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 34, ''): 'Beacon 34',
-    //BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10005, 35, ''): 'Beacon 35',
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 36, 'DC:ED:EA:6E:0B:2D'): 'Beacon 36',
-    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 37, 'C5:14:B9:27:15:D0'): 'Beacon 37',
-    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
+    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10003, 37, 'C5:14:B9:27:15:D0'): 'Beacon 37',
+    BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
   };
 
   Map<String, String> instrucoesCarregadas = {};
@@ -105,28 +102,35 @@ class TourManager {
     final instr = <String>[];
 
     for (var i = 0; i < caminho.length - 1; i++) {
-      final chave = '${caminho[i]}-${caminho[i + 1]}';
+      final origem = i > 0 ? caminho[i - 1] : '';
+      final atual = caminho[i];
+      final destino = caminho[i + 1];
+
+      final chave = '$origem-$atual-$destino';
       if (instrucoesCarregadas.containsKey(chave)) {
         instr.add(instrucoesCarregadas[chave]!);
       } else {
-        final instruction = buscarInstrucaoNoBeacon(caminho[i], caminho[i + 1]);
+        final instruction = buscarInstrucaoNoBeacon(origem, atual, destino);
         if (instruction != null && instruction.isNotEmpty) {
           instr.add(instruction);
         }
       }
     }
 
+
     return instr;
   }
 
-  String? buscarInstrucaoNoBeacon(String origem, String destino) {
-    if (jsonBeacons.containsKey(origem)) {
-      final instructions = jsonBeacons[origem]['beacon_instructions'] ?? {};
-      final chave = '$origem-$destino';
-      return instructions[chave] ?? '';
+  String? buscarInstrucaoNoBeacon(String beaconAnterior, String localAtual, String destino) {
+    if (jsonBeacons.containsKey(localAtual)) {
+      final instructions = jsonBeacons[localAtual]['beacon_instructions'] ?? {};
+      final chaveCompleta = '$beaconAnterior-$localAtual-$destino';
+      final chaveSimples = '$localAtual-$destino';
+      return instructions[chaveCompleta] ?? instructions[chaveSimples] ?? '';
     }
     return '';
   }
+
 
   bool isDestinoFinal(String localAtual, String proximoPasso) {
     if (jsonBeacons.containsKey(localAtual)) {

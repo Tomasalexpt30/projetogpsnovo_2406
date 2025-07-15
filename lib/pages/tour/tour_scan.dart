@@ -32,6 +32,11 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
   String ultimaInstrucaoFalada = '';
 
+  final Set<String> _processedBeacons = {};  // Guardar já processados
+  final Map<String, DateTime> ultimaDeteccaoPorBeacon = {};  // Cooldown por beacon
+  static const int rssiThreshold = -60;  // Limiar mínimo de sinal (dBm)
+
+
   String? localAtual;
   List<String> rota = [];
   int proximoPasso = 0;
@@ -68,10 +73,11 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
   String status = '';
 
-  final Map<String, Offset> beaconPositions = {
-    'Beacon 1': Offset(300, 500),
-    'Beacon 3': Offset(300, 250),
-    'Beacon 15': Offset(380, 95),
+  final Map<String, Map<String, dynamic>> beaconPositions = {
+    'Beacon 1': {'offset': Offset(300, 560), 'floor': 'Piso 0'},
+    'Beacon 3': {'offset': Offset(346, 295), 'floor': 'Piso 0'},
+    'Beacon 15': {'offset': Offset(380, 95), 'floor': 'Piso 0'},
+    // Adiciona mais beacons conforme a tua necessidade
   };
 
   @override
@@ -121,14 +127,18 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   }
 
   Future<void> falarHistoricoEInstrucao(String local) async {
+    FlutterBluePlus.stopScan();
+    isProcessingBeacon = true;
+
     final beaconData = mensagens['beacons']?[local];
 
-    if (beaconData != null && beaconData['historical_point_name'] != null && beaconData['historical_point_message'] != null) {
+    if (beaconData != null &&
+        beaconData['historical_point_name'] != null &&
+        beaconData['historical_point_message'] != null) {
       String nomePonto = beaconData['historical_point_name'];
       String mensagemPonto = beaconData['historical_point_message'];
 
       print('[DEBUG] Ponto histórico detectado: $nomePonto');
-      print('[DEBUG] A falar: Chegou a $nomePonto.');
       await falar(nomePonto);
       await flutterTts.awaitSpeakCompletion(true);
 
@@ -139,13 +149,20 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
     String? instrucao = '';
     if (proximoPasso < rota.length - 1) {
-      instrucao = nav.buscarInstrucaoNoBeacon(local, rota[proximoPasso + 1]);
+      String beaconAnterior = proximoPasso > 0 ? rota[proximoPasso - 1] : '';
+      String localAtual = rota[proximoPasso];
+      String destino = rota[proximoPasso + 1];
+      instrucao = nav.buscarInstrucaoNoBeacon(beaconAnterior, localAtual, destino);
     }
 
     if (instrucao != null && instrucao.isNotEmpty) {
       print('[DEBUG] A falar instrução: $instrucao');
       await falar(instrucao);
+      await flutterTts.awaitSpeakCompletion(true);
     }
+
+    isProcessingBeacon = false;
+    iniciarScan();
   }
 
   Future<void> _loadSettings() async {
@@ -185,28 +202,43 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
   void iniciarScan() {
     if (isFinalizing) {
       print('[DEBUG] Navegação já finalizada, não iniciando novo scan.');
-      return; // Impede iniciar o scan novamente após a navegação ter sido finalizada
+      return;
     }
 
-    FlutterBluePlus.startScan();
+    FlutterBluePlus.startScan(
+      continuousUpdates: true,
+      androidScanMode: AndroidScanMode.lowLatency,
+      androidUsesFineLocation: true,
+    );
     print('[DEBUG] Iniciando scan para detectar beacons...');
 
     FlutterBluePlus.scanResults.listen((results) async {
-      if (chegou || isNavigationCanceled || isFinalizing || isProcessingBeacon) return;
+      if (chegou || isNavigationCanceled || isFinalizing) return;
 
       for (final result in results) {
+        if (result.rssi < rssiThreshold) continue; // Filtrar sinais fracos
+
         final beacon = nav.parseBeaconData(result);
-        if (beacon == null) continue;
+        if (beacon == null ||
+            beacon.uuid.toLowerCase() != '107e0a13-90f3-42bf-b980-181d93c3ccd2') {
+          continue; // Ignorar se não for o UUID esperado
+        }
 
         final local = nav.getLocalizacao(beacon);
         if (local == null) continue;
 
         final agora = DateTime.now();
-        if (ultimaDetecao != null && agora.difference(ultimaDetecao!) < cooldown && local == localAtual) {
-          continue;
-        }
 
-        ultimaDetecao = agora;
+        // Cooldown individual por beacon
+        if (ultimaDeteccaoPorBeacon.containsKey(local)) {
+          final ultima = ultimaDeteccaoPorBeacon[local]!;
+          if (agora.difference(ultima) < cooldown) continue;
+        }
+        ultimaDeteccaoPorBeacon[local] = agora;
+
+        // Ignorar se já processado nesta rota
+        if (_processedBeacons.contains(local)) continue;
+        _processedBeacons.add(local);
 
         if (rota.isEmpty) {
           rota = nav.rotaPreDefinida;
@@ -220,7 +252,6 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
         if (local == beaconEsperado) {
           print('[DEBUG] Ponto esperado alcançado: $local');
-          isProcessingBeacon = true;
           localAtual = local;
           atualizarPosicaoVisual(local);
 
@@ -235,23 +266,31 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
           if (proximoPasso >= rota.length) {
             print('[DEBUG] Fim da rota atingido.');
-            await finalizarNavegacao();  // Exibe a mensagem apenas uma vez
+            await finalizarNavegacao();
           }
 
-          setState(() {
-            mostrarSeta = true;
-          });
-
-          isProcessingBeacon = false;
+          setState(() => mostrarSeta = true);
         } else {
-          print('[DEBUG] Beacon detetado fora de sequência: $local (esperado: $beaconEsperado)');
+          print('[DEBUG] Beacon inesperado: $local (esperado: $beaconEsperado)');
         }
       }
     });
   }
 
+
   void atualizarPosicaoVisual(String local) {
-    final newPosition = beaconPositions[local] ?? const Offset(300, 500);
+    final beaconInfo = beaconPositions[local];
+    if (beaconInfo == null) return;
+
+    final newPosition = beaconInfo['offset'] as Offset;
+    final newFloor = beaconInfo['floor'] as String;
+
+    if (newFloor != currentFloor) {
+      setState(() {
+        currentFloor = newFloor;
+      });
+    }
+
     final delta = newPosition - currentPosition;
     final angle = math.atan2(delta.dy, delta.dx) + math.pi / 2;
 
@@ -274,6 +313,7 @@ class _TourScanPageState extends State<TourScanPage> with TickerProviderStateMix
 
     print('[DEBUG] Atualizando a posição visual no mapa para: $newPosition');
   }
+
 
   Future<void> falar(String texto, {bool isFinalMessage = false}) async {
     if (soundEnabled && texto.isNotEmpty) {
