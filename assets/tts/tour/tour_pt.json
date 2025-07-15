@@ -9,61 +9,25 @@
       "beacon_floor": "0",
       "beacon_description": "Neste espaço encontram-se a Sala dos Atos, a Entrada Principal e a zona de Perdidos e Achados.",
       "beacon_destinations": ["Sala dos Atos", "Entrada Principal", "Perdidos e Achados"],
-      "beacon_connections": ["Beacon 2", "Beacon 3"],
+      "beacon_connections": ["Beacon 3"],
 
       "historical_points": [
         {
           "name": "Entrada Principal",
-          "message": "Esta é a entrada principal da Universidade..."
+          "message": "Construído no século XVII pelo Conde de Redondo. Está classificado desde 1974 como Imóvel de Interesse Público (Decreto n.º 735/74). Integra a Zona Especial de Proteção dos edifícios classificados da Avenida da Liberdade e área envolvente (Portaria n.º 529/96). Desde 1985 que aqui funciona a Universidade Autónoma de Lisboa, Luís de Camões.."
         },
         {
           "name": "Perdidos e Achados",
-          "message": "Aqui funciona o serviço de Perdidos e Achados..."
+          "message": "Procure o que perdeu e entregue o que encontrou na Portaria do Palácio. "
         },
         {
           "name": "Sala dos Atos",
-          "message": "Aqui é a sala dos Atos"
+          "message": "A Sala dos Atos é o local institucional dos grandes atos da vida da Universidade, desde a tomada de posse do Reitor ou Órgãos académicos, mas também lançamento de livros e outros eventos culturais."
         }
       ],
 
       "beacon_instructions": {
-        "Beacon 1-Entrada Principal": "Siga para a Entrada Principal a partir daqui",
-        "Beacon 2-Beacon 1-Entrada Principal": "Ir para a Entrada Principal passando pelo Beacon 1, vindo do Beacon 2",
-        "Beacon 3-Beacon 1-Entrada Principal": "Ir para a Entrada Principal passando pelo Beacon 1, vindo do Beacon 3",
-
-        "Beacon 1-Perdidos e Achados": "Siga para Perdidos e Achados a partir daqui",
-        "Beacon 2-Beacon 1-Perdidos e Achados": "Ir para Perdidos e Achados passando pelo Beacon 1, vindo do Beacon 2",
-        "Beacon 3-Beacon 1-Perdidos e Achados": "Ir para Perdidos e Achados passando pelo Beacon 1, vindo do Beacon 3",
-
-        "Beacon 1-Sala dos Atos": "Siga para a Sala dos Atos a partir daqui",
-        "Beacon 2-Beacon 1-Sala dos Atos": "Ir para a Sala dos Atos passando pelo Beacon 1, vindo do Beacon 2",
-        "Beacon 3-Beacon 1-Sala dos Atos": "Ir para a Sala dos Atos passando pelo Beacon 1, vindo do Beacon 3",
-
-        "Beacon 1-Beacon 2": "Siga para o Beacon 2 a partir daqui",
-        "Beacon 3-Beacon 1-Beacon 2": "Ir para o Beacon 2 passando pelo Beacon 1, vindo do Beacon 3",
-
-        "Beacon 1-Beacon 3": "Siga para o Beacon 3 a partir daqui",
-        "Beacon 2-Beacon 1-Beacon 3": "Ir para o Beacon 3 passando pelo Beacon 1, vindo do Beacon 2"
-      }
-    },
-
-    "Beacon 2": {
-      "beacon_floor": "-1",
-      "beacon_description": "Neste local encontram-se as escadas que utilizou para descer, bem como um corredor que o conduzirá às salas 13, 14 e 15 correspondente",
-      "beacon_destinations": ["Sala 13", "Sala 14", "Sala 15"],
-      "beacon_connections": ["Beacon 1"],
-      "beacon_instructions": {
-
-        "Beacon 1-Beacon 2-Sala 13": "ir para a Sala 13 passando do Beacon 2, vindo do Beacon 1",
-        "Beacon 2-Sala 13": "ir para a Sala 13 a partir do Beacon 2",
-
-        "Beacon 1-Beacon 2-Sala 14": "ir para a Sala 14 passando do Beacon 2, vindo do Beacon 1",
-        "Beacon 2-Sala 14": "ir para a Sala 14 a partir do Beacon 2",
-
-        "Beacon 1-Beacon 2-Sala 15": "ir para a Sala 15 passando do Beacon 2, vindo do Beacon 1",
-        "Beacon 2-Sala 15": "ir para a Sala 15 a partir do Beacon 2",
-
-        "Beacon 2-Beacon 1": "subir para o Beacon 1"
+        "Beacon 1-Beacon 3": ""
       }
     },
 
@@ -71,164 +35,46 @@
       "beacon_floor": "0",
       "beacon_description": "Está no centro do Pátio Principal da UAL. À sua volta encontra-se a saída da universidade, o busto de Camões e as escadas de acesso ao interior da universidade.",
       "beacon_destinations": ["Pátio"],
-      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
-
+      "beacon_connections": ["Beacon 4"],
 
       "historical_points": [
         {
           "name": "Pátio",
-          "message": "Este é o pátio principal da ual..."
+          "message": "O portal do palácio abre para uma larga passagem que conduz ao pátio principal, marcado pela centralidade do poço. Tem fachadas de organização regular, formalmente semelhantes à frontaria exterior, dá acesso ao arco de entrada na escadaria de aparato."
         }
       ],
 
       "beacon_instructions": {
-        "Beacon 1-Beacon 3-Pátio": "ir para o Pátio passando do Beacon 3, vindo do Beacon 1",
-        "Beacon 3-Pátio": "ir para o Pátio a partir do Beacon 3",
-        "Beacon 4-Beacon 3-Pátio": "ir para o Pátio passando do Beacon 3, vindo do Beacon 4",
-        "Beacon 8-Beacon 3-Pátio": "ir para o Pátio passando do Beacon 3, vindo do Beacon 8",
-        "Beacon 15-Beacon 3-Pátio": "ir para o Pátio passando do Beacon 3, vindo do Beacon 15",
-
-        "Beacon 3-Beacon 1": "ir para o Beacon 1 a partir do Beacon 3",
-        "Beacon 4-Beacon 3-Beacon 1": "ir para o Beacon 1 passando do Beacon 3, vindo do Beacon 4",
-        "Beacon 8-Beacon 3-Beacon 1": "ir para o Beacon 1 passando do Beacon 3, vindo do Beacon 8",
-        "Beacon 15-Beacon 3-Beacon 1": "ir para o Beacon 1 passando do Beacon 3, vindo do Beacon 15",
-
-        "Beacon 1-Beacon 3-Beacon 4": "ir para o Beacon 4 passando do Beacon 3, vindo do Beacon 1",
-        "Beacon 3-Beacon 4": "ir para o Beacon 4 a partir do Beacon 3",
-        "Beacon 8-Beacon 3-Beacon 4": "ir para o Beacon 4 passando do Beacon 3, vindo do Beacon 8",
-        "Beacon 15-Beacon 3-Beacon 4": "ir para o Beacon 4 passando do Beacon 3, vindo do Beacon 15",
-
-        "Beacon 1-Beacon 3-Beacon 8": "ir para o Beacon 8 passando do Beacon 3, vindo do Beacon 1",
-        "Beacon 3-Beacon 8": "ir para o Beacon 8 a partir do Beacon 3",
-        "Beacon 4-Beacon 3-Beacon 8": "ir para o Beacon 8 passando do Beacon 3, vindo do Beacon 4",
-        "Beacon 15-Beacon 3-Beacon 8": "ir para o Beacon 8 passando do Beacon 3, vindo do Beacon 15",
-
-        "Beacon 1-Beacon 3-Beacon 15": "ir para o Beacon 15 passando do Beacon 3, vindo do Beacon 1",
-        "Beacon 3-Beacon 15": "ir para o Beacon 15 a partir do Beacon 3",
-        "Beacon 4-Beacon 3-Beacon 15": "ir para o Beacon 15 passando do Beacon 3, vindo do Beacon 4",
-        "Beacon 8-Beacon 3-Beacon 15": "ir para o Beacon 15 passando do Beacon 3, vindo do Beacon 8"
+        "Beacon 1-Beacon 3-Beacon 4": ""
       }
     },
 
     "Beacon 4": {
       "beacon_floor": "0",
       "beacon_description": "Neste espaço, à sua frente está a loja dos trajes académicos, à sua esquerda a Associação de Estudantes e à sua direita as salas vinte e quatro a trinta e três, os auditórios dois e três e o Gabinete de Erasmus.",
-      "beacon_destinations": ["Auditório 02", "Auditório 03", "Sala 22", "Sala 23"],
-      "beacon_connections": ["Beacon 3", "Beacon 5", "Beacon 8", "Beacon 9"],
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 3", "Beacon 5"],
+
+      "historical_points": [
+        {
+          "name": "Gabinete de Erasmus",
+          "message": "Esta sala tem parte das paredes forradas a azulejos e reúne inúmeros exemplares que foram recolhidos ao longo dos anos. Aqui funciona o Gabinete Erasmus."
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 3-Beacon 4-Auditório 02": "ir para o Auditório 02 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Auditório 02": "ir para o Auditório 02 a partir do Beacon 4",
-        "Beacon 8-Beacon 4-Auditório 02": "ir para o Auditório 02 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Auditório 02": "ir para o Auditório 02 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Auditório 03": "ir para o Auditório 03 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Auditório 03": "ir para o Auditório 03 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Auditório 03": "ir para o Auditório 03 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 8-Beacon 4-Auditório 03": "ir para o Auditório 03 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Auditório 03": "ir para o Auditório 03 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Sala 22": "ir para a Sala 22 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Sala 22": "ir para a Sala 22 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Sala 22": "ir para a Sala 22 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 8-Beacon 4-Sala 22": "ir para a Sala 22 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Sala 22": "ir para a Sala 22 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Sala 23": "ir para a Sala 23 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Sala 23": "ir para a Sala 23 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Sala 23": "ir para a Sala 23 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 8-Beacon 4-Sala 23": "ir para a Sala 23 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Sala 23": "ir para a Sala 23 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 4-Beacon 3": "ir para o Beacon 3 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Beacon 3": "ir para o Beacon 3 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 8-Beacon 4-Beacon 3": "ir para o Beacon 3 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Beacon 3": "ir para o Beacon 3 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Beacon 5": "ir para o Beacon 5 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Beacon 5": "ir para o Beacon 5 a partir do Beacon 4",
-        "Beacon 8-Beacon 4-Beacon 5": "ir para o Beacon 5 passando do Beacon 4, vindo do Beacon 8",
-        "Beacon 9-Beacon 4-Beacon 5": "ir para o Beacon 5 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Beacon 8": "ir para o Beacon 8 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Beacon 8": "ir para o Beacon 8 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Beacon 8": "ir para o Beacon 8 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 9-Beacon 4-Beacon 8": "ir para o Beacon 8 passando do Beacon 4, vindo do Beacon 9",
-
-        "Beacon 3-Beacon 4-Beacon 9": "ir para o Beacon 9 passando do Beacon 4, vindo do Beacon 3",
-        "Beacon 4-Beacon 9": "ir para o Beacon 9 a partir do Beacon 4",
-        "Beacon 5-Beacon 4-Beacon 9": "ir para o Beacon 9 passando do Beacon 4, vindo do Beacon 5",
-        "Beacon 8-Beacon 4-Beacon 9": "ir para o Beacon 9 passando do Beacon 4, vindo do Beacon 8"
+        "Beacon 3-Beacon 4-Beacon 5": "",
+        "Beacon 5-Beacon 4-Beacon 9": ""
       }
     },
 
     "Beacon 5": {
       "beacon_floor": "0",
       "beacon_description": "Neste corredor encontram-se as salas 24, 27, 28 e 29, por esta ordem. Também encontrará o Gabinete de Erasmus e o Coro Académico.",
-      "beacon_destinations": ["Auditório 02", "Sala 24", "Sala 27", "Gabinete de Erasmus"],
-      "beacon_connections": ["Beacon 4", "Beacon 6"],
+      "beacon_destinations": [],
+      "beacon_connections": ["Beacon 4"],
       "beacon_instructions": {
-
-        "Beacon 5-Auditório 02": "ir para o Auditório 02 a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Auditório 02": "ir para o Auditório 02 passando do Beacon 5, vindo do Beacon 6",
-
-        "Beacon 4-Beacon 5-Gabinete de Erasmus": "ir para o Gabinete de Erasmus passando do Beacon 5, vindo do Beacon 4",
-        "Beacon 5-Gabinete de Erasmus": "ir para o Gabinete de Erasmus a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Gabinete de Erasmus": "ir para o Gabinete de Erasmus passando do Beacon 5, vindo do Beacon 6",
-
-        "Beacon 4-Beacon 5-Sala 24": "ir para a Sala 24 passando do Beacon 5, vindo do Beacon 4",
-        "Beacon 5-Sala 24": "ir para a Sala 24 a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Sala 24": "ir para a Sala 24 passando do Beacon 5, vindo do Beacon 6",
-
-        "Beacon 4-Beacon 5-Sala 27": "ir para a Sala 27 passando do Beacon 5, vindo do Beacon 4",
-        "Beacon 5-Sala 27": "ir para a Sala 27 a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Sala 27": "ir para a Sala 27 passando do Beacon 5, vindo do Beacon 6",
-
-        "Beacon 5-Beacon 4": "ir para o Beacon 4 a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Beacon 4": "ir para o Beacon 4 passando do Beacon 5, vindo do Beacon 6",
-
-        "Beacon 4-Beacon 5-Beacon 6": "ir para o Beacon 6 passando do Beacon 5, vindo do Beacon 4",
-        "Beacon 5-Beacon 6": "ir para o Beacon 6 a partir do Beacon 5"
-      }
-    },
-
-
-    "Beacon 6": {
-      "beacon_floor": "0",
-      "beacon_description": "À sua direita encontram-se as escadas que descem para as salas 32 e 33. À sua esquerda encontram-se as salas 28 e 29.",
-      "beacon_destinations": ["Sala 28", "Sala 29"],
-      "beacon_connections": ["Beacon 5", "Beacon 7"],
-      "beacon_instructions": {
-
-        "Beacon 5-Beacon 6-Sala 28": "ir para a Sala 28 passando do Beacon 6, vindo do Beacon 5",
-        "Beacon 6-Sala 28": "ir para a Sala 28 a partir do Beacon 6",
-        "Beacon 7-Beacon 6-Sala 28": "ir para a Sala 28 passando do Beacon 6, vindo do Beacon 7",
-
-        "Beacon 5-Beacon 6-Sala 29": "ir para a Sala 29 passando do Beacon 6, vindo do Beacon 5",
-        "Beacon 6-Sala 29": "ir para a Sala 29 a partir do Beacon 6",
-
-        "Beacon 6-Beacon 5": "ir para o Beacon 5 a partir do Beacon 6",
-        "Beacon 7-Beacon 6-Beacon 5": "ir para o Beacon 5 passando do Beacon 6, vindo do Beacon 7",
-
-        "Beacon 5-Beacon 6-Beacon 7": "ir para o Beacon 7 passando do Beacon 6, vindo do Beacon 5",
-        "Beacon 6-Beacon 7": "ir para o Beacon 7 a partir do Beacon 6"
-      }
-    },
-
-    "Beacon 7": {
-      "beacon_floor": "-1",
-      "beacon_description": "Este corredor irá levá-lo a duas salas: à sua direita está a Sala 32 e à sua esquerda está a Sala 33.",
-      "beacon_destinations": ["Sala 32", "Sala 33"],
-      "beacon_connections": ["Beacon 6"],
-      "beacon_instructions": {
-
-        "Beacon 6-Beacon 7-Sala 32": "ir para a Sala 32 passando do Beacon 7, vindo do Beacon 6",
-        "Beacon 7-Sala 32": "ir para a Sala 32 a partir do Beacon 7",
-
-        "Beacon 6-Beacon 7-Sala 33": "ir para a Sala 33 passando do Beacon 7, vindo do Beacon 6",
-        "Beacon 7-Sala 33": "ir para a Sala 33 a partir do Beacon 7",
-
-        "Beacon 7-Beacon 6": "ir para o Beacon 6 a partir do Beacon 7"
+        "Beacon 4-Beacon 5-Beacon 4": ""
       }
     },
 
@@ -236,60 +82,28 @@
       "beacon_floor": "0",
       "beacon_description": "Neste espaço tem umas escadas que o irão levar ao Pátio Principal, um corredor que o irá levar ao piso 1 e outro corredor que o irá levar a salas, bar e Associação de Estudantes.",
       "beacon_destinations": [],
-      "beacon_connections": ["Beacon 3", "Beacon 4", "Beacon 9", "Beacon 22"],
+      "beacon_connections": ["Beacon 9", "Beacon 22"],
       "beacon_instructions": {
-
-        "Beacon 4-Beacon 8-Beacon 3": "ir para o Beacon 3 passando do Beacon 8, vindo do Beacon 4",
-        "Beacon 8-Beacon 3": "ir para o Beacon 3 a partir do Beacon 8",
-        "Beacon 9-Beacon 8-Beacon 3": "ir para o Beacon 3 passando do Beacon 8, vindo do Beacon 9",
-        "Beacon 22-Beacon 8-Beacon 3": "ir para o Beacon 3 passando do Beacon 8, vindo do Beacon 22",
-
-        "Beacon 3-Beacon 8-Beacon 4": "ir para o Beacon 4 passando do Beacon 8, vindo do Beacon 3",
-        "Beacon 8-Beacon 4": "ir para o Beacon 4 a partir do Beacon 8",
-        "Beacon 9-Beacon 8-Beacon 4": "ir para o Beacon 4 passando do Beacon 8, vindo do Beacon 9",
-        "Beacon 22-Beacon 8-Beacon 4": "ir para o Beacon 4 passando do Beacon 8, vindo do Beacon 22",
-
-        "Beacon 3-Beacon 8-Beacon 9": "ir para o Beacon 9 passando do Beacon 8, vindo do Beacon 3",
-        "Beacon 4-Beacon 8-Beacon 9": "ir para o Beacon 9 passando do Beacon 8, vindo do Beacon 4",
-        "Beacon 8-Beacon 9": "ir para o Beacon 9 a partir do Beacon 8",
-        "Beacon 22-Beacon 8-Beacon 9": "ir para o Beacon 9 passando do Beacon 8, vindo do Beacon 22",
-
-        "Beacon 3-Beacon 8-Beacon 22": "ir para o Beacon 22 passando do Beacon 8, vindo do Beacon 3",
-        "Beacon 4-Beacon 8-Beacon 22": "ir para o Beacon 22 passando do Beacon 8, vindo do Beacon 4",
-        "Beacon 8-Beacon 22": "ir para o Beacon 22 a partir do Beacon 8",
-        "Beacon 9-Beacon 8-Beacon 22": "ir para o Beacon 22 passando do Beacon 8, vindo do Beacon 9"
+        "Beacon 9-Beacon 8-Beacon 22": ""
       }
     },
-
 
     "Beacon 9": {
       "beacon_floor": "0",
       "beacon_description": "À sua volta encontra-se a Associação de Estudantes à direita, à sua esquerda a loja dos trajes académicos e em frente as escadas que o levarão ao Bar/Cantina.",
       "beacon_destinations": ["Associação Académica", "Loja Académica"],
       "beacon_connections": ["Beacon 4", "Beacon 8", "Beacon 10"],
+
+      "historical_points": [
+        {
+          "name": "Associação Académica",
+          "message": "A Associação de Estudantes representa os alunos de licenciaturas, pós-graduações, mestrados e doutoramentos, com ideias e espaços culturais e sociais muito diferentes, o que significa uma elevada responsabilidade, e também um grande desafio. Junta-te a nós!"
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 4-Beacon 9-Associação Académica": "ir para a Associação Académica passando do Beacon 9, vindo do Beacon 4",
-        "Beacon 8-Beacon 9-Associação Académica": "ir para a Associação Académica passando do Beacon 9, vindo do Beacon 8",
-        "Beacon 9-Associação Académica": "ir para a Associação Académica a partir do Beacon 9",
-        "Beacon 10-Beacon 9-Associação Académica": "ir para a Associação Académica passando do Beacon 9, vindo do Beacon 10",
-
-        "Beacon 4-Beacon 9-Loja Académica": "ir para a Loja Académica passando do Beacon 9, vindo do Beacon 4",
-        "Beacon 8-Beacon 9-Loja Académica": "ir para a Loja Académica passando do Beacon 9, vindo do Beacon 8",
-        "Beacon 9-Loja Académica": "ir para a Loja Académica a partir do Beacon 9",
-        "Beacon 10-Beacon 9-Loja Académica": "ir para a Loja Académica passando do Beacon 9, vindo do Beacon 10",
-
-        "Beacon 8-Beacon 9-Beacon 4": "ir para o Beacon 4 passando do Beacon 9, vindo do Beacon 8",
-        "Beacon 9-Beacon 4": "ir para o Beacon 4 a partir do Beacon 9",
-        "Beacon 10-Beacon 9-Beacon 4": "ir para o Beacon 4 passando do Beacon 9, vindo do Beacon 10",
-
-        "Beacon 4-Beacon 9-Beacon 8": "ir para o Beacon 8 passando do Beacon 9, vindo do Beacon 4",
-        "Beacon 9-Beacon 8": "ir para o Beacon 8 a partir do Beacon 9",
-        "Beacon 10-Beacon 9-Beacon 8": "ir para o Beacon 8 passando do Beacon 9, vindo do Beacon 10",
-
-        "Beacon 4-Beacon 9-Beacon 10": "ir para o Beacon 10 passando do Beacon 9, vindo do Beacon 4",
-        "Beacon 8-Beacon 9-Beacon 10": "ir para o Beacon 10 passando do Beacon 9, vindo do Beacon 8",
-        "Beacon 9-Beacon 10": "ir para o Beacon 10 a partir do Beacon 9"
+        "Beacon 4-Beacon 9-Beacon 10": "",
+        "Beacon 10-Beacon 9-Beacon 8": ""
       }
     },
 
@@ -299,27 +113,8 @@
       "beacon_destinations": ["Cacifos", "Bar"],
       "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
       "beacon_instructions": {
-
-        "Beacon 9-Beacon 10-Bar": "ir para o Bar passando do Beacon 10, vindo do Beacon 9",
-        "Beacon 10-Bar": "ir para o Bar a partir do Beacon 10",
-        "Beacon 11-Beacon 10-Bar": "ir para o Bar passando do Beacon 10, vindo do Beacon 11",
-
-        "Beacon 9-Beacon 10-Cacifos": "ir para os Cacifos passando do Beacon 10, vindo do Beacon 9",
-        "Beacon 10-Cacifos": "ir para os Cacifos a partir do Beacon 10",
-        "Beacon 11-Beacon 10-Cacifos": "ir para os Cacifos passando do Beacon 10, vindo do Beacon 11",
-        "Beacon 12-Beacon 10-Cacifos": "ir para os Cacifos passando do Beacon 10, vindo do Beacon 12",
-
-        "Beacon 10-Beacon 9": "ir para o Beacon 9 a partir do Beacon 10",
-        "Beacon 11-Beacon 10-Beacon 9": "ir para o Beacon 9 passando do Beacon 10, vindo do Beacon 11",
-        "Beacon 12-Beacon 10-Beacon 9": "ir para o Beacon 9 passando do Beacon 10, vindo do Beacon 12",
-
-        "Beacon 9-Beacon 10-Beacon 11": "ir para o Beacon 11 passando do Beacon 10, vindo do Beacon 9",
-        "Beacon 10-Beacon 11": "ir para o Beacon 11 a partir do Beacon 10",
-        "Beacon 12-Beacon 10-Beacon 11": "ir para o Beacon 11 passando do Beacon 10, vindo do Beacon 12",
-
-        "Beacon 9-Beacon 10-Beacon 12": "ir para o Beacon 12 passando do Beacon 10, vindo do Beacon 9",
-        "Beacon 10-Beacon 12": "ir para o Beacon 12 a partir do Beacon 10",
-        "Beacon 11-Beacon 10-Beacon 12": "ir para o Beacon 12 passando do Beacon 10, vindo do Beacon 11"
+        "Beacon 9-Beacon 10-Beacon 12": "",
+        "Beacon 11-Beacon 10-Beacon 9": ""
       }
     },
 
@@ -329,12 +124,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 10", "Beacon 13"],
       "beacon_instructions": {
-
-        "Beacon 11-Beacon 10": "ir para o Beacon 10 a partir do Beacon 11",
-        "Beacon 13-Beacon 11-Beacon 10": "ir para o Beacon 10 passando do Beacon 11, vindo do Beacon 13",
-
-        "Beacon 10-Beacon 11-Beacon 13": "ir para o Beacon 13 passando do Beacon 11, vindo do Beacon 10",
-        "Beacon 11-Beacon 13": "ir para o Beacon 13 a partir do Beacon 11"
+        "Beacon 13-Beacon 11-Beacon 10": ""
       }
     },
 
@@ -343,19 +133,16 @@
       "beacon_description": "Neste momento você encontra-se no Bar. À sua esquerda tem a esplanada interior e à sua direita a saída.",
       "beacon_destinations": ["Bar", "Refeitório"],
       "beacon_connections": ["Beacon 10", "Beacon 13"],
+
+      "historical_points": [
+        {
+          "name": "Bar",
+          "message": "Refeições com uma ementa variada. O bar é um ponto de encontro perfeito para relaxar e socializar. \nNa copa existem equipamentos para aquecer comida trazida de casa! \n"
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 12-Bar": "ir para o Bar a partir do Beacon 12",
-        "Beacon 13-Beacon 12-Bar": "ir para o Bar passando do Beacon 12, vindo do Beacon 13",
-
-        "Beacon 10-Beacon 12-Refeitório": "ir para o Refeitório passando do Beacon 12, vindo do Beacon 10",
-        "Beacon 12-Refeitório": "ir para o Refeitório a partir do Beacon 12",
-
-        "Beacon 12-Beacon 10": "ir para o Beacon 10 a partir do Beacon 12",
-        "Beacon 13-Beacon 12-Beacon 10": "ir para o Beacon 10 passando do Beacon 12, vindo do Beacon 13",
-
-        "Beacon 10-Beacon 12-Beacon 13": "ir para o Beacon 13 passando do Beacon 12, vindo do Beacon 10",
-        "Beacon 12-Beacon 13": "ir para o Beacon 13 a partir do Beacon 12"
+        "Beacon 10-Beacon 12-Beacon 13": ""
       }
     },
 
@@ -365,31 +152,8 @@
       "beacon_destinations": ["Sala dos Micro-ondas", "Refeitório", "Esplanada"],
       "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
       "beacon_instructions": {
-
-        "Beacon 11-Beacon 13-Esplanada": "ir para a Esplanada passando do Beacon 13, vindo do Beacon 11",
-        "Beacon 12-Beacon 13-Esplanada": "ir para a Esplanada passando do Beacon 13, vindo do Beacon 12",
-        "Beacon 13-Esplanada": "ir para a Esplanada a partir do Beacon 13",
-
-        "Beacon 11-Beacon 13-Refeitório": "ir para o Refeitório passando do Beacon 13, vindo do Beacon 11",
-        "Beacon 13-Refeitório": "ir para o Refeitório a partir do Beacon 13",
-        "Beacon 14-Beacon 13-Refeitório": "ir para o Refeitório passando do Beacon 13, vindo do Beacon 14",
-
-        "Beacon 11-Beacon 13-Sala dos Micro-ondas": "ir para a Sala dos Micro-ondas passando do Beacon 13, vindo do Beacon 11",
-        "Beacon 12-Beacon 13-Sala dos Micro-ondas": "ir para a Sala dos Micro-ondas passando do Beacon 13, vindo do Beacon 12",
-        "Beacon 13-Sala dos Micro-ondas": "ir para a Sala dos Micro-ondas a partir do Beacon 13",
-        "Beacon 14-Beacon 13-Sala dos Micro-ondas": "ir para a Sala dos Micro-ondas passando do Beacon 13, vindo do Beacon 14",
-
-        "Beacon 12-Beacon 13-Beacon 11": "ir para o Beacon 11 passando do Beacon 13, vindo do Beacon 12",
-        "Beacon 13-Beacon 11": "ir para o Beacon 11 a partir do Beacon 13",
-        "Beacon 14-Beacon 13-Beacon 11": "ir para o Beacon 11 passando do Beacon 13, vindo do Beacon 14",
-
-        "Beacon 11-Beacon 13-Beacon 12": "ir para o Beacon 12 passando do Beacon 13, vindo do Beacon 11",
-        "Beacon 13-Beacon 12": "ir para o Beacon 12 a partir do Beacon 13",
-        "Beacon 14-Beacon 13-Beacon 12": "ir para o Beacon 12 passando do Beacon 13, vindo do Beacon 14",
-
-        "Beacon 11-Beacon 13-Beacon 14": "ir para o Beacon 14 passando do Beacon 13, vindo do Beacon 11",
-        "Beacon 12-Beacon 13-Beacon 14": "ir para o Beacon 14 passando do Beacon 13, vindo do Beacon 12",
-        "Beacon 13-Beacon 14": "ir para o Beacon 14 a partir do Beacon 13"
+        "Beacon 12-Beacon 13-Beacon 14": "",
+        "Beacon 14-Beacon 13-Beacon 11": ""
       }
     },
 
@@ -397,18 +161,17 @@
       "beacon_floor": "-1",
       "beacon_description": "Neste espaço, tem à sua frente a esplanada exterior e, à sua direita, a entrada da reprografia e as casas de banho.",
       "beacon_destinations": ["Livraria", "Esplanada", "WC Bar"],
+
+      "historical_points": [
+        {
+          "name": "Livraria",
+          "message": "Para aquisição de livros e materiais didáticos, mas também para imprimir documentos ou preparar trabalhos académicos de forma conveniente e eficiente. "
+        }
+      ],
+
       "beacon_connections": ["Beacon 13"],
       "beacon_instructions": {
-
-        "Beacon 14-Esplanada": "ir para a Esplanada a partir do Beacon 14",
-
-        "Beacon 13-Beacon 14-Livraria": "ir para a Livraria passando do Beacon 14, vindo do Beacon 13",
-        "Beacon 14-Livraria": "ir para a Livraria a partir do Beacon 14",
-
-        "Beacon 13-Beacon 14-WC Bar": "ir para o WC Bar passando do Beacon 14, vindo do Beacon 13",
-        "Beacon 14-WC Bar": "ir para o WC Bar a partir do Beacon 14",
-
-        "Beacon 14-Beacon 13": "ir para o Beacon 13 a partir do Beacon 14"
+        "Beacon 13-Beacon 14-Beacon 13": ""
       }
     },
 
@@ -418,34 +181,15 @@
       "beacon_destinations": ["Estátua do Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
 
-
       "historical_points": [
         {
-          "name": "Camões",
-          "message": "Este é a estatua de camoes."
+          "name": "Estátua do Camões",
+          "message": "O busto de Luís de Camões, em bronze, é do Mestre Escultor Joaquim Correia datada de 1957, encomendado pela família de Frank Silva e doada à cidade de Toronto.\nO busto foi oficialmente inaugurado a 10 de junho de 1982 numa cerimónia pública presidida por Arthur C. Eggleton, então presidente da Câmara Municipal de Toronto. \nA 30 de maio de 2001, foi reinaugurado pelo Presidente da República Portuguesa de então, Jorge Sampaio e em 2013 por iniciativa do comendador Manuel da Costa, por ocasião do 60.º aniversário da chegada oficial dos portugueses ao Canadá o espaço envolvente foi reformulado dando origem à Camões Square. \nTal como em Toronto a evocação em bronze do patrono da Universidade Autónoma de Lisboa aqui presente relembra a importância do épico para a expansão da cultura e da língua portuguesa.\n"
         }
       ],
 
-      "historical_point_name": "Estátua de Camões",
-      "historical_point_message": "Neste local encontra-se a estátua de Luís de Camões, uma das figuras mais emblemáticas da literatura portuguesa.",
-
       "beacon_instructions": {
-        "Beacon 3-Beacon 15-Estátua do Camões": "ir para a Estátua do Camões passando do Beacon 15, vindo do Beacon 3",
-        "Beacon 15-Estátua do Camões": "ir para a Estátua do Camões a partir do Beacon 15",
-        "Beacon 16-Beacon 15-Estátua do Camões": "ir para a Estátua do Camões passando do Beacon 15, vindo do Beacon 16",
-        "Beacon 22-Beacon 15-Estátua do Camões": "ir para a Estátua do Camões passando do Beacon 15, vindo do Beacon 22",
-
-        "Beacon 15-Beacon 3": "ir para o Beacon 3 a partir do Beacon 15",
-        "Beacon 16-Beacon 15-Beacon 3": "ir para o Beacon 3 passando do Beacon 15, vindo do Beacon 16",
-        "Beacon 22-Beacon 15-Beacon 3": "ir para o Beacon 3 passando do Beacon 15, vindo do Beacon 22",
-
-        "Beacon 3-Beacon 15-Beacon 16": "ir para o Beacon 16 passando do Beacon 15, vindo do Beacon 3",
-        "Beacon 15-Beacon 16": "ir para o Beacon 16 a partir do Beacon 15",
-        "Beacon 22-Beacon 15-Beacon 16": "ir para o Beacon 16 passando do Beacon 15, vindo do Beacon 22",
-
-        "Beacon 3-Beacon 15-Beacon 22": "ir para o Beacon 22 passando do Beacon 15, vindo do Beacon 3",
-        "Beacon 15-Beacon 22": "ir para o Beacon 22 a partir do Beacon 15",
-        "Beacon 16-Beacon 15-Beacon 22": "ir para o Beacon 22 passando do Beacon 15, vindo do Beacon 16"
+        "Beacon 22-Beacon 15-Beacon 16": ""
       }
     },
 
@@ -454,61 +198,16 @@
       "beacon_description": "Neste espaço, encontrará umas escadas que, ao subir, dão acesso às salas 80 a 90, à sala 10, aos laboratórios de psicologia, à Autónoma 24, sala de estudos, e à biblioteca. À sua esquerda encontra-se a sala 18. Também encontrará umas escadas que, ao descer, levam à sala 16.",
       "beacon_destinations": ["Sala 10", "Livros de Ponto"],
       "beacon_connections": ["Beacon 15", "Beacon 17", "Beacon 19"],
+
+      "historical_points": [
+        {
+          "name": "Livros de Ponto",
+          "message": "Ponto de informação sobre salas e docentes."
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 15-Beacon 16-Livros de Ponto": "ir para os Livros de Ponto passando do Beacon 16, vindo do Beacon 15",
-        "Beacon 16-Livros de Ponto": "ir para os Livros de Ponto a partir do Beacon 16",
-        "Beacon 17-Beacon 16-Livros de Ponto": "ir para os Livros de Ponto passando do Beacon 16, vindo do Beacon 17",
-        "Beacon 19-Beacon 16-Livros de Ponto": "ir para os Livros de Ponto passando do Beacon 16, vindo do Beacon 19",
-
-        "Beacon 15-Beacon 16-Sala 10": "ir para a Sala 10 passando do Beacon 16, vindo do Beacon 15",
-        "Beacon 16-Sala 10": "ir para a Sala 10 a partir do Beacon 16",
-        "Beacon 17-Beacon 16-Sala 10": "ir para a Sala 10 passando do Beacon 16, vindo do Beacon 17",
-
-        "Beacon 16-Beacon 15": "ir para o Beacon 15 a partir do Beacon 16",
-        "Beacon 17-Beacon 16-Beacon 15": "ir para o Beacon 15 passando do Beacon 16, vindo do Beacon 17",
-        "Beacon 19-Beacon 16-Beacon 15": "ir para o Beacon 15 passando do Beacon 16, vindo do Beacon 19",
-
-        "Beacon 15-Beacon 16-Beacon 17": "ir para o Beacon 17 passando do Beacon 16, vindo do Beacon 15",
-        "Beacon 16-Beacon 17": "ir para o Beacon 17 a partir do Beacon 16",
-        "Beacon 19-Beacon 16-Beacon 17": "ir para o Beacon 17 passando do Beacon 16, vindo do Beacon 19",
-
-        "Beacon 15-Beacon 16-Beacon 19": "ir para o Beacon 19 passando do Beacon 16, vindo do Beacon 15",
-        "Beacon 16-Beacon 19": "ir para o Beacon 19 a partir do Beacon 16",
-        "Beacon 17-Beacon 16-Beacon 19": "ir para o Beacon 19 passando do Beacon 16, vindo do Beacon 17"
-      }
-    },
-
-    "Beacon 17": {
-      "beacon_floor": "0",
-      "beacon_description": "À sua esquerda encontra-se a sala 18 e à sua direita umas escadas que o levarão ao piso -1.",
-      "beacon_destinations": ["Sala 18"],
-      "beacon_connections": ["Beacon 16", "Beacon 18"],
-      "beacon_instructions": {
-
-        "Beacon 16-Beacon 17-Sala 18": "ir para a Sala 18 passando do Beacon 17, vindo do Beacon 16",
-        "Beacon 17-Sala 18": "ir para a Sala 18 a partir do Beacon 17",
-        "Beacon 18-Beacon 17-Sala 18": "ir para a Sala 18 passando do Beacon 17, vindo do Beacon 18",
-
-        "Beacon 17-Beacon 16": "ir para o Beacon 16 a partir do Beacon 17",
-        "Beacon 18-Beacon 17-Beacon 16": "ir para o Beacon 16 passando do Beacon 17, vindo do Beacon 18",
-
-        "Beacon 16-Beacon 17-Beacon 18": "ir para o Beacon 18 passando do Beacon 17, vindo do Beacon 16",
-        "Beacon 17-Beacon 18": "ir para o Beacon 18 a partir do Beacon 17"
-      }
-    },
-
-    "Beacon 18": {
-      "beacon_floor": "-1",
-      "beacon_description": "Nesta área encontra-se a sala 16 à sua frente.",
-      "beacon_destinations": ["Sala 16"],
-      "beacon_connections": ["Beacon 17"],
-      "beacon_instructions": {
-
-        "Beacon 17-Beacon 18-Sala 16": "ir para a Sala 16 passando do Beacon 18, vindo do Beacon 17",
-        "Beacon 18-Sala 16": "ir para a Sala 16 a partir do Beacon 18",
-
-        "Beacon 18-Beacon 17": "ir para o Beacon 17 a partir do Beacon 18"
+        "Beacon 15-Beacon 16-Beacon 19": ""
       }
     },
 
@@ -517,36 +216,17 @@
       "beacon_description": "Neste espaço onde se encontra, tem à sua direita a sala 10, à sua esquerda encontra-se uma escada que dá acesso às salas do piso dois, à biblioteca e à Sala de Computadores.",
       "beacon_destinations": ["Sala 10", "Sala de Computadores", "Biblioteca", "GIRU"],
       "beacon_connections": ["Beacon 16", "Beacon 20", "Beacon 21"],
+
+      "historical_points": [
+        {
+          "name": "Biblioteca",
+          "message": "Estrutura de apoio a professores e estudantes, caracteriza-se por atender às necessidades de informação, de acordo com as áreas de ensino, investigação e aprendizagem.\nÉ um centro de recursos inclusivos, que visa garantir o sucesso académico, promover competências de literacia da informação, apoiar o processo de ensino/aprendizagem e a investigação, de forma presencial e à distância.\n"
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 16-Beacon 19-Biblioteca": "ir para a Biblioteca passando do Beacon 19, vindo do Beacon 16",
-        "Beacon 19-Biblioteca": "ir para a Biblioteca a partir do Beacon 19",
-        "Beacon 20-Beacon 19-Biblioteca": "ir para a Biblioteca passando do Beacon 19, vindo do Beacon 20",
-        "Beacon 21-Beacon 19-Biblioteca": "ir para a Biblioteca passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 16-Beacon 19-GIRU": "ir para o GIRU passando do Beacon 19, vindo do Beacon 16",
-        "Beacon 19-GIRU": "ir para o GIRU a partir do Beacon 19",
-        "Beacon 21-Beacon 19-GIRU": "ir para o GIRU passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 19-Sala 10": "ir para a Sala 10 a partir do Beacon 19",
-        "Beacon 20-Beacon 19-Sala 10": "ir para a Sala 10 passando do Beacon 19, vindo do Beacon 20",
-        "Beacon 21-Beacon 19-Sala 10": "ir para a Sala 10 passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 16-Beacon 19-Sala de Computadores": "ir para a Sala de Computadores passando do Beacon 19, vindo do Beacon 16",
-        "Beacon 19-Sala de Computadores": "ir para a Sala de Computadores a partir do Beacon 19",
-        "Beacon 21-Beacon 19-Sala de Computadores": "ir para a Sala de Computadores passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 19-Beacon 16": "ir para o Beacon 16 a partir do Beacon 19",
-        "Beacon 20-Beacon 19-Beacon 16": "ir para o Beacon 16 passando do Beacon 19, vindo do Beacon 20",
-        "Beacon 21-Beacon 19-Beacon 16": "ir para o Beacon 16 passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 16-Beacon 19-Beacon 20": "ir para o Beacon 20 passando do Beacon 19, vindo do Beacon 16",
-        "Beacon 19-Beacon 20": "ir para o Beacon 20 a partir do Beacon 19",
-        "Beacon 21-Beacon 19-Beacon 20": "ir para o Beacon 20 passando do Beacon 19, vindo do Beacon 21",
-
-        "Beacon 16-Beacon 19-Beacon 21": "ir para o Beacon 21 passando do Beacon 19, vindo do Beacon 16",
-        "Beacon 19-Beacon 21": "ir para o Beacon 21 a partir do Beacon 19",
-        "Beacon 20-Beacon 19-Beacon 21": "ir para o Beacon 21 passando do Beacon 19, vindo do Beacon 20"
+        "Beacon 16-Beacon 19-Beacon 21": "",
+        "Beacon 21-Beacon 19-Beacon 20": ""
       }
     },
 
@@ -555,23 +235,16 @@
       "beacon_description": "Neste espaço à sua frente encontram-se as salas de estudo com computadores e sem, e à sua direita umas escadas para o pátio superior.",
       "beacon_destinations": ["Sala de Estudo", "Sala de Computadores", "GIRU"],
       "beacon_connections": ["Beacon 19", "Beacon 37"],
+
+      "historical_points": [
+        {
+          "name": "GIRU",
+          "message": "Gabinete para a Inclusão e Resiliência Universitária é um recurso de apoio e suporte a todos os alunos que estejam determinados a seguir com o percurso escolar e superar os obstáculos que eventualmente possam surgir, no sentido de potenciar as suas aprendizagens e promover as melhores condições inclusivas."
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 20-GIRU": "ir para o GIRU a partir do Beacon 20",
-        "Beacon 37-Beacon 20-GIRU": "ir para o GIRU passando do Beacon 20, vindo do Beacon 37",
-
-        "Beacon 19-Beacon 20-Sala de Estudo": "ir para a Sala de Estudo passando do Beacon 20, vindo do Beacon 19",
-        "Beacon 20-Sala de Estudo": "ir para a Sala de Estudo a partir do Beacon 20",
-        "Beacon 37-Beacon 20-Sala de Estudo": "ir para a Sala de Estudo passando do Beacon 20, vindo do Beacon 37",
-
-        "Beacon 20-Sala de Computadores": "ir para a Sala de Computadores a partir do Beacon 20",
-        "Beacon 37-Beacon 20-Sala de Computadores": "ir para a Sala de Computadores passando do Beacon 20, vindo do Beacon 37",
-
-        "Beacon 20-Beacon 19": "ir para o Beacon 19 a partir do Beacon 20",
-        "Beacon 37-Beacon 20-Beacon 19": "ir para o Beacon 19 passando do Beacon 20, vindo do Beacon 37",
-
-        "Beacon 19-Beacon 20-Beacon 37": "ir para o Beacon 37 passando do Beacon 20, vindo do Beacon 19",
-        "Beacon 20-Beacon 37": "ir para o Beacon 37 a partir do Beacon 20"
+        "Beacon 19-Beacon 20-Beacon 37": ""
       }
     },
 
@@ -580,24 +253,16 @@
       "beacon_description": "Neste espaço tem à sua esquerda as salas 82 e 83, o Laboratório de Neurociências e o Laboratório de Psicometria. À sua direita encontram-se as salas 81 e 80, por esta ordem.",
       "beacon_destinations": ["Sala 80", "Sala 81", "Sala 82", "Sala 83", "Laboratórios de Psicologia"],
       "beacon_connections": ["Beacon 19"],
+
+      "historical_points": [
+        {
+          "name": "Laboratórios de Psicologia",
+          "message": "Laboratórios de Psicometria e de Neurociências de apoio às aulas de licenciatura e mestrado em Psicologia."
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 19-Beacon 21-Laboratórios de Psicologia": "ir para os Laboratórios de Psicologia passando do Beacon 21, vindo do Beacon 19",
-        "Beacon 21-Laboratórios de Psicologia": "ir para os Laboratórios de Psicologia a partir do Beacon 21",
-
-        "Beacon 19-Beacon 21-Sala 80": "ir para a Sala 80 passando do Beacon 21, vindo do Beacon 19",
-        "Beacon 21-Sala 80": "ir para a Sala 80 a partir do Beacon 21",
-
-        "Beacon 19-Beacon 21-Sala 81": "ir para a Sala 81 passando do Beacon 21, vindo do Beacon 19",
-        "Beacon 21-Sala 81": "ir para a Sala 81 a partir do Beacon 21",
-
-        "Beacon 19-Beacon 21-Sala 82": "ir para a Sala 82 passando do Beacon 21, vindo do Beacon 19",
-        "Beacon 21-Sala 82": "ir para a Sala 82 a partir do Beacon 21",
-
-        "Beacon 19-Beacon 21-Sala 83": "ir para a Sala 83 passando do Beacon 21, vindo do Beacon 19",
-        "Beacon 21-Sala 83": "ir para a Sala 83 a partir do Beacon 21",
-
-        "Beacon 21-Beacon 19": "ir para o Beacon 19 a partir do Beacon 21"
+        "Beacon 19-Beacon 21-Beacon 19": ""
       }
     },
 
@@ -607,18 +272,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 8", "Beacon 15", "Beacon 23"],
       "beacon_instructions": {
-
-        "Beacon 15-Beacon 22-Beacon 8": "ir para o Beacon 8 passando do Beacon 22, vindo do Beacon 15",
-        "Beacon 22-Beacon 8": "ir para o Beacon 8 a partir do Beacon 22",
-        "Beacon 23-Beacon 22-Beacon 8": "ir para o Beacon 8 passando do Beacon 22, vindo do Beacon 23",
-
-        "Beacon 8-Beacon 22-Beacon 15": "ir para o Beacon 15 passando do Beacon 22, vindo do Beacon 8",
-        "Beacon 22-Beacon 15": "ir para o Beacon 15 a partir do Beacon 22",
-        "Beacon 23-Beacon 22-Beacon 15": "ir para o Beacon 15 passando do Beacon 22, vindo do Beacon 23",
-
-        "Beacon 8-Beacon 22-Beacon 23": "ir para o Beacon 23 passando do Beacon 22, vindo do Beacon 8",
-        "Beacon 15-Beacon 22-Beacon 23": "ir para o Beacon 23 passando do Beacon 22, vindo do Beacon 15",
-        "Beacon 22-Beacon 23": "ir para o Beacon 23 a partir do Beacon 22"
+        "Beacon 8-Beacon 22-Beacon 15": ""
       }
     },
 
@@ -628,18 +282,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 22", "Beacon 24", "Beacon 33"],
       "beacon_instructions": {
-
-        "Beacon 23-Beacon 22": "ir para o Beacon 22 a partir do Beacon 23",
-        "Beacon 24-Beacon 23-Beacon 22": "ir para o Beacon 22 passando do Beacon 23, vindo do Beacon 24",
-        "Beacon 33-Beacon 23-Beacon 22": "ir para o Beacon 22 passando do Beacon 23, vindo do Beacon 33",
-
-        "Beacon 22-Beacon 23-Beacon 24": "ir para o Beacon 24 passando do Beacon 23, vindo do Beacon 22",
-        "Beacon 23-Beacon 24": "ir para o Beacon 24 a partir do Beacon 23",
-        "Beacon 33-Beacon 23-Beacon 24": "ir para o Beacon 24 passando do Beacon 23, vindo do Beacon 33",
-
-        "Beacon 22-Beacon 23-Beacon 33": "ir para o Beacon 33 passando do Beacon 23, vindo do Beacon 22",
-        "Beacon 23-Beacon 33": "ir para o Beacon 33 a partir do Beacon 23",
-        "Beacon 24-Beacon 23-Beacon 33": "ir para o Beacon 33 passando do Beacon 23, vindo do Beacon 24"
+        "Beacon 33-Beacon 23-Beacon 24": ""
       }
     },
 
@@ -648,40 +291,8 @@
       "beacon_description": "Neste espaço encontram-se a sala 58, casas de banho e a entrada dos laboratórios de ciências da comunicação.",
       "beacon_destinations": ["Sala 58"],
       "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
-
-
-      "historical_points": [
-        {
-          "name": "Beacon 24",
-          "message": "Este é o Beacon 24"
-        }
-      ],
-
       "beacon_instructions": {
-
-        "Beacon 23-Beacon 24-Sala 58": "Ir para a Sala 58 passando pelo Beacon 24, vindo do Beacon 23",
-        "Beacon 24-Sala 58": "Siga para a Sala 58 a partir daqui",
-        "Beacon 27-Beacon 24-Sala 58": "Ir para a Sala 58 passando pelo Beacon 24, vindo do Beacon 27",
-
-        "Beacon 24-Beacon 23": "Siga para o Beacon 23 a partir daqui",
-        "Beacon 25-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 25",
-        "Beacon 27-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 27",
-        "Beacon 28-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 28",
-
-        "Beacon 23-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 23",
-        "Beacon 24-Beacon 25": "Siga para o Beacon 25 a partir daqui",
-        "Beacon 27-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 27",
-        "Beacon 28-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 28",
-
-        "Beacon 23-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 23",
-        "Beacon 24-Beacon 27": "Siga para o Beacon 27 a partir daqui",
-        "Beacon 25-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 25",
-        "Beacon 28-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 28",
-
-        "Beacon 23-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 23",
-        "Beacon 24-Beacon 28": "Siga para o Beacon 28 a partir daqui",
-        "Beacon 25-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 25",
-        "Beacon 27-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 27"
+        "Beacon 23-Beacon 24-Beacon 25": ""
       }
     },
 
@@ -693,95 +304,13 @@
 
       "historical_points": [
         {
-          "name": "Beacon 25",
-          "message": "Este é o Beacon 25"
+          "name": "UAL Media",
+          "message": "Estúdios de televisão e rádio dotados de equipamento de topo e redações multiplataforma. Permitem que o ensino teórico seja suportado por uma prática em ambiente de trabalho real."
         }
       ],
 
       "beacon_instructions": {
-
-        "Beacon 24-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 24",
-        "Beacon 25-UAL Media": "Siga para a UAL Media a partir daqui",
-        "Beacon 26-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 27",
-        "Beacon 28-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 28",
-
-        "Beacon 25-Sala 58": "Siga para a Sala 58 a partir daqui",
-        "Beacon 26-Beacon 25-Sala 58": "Ir para a Sala 58 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Sala 58": "Ir para a Sala 58 passando pelo Beacon 25, vindo do Beacon 27",
-
-        "Beacon 25-Beacon 24": "Siga para o Beacon 24 a partir daqui",
-        "Beacon 26-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 27",
-        "Beacon 28-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 24",
-        "Beacon 25-Beacon 26": "Siga para o Beacon 26 a partir daqui",
-        "Beacon 27-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 27",
-        "Beacon 28-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 24",
-        "Beacon 25-Beacon 27": "Siga para o Beacon 27 a partir daqui",
-        "Beacon 26-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 28-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 24",
-        "Beacon 25-Beacon 28": "Siga para o Beacon 28 a partir daqui",
-        "Beacon 26-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 27"
-      }
-    },
-
-    "Beacon 26": {
-      "beacon_floor": "2",
-      "beacon_description": "Nesta área tem à sua esquerda as escadas para a UAL Media e à direita a sala 56.",
-      "beacon_destinations": ["Sala 56"],
-      "beacon_connections": ["Beacon 25"],
-      "beacon_instructions": {
-
-        "Beacon 25-Beacon 26-Sala 56": "Ir para a Sala 56 passando pelo Beacon 26, vindo do Beacon 25",
-        "Beacon 26-Sala 56": "Siga para a Sala 56 a partir daqui",
-
-        "Beacon 26-Beacon 25": "Siga para o Beacon 25 a partir daqui"
-      }
-    },
-
-    "Beacon 27": {
-      "beacon_floor": "1",
-      "beacon_description": "Neste corredor você tem logo no início umas escadas à sua esquerda que o irão levar à sala 57; em frente tem a casa de banho dos homens à sua direita e das mulheres à sua esquerda.",
-      "beacon_destinations": ["Sala 57", "WC Piso 1"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
-
-      "historical_points": [
-        {
-          "name": "Beacon 27",
-          "message": "Este é o Beacon 27"
-        }
-      ],
-
-      "beacon_instructions": {
-
-        "Beacon 24-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 25",
-        "Beacon 27-Sala 57": "Siga para a Sala 57 a partir daqui",
-        "Beacon 28-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 25",
-        "Beacon 27-WC Piso 1": "Siga para o WC Piso 1 a partir daqui",
-        "Beacon 28-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 28",
-
-        "Beacon 25-Beacon 27-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 27, vindo do Beacon 25",
-        "Beacon 27-Beacon 24": "Siga para o Beacon 24 a partir daqui",
-        "Beacon 28-Beacon 27-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 27, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 27-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 27-Beacon 25": "Siga para o Beacon 25 a partir daqui",
-        "Beacon 28-Beacon 27-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 27, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 27-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 27, vindo do Beacon 25",
-        "Beacon 27-Beacon 28": "Siga para o Beacon 28 a partir daqui"
+        "Beacon 24-Beacon 25-Beacon 28": ""
       }
     },
 
@@ -790,50 +319,8 @@
       "beacon_description": "Neste momento você se encontra num corredor em que, por esta respetiva ordem, vai encontrar à sua direita a sala 59 e à sua esquerda as salas 60 e 61.",
       "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
       "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
-
-      "historical_points": [
-        {
-          "name": "Beacon 28",
-          "message": "Este é o Beacon 28"
-        }
-      ],
-
       "beacon_instructions": {
-
-        "Beacon 24-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 24",
-        "Beacon 25-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 27-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Sala 54": "Siga para a Sala 54 a partir daqui",
-        "Beacon 29-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 27-Beacon 28-Sala 58": "Ir para a Sala 58 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Sala 58": "Siga para a Sala 58 a partir daqui",
-        "Beacon 29-Beacon 28-Sala 58": "Ir para a Sala 58 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 24-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 24",
-        "Beacon 25-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 27-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Sala 59": "Siga para a Sala 59 a partir daqui",
-
-        "Beacon 25-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 27-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Beacon 24": "Siga para o Beacon 24 a partir daqui",
-        "Beacon 29-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 24-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 24",
-        "Beacon 27-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Beacon 25": "Siga para o Beacon 25 a partir daqui",
-        "Beacon 29-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 24-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 24",
-        "Beacon 25-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 28-Beacon 27": "Siga para o Beacon 27 a partir daqui",
-        "Beacon 29-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 24-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 24",
-        "Beacon 25-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 27-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Beacon 29": "Siga para o Beacon 29 a partir daqui"
+        "Beacon 25-Beacon 28-Beacon 29": ""
       }
     },
 
@@ -842,31 +329,8 @@
       "beacon_description": "Você neste momento encontra-se no meio do corredor onde tem as salas 60 e 61 à sua esquerda e a sala 59 à sua direita.",
       "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
       "beacon_connections": ["Beacon 28", "Beacon 30"],
-
-      "historical_points": [
-        {
-          "name": "Beacon 29",
-          "message": "Este é o Beacon 29"
-        }
-      ],
-
       "beacon_instructions": {
-
-        "Beacon 29-Sala 59": "Siga para a Sala 59 a partir daqui",
-        "Beacon 30-Beacon 29-Sala 59": "Ir para a Sala 59 passando pelo Beacon 29, vindo do Beacon 30",
-
-        "Beacon 28-Beacon 29-Sala 60": "Ir para a Sala 60 passando pelo Beacon 29, vindo do Beacon 28",
-        "Beacon 29-Sala 60": "Siga para a Sala 60 a partir daqui",
-        "Beacon 30-Beacon 29-Sala 60": "Ir para a Sala 60 passando pelo Beacon 29, vindo do Beacon 30",
-
-        "Beacon 28-Beacon 29-Sala 61": "Ir para a Sala 61 passando pelo Beacon 29, vindo do Beacon 28",
-        "Beacon 29-Sala 61": "Siga para a Sala 61 a partir daqui",
-
-        "Beacon 29-Beacon 28": "Siga para o Beacon 28 a partir daqui",
-        "Beacon 30-Beacon 29-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 29, vindo do Beacon 30",
-
-        "Beacon 28-Beacon 29-Beacon 30": "Ir para o Beacon 30 passando pelo Beacon 29, vindo do Beacon 28",
-        "Beacon 29-Beacon 30": "Siga para o Beacon 30 a partir daqui"
+        "Beacon 28-Beacon 29-Beacon 30": ""
       }
     },
 
@@ -876,23 +340,7 @@
       "beacon_destinations": ["Sala 61", "Sala 62", "Sala 63"],
       "beacon_connections": ["Beacon 29", "Beacon 31"],
       "beacon_instructions": {
-
-        "Beacon 30-Sala 61": "Siga para a Sala 61 a partir daqui",
-        "Beacon 31-Beacon 30-Sala 61": "Ir para a Sala 61 passando pelo Beacon 30, vindo do Beacon 31",
-
-        "Beacon 29-Beacon 30-Sala 62": "Ir para a Sala 62 passando pelo Beacon 30, vindo do Beacon 29",
-        "Beacon 30-Sala 62": "Siga para a Sala 62 a partir daqui",
-        "Beacon 31-Beacon 30-Sala 62": "Ir para a Sala 62 passando pelo Beacon 30, vindo do Beacon 31",
-
-        "Beacon 29-Beacon 30-Sala 63": "Ir para a Sala 63 passando pelo Beacon 30, vindo do Beacon 29",
-        "Beacon 30-Sala 63": "Siga para a Sala 63 a partir daqui",
-        "Beacon 31-Beacon 30-Sala 63": "Ir para a Sala 63 passando pelo Beacon 30, vindo do Beacon 31",
-
-        "Beacon 30-Beacon 29": "Siga para o Beacon 29 a partir daqui",
-        "Beacon 31-Beacon 30-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 30, vindo do Beacon 31",
-
-        "Beacon 29-Beacon 30-Beacon 31": "Ir para o Beacon 31 passando pelo Beacon 30, vindo do Beacon 29",
-        "Beacon 30-Beacon 31": "Siga para o Beacon 31 a partir daqui"
+        "Beacon 29-Beacon 30-Beacon 31": ""
       }
     },
 
@@ -902,12 +350,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 30", "Beacon 32"],
       "beacon_instructions": {
-
-        "Beacon 31-Beacon 30": "Siga para o Beacon 30 a partir daqui",
-        "Beacon 32-Beacon 31-Beacon 30": "Ir para o Beacon 30 passando pelo Beacon 31, vindo do Beacon 32",
-
-        "Beacon 30-Beacon 31-Beacon 32": "Ir para o Beacon 32 passando pelo Beacon 31, vindo do Beacon 30",
-        "Beacon 31-Beacon 32": "Siga para o Beacon 32 a partir daqui"
+        "Beacon 30-Beacon 31-Beacon 32": ""
       }
     },
 
@@ -916,24 +359,20 @@
       "beacon_description": "Neste corredor encontram-se as salas da 67 à 70 por esta respetiva ordem e o centro de informática.",
       "beacon_destinations": ["Sala 68", "Sala 69", "Sala 70", "Centro de Informática", "Laboratórios ECC"],
       "beacon_connections": ["Beacon 31"],
+
+      "historical_points": [
+        {
+          "name": "Centro de Informática",
+          "message": "O Centro de Informática dá suporte às atividades académicas. Desenvolve funções de gestão, implementação, suporte e promoção da utilização dos serviços e sistemas de informática, comunicações e multimédia. Presta apoio e assistência (local e remoto) sobre todos os seus serviços disponibilizados; assegura o atendimento aos utilizadores dos laboratórios de informática e dos serviços académicos; gere os sistemas de informação e dá suporte aplicacional às unidades académicas e gere as infraestruturas tecnológicas."
+        },
+
+        {
+          "name": "Laboratórios ECC",
+          "message": "Os Laboratórios de Engenharia e Ciências da Comunicação dão suporte aos vários ciclos de estudo. Dividem-se em 5 áreas: Laboratório de Redes e Telecomunicações\nLaboratório de Eletrónica e Sistemas Digitais\nLaboratório de Robótica\nLaboratório de Produção e Distribuição de Energia\nLaboratórios de Programação\n"
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 31-Beacon 32-Centro de Informática": "Ir para o Centro de Informática passando pelo Beacon 32, vindo do Beacon 31",
-        "Beacon 32-Centro de Informática": "Siga para o Centro de Informática a partir daqui",
-
-        "Beacon 31-Beacon 32-Laboratórios ECC": "Ir para os Laboratórios ECC passando pelo Beacon 32, vindo do Beacon 31",
-        "Beacon 32-Laboratórios ECC": "Siga para os Laboratórios ECC a partir daqui",
-
-        "Beacon 31-Beacon 32-Sala 68": "Ir para a Sala 68 passando pelo Beacon 32, vindo do Beacon 31",
-        "Beacon 32-Sala 68": "Siga para a Sala 68 a partir daqui",
-
-        "Beacon 31-Beacon 32-Sala 69": "Ir para a Sala 69 passando pelo Beacon 32, vindo do Beacon 31",
-        "Beacon 32-Sala 69": "Siga para a Sala 69 a partir daqui",
-
-        "Beacon 31-Beacon 32-Sala 70": "Ir para a Sala 70 passando pelo Beacon 32, vindo do Beacon 31",
-        "Beacon 32-Sala 70": "Siga para a Sala 70 a partir daqui",
-
-        "Beacon 32-Beacon 31": "Siga para o Beacon 31 a partir daqui"
       }
     },
 
@@ -943,79 +382,7 @@
       "beacon_destinations": ["Sala 37", "Sala 38", "WC Piso 2"],
       "beacon_connections": ["Beacon 23", "Beacon 34", "Beacon 36"],
       "beacon_instructions": {
-
-        "Beacon 23-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Sala 37": "Siga para a Sala 37 a partir daqui",
-        "Beacon 34-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 36",
-
-        "Beacon 23-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Sala 38": "Siga para a Sala 38 a partir daqui",
-        "Beacon 34-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 36",
-
-        "Beacon 23-Beacon 33-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-WC Piso 2": "Siga para o WC Piso 2 a partir daqui",
-        "Beacon 34-Beacon 33-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 33, vindo do Beacon 34",
-
-        "Beacon 33-Beacon 23": "Siga para o Beacon 23 a partir daqui",
-        "Beacon 34-Beacon 33-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 33, vindo do Beacon 36",
-
-        "Beacon 23-Beacon 33-Beacon 34": "Ir para o Beacon 34 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Beacon 34": "Siga para o Beacon 34 a partir daqui",
-        "Beacon 36-Beacon 33-Beacon 34": "Ir para o Beacon 34 passando pelo Beacon 33, vindo do Beacon 36",
-
-        "Beacon 23-Beacon 33-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Beacon 36": "Siga para o Beacon 36 a partir daqui",
-        "Beacon 34-Beacon 33-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 33, vindo do Beacon 34"
-      }
-    },
-
-    "Beacon 34": {
-      "beacon_floor": "3",
-      "beacon_description": "Agora que subiu as escadas encontra-se num corredor onde por esta mesma ordem irá ter as salas 39, 40 e 41.",
-      "beacon_destinations": ["Sala 39", "Sala 40", "Sala 41"],
-      "beacon_connections": ["Beacon 33", "Beacon 35"],
-      "beacon_instructions": {
-
-        "Beacon 33-Beacon 34-Sala 39": "Ir para a Sala 39 passando pelo Beacon 34, vindo do Beacon 33",
-        "Beacon 34-Sala 39": "Siga para a Sala 39 a partir daqui",
-        "Beacon 35-Beacon 34-Sala 39": "Ir para a Sala 39 passando pelo Beacon 34, vindo do Beacon 35",
-
-        "Beacon 33-Beacon 34-Sala 40": "Ir para a Sala 40 passando pelo Beacon 34, vindo do Beacon 33",
-        "Beacon 34-Sala 40": "Siga para a Sala 40 a partir daqui",
-        "Beacon 35-Beacon 34-Sala 40": "Ir para a Sala 40 passando pelo Beacon 34, vindo do Beacon 35",
-
-        "Beacon 33-Beacon 34-Sala 41": "Ir para a Sala 41 passando pelo Beacon 34, vindo do Beacon 33",
-        "Beacon 34-Sala 41": "Siga para a Sala 41 a partir daqui",
-        "Beacon 35-Beacon 34-Sala 41": "Ir para a Sala 41 passando pelo Beacon 34, vindo do Beacon 35",
-
-        "Beacon 34-Beacon 33": "Siga para o Beacon 33 a partir daqui",
-        "Beacon 35-Beacon 34-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 34, vindo do Beacon 35",
-
-        "Beacon 33-Beacon 34-Beacon 35": "Ir para o Beacon 35 passando pelo Beacon 34, vindo do Beacon 33",
-        "Beacon 34-Beacon 35": "Siga para o Beacon 35 a partir daqui"
-      }
-    },
-
-    "Beacon 35": {
-      "beacon_floor": "4",
-      "beacon_description": "Neste espaço encontram-se as salas 42, 43, 44 e 45 por esta respetiva ordem.",
-      "beacon_destinations": ["Sala 42", "Sala 44", "Sala 45"],
-      "beacon_connections": ["Beacon 34"],
-      "beacon_instructions": {
-
-        "Beacon 34-Beacon 35-Sala 42": "Ir para a Sala 42 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 42": "Siga para a Sala 42 a partir daqui",
-
-        "Beacon 34-Beacon 35-Sala 44": "Ir para a Sala 44 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 44": "Siga para a Sala 44 a partir daqui",
-
-        "Beacon 34-Beacon 35-Sala 45": "Ir para a Sala 45 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 45": "Siga para a Sala 45 a partir daqui",
-
-        "Beacon 35-Beacon 34": "Siga para o Beacon 34 a partir daqui"
+        "Beacon 36-Beacon 33-Beacon 23": ""
       }
     },
 
@@ -1025,27 +392,8 @@
       "beacon_destinations": ["Pátio de Enfermagem", "WC Piso 2"],
       "beacon_connections": ["Beacon 33", "Beacon 37", "Beacon 38"],
       "beacon_instructions": {
-
-        "Beacon 33-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Pátio de Enfermagem": "Siga para o Pátio de Enfermagem a partir daqui",
-        "Beacon 37-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 38",
-
-        "Beacon 36-WC Piso 2": "Siga para o WC Piso 2 a partir daqui",
-        "Beacon 37-Beacon 36-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 36, vindo do Beacon 38",
-
-        "Beacon 36-Beacon 33": "Siga para o Beacon 33 a partir daqui",
-        "Beacon 37-Beacon 36-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 36, vindo do Beacon 38",
-
-        "Beacon 33-Beacon 36-Beacon 37": "Ir para o Beacon 37 passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Beacon 37": "Siga para o Beacon 37 a partir daqui",
-        "Beacon 38-Beacon 36-Beacon 37": "Ir para o Beacon 37 passando pelo Beacon 36, vindo do Beacon 38",
-
-        "Beacon 33-Beacon 36-Beacon 38": "Ir para o Beacon 38 passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Beacon 38": "Siga para o Beacon 38 a partir daqui",
-        "Beacon 37-Beacon 36-Beacon 38": "Ir para o Beacon 38 passando pelo Beacon 36, vindo do Beacon 37"
+        "Beacon 37-Beacon 36-Beacon 38": "",
+        "Beacon 38-Beacon 36-Beacon 33": ""
       }
     },
 
@@ -1055,16 +403,7 @@
       "beacon_destinations": ["Sala 80"],
       "beacon_connections": ["Beacon 20", "Beacon 36"],
       "beacon_instructions": {
-
-        "Beacon 20-Beacon 37-Sala 80": "Ir para a Sala 80 passando pelo Beacon 37, vindo do Beacon 20",
-        "Beacon 36-Beacon 37-Sala 80": "Ir para a Sala 80 passando pelo Beacon 37, vindo do Beacon 36",
-        "Beacon 37-Sala 80": "Siga para a Sala 80 a partir daqui",
-
-        "Beacon 36-Beacon 37-Beacon 20": "Ir para o Beacon 20 passando pelo Beacon 37, vindo do Beacon 36",
-        "Beacon 37-Beacon 20": "Siga para o Beacon 20 a partir daqui",
-
-        "Beacon 20-Beacon 37-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 37, vindo do Beacon 20",
-        "Beacon 37-Beacon 36": "Siga para o Beacon 36 a partir daqui"
+        "Beacon 20-Beacon 37-Beacon 36": ""
       }
     },
 
@@ -1073,20 +412,28 @@
       "beacon_description": "Neste espaço encontra-se o Auditório 01 e a Sala 90.",
       "beacon_destinations": ["Auditório 01", "Sala 90"],
       "beacon_connections": ["Beacon 36"],
+
+      "historical_points": [
+        {
+          "name": "Auditório 01",
+          "message": "O Auditório 01 da Universidade Autónoma de Lisboa é um espaço de destaque destinado à realização de conferências, palestras, seminários e outros eventos académicos e científicos. Equipado com tecnologias modernas de som e imagem, oferece condições ideais para apresentações formais e sessões de ensino em grande dimensão."
+        }
+      ],
+
       "beacon_instructions": {
-
-        "Beacon 36-Beacon 38-Auditório 01": "Ir para o Auditório 01 passando pelo Beacon 38, vindo do Beacon 36",
-        "Beacon 38-Auditório 01": "Siga para o Auditório 01 a partir daqui",
-
-        "Beacon 36-Beacon 38-Sala 90": "Ir para a Sala 90 passando pelo Beacon 38, vindo do Beacon 36",
-        "Beacon 38-Sala 90": "Siga para a Sala 90 a partir daqui",
-
-        "Beacon 38-Beacon 36": "Siga para o Beacon 36 a partir daqui"
+        "Beacon 36-Beacon 38-Beacon 36": ""
       }
     }
-
   },
-  "tour_route": ["Beacon 29", "Beacon 28", "Beacon 27", "Beacon 28", "Beacon 25", "Beacon 24", "Beacon 25"]
+  "tour_route": [
+    "Beacon 1", "Beacon 3", "Beacon 4", "Beacon 5", "Beacon 4",
+    "Beacon 9", "Beacon 10", "Beacon 12", "Beacon 13", "Beacon 14",
+    "Beacon 13", "Beacon 11", "Beacon 10", "Beacon 9", "Beacon 8",
+    "Beacon 22", "Beacon 15", "Beacon 16", "Beacon 19", "Beacon 21",
+    "Beacon 19", "Beacon 20", "Beacon 37", "Beacon 36", "Beacon 38",
+    "Beacon 36", "Beacon 33", "Beacon 23", "Beacon 24", "Beacon 25",
+    "Beacon 28", "Beacon 29", "Beacon 30", "Beacon 31", "Beacon 32"
+  ]
 }
 
 
