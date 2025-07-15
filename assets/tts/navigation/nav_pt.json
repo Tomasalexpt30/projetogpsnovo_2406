@@ -170,7 +170,6 @@
 
         "Beacon 4-Beacon 5-Sala 27": "ir para a Sala 27 passando do Beacon 5, vindo do Beacon 4",
         "Beacon 5-Sala 27": "ir para a Sala 27 a partir do Beacon 5",
-        "Beacon 6-Beacon 5-Sala 27": "ir para a Sala 27 passando do Beacon 5, vindo do Beacon 6",
 
         "Beacon 5-Beacon 4": "ir para o Beacon 4 a partir do Beacon 5",
         "Beacon 6-Beacon 5-Beacon 4": "ir para o Beacon 4 passando do Beacon 5, vindo do Beacon 6",
@@ -184,9 +183,12 @@
     "Beacon 6": {
       "beacon_floor": "0",
       "beacon_description": "À sua direita encontram-se as escadas que descem para as salas 32 e 33. À sua esquerda encontram-se as salas 28 e 29.",
-      "beacon_destinations": ["Sala 28", "Sala 29"],
+      "beacon_destinations": ["Sala 27","Sala 28", "Sala 29"],
       "beacon_connections": ["Beacon 5", "Beacon 7"],
       "beacon_instructions": {
+
+        "Beacon 6-Sala 27": "ir para a Sala 27 a partir do Beacon 6",
+        "Beacon 7-Beacon 6-Sala 27": "ir para a Sala 27 passando do Beacon 6, vindo do Beacon 7",
 
         "Beacon 5-Beacon 6-Sala 28": "ir para a Sala 28 passando do Beacon 6, vindo do Beacon 5",
         "Beacon 6-Sala 28": "ir para a Sala 28 a partir do Beacon 6",
@@ -624,7 +626,7 @@
       "beacon_floor": "1",
       "beacon_description": "Neste espaço encontram-se a sala 58, casas de banho e a entrada dos laboratórios de ciências da comunicação.",
       "beacon_destinations": ["Sala 58"],
-      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
+      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27"],
       "beacon_instructions": {
 
         "Beacon 23-Beacon 24-Sala 58": "Ir para a Sala 58 passando pelo Beacon 24, vindo do Beacon 23",
@@ -634,22 +636,14 @@
         "Beacon 24-Beacon 23": "Siga para o Beacon 23 a partir daqui",
         "Beacon 25-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 25",
         "Beacon 27-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 27",
-        "Beacon 28-Beacon 24-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 24, vindo do Beacon 28",
 
         "Beacon 23-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 23",
         "Beacon 24-Beacon 25": "Siga para o Beacon 25 a partir daqui",
         "Beacon 27-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 27",
-        "Beacon 28-Beacon 24-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 24, vindo do Beacon 28",
 
         "Beacon 23-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 23",
         "Beacon 24-Beacon 27": "Siga para o Beacon 27 a partir daqui",
-        "Beacon 25-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 25",
-        "Beacon 28-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 28",
-
-        "Beacon 23-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 23",
-        "Beacon 24-Beacon 28": "Siga para o Beacon 28 a partir daqui",
-        "Beacon 25-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 25",
-        "Beacon 27-Beacon 24-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 24, vindo do Beacon 27"
+        "Beacon 25-Beacon 24-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 24, vindo do Beacon 25"
       }
     },
 
@@ -657,38 +651,28 @@
       "beacon_floor": "1",
       "beacon_description": "Nesta área encontram-se os laboratórios de ciências da comunicação, a UAL Media e a sala 56.",
       "beacon_destinations": ["Sala 58", "UAL Media"],
-      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 27", "Beacon 28"],
+      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 28"],
       "beacon_instructions": {
 
         "Beacon 24-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 24",
         "Beacon 25-UAL Media": "Siga para a UAL Media a partir daqui",
         "Beacon 26-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 27",
         "Beacon 28-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 28",
 
         "Beacon 25-Sala 58": "Siga para a Sala 58 a partir daqui",
         "Beacon 26-Beacon 25-Sala 58": "Ir para a Sala 58 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Sala 58": "Ir para a Sala 58 passando pelo Beacon 25, vindo do Beacon 27",
 
         "Beacon 25-Beacon 24": "Siga para o Beacon 24 a partir daqui",
         "Beacon 26-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 27",
         "Beacon 28-Beacon 25-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 25, vindo do Beacon 28",
 
         "Beacon 24-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 24",
         "Beacon 25-Beacon 26": "Siga para o Beacon 26 a partir daqui",
-        "Beacon 27-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 27",
         "Beacon 28-Beacon 25-Beacon 26": "Ir para o Beacon 26 passando pelo Beacon 25, vindo do Beacon 28",
-
-        "Beacon 24-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 24",
-        "Beacon 25-Beacon 27": "Siga para o Beacon 27 a partir daqui",
-        "Beacon 26-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 28-Beacon 25-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 25, vindo do Beacon 28",
 
         "Beacon 24-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 24",
         "Beacon 25-Beacon 28": "Siga para o Beacon 28 a partir daqui",
-        "Beacon 26-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 26",
-        "Beacon 27-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 27"
+        "Beacon 26-Beacon 25-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 25, vindo do Beacon 26"
       }
     },
 
@@ -710,29 +694,21 @@
       "beacon_floor": "1",
       "beacon_description": "Neste corredor você tem logo no início umas escadas à sua esquerda que o irão levar à sala 57; em frente tem a casa de banho dos homens à sua direita e das mulheres à sua esquerda.",
       "beacon_destinations": ["Sala 57", "WC Piso 1"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
+      "beacon_connections": ["Beacon 24", "Beacon 28"],
       "beacon_instructions": {
 
         "Beacon 24-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 25",
         "Beacon 27-Sala 57": "Siga para a Sala 57 a partir daqui",
         "Beacon 28-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 28",
 
         "Beacon 24-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 25",
         "Beacon 27-WC Piso 1": "Siga para o WC Piso 1 a partir daqui",
         "Beacon 28-Beacon 27-WC Piso 1": "Ir para o WC Piso 1 passando pelo Beacon 27, vindo do Beacon 28",
 
-        "Beacon 25-Beacon 27-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 27, vindo do Beacon 25",
         "Beacon 27-Beacon 24": "Siga para o Beacon 24 a partir daqui",
         "Beacon 28-Beacon 27-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 27, vindo do Beacon 28",
 
-        "Beacon 24-Beacon 27-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 27-Beacon 25": "Siga para o Beacon 25 a partir daqui",
-        "Beacon 28-Beacon 27-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 27, vindo do Beacon 28",
-
         "Beacon 24-Beacon 27-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 27, vindo do Beacon 24",
-        "Beacon 25-Beacon 27-Beacon 28": "Ir para o Beacon 28 passando pelo Beacon 27, vindo do Beacon 25",
         "Beacon 27-Beacon 28": "Siga para o Beacon 28 a partir daqui"
       }
     },
@@ -741,10 +717,9 @@
       "beacon_floor": "1",
       "beacon_description": "Neste momento você se encontra num corredor em que, por esta respetiva ordem, vai encontrar à sua direita a sala 59 e à sua esquerda as salas 60 e 61.",
       "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
+      "beacon_connections": ["Beacon 25", "Beacon 27", "Beacon 29"],
       "beacon_instructions": {
 
-        "Beacon 24-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 24",
         "Beacon 25-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 25",
         "Beacon 27-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 27",
         "Beacon 28-Sala 54": "Siga para a Sala 54 a partir daqui",
@@ -754,27 +729,18 @@
         "Beacon 28-Sala 58": "Siga para a Sala 58 a partir daqui",
         "Beacon 29-Beacon 28-Sala 58": "Ir para a Sala 58 passando pelo Beacon 28, vindo do Beacon 29",
 
-        "Beacon 24-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 24",
         "Beacon 25-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 25",
         "Beacon 27-Beacon 28-Sala 59": "Ir para a Sala 59 passando pelo Beacon 28, vindo do Beacon 27",
         "Beacon 28-Sala 59": "Siga para a Sala 59 a partir daqui",
 
-        "Beacon 25-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 25",
-        "Beacon 27-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 27",
-        "Beacon 28-Beacon 24": "Siga para o Beacon 24 a partir daqui",
-        "Beacon 29-Beacon 28-Beacon 24": "Ir para o Beacon 24 passando pelo Beacon 28, vindo do Beacon 29",
-
-        "Beacon 24-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 24",
         "Beacon 27-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 27",
         "Beacon 28-Beacon 25": "Siga para o Beacon 25 a partir daqui",
         "Beacon 29-Beacon 28-Beacon 25": "Ir para o Beacon 25 passando pelo Beacon 28, vindo do Beacon 29",
 
-        "Beacon 24-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 24",
         "Beacon 25-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 25",
         "Beacon 28-Beacon 27": "Siga para o Beacon 27 a partir daqui",
         "Beacon 29-Beacon 28-Beacon 27": "Ir para o Beacon 27 passando pelo Beacon 28, vindo do Beacon 29",
 
-        "Beacon 24-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 24",
         "Beacon 25-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 25",
         "Beacon 27-Beacon 28-Beacon 29": "Ir para o Beacon 29 passando pelo Beacon 28, vindo do Beacon 27",
         "Beacon 28-Beacon 29": "Siga para o Beacon 29 a partir daqui"
