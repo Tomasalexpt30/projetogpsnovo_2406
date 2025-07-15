@@ -170,7 +170,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
       status = 'beacon_scan_page.navigation_end'.tr();
     });
 
-    isFinalizing = true; // 🔒 Bloquear novas leituras
+    isFinalizing = true;
   }
 
 
@@ -249,6 +249,34 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         final local = nav.getLocalizacao(beacon);
         if (local == null || !beaconsOperacionais.contains(local)) continue;
+
+        // ── NOVO: detecta se o utilizador voltou a um beacon já ultrapassado ──
+        final idx = rota.indexOf(local);
+        if (rota.isNotEmpty && idx != -1 && idx < proximoPasso - 1) {
+          // limpa histórico mas mantém o atual para não re‑disparar logo
+          _processedBeacons
+            ..clear()
+            ..add(local);
+
+          // recalcula a rota a partir deste ponto
+          final novoCaminho = nav.dijkstra(local, widget.destino);
+          if (novoCaminho != null && novoCaminho.length > 1) {
+            rota = novoCaminho;
+            proximoPasso = 1;
+            localAtual = local;
+            atualizarPosicaoVisual(local);
+
+            final instr = nav.getInstrucoes(novoCaminho)[0];
+            await _speakWithVibe(instr);
+            setState(() => mostrarSeta = true);
+          } else {
+            await falar(mensagens['alerts']?['path_not_found_alert'] ?? 'Caminho não encontrado.');
+            finalizar();
+          }
+          return;
+        }
+
+
 
         // 2.2) “Process‑once”: ignora se já processado nesta rota
         if (_processedBeacons.contains(local)) continue;
