@@ -11,8 +11,20 @@
       "beacon_destinations": ["Sala dos Atos", "Entrada Principal", "Perdidos e Achados"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
 
-      "historical_point_name": "Entrada Principal",
-      "historical_point_message": "Esta é a entrada principal da Universidade Autónoma de Lisboa, um lugar por onde passam centenas de estudantes diariamente.",
+      "historical_points": [
+        {
+          "name": "Entrada Principal",
+          "message": "Esta é a entrada principal da Universidade..."
+        },
+        {
+          "name": "Perdidos e Achados",
+          "message": "Aqui funciona o serviço de Perdidos e Achados..."
+        },
+        {
+          "name": "Sala dos Atos",
+          "message": "Aqui é a sala dos Atos"
+        }
+      ],
 
       "beacon_instructions": {
         "Beacon 1-Entrada Principal": "Siga para a Entrada Principal a partir daqui",
@@ -60,6 +72,14 @@
       "beacon_description": "Está no centro do Pátio Principal da UAL. À sua volta encontra-se a saída da universidade, o busto de Camões e as escadas de acesso ao interior da universidade.",
       "beacon_destinations": ["Pátio"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+
+
+      "historical_points": [
+        {
+          "name": "Pátio",
+          "message": "Este é o pátio principal da ual..."
+        }
+      ],
 
       "beacon_instructions": {
         "Beacon 1-Beacon 3-Pátio": "ir para o Pátio passando do Beacon 3, vindo do Beacon 1",
@@ -398,6 +418,14 @@
       "beacon_destinations": ["Estátua do Camões"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
 
+
+      "historical_points": [
+        {
+          "name": "Camões",
+          "message": "Este é a estatua de camoes."
+        }
+      ],
+
       "historical_point_name": "Estátua de Camões",
       "historical_point_message": "Neste local encontra-se a estátua de Luís de Camões, uma das figuras mais emblemáticas da literatura portuguesa.",
 
@@ -620,6 +648,15 @@
       "beacon_description": "Neste espaço encontram-se a sala 58, casas de banho e a entrada dos laboratórios de ciências da comunicação.",
       "beacon_destinations": ["Sala 58"],
       "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
+
+
+      "historical_points": [
+        {
+          "name": "Beacon 24",
+          "message": "Este é o Beacon 24"
+        }
+      ],
+
       "beacon_instructions": {
 
         "Beacon 23-Beacon 24-Sala 58": "Ir para a Sala 58 passando pelo Beacon 24, vindo do Beacon 23",
@@ -653,6 +690,14 @@
       "beacon_description": "Nesta área encontram-se os laboratórios de ciências da comunicação, a UAL Media e a sala 56.",
       "beacon_destinations": ["Sala 58", "UAL Media"],
       "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 27", "Beacon 28"],
+
+      "historical_points": [
+        {
+          "name": "Beacon 25",
+          "message": "Este é o Beacon 25"
+        }
+      ],
+
       "beacon_instructions": {
 
         "Beacon 24-Beacon 25-UAL Media": "Ir para a UAL Media passando pelo Beacon 25, vindo do Beacon 24",
@@ -706,6 +751,14 @@
       "beacon_description": "Neste corredor você tem logo no início umas escadas à sua esquerda que o irão levar à sala 57; em frente tem a casa de banho dos homens à sua direita e das mulheres à sua esquerda.",
       "beacon_destinations": ["Sala 57", "WC Piso 1"],
       "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
+
+      "historical_points": [
+        {
+          "name": "Beacon 27",
+          "message": "Este é o Beacon 27"
+        }
+      ],
+
       "beacon_instructions": {
 
         "Beacon 24-Beacon 27-Sala 57": "Ir para a Sala 57 passando pelo Beacon 27, vindo do Beacon 24",
@@ -737,6 +790,14 @@
       "beacon_description": "Neste momento você se encontra num corredor em que, por esta respetiva ordem, vai encontrar à sua direita a sala 59 e à sua esquerda as salas 60 e 61.",
       "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
       "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
+
+      "historical_points": [
+        {
+          "name": "Beacon 28",
+          "message": "Este é o Beacon 28"
+        }
+      ],
+
       "beacon_instructions": {
 
         "Beacon 24-Beacon 28-Sala 54": "Ir para a Sala 54 passando pelo Beacon 28, vindo do Beacon 24",
@@ -781,6 +842,14 @@
       "beacon_description": "Você neste momento encontra-se no meio do corredor onde tem as salas 60 e 61 à sua esquerda e a sala 59 à sua direita.",
       "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
       "beacon_connections": ["Beacon 28", "Beacon 30"],
+
+      "historical_points": [
+        {
+          "name": "Beacon 29",
+          "message": "Este é o Beacon 29"
+        }
+      ],
+
       "beacon_instructions": {
 
         "Beacon 29-Sala 59": "Siga para a Sala 59 a partir daqui",
@@ -1017,7 +1086,7 @@
     }
 
   },
-  "tour_route": ["Beacon 1", "Beacon 3", "Beacon 15"]
+  "tour_route": ["Beacon 29", "Beacon 28", "Beacon 27", "Beacon 28", "Beacon 25", "Beacon 24", "Beacon 25"]
 }
 
 
