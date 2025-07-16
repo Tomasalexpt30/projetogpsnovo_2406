@@ -27,7 +27,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 1-Beacon 3": "Siga em frente até ao Beacon 3."
+        "Beacon 1-Beacon 3": "Dê aproximadamente três passos e chegará ao seu destino: Pátio."
       }
     },
 
@@ -45,7 +45,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 1-Beacon 3-Beacon 4": "Continue do Beacon 1, passando pelo Beacon 3, até ao Beacon 4."
+        "Beacon 1-Beacon 3-Beacon 4": "Dê aproximadamente sete passos à direita e suba pelas escadas da direita oito degraus, seguidos de mais dois degraus à esquerda"
       }
     },
 
@@ -55,8 +55,8 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 3", "Beacon 5"],
       "beacon_instructions": {
-        "Beacon 3-Beacon 4-Beacon 5": "Do Beacon 3, siga até ao Beacon 4 e depois para o Beacon 5.",
-        "Beacon 5-Beacon 4-Beacon 9": "Volte do Beacon 5 para o Beacon 4 e continue até ao Beacon 9."
+        "Beacon 3-Beacon 4-Beacon 5": "Vire à direita e dê aproximadamente 5 passos, seguidos de mais 15 passos à esquerda.",
+        "Beacon 5-Beacon 4-Beacon 9": "Dê aproximadamente 13 passos em frente, seguidos de mais 15 passos à esquerda."
       }
     },
 
@@ -102,8 +102,8 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 4-Beacon 9-Beacon 10": "Do Beacon 4, continue até ao Beacon 9 e siga para o Beacon 10.",
-        "Beacon 10-Beacon 9-Beacon 8": "Do Beacon 10, regresse ao Beacon 9 e siga para o Beacon 8."
+        "Beacon 4-Beacon 9-Beacon 10": "Vire à direita e dê aproximadamente 10 passos, desça 6 degraus, seguidos de mais 12 degraus à esquerda.",
+        "Beacon 10-Beacon 9-Beacon 8": "Dê aproximadamente 7 passos em frente, seguidos de mais 6 passos à direita."
       }
     },
 
@@ -113,8 +113,8 @@
       "beacon_destinations": ["Cacifos", "Bar"],
       "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
       "beacon_instructions": {
-        "Beacon 9-Beacon 10-Beacon 12": "Siga de Beacon 9 passando por Beacon 10 até Beacon 12.",
-        "Beacon 11-Beacon 10-Beacon 9": "Siga de Beacon 11 passando por Beacon 10 até Beacon 9."
+        "Beacon 9-Beacon 10-Beacon 12": "Dê aproximadamente 3 passos em frente seguidos de mais 4 passos à esquerda. Ao passar por uma porta dê 5 passos.",
+        "Beacon 11-Beacon 10-Beacon 9": "Encontre umas escadas e suba 12 degraus seguidos de mais 6 degraus à direita. E dê aproximadamente 5 passos à direita."
       }
     },
 
@@ -124,7 +124,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 10", "Beacon 13"],
       "beacon_instructions": {
-        "Beacon 13-Beacon 11-Beacon 10": "Siga de Beacon 13 passando por Beacon 11 até Beacon 10."
+        "Beacon 13-Beacon 11-Beacon 10": "Vire à esquerda e dê aproximadamente 10 passo"
       }
     },
 
@@ -142,7 +142,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 10-Beacon 12-Beacon 13": "Siga de Beacon 10 passando por Beacon 12 até Beacon 13."
+        "Beacon 10-Beacon 12-Beacon 13": "Vire à esquerda e dê aproximadamente 13 passos"
       }
     },
 
@@ -152,8 +152,8 @@
       "beacon_destinations": ["Sala dos Micro-ondas", "Refeitório", "Esplanada"],
       "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
       "beacon_instructions": {
-        "Beacon 12-Beacon 13-Beacon 14": "Siga de Beacon 12 passando por Beacon 13 até Beacon 14.",
-        "Beacon 14-Beacon 13-Beacon 11": "Siga de Beacon 14 passando por Beacon 13 até Beacon 11."
+        "Beacon 12-Beacon 13-Beacon 14": "Ao passar por uma porta, vire à direita e dê aproximadamente 19 passos",
+        "Beacon 14-Beacon 13-Beacon 11": "Vire à direita e dê aproximadamente 10 passos"
       }
     },
 
@@ -189,7 +189,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 22-Beacon 15-Beacon 16": "Siga de Beacon 22 passando por Beacon 15 até Beacon 16."
+        "Beacon 22-Beacon 15-Beacon 16": "Em frente suba 10 degraus"
       }
     },
 
@@ -207,7 +207,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 15-Beacon 16-Beacon 19": "Siga de Beacon 15 passando por Beacon 16 até Beacon 19."
+        "Beacon 15-Beacon 16-Beacon 19": "Encontre umas escadas, suba 7 degraus seguidos de mais 13 degraus à esquerda. Dê aproximadamente 6 passos à esquerda","
       }
     },
 
@@ -225,8 +225,8 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 16-Beacon 19-Beacon 21": "Siga de Beacon 16 passando por Beacon 19 até Beacon 21.",
-        "Beacon 21-Beacon 19-Beacon 20": "Siga de Beacon 21 passando por Beacon 19 até Beacon 20."
+        "Beacon 16-Beacon 19-Beacon 21": "Vire à esquerda e dê 2 passos, encontre umas escadas e suba 10 degraus",
+        "Beacon 21-Beacon 19-Beacon 20": "Vire à esquerda e dê aproximadamente 13 passos"
       }
     },
 
@@ -244,7 +244,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 19-Beacon 20-Beacon 37": "Siga de Beacon 19 passando por Beacon 20 até Beacon 37."
+        "Beacon 19-Beacon 20-Beacon 37": "Vire à esquerda e dê aproximadamente 13 passos"
       }
     },
 
@@ -272,7 +272,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 8", "Beacon 15", "Beacon 23"],
       "beacon_instructions": {
-        "Beacon 8-Beacon 22-Beacon 15": "Siga de Beacon 8 passando por Beacon 22 até Beacon 15."
+        "Beacon 8-Beacon 22-Beacon 15": "Encontre umas escadas, suba 3 degraus, vire à esquerda e desça 4 degraus seguidos de mais 9 degraus."
       }
     },
 
@@ -282,7 +282,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 22", "Beacon 24", "Beacon 33"],
       "beacon_instructions": {
-        "Beacon 33-Beacon 23-Beacon 24": "Siga de Beacon 33 passando por Beacon 23 até Beacon 24."
+        "Beacon 33-Beacon 23-Beacon 24": "Dê aproximadamente 11 passos em frente seguidos de mais 6 passos à direita"
       }
     },
 
@@ -292,7 +292,7 @@
       "beacon_destinations": ["Sala 58"],
       "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
       "beacon_instructions": {
-        "Beacon 23-Beacon 24-Beacon 25": "Siga de Beacon 23 passando por Beacon 24 até Beacon 25."
+        "Beacon 23-Beacon 24-Beacon 25": "Dê aproximadamente 9 passos em frente seguidos de mais 3 passos à direita."
       }
     },
 
@@ -310,7 +310,7 @@
       ],
 
       "beacon_instructions": {
-        "Beacon 24-Beacon 25-Beacon 28": "Siga de Beacon 24 passando por Beacon 25 até Beacon 28."
+        "Beacon 24-Beacon 25-Beacon 28": "Dê aproximadamente 9 passos em frente seguidos de mais 3 passos à direita"
       }
     },
 
@@ -320,7 +320,7 @@
       "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
       "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
       "beacon_instructions": {
-        "Beacon 25-Beacon 28-Beacon 29": "Siga de Beacon 25 passando por Beacon 28 até Beacon 29."
+        "Beacon 25-Beacon 28-Beacon 29": "Ao passar por uma porta dê aproximadamente 15 passos em frente"
       }
     },
 
@@ -330,7 +330,7 @@
       "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
       "beacon_connections": ["Beacon 28", "Beacon 30"],
       "beacon_instructions": {
-        "Beacon 28-Beacon 29-Beacon 30": "Siga de Beacon 28 passando por Beacon 29 até Beacon 30."
+        "Beacon 28-Beacon 29-Beacon 30": "Ao passar por uma porta dê aproximadamente 8 passos em frente."
       }
     },
 
@@ -340,7 +340,7 @@
       "beacon_destinations": ["Sala 61", "Sala 62", "Sala 63"],
       "beacon_connections": ["Beacon 29", "Beacon 31"],
       "beacon_instructions": {
-        "Beacon 29-Beacon 30-Beacon 31": "Siga de Beacon 29 passando por Beacon 30 até Beacon 31."
+        "Beacon 29-Beacon 30-Beacon 31": "Ao passar por uma porta vire à esquerda. Dê aproximadamente 8 passos e suba 8 degraus"
       }
     },
 
@@ -350,7 +350,7 @@
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 30", "Beacon 32"],
       "beacon_instructions": {
-        "Beacon 30-Beacon 31-Beacon 32": "Siga de Beacon 30 passando por Beacon 31 até Beacon 32."
+        "Beacon 30-Beacon 31-Beacon 32": "Vire à esquerda e dê aproximadamente 4 passos. Encontre umas escadas e suba 11 degraus"
       }
     },
 
@@ -382,7 +382,7 @@
       "beacon_destinations": ["Sala 37", "Sala 38", "WC Piso 2"],
       "beacon_connections": ["Beacon 23", "Beacon 34", "Beacon 36"],
       "beacon_instructions": {
-        "Beacon 36-Beacon 33-Beacon 23": "Siga de Beacon 36 passando por Beacon 33 até Beacon 23."
+        "Beacon 36-Beacon 33-Beacon 23": "Encontre umas escadas, desça 5 degraus seguidos de 12 degraus. Em seguida dê aproximadamente 7 passos em frente seguidos de mais 5 passos à esquerda"
       }
     },
 
@@ -392,8 +392,8 @@
       "beacon_destinations": ["Pátio de Enfermagem", "WC Piso 2"],
       "beacon_connections": ["Beacon 33", "Beacon 37", "Beacon 38"],
       "beacon_instructions": {
-        "Beacon 37-Beacon 36-Beacon 38": "Siga de Beacon 37 passando por Beacon 36 até Beacon 38.",
-        "Beacon 38-Beacon 36-Beacon 33": "Siga de Beacon 38 passando por Beacon 36 até Beacon 33."
+        "Beacon 37-Beacon 36-Beacon 38": "Vire à esquerda, ande 4 passos e suba 11 degraus em frente.",
+        "Beacon 38-Beacon 36-Beacon 33": "Dê aproximadamente 11 passos em frente e desça 8 degraus à direita."
       }
     },
 
@@ -403,7 +403,7 @@
       "beacon_destinations": ["Sala 80"],
       "beacon_connections": ["Beacon 20", "Beacon 36"],
       "beacon_instructions": {
-        "Beacon 20-Beacon 37-Beacon 36": "Siga de Beacon 20 passando por Beacon 37 até Beacon 36."
+        "Beacon 20-Beacon 37-Beacon 36": "Vire à esquerda e desça 15 degraus."
       }
     },
 
