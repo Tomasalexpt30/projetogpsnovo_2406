@@ -609,16 +609,16 @@
       "beacon_instructions": {
 
         "Beacon 23-Beacon 22": "Encontre umas escadas e desça 13 degraus",
-        "Beacon 24-Beacon 23-Beacon 22": "Encontre umas escadas e desça 13 degraus",
-        "Beacon 33-Beacon 23-Beacon 22": "Encontre umas escadas e desça 13 degraus",
+        "Beacon 24-Beacon 23-Beacon 22": "Vire à direita. Encontre umas escadas e desça 13 degraus",
+        "Beacon 33-Beacon 23-Beacon 22": "Vire à esquerda. Encontre umas escadas e desça 13 degraus",
 
         "Beacon 22-Beacon 23-Beacon 24": "Vire à esquerda e dê aproximadamente 7 passos seguidos de mais 6 passos à direita",
-        "Beacon 23-Beacon 24": "Dê aproximadamente 7 passos seguidos de mais 6 passos à direita ao final do corredor e de mais 6 passos à direita",
-        "Beacon 33-Beacon 23-Beacon 24": "Vire à esquerda e dê aproximadamente 11 passos seguidos de mais 6 passos à direita",
+        "Beacon 23-Beacon 24": "Dê aproximadamente 7 passos em direção ao inicio do ccorredor. seguidos de mais 6 passos à direita",
+        "Beacon 33-Beacon 23-Beacon 24": "Dê aproximadamente 11 passos em frente seguidos de mais 6 passos à direita",
 
-        "Beacon 22-Beacon 23-Beacon 33": "Vire à direita, ao passar por uma porta vire novamente à direita e dê aproximadamente 8 passos. De seguida, suba 12 degraus",
-        "Beacon 23-Beacon 33": "Vire à direita, ao passar por uma porta vire novamente à direita e dê aproximadamente 8 passos. De seguida, suba 12 degraus",
-        "Beacon 24-Beacon 23-Beacon 33": "Dê aproximadamente 8 passos em frente seguidos de mais 5 passos à direita e suba 12 degraus"
+        "Beacon 22-Beacon 23-Beacon 33": "Vire à direita, ao passar por uma porta. Vire novamente à direita e dê  aproximadamente 8 passos. De seguida suba 12 degraus seguidos de mais 5 degraus",
+        "Beacon 23-Beacon 33": "Vire à direita, ao passar por uma porta vire novamente à direita e dê  aproximadamente 8 passos. De seguida suba 12 degraus  seguidos de mais 5 degraus.",
+        "Beacon 24-Beacon 23-Beacon 33": "Dê aproximadamente 8 passos em frente seguidos de mais 8 passos à direita. Suba 12 degraus seguidos de mais 5 degraus"
       }
     },
 
@@ -633,7 +633,7 @@
         "Beacon 24-Sala 58": "Dê aproximadamente 15 passos em direção à sala 58 e chegará ao seu destino: sala 58",
         "Beacon 27-Beacon 24-Sala 58": "Dê aproximadamente 15 passos à esquerda e chegará ao seu destino: sala 58",
 
-        "Beacon 24-Beacon 23": "Ao passar por uma porta dê aproximadamente 8 passos em frente seguidos de mais 6 passos à esquerda",
+        "Beacon 24-Beacon 23": "Ao passar por uma porta dê aproximadamente 10 passos em frente seguidos de mais 6 passos à esquerda",
         "Beacon 25-Beacon 24-Beacon 23": "Dê aproximadamente 9 passos em frente seguidos de mais 6 passos à esquerda",
         "Beacon 27-Beacon 24-Beacon 23": "Vire à direita e dê aproximadamente 9 passos seguidos de mais 6 passos à esquerda",
 
@@ -656,7 +656,7 @@
 
         "Beacon 24-Beacon 25-UAL Media": "Vire à direita, dê aproximadamente 7 passos, seguidos de mais 5 passos à esquerda e chegará ao seu destino: UAL Media",
         "Beacon 25-UAL Media": "Dê aproximadamente 12 passos em direção à UAL Media e chegará ao seu destino: UAL Media",
-        "Beacon 26-Beacon 25-UAL Media": "Vire à esquerda e dê aproximadamente 7 passos em frente seguidos de mais 4 passos à esquerda e chegará ao seu destino: UAL Media",
+        "Beacon 26-Beacon 25-UAL Media": "Vire à esquerda e dê aproximadamente 9 passos em frente seguidos de mais 4 passos à esquerda e chegará ao seu destino: UAL media",
 
         "Beacon 28-Beacon 25-Sala 58": "Dê aproximadamente 8 passos em frente seguidos de mais 7 passos à esquerda e chegará ao seu destino: sala 58",
         "Beacon 25-Sala 58": "Dê aproximadamente 7 passos em direção à sala 58 e chegará ao seu destino: sala 58",
@@ -697,9 +697,9 @@
       "beacon_connections": ["Beacon 24", "Beacon 28"],
       "beacon_instructions": {
 
-        "Beacon 24-Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus, seguidos de mais 4 degraus, e chegará ao seu destino: sala 57",
-        "Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus, seguidos de mais 4 degraus, e chegará ao seu destino: sala 57",
-        "Beacon 28-Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus, seguidos de mais 4 degraus, e chegará ao seu destino: sala 57",
+        "Beacon 24-Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus. Dê 4 passos em frente e chegará ao seu destino: Sala 57",
+        "Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus. Dê 4 passos em frente e chegará ao seu destino: sala 57",
+        "Beacon 28-Beacon 27-Sala 57": "Suba um degrau, vire à esquerda e suba 12 degraus. Dê 4 passos em frente e chegará ao seu destino: sala 57",
 
         "Beacon 24-Beacon 27-WC Piso 1": "Vire à esquerda, suba 1 degrau e dê 14 passos em frente e chegará ao seu destino: WC",
         "Beacon 27-WC Piso 1": "Suba um degrau e dê 14 passos em frente e chegará ao seu destino: WC",
@@ -754,18 +754,22 @@
       "beacon_connections": ["Beacon 28", "Beacon 30"],
       "beacon_instructions": {
 
+        "Beacon 28-Beacon 29-Sala 59": "Ao passar uma porta vire à esquerda, dê aproximadamente 3 passos e chegará ao seu destino: sala 59",
+        "Beacon 29-Sala 59": "Dê aproximadamente 3 passos em direção à sala 59 e chegará ao seu destino: sala 59",
+        "Beacon 30-Beacon 29-Sala 59": "Ao passar uma porta vire à esquerda, dê aproximadamente 3 passos e chegará ao seu destino: sala 59",
+
         "Beacon 28-Beacon 29-Sala 60": "Ao passar uma porta vire à esquerda, dê aproximadamente 2 passos e chegará ao seu destino: sala 60",
         "Beacon 29-Sala 60": "Dê aproximadamente 2 passos em direção à sala 60 e chegará ao seu destino: sala 60",
         "Beacon 30-Beacon 29-Sala 60": "Ao passar uma porta vire à direita, dê aproximadamente 2 passos e chegará ao seu destino: sala 60",
 
-        "Beacon 28-Beacon 29-Sala 61": "Ao passar uma porta vire à esquerda, dê aproximadamente 3 passos e chegará ao seu destino: sala 61",
+        "Beacon 28-Beacon 29-Sala 61": "Ao passar uma porta vire à esquerda, dê aproximadamente 6 passos em frente e chegará ao seu destino: sala 61",
         "Beacon 29-Sala 61": "Dê aproximadamente 3 passos em direção à sala 61 e chegará ao seu destino: sala 61",
 
         "Beacon 29-Beacon 28": "Dê aproximadamente 15 passos em direção ao final do corredor",
         "Beacon 30-Beacon 29-Beacon 28": "Ao passar por uma porta dê aproximadamente 15 passos em frente",
 
-        "Beacon 28-Beacon 29-Beacon 30": "Ao passar por uma porta dê aproximadamente 5 passos em frente",
-        "Beacon 29-Beacon 30": "Dê aproximadamente 5 passos em direção à sala 62"
+        "Beacon 28-Beacon 29-Beacon 30": "Ao passar por uma porta dê aproximadamente 8 passos em frente",
+        "Beacon 29-Beacon 30": "Dê aproximadamente 8 passos em direção à sala 62"
       }
     },
 
@@ -843,31 +847,31 @@
       "beacon_connections": ["Beacon 23", "Beacon 34", "Beacon 36"],
       "beacon_instructions": {
 
-        "Beacon 23-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Sala 37": "Siga para a Sala 37 a partir daqui",
-        "Beacon 34-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Sala 37": "Ir para a Sala 37 passando pelo Beacon 33, vindo do Beacon 36",
+        "Beacon 23-Beacon 33-Sala 37": "Vire à direita, suba 9 degraus seguidos de mais 2 degraus e chegará ao seu destino: sala 37",
+        "Beacon 33-Sala 37": "Encontre umas escadas, suba 9 degraus seguidos de mais 2 degraus e chegará ao seu destino: sala 37",
+        "Beacon 34-Beacon 33-Sala 37": "Vire à esquerda, suba 9 degraus e chegará ao seu destino: sala 37",
+        "Beacon 36-Beacon 33-Sala 37": "Encontre umas escadas, suba 9 degraus em frente seguidos de mais 2 degraus e chegará ao seu destino: sala 37",
 
-        "Beacon 23-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Sala 38": "Siga para a Sala 38 a partir daqui",
-        "Beacon 34-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Sala 38": "Ir para a Sala 38 passando pelo Beacon 33, vindo do Beacon 36",
+        "Beacon 23-Beacon 33-Sala 38": "Vire à direita, suba 9 degraus e chegará ao seu destino: sala 38",
+        "Beacon 33-Sala 38": "Encontre umas escadas, suba 9 degraus e chegará ao seu destino: sala 38",
+        "Beacon 34-Beacon 33-Sala 38": "Vire à esquerda, suba 9 degraus e chegará ao seu destino: sala 38",
+        "Beacon 36-Beacon 33-Sala 38": "Encontre umas escadas, suba 9 degraus e chegará ao seu destino: sala 38",
 
-        "Beacon 23-Beacon 33-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-WC Piso 2": "Siga para o WC Piso 2 a partir daqui",
-        "Beacon 34-Beacon 33-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 33, vindo do Beacon 34",
+        "Beacon 23-Beacon 33-WC Piso 2": "Dê aproximadamente 5 passos em frente. Ao passar por uma porta, encontre umas escadas, suba 8 degraus e chegará ao seu destino: WC piso 2",
+        "Beacon 33-WC Piso 2": "Ao passar por uma porta, encontre umas escadas, suba 8 degraus e chegará ao seu destino: WC piso 2",
+        "Beacon 34-Beacon 33-WC Piso 2": "Vire à direita. Ao passar por uma porta, encontre 8 degraus e chegará ao seu destino: WC piso 2",
 
-        "Beacon 33-Beacon 23": "Siga para o Beacon 23 a partir daqui",
-        "Beacon 34-Beacon 33-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 33, vindo do Beacon 34",
-        "Beacon 36-Beacon 33-Beacon 23": "Ir para o Beacon 23 passando pelo Beacon 33, vindo do Beacon 36",
+        "Beacon 33-Beacon 23": "Encontre umas escadas, desça 5 degraus seguidos de 12 degraus. Em seguida dê aproximadamente 7 passos em frente seguidos de mais 5 passos à esquerda",
+        "Beacon 34-Beacon 33-Beacon 23": "Dê aproximadamente 5 passos em frente. Encontre umas escadas, desça 5 degraus seguidos de 12 degraus. Em seguida dê aproximadamente 7 passos em frente seguidos de mais 5 passos à esquerda",
+        "Beacon 36-Beacon 33-Beacon 23": "Encontre umas escadas, desça 5 degraus seguidos de 12 degraus. Em seguida dê aproximadamente 7 passos em frente seguidos de mais 5 passos à esquerda",
 
-        "Beacon 23-Beacon 33-Beacon 34": "Ir para o Beacon 34 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Beacon 34": "Siga para o Beacon 34 a partir daqui",
-        "Beacon 36-Beacon 33-Beacon 34": "Ir para o Beacon 34 passando pelo Beacon 33, vindo do Beacon 36",
+        "Beacon 23-Beacon 33-Beacon 34": "Vire à direita e suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda",
+        "Beacon 33-Beacon 34": "Suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda",
+        "Beacon 36-Beacon 33-Beacon 34": "Vire à esquerda e suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda",
 
-        "Beacon 23-Beacon 33-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 33, vindo do Beacon 23",
-        "Beacon 33-Beacon 36": "Siga para o Beacon 36 a partir daqui",
-        "Beacon 34-Beacon 33-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 33, vindo do Beacon 34"
+        "Beacon 23-Beacon 33-Beacon 36": "Vire à direita e suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda",
+        "Beacon 33-Beacon 36": "Suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda",
+        "Beacon 34-Beacon 33-Beacon 36": "Vire à esquerda e suba 9 degraus, seguidos de mais 5 passos em frente e suba mais 7 degraus seguidos de mais 13 degraus à esquerda"
       }
     },
 
@@ -905,16 +909,16 @@
       "beacon_connections": ["Beacon 34"],
       "beacon_instructions": {
 
-        "Beacon 34-Beacon 35-Sala 42": "Ir para a Sala 42 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 42": "Siga para a Sala 42 a partir daqui",
+        "Beacon 34-Beacon 35-Sala 42": "Dê aproximadamente 4 passos em frente e chegará ao seu destino: sala 42",
+        "Beacon 35-Sala 42": "Dê aproximadamente 4 passos em direção à sala 42 e chegará ao seu destino: sala 42",
 
-        "Beacon 34-Beacon 35-Sala 44": "Ir para a Sala 44 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 44": "Siga para a Sala 44 a partir daqui",
+        "Beacon 34-Beacon 35-Sala 44": "Vire à esquerda e dê aproximadamente 5 passos e chegará ao seu destino: sala 44",
+        "Beacon 35-Sala 44": "Dê aproximadamente 5 passos em direção à sala 44 e chegará ao seu destino: sala 44",
 
-        "Beacon 34-Beacon 35-Sala 45": "Ir para a Sala 45 passando pelo Beacon 35, vindo do Beacon 34",
-        "Beacon 35-Sala 45": "Siga para a Sala 45 a partir daqui",
+        "Beacon 34-Beacon 35-Sala 45": "Vire à esquerda e dê aproximadamente 7 passos e chegará ao seu destino: sala 45",
+        "Beacon 35-Sala 45": "Dê aproximadamente 7 passos em direção à sala 45 e chegará ao seu destino: sala 45",
 
-        "Beacon 35-Beacon 34": "Siga para o Beacon 34 a partir daqui"
+        "Beacon 35-Beacon 34": "Vire à esquerda e desça 19 degraus"
       }
     },
 
@@ -925,26 +929,27 @@
       "beacon_connections": ["Beacon 33", "Beacon 37", "Beacon 38"],
       "beacon_instructions": {
 
-        "Beacon 33-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Pátio de Enfermagem": "Siga para o Pátio de Enfermagem a partir daqui",
-        "Beacon 37-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-Pátio de Enfermagem": "Ir para o Pátio de Enfermagem passando pelo Beacon 36, vindo do Beacon 38",
+        "Beacon 33-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Pátio de Enfermagem.",
+        "Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Pátio de Enfermagem.",
+        "Beacon 37-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Pátio de Enfermagem.",
+        "Beacon 38-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Pátio de Enfermagem.",
 
-        "Beacon 36-WC Piso 2": "Siga para o WC Piso 2 a partir daqui",
-        "Beacon 37-Beacon 36-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-WC Piso 2": "Ir para o WC Piso 2 passando pelo Beacon 36, vindo do Beacon 38",
+        "Beacon 33-Beacon 36-WC Piso 2": "Dê aproximadamente 14 passos em direção ao WC Piso 2 e desça 8 degraus à direita.",
+        "Beacon 36-WC Piso 2": "Dê aproximadamente 14 passos em frente e chegará ao seu destino: WC Piso 2.",
+        "Beacon 37-Beacon 36-WC Piso 2": "Dê aproximadamente 14 passos em frente e chegará ao seu destino: WC Piso 2.",
+        "Beacon 38-Beacon 36-WC Piso 2": "Dê aproximadamente 14 passos em frente e chegará ao seu destino: WC Piso 2.",
 
-        "Beacon 36-Beacon 33": "Siga para o Beacon 33 a partir daqui",
-        "Beacon 37-Beacon 36-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 36, vindo do Beacon 37",
-        "Beacon 38-Beacon 36-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 36, vindo do Beacon 38",
+        "Beacon 36-Beacon 33": "Dê aproximadamente 11 passos em frente e desça 8 degraus à direita.",
+        "Beacon 37-Beacon 36-Beacon 33": "Dê aproximadamente 11 passos em frente e desça 8 degraus à direita.",
+        "Beacon 38-Beacon 36-Beacon 33": "Dê aproximadamente 11 passos em frente e desça 8 degraus à direita.",
 
-        "Beacon 33-Beacon 36-Beacon 37": "Ir para o Beacon 37 passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Beacon 37": "Siga para o Beacon 37 a partir daqui",
-        "Beacon 38-Beacon 36-Beacon 37": "Ir para o Beacon 37 passando pelo Beacon 36, vindo do Beacon 38",
+        "Beacon 36-Beacon 37": "Encontre umas escadas e desça 6 degraus.",
+        "Beacon 33-Beacon 36-Beacon 37": "Encontre umas escadas e desça 6 degraus.",
+        "Beacon 38-Beacon 36-Beacon 37": "Vire à direita, ande aproximadamente 6 passos e desça 6 degraus em frente.",
 
-        "Beacon 33-Beacon 36-Beacon 38": "Ir para o Beacon 38 passando pelo Beacon 36, vindo do Beacon 33",
-        "Beacon 36-Beacon 38": "Siga para o Beacon 38 a partir daqui",
-        "Beacon 37-Beacon 36-Beacon 38": "Ir para o Beacon 38 passando pelo Beacon 36, vindo do Beacon 37"
+        "Beacon 36-Beacon 38": "Vire à esquerda, ande aproximadamente 4 passos e suba 11 degraus em frente.",
+        "Beacon 33-Beacon 36-Beacon 38": "Ande aproximadamente 4 passos e suba 11 degraus em frente.",
+        "Beacon 37-Beacon 36-Beacon 38": "Vire à esquerda, ande 4 passos e suba 11 degraus em frente."
       }
     },
 
@@ -955,16 +960,15 @@
       "beacon_connections": ["Beacon 20", "Beacon 36"],
       "beacon_instructions": {
 
-        "Beacon 20-Beacon 37-Sala 80": "Ir para a Sala 80 passando pelo Beacon 37, vindo do Beacon 20",
-        "Beacon 36-Beacon 37-Sala 80": "Ir para a Sala 80 passando pelo Beacon 37, vindo do Beacon 36",
-        "Beacon 37-Sala 80": "Siga para a Sala 80 a partir daqui",
+        "Beacon 20-Beacon 37-Sala 80": "Vire à esquerda e dê aproximadamente 2 passos e chegará ao seu destino: sala 80",
+        "Beacon 36-Beacon 37-Sala 80": "Vire à esquerda e dê aproximadamente 2 passos e chegará ao seu destino: sala 80",
+        "Beacon 37-Sala 80": "Dê aproximadamente 2 passos em direção à sala 80 e chegará ao seu destino",
 
-        "Beacon 36-Beacon 37-Beacon 20": "Ir para o Beacon 20 passando pelo Beacon 37, vindo do Beacon 36",
-        "Beacon 37-Beacon 20": "Siga para o Beacon 20 a partir daqui",
+        "Beacon 36-Beacon 37-Beacon 20": "Vire à direita e suba 6 degraus seguidos de mais aproximadamente 7 passos em frente",
+        "Beacon 37-Beacon 20": "Suba 6 degraus seguidos de mais aproximadamente 7 passos em frente",
 
-        "Beacon 20-Beacon 37-Beacon 36": "Ir para o Beacon 36 passando pelo Beacon 37, vindo do Beacon 20",
-        "Beacon 37-Beacon 36": "Siga para o Beacon 36 a partir daqui"
-      }
+        "Beacon 20-Beacon 37-Beacon 36": "Vire à esquerda e desça 15 degraus",
+        "Beacon 37-Beacon 36": "Desça 15 degraus"     }
     },
 
     "Beacon 38": {
@@ -974,13 +978,13 @@
       "beacon_connections": ["Beacon 36"],
       "beacon_instructions": {
 
-        "Beacon 36-Beacon 38-Auditório 01": "Ir para o Auditório 01 passando pelo Beacon 38, vindo do Beacon 36",
-        "Beacon 38-Auditório 01": "Siga para o Auditório 01 a partir daqui",
+        "Beacon 36-Beacon 38-Auditório 01": "Vire à esquerda e dê aproximadamente 3 passos e chegará ao seu destino: Auditório 01",
+        "Beacon 38-Auditório 01": "Dê aproximadamente 3 passos em direção ao Auditório 01 e chegará ao seu destino",
 
-        "Beacon 36-Beacon 38-Sala 90": "Ir para a Sala 90 passando pelo Beacon 38, vindo do Beacon 36",
-        "Beacon 38-Sala 90": "Siga para a Sala 90 a partir daqui",
+        "Beacon 36-Beacon 38-Sala 90": "Vire à esquerda e dê aproximadamente 12 passos seguidos de mais 5 passos à direita e chegará ao seu destino: Sala 90",
+        "Beacon 38-Sala 90": "Dê aproximadamente 12 passos seguidos de mais 5 passos em direção à Sala 90 e chegará ao seu destino",
 
-        "Beacon 38-Beacon 36": "Siga para o Beacon 36 a partir daqui"
+        "Beacon 38-Beacon 36": "Desça 11 degraus em frente"
       }
     }
 
