@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tts/flutter_tts.dart';
-import 'tour_scan.dart';
+import 'package:flutter_tts/flutter_tts.dart'; // síntese de voz
+import 'tour_scan.dart'; // página que faz o scan durante a visita
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart'; // para traduções
 
 class TourPage extends StatefulWidget {
   const TourPage({super.key});
@@ -14,29 +14,29 @@ class TourPage extends StatefulWidget {
 }
 
 class _TourPageState extends State<TourPage> {
-  Map<String, dynamic> mensagens = {};
-  final FlutterTts _tts = FlutterTts();
-  final PreferencesHelper _preferencesHelper = PreferencesHelper();
+  Map<String, dynamic> mensagens = {}; // mensagens carregadas do JSON
+  final FlutterTts _tts = FlutterTts(); // controlador TTS
+  final PreferencesHelper _preferencesHelper = PreferencesHelper(); // helper para preferências
 
-  String selectedLanguageCode = 'pt-PT';
-  bool soundEnabled = true;
-  bool isSpeaking = false;
+  String selectedLanguageCode = 'pt-PT'; // idioma selecionado
+  bool soundEnabled = true; // som ativado/desativado
+  bool isSpeaking = false; // indica se está a falar
 
   @override
   void initState() {
     super.initState();
-    _loadSettings();
+    _loadSettings(); // carrega definições ao iniciar
   }
 
   Future<void> _loadSettings() async {
-    final settings = await _preferencesHelper.loadSoundSettings();
+    final settings = await _preferencesHelper.loadSoundSettings(); // lê preferências guardadas
     setState(() {
       selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
       soundEnabled = settings['soundEnabled'];
     });
-    await _tts.setLanguage(selectedLanguageCode);
-    await _tts.setSpeechRate(0.5);
-    await _loadMessages();
+    await _tts.setLanguage(selectedLanguageCode); // define idioma TTS
+    await _tts.setSpeechRate(0.5); // define velocidade TTS
+    await _loadMessages(); // carrega mensagens do JSON
   }
 
   Future<void> _loadMessages() async {
@@ -50,12 +50,12 @@ class _TourPageState extends State<TourPage> {
     String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path);
+        jsonString = await rootBundle.loadString(path); // tenta carregar o ficheiro
         break;
       } catch (_) {}
     }
     setState(() {
-      mensagens = jsonString != null ? json.decode(jsonString) : {};
+      mensagens = jsonString != null ? json.decode(jsonString) : {}; // guarda mensagens
     });
   }
 
@@ -64,8 +64,8 @@ class _TourPageState extends State<TourPage> {
       setState(() {
         isSpeaking = true;
       });
-      await _tts.speak(texto);
-      await _tts.awaitSpeakCompletion(true);
+      await _tts.speak(texto); // fala o texto
+      await _tts.awaitSpeakCompletion(true); // espera até terminar
       setState(() {
         isSpeaking = false;
       });
@@ -78,23 +78,23 @@ class _TourPageState extends State<TourPage> {
       builder: (context) {
         return AlertDialog(
           title: Text(
-            'tour_page.guided_tour_popup'.tr(),
+            'tour_page.guided_tour_popup'.tr(), // título traduzido
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             textAlign: TextAlign.center,
           ),
           content: Text(
-            'tour_page.guided_tour_info_description'.tr(),
+            'tour_page.guided_tour_info_description'.tr(), // descrição traduzida
             style: const TextStyle(fontSize: 15),
-            textAlign: TextAlign.left, // 🔹 Alinhamento à esquerda
+            textAlign: TextAlign.left,
           ),
           actionsAlignment: MainAxisAlignment.center,
           actions: [
             GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
+              onTap: () => Navigator.of(context).pop(), // fecha popup
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  'privacy_policy.close'.tr(),
+                  'privacy_policy.close'.tr(), // botão fechar
                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black),
                 ),
               ),
@@ -105,11 +105,7 @@ class _TourPageState extends State<TourPage> {
     );
   }
 
-
-
-
-
-  String get imagemPiso => 'assets/images/map/00_piso.png';
+  String get imagemPiso => 'assets/images/map/00_piso.png'; // imagem inicial do mapa
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +113,7 @@ class _TourPageState extends State<TourPage> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: InteractiveViewer(
+            child: InteractiveViewer( // permite zoom e mover mapa
               panEnabled: true,
               scaleEnabled: true,
               minScale: 1.0,
@@ -125,13 +121,13 @@ class _TourPageState extends State<TourPage> {
               constrained: false,
               boundaryMargin: const EdgeInsets.all(100),
               child: Image.asset(
-                imagemPiso,
+                imagemPiso, // imagem do piso atual
                 fit: BoxFit.none,
                 alignment: Alignment.topLeft,
               ),
             ),
           ),
-          DraggableScrollableSheet(
+          DraggableScrollableSheet( // painel inferior arrastável
             minChildSize: 0.20,
             maxChildSize: 0.35,
             initialChildSize: 0.35,
@@ -150,7 +146,7 @@ class _TourPageState extends State<TourPage> {
                     children: [
                       Center(
                         child: Text(
-                          'tour_page.guided_tour_title'.tr(),
+                          'tour_page.guided_tour_title'.tr(), // título da secção
                           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
                         ),
@@ -158,7 +154,7 @@ class _TourPageState extends State<TourPage> {
                       const SizedBox(height: 20),
                       Center(
                         child: Text(
-                          'tour_page.guided_tour_description'.tr(),
+                          'tour_page.guided_tour_description'.tr(), // descrição da visita
                           style: TextStyle(fontSize: 16, color: Colors.grey.shade700),
                           textAlign: TextAlign.center,
                         ),
@@ -167,11 +163,12 @@ class _TourPageState extends State<TourPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ElevatedButton.icon(
+                          ElevatedButton.icon( // botão iniciar visita
                             onPressed: isSpeaking ? null : () async {
-                              String mensagemIniciar = mensagens['alerts']?['guided_tour_start_alert'] ?? 'Vamos iniciar a visita guiada pela Universidade Autónoma de Lisboa.';
+                              String mensagemIniciar = mensagens['alerts']?['guided_tour_start_alert']
+                                  ?? 'Vamos iniciar a visita guiada pela Universidade Autónoma de Lisboa.';
 
-                              await _tts.speak(mensagemIniciar);
+                              await _tts.speak(mensagemIniciar); // fala mensagem inicial
                               await _tts.awaitSpeakCompletion(true);
 
                               if (!mounted) return;
@@ -179,7 +176,7 @@ class _TourPageState extends State<TourPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => TourScanPage(
+                                  builder: (context) => TourScanPage( // abre página de scan
                                     destino: 'Visita',
                                     destinosMap: {},
                                   ),
@@ -193,7 +190,7 @@ class _TourPageState extends State<TourPage> {
                               foregroundColor: Colors.white,
                             ),
                           ),
-                          ElevatedButton.icon(
+                          ElevatedButton.icon( // botão info
                             onPressed: _mostrarPopupDescricaoVisita,
                             icon: const Icon(Icons.info_outline),
                             label: Text('tour_page.guided_tour_info'.tr()),
@@ -210,13 +207,13 @@ class _TourPageState extends State<TourPage> {
               );
             },
           ),
-          Positioned(
+          Positioned( // botão voltar no topo
             top: 40,
             left: 10,
             child: IconButton(
               icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context); // volta para trás
               },
             ),
           ),

@@ -11,10 +11,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _fadeAnimation;
-  late Animation<double> _scaleAnimation;
-  String _appVersion = '';
+  late AnimationController _controller; // controla animações
+  late Animation<double> _fadeAnimation; // controla opacidade
+  late Animation<double> _scaleAnimation; // controla escala (zoom)
+  String _appVersion = ''; // versão do app
 
   @override
   void initState() {
@@ -33,19 +33,19 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
     );
 
-    _controller.forward();
+    _controller.forward(); // inicia animação
 
-    _loadAppVersion();
+    _loadAppVersion(); // carrega versão do app
 
     Timer(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(_createSlideRoute());
+      Navigator.of(context).pushReplacement(_createSlideRoute()); // vai para home após 5s
     });
   }
 
   Future<void> _loadAppVersion() async {
     final packageInfo = await PackageInfo.fromPlatform();
     setState(() {
-      _appVersion = 'v${packageInfo.version}+${packageInfo.buildNumber}';
+      _appVersion = 'v${packageInfo.version}+${packageInfo.buildNumber}'; // exibe versão
     });
   }
 
@@ -54,14 +54,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       transitionDuration: const Duration(milliseconds: 700),
       pageBuilder: (context, animation, secondaryAnimation) => const MyHomePage(title: 'Página Inicial'),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(1.0, 0.0); // Começa da direita
+        const begin = Offset(1.0, 0.0); // desliza da direita
         const end = Offset.zero;
-        final tween = Tween(begin: begin, end: end).chain(
-          CurveTween(curve: Curves.easeInOut),
-        );
+        final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
 
         return SlideTransition(
-          position: animation.drive(tween),
+          position: animation.drive(tween), // aplica transição
           child: child,
         );
       },
@@ -70,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller.dispose(); // limpa controller ao fechar
     super.dispose();
   }
 
@@ -85,14 +83,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       body: Stack(
         children: [
           Center(
-            child: FadeTransition(
+            child: FadeTransition( // aplica fade in
               opacity: _fadeAnimation,
-              child: ScaleTransition(
+              child: ScaleTransition( // aplica zoom
                 scale: _scaleAnimation,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: Image.asset(
-                    'assets/images/home/logo_gps.png',
+                    'assets/images/home/logo_gps.png', // logo do app
                     width: 250,
                     fit: BoxFit.contain,
                     color: Theme.of(context).brightness == Brightness.dark
@@ -104,7 +102,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             ),
           ),
           Positioned(
-            bottom: 16,
+            bottom: 16, // exibe versão no rodapé
             left: 0,
             right: 0,
             child: Center(

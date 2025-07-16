@@ -1,441 +1,398 @@
 {
   "alerts": {
-    "already_there_alert": "Já se encontra em {location}. Chegou ao seu destino.",
-    "path_not_found_alert": "Encontra-se em {location}. Caminho não encontrado.",
-    "at_location_alert": "Encontra-se em: {location}",
-    "navigation_cancelled_alert": "Navegação cancelada",
-    "searching_alert": "A procurar...",
-    "end_of_route_alert": "Fim da rota",
-    "voice_start_alert": "Vamos iniciar a navegação com o destino {destination}.",
-    "voice_unavailable_alert": "Destino não se encontra disponível, repita por favor.",
-    "voice_selected_alert": "Destino favorito selecionado: {destination}",
-    "start_navigation_alert": "Vamos iniciar a navegação com o destino {destination}",
-    "timeout_alert": "Tempo limite de áudio excedido. Por favor, tente novamente.",
-    "no_match_alert": "Não foi possível reconhecer o que disse. Por favor, tente novamente.",
-    "navigation_end_alert": "Navegação concluida. Obrigado por usar a nossa aplicação!"
+    "already_there_alert": "Ya se encuentra en {location}. Ha llegado a su destino.",
+    "path_not_found_alert": "Se encuentra en {location}. Ruta no encontrada.",
+    "at_location_alert": "Se encuentra en: {location}",
+    "navigation_cancelled_alert": "Navegación cancelada",
+    "searching_alert": "Buscando...",
+    "end_of_route_alert": "Fin de la ruta",
+    "voice_start_alert": "Vamos a iniciar la navegación con destino a {destination}.",
+    "voice_unavailable_alert": "El destino no está disponible, por favor repita.",
+    "voice_selected_alert": "Destino favorito seleccionado: {destination}",
+    "start_navigation_alert": "Vamos a iniciar la navegación con destino a {destination}",
+    "timeout_alert": "Tiempo de audio excedido. Por favor, intente nuevamente.",
+    "no_match_alert": "No se pudo reconocer lo que dijo. Por favor, intente nuevamente.",
+    "navigation_end_alert": "Navegación finalizada. ¡Gracias por usar nuestra aplicación!"
   },
+
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "En este espacio encontram-se a Sala de Actos, a Entrada Principal e a zona de Objetos Perdidos.",
-      "beacon_destinations": [
-        "Sala dos Atos",
-        "Entrada Principal",
-        "Perdidos e Achados"
-      ],
-      "beacon_connections": [
-        "Beacon 2",
-        "Beacon 3"
-      ],
+      "beacon_description": "En este espacio se encuentran la Sala de Actos, la Entrada Principal y la zona de Objetos Perdidos.",
+      "beacon_destinations": ["Sala de Actos", "Entrada Principal", "Objetos Perdidos"],
+      "beacon_connections": ["Beacon 2", "Beacon 3"],
       "beacon_instructions": {
-        "Beacon 1-Entrada Principal": "Dê cinco pasos em direção à Entrada Principal y llegará a su destino: Entrada Principal",
-        "Beacon 2-Beacon 1-Entrada Principal": "Dé aproximadamente 3 pasos à derecha seguidos de mais cinco pasos à derecha y llegará a su destino: Entrada Principal",
-        "Beacon 3-Beacon 1-Entrada Principal": "Dé aproximadamente 5 pasos em frente y llegará a su destino: Entrada Principal ",
-        "Beacon 1-Perdidos e Achados": "Dé aproximadamente cinco pasos en dirección aos perdidos e achados, y llegará a su destino: Objetos Perdidos",
-        "Beacon 2-Beacon 1-Perdidos e Achados": "Dé aproximadamente sete pasos à derecha y llegará a su destino: Objetos Perdidos",
-        "Beacon 3-Beacon 1-Perdidos e Achados": "Dé aproximadamente cinco pasos em frente seguidos de mais quatro pasos à izquierda y llegará a su destino: Objetos Perdidos",
-        "Beacon 1-Sala dos Atos": " Dé aproximadamente cinco pasos e suba 11 escalones em direção à Sala de Actos y llegará a su destino: Sala de Actos",
-        "Beacon 2-Beacon 1-Sala dos Atos": "Dé aproximadamente 4 pasos em frente, vire à izquierda e suba 11 escalones y llegará a su destino: Sala de Actos ",
-        "Beacon 3-Beacon 1-Sala dos Atos": "Dé aproximadamente três pasos em frente seguidos de mais quatro pasos à derecha, suba 11 escalones y llegará a su destino: Sala de Actos ",
-        "Beacon 1-Beacon 2": "Encuentre unas escaleras à sua izquierda. Baje 6 escalones e dê cinco pasos à derecha Encuentre unas escaleras à sua izquierda. Baje 6 escalones e dê cinco pasos à derecha ",
-        "Beacon 3-Beacon 1-Beacon 2": "Dé aproximadamente seis pasos em frente, encontre umas escadas à derecha. Baje 6 escalones e dê cinco pasos à derecha.",
-        "Beacon 1-Beacon 3": "Dé aproximadamente dezassete pasos em frente",
-        "Beacon 2-Beacon 1-Beacon 3": "-----------Dé aproximadamente vinte pasos em frente "
+        "Beacon 1-Entrada Principal": "Dé cinco pasos hacia la Entrada Principal y llegará a su destino: Entrada Principal",
+        "Beacon 2-Beacon 1-Entrada Principal": "Dé aproximadamente 3 pasos a la derecha seguidos de cinco pasos más a la derecha y llegará a su destino: Entrada Principal",
+        "Beacon 3-Beacon 1-Entrada Principal": "Dé aproximadamente 5 pasos al frente y llegará a su destino: Entrada Principal",
+
+        "Beacon 1-Objetos Perdidos": "Dé aproximadamente cinco pasos hacia los Objetos Perdidos y llegará a su destino: Objetos Perdidos",
+        "Beacon 2-Beacon 1-Objetos Perdidos": "Dé aproximadamente siete pasos a la derecha y llegará a su destino: Objetos Perdidos",
+        "Beacon 3-Beacon 1-Objetos Perdidos": "Dé aproximadamente cinco pasos al frente seguidos de cuatro pasos más a la izquierda y llegará a su destino: Objetos Perdidos",
+
+        "Beacon 1-Sala de Actos": "Dé aproximadamente cinco pasos y suba 11 escalones hacia la Sala de Actos y llegará a su destino: Sala de Actos",
+        "Beacon 2-Beacon 1-Sala de Actos": "Dé aproximadamente 4 pasos al frente, gire a la izquierda y suba 11 escalones y llegará a su destino: Sala de Actos",
+        "Beacon 3-Beacon 1-Sala de Actos": "Dé aproximadamente tres pasos al frente seguidos de cuatro pasos más a la derecha, suba 11 escalones y llegará a su destino: Sala de Actos",
+
+        "Beacon 1-Beacon 2": "Encuentre unas escaleras a su izquierda. Baje 6 escalones y dé cinco pasos a la derecha.",
+        "Beacon 3-Beacon 1-Beacon 2": "Dé aproximadamente seis pasos al frente, encuentre unas escaleras a la derecha. Baje 6 escalones y dé cinco pasos a la derecha.",
+
+        "Beacon 1-Beacon 3": "Dé aproximadamente diecisiete pasos al frente",
+        "Beacon 2-Beacon 1-Beacon 3": "Dé aproximadamente veinte pasos al frente"
       }
     },
+
     "Beacon 2": {
       "beacon_floor": "-1",
-      "beacon_description": "En este lugar encontram-se as escadas que utilizou para descer, bem como um corredor que o conduzirá às salas 13, 14 e 15 correspondente",
-      "beacon_destinations": [
-        "Sala 13",
-        "Sala 14",
-        "Sala 15"
-      ],
-      "beacon_connections": [
-        "Beacon 1"
-      ],
+      "beacon_description": "En este lugar se encuentran las escaleras que usó para bajar, así como un pasillo que le llevará a las salas 13, 14 y 15 correspondientes.",
+      "beacon_destinations": ["Sala 13", "Sala 14", "Sala 15"],
+      "beacon_connections": ["Beacon 1"],
       "beacon_instructions": {
-        "Beacon 1-Beacon 2-Sala 13": "Vire à derecha e dê aproximadamente 7 pasos. Ao passar a porta chegará ao seu destino: sala13",
-        "Beacon 2-Sala 13": "Dé aproximadamente 7 pasos em direção à sala 13. Ao passar a porta chegará ao seu destino: sala13",
-        "Beacon 1-Beacon 2-Sala 14": "Vire à derecha e dê aproximadamente 14 pasos y llegará a su destino: sala 14",
-        "Beacon 2-Sala 14": "Dé aproximadamente 14 pasos em direção à sala 14 y llegará a su destino: sala 14",
-        "Beacon 1-Beacon 2-Sala 15": "Vire à derecha e dê aproximadamente 21 pasos y llegará a su destino: sala 15",
-        "Beacon 2-Sala 15": "Dé aproximadamente 21 pasos em direção à sala 15 y llegará a su destino: sala 15",
-        "Beacon 2-Beacon 1": "Dé aproximadamente cinco pasos à sua izquierda e suba seis escalones"
+        "Beacon 1-Beacon 2-Sala 13": "Gire a la derecha y dé aproximadamente 7 pasos. Al pasar la puerta llegará a su destino: sala 13",
+        "Beacon 2-Sala 13": "Dé aproximadamente 7 pasos hacia la sala 13. Al pasar la puerta llegará a su destino: sala 13",
+
+        "Beacon 1-Beacon 2-Sala 14": "Gire a la derecha y dé aproximadamente 14 pasos y llegará a su destino: sala 14",
+        "Beacon 2-Sala 14": "Dé aproximadamente 14 pasos hacia la sala 14 y llegará a su destino: sala 14",
+
+        "Beacon 1-Beacon 2-Sala 15": "Gire a la derecha y dé aproximadamente 21 pasos y llegará a su destino: sala 15",
+        "Beacon 2-Sala 15": "Dé aproximadamente 21 pasos hacia la sala 15 y llegará a su destino: sala 15",
+
+        "Beacon 2-Beacon 1": "Dé aproximadamente cinco pasos a su izquierda y suba seis escalones"
       }
     },
+
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "Está en el centro do Patio Principal da UAL. À sua volta encontra-se a saída da universidade, o busto de Camões e as escadas de acesso ao interior da universidade.",
-      "beacon_destinations": [
-        "Pátio"
-      ],
-      "beacon_connections": [
-        "Beacon 1",
-        "Beacon 4",
-        "Beacon 8",
-        "Beacon 15"
-      ],
+      "beacon_description": "Está en el centro del Patio Principal de la UAL. A su alrededor se encuentra la salida de la universidad, el busto de Camões y las escaleras de acceso al interior de la universidad.",
+      "beacon_destinations": ["Patio"],
+      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
       "beacon_instructions": {
-        "Beacon 1-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
-        "Beacon 3-Pátio": "Encontra-se no Patio",
-        "Beacon 4-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
-        "Beacon 8-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
-        "Beacon 15-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
-        "Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos em direção à entrada",
-        "Beacon 4-Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos à izquierda ",
-        "Beacon 8-Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos à izquierda",
-        "Beacon 15-Beacon 3-Beacon 1": "Dé aproximadamente 20 pasos em frente",
-        "Beacon 1-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
-        "Beacon 3-Beacon 4": "Dé aproximadamente sete pasos em direção às escadas inferiores, suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
-        "Beacon 8-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
-        "Beacon 15-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
-        "Beacon 1-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
-        "Beacon 3-Beacon 8": "Dé aproximadamente sete pasos em direção às escadas superiores, suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
-        "Beacon 4-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
-        "Beacon 15-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
-        "Beacon 1-Beacon 3-Beacon 15": "Dé aproximadamente vinte pasos em frente e suba dois escalones",
-        "Beacon 3-Beacon 15": "Dé aproximadamente vinte pasos em frente e suba dois escalones",
-        "Beacon 4-Beacon 3-Beacon 15": "Dé aproximadamente doze pasos à frente e suba dois escalones",
-        "Beacon 8-Beacon 3-Beacon 15": "Dé aproximadamente doze pasos em frente e suba dois escalones"
+        "Beacon 1-Beacon 3-Patio": "Dé aproximadamente tres pasos y llegará a su destino: Patio",
+        "Beacon 3-Patio": "Se encuentra en el Patio",
+        "Beacon 4-Beacon 3-Patio": "Dé aproximadamente tres pasos y llegará a su destino: Patio",
+        "Beacon 8-Beacon 3-Patio": "Dé aproximadamente tres pasos y llegará a su destino: Patio",
+        "Beacon 15-Beacon 3-Patio": "Dé aproximadamente tres pasos y llegará a su destino: Patio",
+
+        "Beacon 3-Beacon 1": "Dé aproximadamente diecisiete pasos hacia la entrada",
+        "Beacon 4-Beacon 3-Beacon 1": "Dé aproximadamente diecisiete pasos a la izquierda",
+        "Beacon 8-Beacon 3-Beacon 1": "Dé aproximadamente diecisiete pasos a la izquierda",
+        "Beacon 15-Beacon 3-Beacon 1": "Dé aproximadamente veinte pasos al frente"
       }
     },
+
     "Beacon 4": {
       "beacon_floor": "0",
-      "beacon_description": "En este espacio, à sua frente está a loja dos trajes académicos, à sua izquierda a Associação de Estudantes e à sua derecha as salas vinte e quatro a trinta e três, os auditórios dois e três e o Oficina de Erasmus.",
-      "beacon_destinations": [
-        "Auditório 02",
-        "Auditório 03",
-        "Sala 22",
-        "Sala 23"
-      ],
-      "beacon_connections": [
-        "Beacon 3",
-        "Beacon 5",
-        "Beacon 8",
-        "Beacon 9"
-      ],
+      "beacon_description": "En este espacio, frente a usted está la tienda de trajes académicos, a su izquierda la Asociación de Estudiantes y a su derecha las salas 24 a 33, los auditorios 2 y 3 y la Oficina Erasmus.",
+      "beacon_destinations": ["Auditorio 02", "Auditorio 03", "Sala 22", "Sala 23"],
+      "beacon_connections": ["Beacon 3", "Beacon 5", "Beacon 8", "Beacon 9"],
       "beacon_instructions": {
-        "Beacon 3-Beacon 4-Auditório 02": "Vire à derecha e dê sete pasos seguidos de mais sete pasos à izquierda y llegará a su destino: Auditorio 2",
-        "Beacon 4-Auditório 02": "Dé aproximadamente sete pasos seguidos de mais sete pasos à izquierda en dirección ao auditório 2 y llegará a su destino: Auditorio 2",
-        "Beacon 8-Beacon 4-Auditório 02": "Dé aproximadamente 11 pasos em frente seguidos de sete pasos à izquierda y llegará a su destino: Auditorio 2",
-        "Beacon 9-Beacon 4-Auditório 02": "Dé aproximadamente 11 pasos em frente seguidos de sete pasos à izquierda y llegará a su destino: Auditorio 2",
-        "Beacon 3-Beacon 4-Auditório 03": "Vire à derecha, dê nove pasos y llegará a su destino: Auditorio 3",
-        "Beacon 4-Auditório 03": "Dê nove pasos en dirección ao auditório 3 y llegará a su destino: Auditorio 3",
-        "Beacon 5-Beacon 4-Auditório 03": "Dé aproximadamente 9 pasos à izquierda y llegará a su destino: Auditorio 3",
-        "Beacon 8-Beacon 4-Auditório 03": "Dé aproximadamente 12 pasos em frente y llegará a su destino: Auditorio 3",
-        "Beacon 9-Beacon 4-Auditório 03": "Dé aproximadamente 12 pasos em frente y llegará a su destino: Auditorio 3",
-        "Beacon 3-Beacon 4-Sala 22": "Dé aproximadamente 9 pasos em frente y llegará a su destino: Sala 22",
-        "Beacon 4-Sala 22": "Dé aproximadamente 9 pasos em direção à sala 22 y llegará a su destino: Sala 22",
-        "Beacon 5-Beacon 4-Sala 22": "Vire à derecha, dê aproximadamente 5 pasos seguidos de mais 9 pasos à derecha y llegará a su destino: Sala 22",
-        "Beacon 8-Beacon 4-Sala 22": "Vire à izquierda, dê aproximadamente 6 pasos y llegará a su destino: Sala 22",
-        "Beacon 9-Beacon 4-Sala 22": "Vire à izquierda e dê aproximadamente 9 pasos y llegará a su destino: Sala 22",
-        "Beacon 3-Beacon 4-Sala 23": "Dé aproximadamente 6 pasos em frente, seguidos de mais 8 pasos à derecha y llegará a su destino: Sala 23",
-        "Beacon 4-Sala 23": "Dé aproximadamente 6 pasos em frente, seguidos de mais 8 pasos em direção à sala 23 y llegará a su destino: Sala 23",
-        "Beacon 5-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos à izquierda seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
-        "Beacon 8-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos em frente, seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
-        "Beacon 9-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos em frente, seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
-        "Beacon 4-Beacon 3": "Ao passar a porta vire à derecha e desça 8 escalones, vire à izquierda e dê sete pasos",
-        "Beacon 5-Beacon 4-Beacon 3": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à izquierda. Ao passar a porta, vire à derecha e desça 8 escalones",
-        "Beacon 8-Beacon 4-Beacon 3": "Dé aproximadamente 5 pasos em frente, seguidos de mais 2 pasos à derecha. Ao passar a porta, vire à derecha e desça 8 escalones",
-        "Beacon 9-Beacon 4-Beacon 3": "Vire à izquierda e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à derecha. Ao passar a porta, vire à derecha e desça 8 escalones",
-        "Beacon 3-Beacon 4-Beacon 5": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 15 pasos à izquierda",
-        "Beacon 4-Beacon 5": "Vire à derecha e dê aproximadamente 6 pasos, seguidos de mais 15 pasos à izquierda",
-        "Beacon 8-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
-        "Beacon 9-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
-        "Beacon 3-Beacon 4-Beacon 8": "Vire à izquierda e dê aproximadamente 13 pasos",
-        "Beacon 4-Beacon 8": "Dé aproximadamente 13 pasos em direção às escadas superiores",
-        "Beacon 5-Beacon 4-Beacon 8": "Vire à derecha e dê aproximadamente 15 pasos",
-        "Beacon 9-Beacon 4-Beacon 8": "Vire à derecha e dê aproximadamente 7 pasos ",
-        "Beacon 3-Beacon 4-Beacon 9": "Vire à izquierda e dê aproximadamente 7 pasos, seguidos de mais 10 pasos à derecha",
-        "Beacon 4-Beacon 9": "Dé aproximadamente 7 pasos em direção às escadas superiores, seguidos de mais 10 pasos à derecha",
-        "Beacon 5-Beacon 4-Beacon 9": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
+        "Beacon 3-Beacon 4-Auditorio 02": "Gire a la derecha y dé siete pasos seguidos de siete más a la izquierda y llegará a su destino: Auditorio 2",
+        "Beacon 4-Auditorio 02": "Dé aproximadamente siete pasos seguidos de siete más a la izquierda hacia el Auditorio 2 y llegará a su destino: Auditorio 2",
+        "Beacon 8-Beacon 4-Auditorio 02": "Dé aproximadamente 11 pasos al frente seguidos de siete pasos a la izquierda y llegará a su destino: Auditorio 2",
+        "Beacon 9-Beacon 4-Auditorio 02": "Dé aproximadamente 11 pasos al frente seguidos de siete pasos a la izquierda y llegará a su destino: Auditorio 2",
+
+        "Beacon 3-Beacon 4-Auditorio 03": "Gire a la derecha, dé nueve pasos y llegará a su destino: Auditorio 3",
+        "Beacon 4-Auditorio 03": "Dé nueve pasos hacia el Auditorio 3 y llegará a su destino: Auditorio 3",
+        "Beacon 5-Beacon 4-Auditorio 03": "Dé aproximadamente 9 pasos a la izquierda y llegará a su destino: Auditorio 3",
+        "Beacon 8-Beacon 4-Auditorio 03": "Dé aproximadamente 12 pasos al frente y llegará a su destino: Auditorio 3",
+        "Beacon 9-Beacon 4-Auditorio 03": "Dé aproximadamente 12 pasos al frente y llegará a su destino: Auditorio 3",
+
+        "Beacon 3-Beacon 4-Sala 22": "Dé aproximadamente 9 pasos al frente y llegará a su destino: Sala 22",
+        "Beacon 4-Sala 22": "Dé aproximadamente 9 pasos hacia la Sala 22 y llegará a su destino: Sala 22",
+        "Beacon 5-Beacon 4-Sala 22": "Gire a la derecha, dé aproximadamente 5 pasos seguidos de 9 pasos más a la derecha y llegará a su destino: Sala 22",
+        "Beacon 8-Beacon 4-Sala 22": "Gire a la izquierda, dé aproximadamente 6 pasos y llegará a su destino: Sala 22",
+        "Beacon 9-Beacon 4-Sala 22": "Gire a la izquierda y dé aproximadamente 9 pasos y llegará a su destino: Sala 22",
+
+        "Beacon 3-Beacon 4-Sala 23": "Dé aproximadamente 6 pasos al frente, seguidos de 8 pasos a la derecha y llegará a su destino: Sala 23",
+        "Beacon 4-Sala 23": "Dé aproximadamente 6 pasos al frente, seguidos de 8 pasos hacia la Sala 23 y llegará a su destino: Sala 23",
+        "Beacon 5-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos a la izquierda seguidos de 5 pasos más a la izquierda y llegará a su destino: Sala 23",
+        "Beacon 8-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos al frente, seguidos de 5 pasos a la izquierda y llegará a su destino: Sala 23",
+        "Beacon 9-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos al frente, seguidos de 5 pasos a la izquierda y llegará a su destino: Sala 23",
+
+        "Beacon 4-Beacon 3": "Al pasar por la puerta gire a la derecha y baje 8 escalones, gire a la izquierda y dé siete pasos",
+        "Beacon 5-Beacon 4-Beacon 3": "Gire a la derecha y dé aproximadamente 5 pasos, seguidos de 2 pasos a la izquierda. Al pasar por la puerta, gire a la derecha y baje 8 escalones",
+        "Beacon 8-Beacon 4-Beacon 3": "Dé aproximadamente 5 pasos al frente, seguidos de 2 pasos a la derecha. Al pasar por la puerta, gire a la derecha y baje 8 escalones",
+        "Beacon 9-Beacon 4-Beacon 3": "Gire a la izquierda y dé aproximadamente 5 pasos, seguidos de 2 pasos a la derecha. Al pasar por la puerta, gire a la derecha y baje 8 escalones",
+
+        "Beacon 3-Beacon 4-Beacon 5": "Gire a la derecha y dé aproximadamente 5 pasos, seguidos de 15 pasos a la izquierda",
+        "Beacon 4-Beacon 5": "Gire a la derecha y dé aproximadamente 6 pasos, seguidos de 15 pasos a la izquierda",
+        "Beacon 8-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos al frente, seguidos de 15 pasos a la izquierda",
+        "Beacon 9-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos al frente, seguidos de 15 pasos a la izquierda",
+
+        "Beacon 3-Beacon 4-Beacon 8": "Gire a la izquierda y dé aproximadamente 13 pasos",
+        "Beacon 4-Beacon 8": "Dé aproximadamente 13 pasos hacia las escaleras superiores",
+        "Beacon 5-Beacon 4-Beacon 8": "Gire a la derecha y dé aproximadamente 15 pasos",
+        "Beacon 9-Beacon 4-Beacon 8": "Gire a la derecha y dé aproximadamente 7 pasos",
+
+        "Beacon 3-Beacon 4-Beacon 9": "Gire a la izquierda y dé aproximadamente 7 pasos, seguidos de 10 pasos a la derecha",
+        "Beacon 4-Beacon 9": "Dé aproximadamente 7 pasos hacia las escaleras superiores, seguidos de 10 pasos a la derecha",
+        "Beacon 5-Beacon 4-Beacon 9": "Dé aproximadamente 13 pasos al frente, seguidos de 15 pasos a la izquierda",
         "Beacon 8-Beacon 4-Beacon 9": "------------------------------------------------"
       }
     },
+
     "Beacon 5": {
       "beacon_floor": "0",
-      "beacon_description": "Neste corredor encontram-se as salas 24, 27, 28 e 29, por esta ordem. Também encontrará o Oficina de Erasmus e o Coro Académico.",
-      "beacon_destinations": [
-        "Auditório 02",
-        "Sala 24",
-        "Sala 27",
-        "Gabinete de Erasmus"
-      ],
-      "beacon_connections": [
-        "Beacon 4",
-        "Beacon 6"
-      ],
+      "beacon_description": "En este pasillo se encuentran las salas 24, 27, 28 y 29, en ese orden. También encontrará la Oficina Erasmus y el Coro Académico.",
+      "beacon_destinations": ["Auditorio 02", "Sala 24", "Sala 27", "Oficina Erasmus"],
+      "beacon_connections": ["Beacon 4", "Beacon 6"],
       "beacon_instructions": {
-        "Beacon 5-Auditório 02": "Dé aproximadamente 5 pasos en dirección ao auditório 2 y llegará a su destino: auditório 2",
-        "Beacon 6-Beacon 5-Auditório 02": "Dé aproximadamente 4 pasos em frente seguidos de 2 pasos à izquierda y llegará a su destino: auditório 2",
-        "Beacon 4-Beacon 5-Gabinete de Erasmus": "Dé aproximadamente 4 pasos em frente seguidos de 2 pasos à izquierda y llegará a su destino: Oficina de Erasmus",
-        "Beacon 5-Gabinete de Erasmus": "Dê 4 pasos en dirección ao gabinete de erasmus y llegará a su destino: gabinete de erasmus",
-        "Beacon 6-Beacon 5-Gabinete de Erasmus": "Vire à derecha e dê aproximadamente 4 pasos y llegará a su destino: gabinete de erasmus",
-        "Beacon 4-Beacon 5-Sala 24": "Vire à izquierda, dê aproximadamente 4 pasos y llegará a su destino: sala 24",
-        "Beacon 5-Sala 24": "Dé aproximadamente 3 pasos em direção à sala 24 y llegará a su destino: sala 24",
-        "Beacon 6-Beacon 5-Sala 24": "Dé aproximadamente 6 pasos em frente, seguidos de mais 3 pasos à derecha y llegará a su destino: sala 24",
-        "Beacon 4-Beacon 5-Sala 27": "Dé aproximadamente 18 pasos em frente seguidos de 2 à izquierda y llegará a su destino: sala 27",
-        "Beacon 5-Sala 27": "Dé aproximadamente 15 pasos em direção à sala 27 y llegará a su destino: sala 27",
-        "Beacon 5-Beacon 4": "Dé aproximadamente 25 pasos em direção às escadas inferiores",
-        "Beacon 6-Beacon 5-Beacon 4": "Dé aproximadamente 28 pasos em frente",
-        "Beacon 4-Beacon 5-Beacon 6": "Dé aproximadamente 30 pasos em frente",
-        "Beacon 5-Beacon 6": "Dé aproximadamente 27 pasos ao final do corredor"
+        "Beacon 5-Auditorio 02": "Dé aproximadamente 5 pasos hacia el Auditorio 2 y llegará a su destino: Auditorio 2",
+        "Beacon 6-Beacon 5-Auditorio 02": "Dé aproximadamente 4 pasos al frente seguidos de 2 pasos a la izquierda y llegará a su destino: Auditorio 2",
+
+        "Beacon 4-Beacon 5-Oficina Erasmus": "Dé aproximadamente 4 pasos al frente seguidos de 2 pasos a la izquierda y llegará a su destino: Oficina Erasmus",
+        "Beacon 5-Oficina Erasmus": "Dé 4 pasos hacia la Oficina Erasmus y llegará a su destino: Oficina Erasmus",
+        "Beacon 6-Beacon 5-Oficina Erasmus": "Gire a la derecha y dé aproximadamente 4 pasos y llegará a su destino: Oficina Erasmus",
+
+        "Beacon 4-Beacon 5-Sala 24": "Gire a la izquierda, dé aproximadamente 4 pasos y llegará a su destino: Sala 24",
+        "Beacon 5-Sala 24": "Dé aproximadamente 3 pasos hacia la Sala 24 y llegará a su destino: Sala 24",
+        "Beacon 6-Beacon 5-Sala 24": "Dé aproximadamente 6 pasos al frente, seguidos de 3 pasos a la derecha y llegará a su destino: Sala 24",
+
+        "Beacon 4-Beacon 5-Sala 27": "Dé aproximadamente 18 pasos al frente seguidos de 2 a la izquierda y llegará a su destino: Sala 27",
+        "Beacon 5-Sala 27": "Dé aproximadamente 15 pasos hacia la Sala 27 y llegará a su destino: Sala 27",
+
+        "Beacon 5-Beacon 4": "Dé aproximadamente 25 pasos hacia las escaleras inferiores",
+        "Beacon 6-Beacon 5-Beacon 4": "Dé aproximadamente 28 pasos al frente",
+
+        "Beacon 4-Beacon 5-Beacon 6": "Dé aproximadamente 30 pasos al frente",
+        "Beacon 5-Beacon 6": "Dé aproximadamente 27 pasos hasta el final del pasillo"
       }
     },
+
+
     "Beacon 6": {
       "beacon_floor": "0",
-      "beacon_description": "A su derecha encontram-se as escadas que descem para as salas 32 e 33. A su izquierda encontram-se as salas 28 e 29.",
-      "beacon_destinations": [
-        "Sala 27",
-        "Sala 28",
-        "Sala 29"
-      ],
-      "beacon_connections": [
-        "Beacon 5",
-        "Beacon 7"
-      ],
+      "beacon_description": "A su derecha se encuentran las escaleras que bajan a las salas 32 y 33. A su izquierda están las salas 28 y 29.",
+      "beacon_destinations": ["Sala 27", "Sala 28", "Sala 29"],
+      "beacon_connections": ["Beacon 5", "Beacon 7"],
       "beacon_instructions": {
-        "Beacon 6-Sala 27": "Dé aproximadamente 12 pasos, seguidos de 3 pasos à derecha em direção à sala 27 y llegará a su destino: sala 27",
-        "Beacon 7-Beacon 6-Sala 27": "Vire à izquierda e dê aproximadamente 12 pasos, seguidos de 3 pasos à derecha em direção à sala 27 y llegará a su destino: sala 27",
-        "Beacon 5-Beacon 6-Sala 28": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha y llegará a su destino: sala 28",
-        "Beacon 6-Sala 28": "Dé aproximadamente 5 pasos, seguidos de 7 pasos à derecha em direção à sala 28 y llegará a su destino: sala 28",
-        "Beacon 7-Beacon 6-Sala 28": "-------Vire à derecha e dê aproximadamente 3 pasos seguidos de mais 7 pasos à derecha y llegará a su destino: sala 28",
-        "Beacon 5-Beacon 6-Sala 29": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha. Em seguida vire à izquierda e dê aproximadamente 10 pasos y llegará a su destino: sala 29",
-        "Beacon 6-Sala 29": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha. Em seguida vire à izquierda e dê aproximadamente 10 pasos em direção à sala 29 y llegará a su destino: sala 29",
-        "Beacon 6-Beacon 5": "Dé aproximadamente 27 pasos en dirección ao início do corredor",
-        "Beacon 7-Beacon 6-Beacon 5": "Vire à izquierda e dê aproximadamente 27 pasos",
-        "Beacon 5-Beacon 6-Beacon 7": "Vire à derecha e desça 8 escalones seguidos de mais 5 escalones à izquierda. Em seguida dê 5 pasos em frente",
-        "Beacon 6-Beacon 7": "Encuentre unas escaleras e desça 8 escalones seguidos de mais 5 escalones à izquierda. Em seguida dê 5 pasos em frente"
+        "Beacon 6-Sala 27": "Dé aproximadamente 12 pasos, seguidos de 3 pasos a la derecha hacia la Sala 27 y llegará a su destino: Sala 27",
+        "Beacon 7-Beacon 6-Sala 27": "Gire a la izquierda y dé aproximadamente 12 pasos, seguidos de 3 pasos a la derecha hacia la Sala 27 y llegará a su destino: Sala 27",
+
+        "Beacon 5-Beacon 6-Sala 28": "Dé aproximadamente 5 pasos al frente seguidos de 7 pasos a la derecha y llegará a su destino: Sala 28",
+        "Beacon 6-Sala 28": "Dé aproximadamente 5 pasos, seguidos de 7 pasos a la derecha hacia la Sala 28 y llegará a su destino: Sala 28",
+        "Beacon 7-Beacon 6-Sala 28": "Gire a la derecha y dé aproximadamente 3 pasos seguidos de 7 pasos a la derecha y llegará a su destino: Sala 28",
+
+        "Beacon 5-Beacon 6-Sala 29": "Dé aproximadamente 5 pasos al frente seguidos de 7 pasos a la derecha. Luego gire a la izquierda y dé aproximadamente 10 pasos y llegará a su destino: Sala 29",
+        "Beacon 6-Sala 29": "Dé aproximadamente 5 pasos al frente seguidos de 7 pasos a la derecha. Luego gire a la izquierda y dé aproximadamente 10 pasos hacia la Sala 29 y llegará a su destino: Sala 29",
+
+        "Beacon 6-Beacon 5": "Dé aproximadamente 27 pasos hacia el inicio del pasillo",
+        "Beacon 7-Beacon 6-Beacon 5": "Gire a la izquierda y dé aproximadamente 27 pasos",
+
+        "Beacon 5-Beacon 6-Beacon 7": "Gire a la derecha y baje 8 escalones seguidos de 5 escalones a la izquierda. Luego dé 5 pasos al frente",
+        "Beacon 6-Beacon 7": "Encuentre unas escaleras y baje 8 escalones seguidos de 5 escalones a la izquierda. Luego dé 5 pasos al frente"
       }
     },
+
     "Beacon 7": {
       "beacon_floor": "-1",
-      "beacon_description": "Este corredor irá levá-lo a duas salas: à sua derecha está a Sala 32 e à sua izquierda está a Sala 33.",
-      "beacon_destinations": [
-        "Sala 32",
-        "Sala 33"
-      ],
-      "beacon_connections": [
-        "Beacon 6"
-      ],
+      "beacon_description": "Este pasillo lo llevará a dos salas: a su derecha está la Sala 32 y a su izquierda está la Sala 33.",
+      "beacon_destinations": ["Sala 32", "Sala 33"],
+      "beacon_connections": ["Beacon 6"],
       "beacon_instructions": {
-        "Beacon 6-Beacon 7-Sala 32": "Vire à derecha e dê aproximadamente 7 pasos y llegará a su destino: sala 32",
-        "Beacon 7-Sala 32": "Dé aproximadamente 7 pasos em direção à sala 32 y llegará a su destino: sala 32",
-        "Beacon 6-Beacon 7-Sala 33": "Vire à derecha e dê aproximadamente 3 pasos y llegará a su destino: sala 33",
-        "Beacon 7-Sala 33": "Dé aproximadamente 3 pasos em direção à sala 33 y llegará a su destino: sala 33",
-        "Beacon 7-Beacon 6": "Dé aproximadamente 6 pasos, encontre umas escadas e suba 5 escalones seguidos de 8 escalones à derecha"
+        "Beacon 6-Beacon 7-Sala 32": "Gire a la derecha y dé aproximadamente 7 pasos y llegará a su destino: Sala 32",
+        "Beacon 7-Sala 32": "Dé aproximadamente 7 pasos hacia la Sala 32 y llegará a su destino: Sala 32",
+
+        "Beacon 6-Beacon 7-Sala 33": "Gire a la derecha y dé aproximadamente 3 pasos y llegará a su destino: Sala 33",
+        "Beacon 7-Sala 33": "Dé aproximadamente 3 pasos hacia la Sala 33 y llegará a su destino: Sala 33",
+
+        "Beacon 7-Beacon 6": "Dé aproximadamente 6 pasos, encuentre unas escaleras y suba 5 escalones seguidos de 8 escalones a la derecha"
       }
     },
+
     "Beacon 8": {
       "beacon_floor": "0",
-      "beacon_description": "En este espacio tem umas escadas que o irão levar ao Patio Principal, um corredor que o irá levar ao piso 1 e outro corredor que o irá levar a salas, bar e Associação de Estudantes.",
+      "beacon_description": "En este espacio hay unas escaleras que lo llevarán al Patio Principal, un pasillo que lo llevará al piso 1 y otro pasillo que lo llevará a salas, bar y Asociación de Estudiantes.",
       "beacon_destinations": [],
-      "beacon_connections": [
-        "Beacon 3",
-        "Beacon 4",
-        "Beacon 9",
-        "Beacon 22"
-      ],
+      "beacon_connections": ["Beacon 3", "Beacon 4", "Beacon 9", "Beacon 22"],
       "beacon_instructions": {
-        "Beacon 4-Beacon 8-Beacon 3": "Vire à izquierda e desça 8 escalones, seguidos de 7 pasos à derecha",
-        "Beacon 8-Beacon 3": "Encuentre unas escaleras, desça 8 escalones e dê 7 pasos à derecha",
-        "Beacon 9-Beacon 8-Beacon 3": "Vire à izquierda, desça 8 escalones e dê 7 pasos à derecha",
-        "Beacon 22-Beacon 8-Beacon 3": "Vire à derecha, desça 8 escalones e dê 7 pasos à derecha",
-        "Beacon 3-Beacon 8-Beacon 4": "Vire à derecha e dê aproximadamente 13 pasos",
-        "Beacon 8-Beacon 4": "Dé aproximadamente 13 pasos em direção às escadas inferiores",
-        "Beacon 9-Beacon 8-Beacon 4": "Vire à izquierda e dê aproximadamente 10 pasos",
+        "Beacon 4-Beacon 8-Beacon 3": "Gire a la izquierda y baje 8 escalones, seguidos de 7 pasos a la derecha",
+        "Beacon 8-Beacon 3": "Encuentre unas escaleras, baje 8 escalones y dé 7 pasos a la derecha",
+        "Beacon 9-Beacon 8-Beacon 3": "Gire a la izquierda, baje 8 escalones y dé 7 pasos a la derecha",
+        "Beacon 22-Beacon 8-Beacon 3": "Gire a la derecha, baje 8 escalones y dé 7 pasos a la derecha",
+
+        "Beacon 3-Beacon 8-Beacon 4": "Gire a la derecha y dé aproximadamente 13 pasos",
+        "Beacon 8-Beacon 4": "Dé aproximadamente 13 pasos hacia las escaleras inferiores",
+        "Beacon 9-Beacon 8-Beacon 4": "Gire a la izquierda y dé aproximadamente 10 pasos",
         "Beacon 22-Beacon 8-Beacon 4": "Dé aproximadamente 13 pasos",
-        "Beacon 3-Beacon 8-Beacon 9": "Vire à derecha e dê aproximadamente 6 pasos seguidos de mais 4 pasos à izquierda",
-        "Beacon 4-Beacon 8-Beacon 9": "Não faz sentido",
-        "Beacon 8-Beacon 9": "Dé aproximadamente 6 pasos seguidos de 4 à izquierda em direção às escadas do bar",
-        "Beacon 22-Beacon 8-Beacon 9": "Dé aproximadamente 8 pasos em frente seguidos de 4 pasos à izquierda",
-        "Beacon 3-Beacon 8-Beacon 22": "Vire à izquierda e dê aproximadamente 10 pasos em frente e suba 3 escalones",
-        "Beacon 4-Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos em frente e suba 3 escalones",
-        "Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos no final do corredor",
-        "Beacon 9-Beacon 8-Beacon 22": "Vire à derecha, dê aproximadamente 10 pasos em frente e suba 3 escalones"
+
+        "Beacon 3-Beacon 8-Beacon 9": "Gire a la derecha y dé aproximadamente 6 pasos seguidos de 4 pasos a la izquierda",
+        "Beacon 4-Beacon 8-Beacon 9": "No tiene sentido",
+        "Beacon 8-Beacon 9": "Dé aproximadamente 6 pasos seguidos de 4 a la izquierda hacia las escaleras del bar",
+        "Beacon 22-Beacon 8-Beacon 9": "Dé aproximadamente 8 pasos al frente seguidos de 4 pasos a la izquierda",
+
+        "Beacon 3-Beacon 8-Beacon 22": "Gire a la izquierda y dé aproximadamente 10 pasos al frente y suba 3 escalones",
+        "Beacon 4-Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos al frente y suba 3 escalones",
+        "Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos al final del pasillo",
+        "Beacon 9-Beacon 8-Beacon 22": "Gire a la derecha, dé aproximadamente 10 pasos al frente y suba 3 escalones"
       }
     },
+
+
     "Beacon 9": {
       "beacon_floor": "0",
-      "beacon_description": "À sua volta encontra-se a Associação de Estudantes à derecha, à sua izquierda a loja dos trajes académicos e em frente as escadas que o levarão ao Bar/Cantina.",
-      "beacon_destinations": [
-        "Associação Académica",
-        "Loja Académica"
-      ],
-      "beacon_connections": [
-        "Beacon 4",
-        "Beacon 8",
-        "Beacon 10"
-      ],
+      "beacon_description": "A su alrededor se encuentra la Asociación de Estudiantes a la derecha, a la izquierda la tienda de trajes académicos y al frente las escaleras que lo llevarán al Bar/Cantina.",
+      "beacon_destinations": ["Asociación Académica", "Tienda Académica"],
+      "beacon_connections": ["Beacon 4", "Beacon 8", "Beacon 10"],
       "beacon_instructions": {
-        "Beacon 4-Beacon 9-Associação Académica": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à izquierda y llegará a su destino: associação académica",
-        "Beacon 8-Beacon 9-Associação Académica": "Dé aproximadamente 3 pasos em frente, seguidos de mais 2 pasos à izquierda y llegará a su destino: associação académica",
-        "Beacon 9-Associação Académica": "Dé aproximadamente 5 pasos em direção à associação académica y llegará a su destino: associação académica",
-        "Beacon 10-Beacon 9-Associação Académica": "Dé aproximadamente 4 pasos em frente, seguidos de mais 3 pasos à derecha y llegará a su destino: associação académica",
-        "Beacon 4-Beacon 9-Loja Académica": "Vire à derecha e dê aproximadamente 2 pasos: loja académica",
-        "Beacon 8-Beacon 9-Loja Académica": "Vire à izquierda e dê aproximadamente 2 pasos y llegará a su destino: loja académica",
-        "Beacon 9-Loja Académica": "Dé aproximadamente 2 pasos em direção à loja académica y llegará a su destino: loja académica",
-        "Beacon 10-Beacon 9-Loja Académica": "Vire à derecha e dê aproximadamente 4 pasos, seguidos de 2 pasos à izquierda y llegará a su destino: loja académica",
-        "Beacon 8-Beacon 9-Beacon 4": "Não faz sentido",
-        "Beacon 9-Beacon 4": "Dé aproximadamente 5 pasos em frente, seguidos de mais 6 pasos à izquierda",
-        "Beacon 10-Beacon 9-Beacon 4": "Dé aproximadamente 7 pasos em frente, seguidos de mais 6 pasos à izquierda",
-        "Beacon 4-Beacon 9-Beacon 8": "Não faz sentido",
-        "Beacon 9-Beacon 8": "Dé aproximadamente 5 pasos em frente, seguidos de mais 6 pasos à derecha em direção às escadas superiores",
-        "Beacon 10-Beacon 9-Beacon 8": "Dé aproximadamente 7 pasos em frente, seguidos de mais 6 pasos à derecha",
-        "Beacon 4-Beacon 9-Beacon 10": "Vire à derecha e dê aproximadamente 10 pasos, desça 6 escalones, seguidos de mais 12 escalones à izquierda",
-        "Beacon 8-Beacon 9-Beacon 10": "Vire à izquierda e dê aproximadamente 10 pasos e desça 6 escalones, seguidos de mais 12 escalones à izquierda",
-        "Beacon 9-Beacon 10": "Dé aproximadamente 10 pasos no final do corredor e desça 6 escalones, seguidos de mais 12 escalones à izquierda"
+        "Beacon 4-Beacon 9-Asociación Académica": "Gire a la derecha y dé aproximadamente 5 pasos, seguidos de 2 pasos a la izquierda y llegará a su destino: Asociación Académica",
+        "Beacon 8-Beacon 9-Asociación Académica": "Dé aproximadamente 3 pasos al frente, seguidos de 2 pasos a la izquierda y llegará a su destino: Asociación Académica",
+        "Beacon 9-Asociación Académica": "Dé aproximadamente 5 pasos hacia la Asociación Académica y llegará a su destino: Asociación Académica",
+        "Beacon 10-Beacon 9-Asociación Académica": "Dé aproximadamente 4 pasos al frente, seguidos de 3 pasos a la derecha y llegará a su destino: Asociación Académica",
+
+        "Beacon 4-Beacon 9-Tienda Académica": "Gire a la derecha y dé aproximadamente 2 pasos: Tienda Académica",
+        "Beacon 8-Beacon 9-Tienda Académica": "Gire a la izquierda y dé aproximadamente 2 pasos y llegará a su destino: Tienda Académica",
+        "Beacon 9-Tienda Académica": "Dé aproximadamente 2 pasos hacia la Tienda Académica y llegará a su destino: Tienda Académica",
+        "Beacon 10-Beacon 9-Tienda Académica": "Gire a la derecha y dé aproximadamente 4 pasos, seguidos de 2 pasos a la izquierda y llegará a su destino: Tienda Académica",
+
+        "Beacon 8-Beacon 9-Beacon 4": "No tiene sentido",
+        "Beacon 9-Beacon 4": "Dé aproximadamente 5 pasos al frente, seguidos de 6 pasos a la izquierda",
+        "Beacon 10-Beacon 9-Beacon 4": "Dé aproximadamente 7 pasos al frente, seguidos de 6 pasos a la izquierda",
+
+        "Beacon 4-Beacon 9-Beacon 8": "No tiene sentido",
+        "Beacon 9-Beacon 8": "Dé aproximadamente 5 pasos al frente, seguidos de 6 pasos a la derecha hacia las escaleras superiores",
+        "Beacon 10-Beacon 9-Beacon 8": "Dé aproximadamente 7 pasos al frente, seguidos de 6 pasos a la derecha",
+
+        "Beacon 4-Beacon 9-Beacon 10": "Gire a la derecha y dé aproximadamente 10 pasos, baje 6 escalones, seguidos de 12 escalones a la izquierda",
+        "Beacon 8-Beacon 9-Beacon 10": "Gire a la izquierda y dé aproximadamente 10 pasos y baje 6 escalones, seguidos de 12 escalones a la izquierda",
+        "Beacon 9-Beacon 10": "Dé aproximadamente 10 pasos al final del pasillo y baje 6 escalones, seguidos de 12 escalones a la izquierda"
       }
     },
+
     "Beacon 10": {
       "beacon_floor": "-1",
-      "beacon_description": "En este espacio encontra-se à sua derecha o Bar/Cantina, os Cacifos e em frente as escadas que o irão levar para o piso 0.",
-      "beacon_destinations": [
-        "Cacifos",
-        "Bar"
-      ],
-      "beacon_connections": [
-        "Beacon 9",
-        "Beacon 11",
-        "Beacon 12"
-      ],
+      "beacon_description": "En este espacio, a su derecha está el Bar/Cantina, los casilleros y al frente las escaleras que lo llevarán al piso 0.",
+      "beacon_destinations": ["Casilleros", "Bar"],
+      "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
       "beacon_instructions": {
-        "Beacon 9-Beacon 10-Bar": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta chegará ao seu destino: bar",
-        "Beacon 10-Bar": "Dé aproximadamente 8 pasos en dirección ao bar y llegará a su destino: bar",
-        "Beacon 11-Beacon 10-Bar": "Dé aproximadamente 8 pasos à izquierda. Ao passar por uma porta chegará ao seu destino: bar",
-        "Beacon 9-Beacon 10-Cacifos": "Dé aproximadamente 3 pasos em frente y llegará a su destino: cacifos",
-        "Beacon 10-Cacifos": "Dé aproximadamente 3 pasos en dirección aos cacifos y llegará a su destino: cacifos",
-        "Beacon 11-Beacon 10-Cacifos": "Dé aproximadamente 4 pasos em frente y llegará a su destino: cacifos",
-        "Beacon 12-Beacon 10-Cacifos": "Dé aproximadamente 3 pasos em frente y llegará a su destino: cacifos",
-        "Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
-        "Beacon 11-Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
-        "Beacon 12-Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
-        "Beacon 9-Beacon 10-Beacon 11": "Vire à derecha e dê 2 pasos seguidos de mais 10 pasos à derecha",
-        "Beacon 10-Beacon 11": "Vire à derecha e dê 2 pasos seguidos de mais 10 pasos à derecha",
-        "Beacon 12-Beacon 10-Beacon 11": "Dé aproximadamente 4 pasos em frente seguidos de mais 10 pasos à derecha",
-        "Beacon 9-Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta dê 5 pasos",
-        "Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta dê 5 pasos",
-        "Beacon 11-Beacon 10-Beacon 12": "Dé aproximadamente 7 pasos à izquierda. Ao passar por uma porta dê 5 pasos"
+        "Beacon 9-Beacon 10-Bar": "Dé aproximadamente 3 pasos al frente, seguidos de 4 pasos a la izquierda. Al pasar por una puerta llegará a su destino: Bar",
+        "Beacon 10-Bar": "Dé aproximadamente 8 pasos hacia el Bar y llegará a su destino: Bar",
+        "Beacon 11-Beacon 10-Bar": "Dé aproximadamente 8 pasos a la izquierda. Al pasar por una puerta llegará a su destino: Bar",
+
+        "Beacon 9-Beacon 10-Casilleros": "Dé aproximadamente 3 pasos al frente y llegará a su destino: Casilleros",
+        "Beacon 10-Casilleros": "Dé aproximadamente 3 pasos hacia los Casilleros y llegará a su destino: Casilleros",
+        "Beacon 11-Beacon 10-Casilleros": "Dé aproximadamente 4 pasos al frente y llegará a su destino: Casilleros",
+        "Beacon 12-Beacon 10-Casilleros": "Dé aproximadamente 3 pasos al frente y llegará a su destino: Casilleros",
+
+        "Beacon 10-Beacon 9": "Encuentre unas escaleras y suba 12 escalones seguidos de 6 escalones a la derecha. Luego dé aproximadamente 5 pasos a la derecha",
+        "Beacon 11-Beacon 10-Beacon 9": "Encuentre unas escaleras y suba 12 escalones seguidos de 6 escalones a la derecha. Luego dé aproximadamente 5 pasos a la derecha",
+        "Beacon 12-Beacon 10-Beacon 9": "Encuentre unas escaleras y suba 12 escalones seguidos de 6 escalones a la derecha. Luego dé aproximadamente 5 pasos a la derecha",
+
+        "Beacon 9-Beacon 10-Beacon 11": "Gire a la derecha y dé 2 pasos seguidos de 10 pasos a la derecha",
+        "Beacon 10-Beacon 11": "Gire a la derecha y dé 2 pasos seguidos de 10 pasos a la derecha",
+        "Beacon 12-Beacon 10-Beacon 11": "Dé aproximadamente 4 pasos al frente seguidos de 10 pasos a la derecha",
+
+        "Beacon 9-Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos al frente seguidos de 4 pasos a la izquierda. Al pasar por una puerta dé 5 pasos",
+        "Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos al frente seguidos de 4 pasos a la izquierda. Al pasar por una puerta dé 5 pasos",
+        "Beacon 11-Beacon 10-Beacon 12": "Dé aproximadamente 7 pasos a la izquierda. Al pasar por una puerta dé 5 pasos"
       }
     },
+
     "Beacon 11": {
       "beacon_floor": "-1",
-      "beacon_description": "Onde se encontra, tem à sua frente a esplanada exterior, à sua derecha o caminho para o bar e atrás de si as escadas que o levam para o piso zero.",
+      "beacon_description": "Donde se encuentra, tiene al frente la terraza exterior, a su derecha el camino hacia el bar y detrás de usted las escaleras que lo llevan al piso cero.",
       "beacon_destinations": [],
-      "beacon_connections": [
-        "Beacon 10",
-        "Beacon 13"
-      ],
+      "beacon_connections": ["Beacon 10", "Beacon 13"],
       "beacon_instructions": {
-        "Beacon 11-Beacon 10": "Dé aproximadamente 10 pasos em direção às escadas do bar",
-        "Beacon 13-Beacon 11-Beacon 10": "Vire à izquierda e dê aproximadamente 10 pasos",
-        "Beacon 10-Beacon 11-Beacon 13": "Vire à derecha e dê aproximadamente 9 pasos",
-        "Beacon 11-Beacon 13": "Dé aproximadamente 9 pasos em direção à sala dos micro-ondas"
+        "Beacon 11-Beacon 10": "Dé aproximadamente 10 pasos hacia las escaleras del bar",
+        "Beacon 13-Beacon 11-Beacon 10": "Gire a la izquierda y dé aproximadamente 10 pasos",
+
+        "Beacon 10-Beacon 11-Beacon 13": "Gire a la derecha y dé aproximadamente 9 pasos",
+        "Beacon 11-Beacon 13": "Dé aproximadamente 9 pasos hacia la sala de microondas"
       }
+    }
+
     },
     "Beacon 12": {
       "beacon_floor": "-1",
-      "beacon_description": "En este momento você encontra-se no Bar. A su izquierda tem a esplanada interior e à sua derecha a saída.",
-      "beacon_destinations": [
-        "Bar",
-        "Refeitório"
-      ],
-      "beacon_connections": [
-        "Beacon 10",
-        "Beacon 13"
-      ],
+      "beacon_description": "En este momento usted se encuentra en el Bar. A su izquierda está la terraza interior y a su derecha la salida.",
+      "beacon_destinations": ["Bar", "Comedor"],
+      "beacon_connections": ["Beacon 10", "Beacon 13"],
       "beacon_instructions": {
-        "Beacon 12-Bar": "Dê 3 pasos en dirección ao bar y llegará a su destino: bar",
-        "Beacon 13-Beacon 12-Bar": "Dê 3 pasos em frente y llegará a su destino: bar",
-        "Beacon 10-Beacon 12-Refeitório": "Vire à izquierda e dê aproximadamente 5 pasos y llegará a su destino: refeitório",
-        "Beacon 12-Refeitório": "Dé aproximadamente 3 pasos en dirección ao refeitório y llegará a su destino: refeitório",
-        "Beacon 12-Beacon 10": "Dé aproximadamente 8 pasos em direção às escadas do bar",
-        "Beacon 13-Beacon 12-Beacon 10": "Vire à izquierda e dê aproximadamente 13 pasos",
-        "Beacon 10-Beacon 12-Beacon 13": "Vire à izquierda e dê aproximadamente 13 pasos",
-        "Beacon 12-Beacon 13": "Dé aproximadamente 13 pasos em direção à sala dos micro-ondas"
+        "Beacon 12-Bar": "Dé 3 pasos hacia el bar y llegará a su destino: bar",
+        "Beacon 13-Beacon 12-Bar": "Dé 3 pasos al frente y llegará a su destino: bar",
+
+        "Beacon 10-Beacon 12-Comedor": "Gire a la izquierda y dé aproximadamente 5 pasos y llegará a su destino: comedor",
+        "Beacon 12-Comedor": "Dé aproximadamente 3 pasos hacia el comedor y llegará a su destino: comedor",
+
+        "Beacon 12-Beacon 10": "Dé aproximadamente 8 pasos hacia las escaleras del bar",
+        "Beacon 13-Beacon 12-Beacon 10": "Gire a la izquierda y dé aproximadamente 13 pasos",
+
+        "Beacon 10-Beacon 12-Beacon 13": "Gire a la izquierda y dé aproximadamente 13 pasos",
+        "Beacon 12-Beacon 13": "Dé aproximadamente 13 pasos hacia la sala de microondas"
       }
     },
     "Beacon 13": {
       "beacon_floor": "-1",
-      "beacon_description": "Onde se encontra, tem à sua izquierda uma porta que o levará para a secção dos micro-ondas, para a esplanada exterior e para a esplanada interior.",
-      "beacon_destinations": [
-        "Sala dos Micro-ondas",
-        "Refeitório",
-        "Esplanada"
-      ],
-      "beacon_connections": [
-        "Beacon 11",
-        "Beacon 12",
-        "Beacon 14"
-      ],
+      "beacon_description": "Donde se encuentra, a su izquierda hay una puerta que lo llevará a la sección de microondas, a la terraza exterior y a la terraza interior.",
+      "beacon_destinations": ["Sala de Microondas", "Comedor", "Terraza"],
+      "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
       "beacon_instructions": {
-        "Beacon 11-Beacon 13-Esplanada": "Vire à izquierda, dê aproximadamente 10 pasos y llegará a su destino: esplanada",
-        "Beacon 12-Beacon 13-Esplanada": "Vire à derecha, dê aproximadamente 10 pasos y llegará a su destino: esplanada",
-        "Beacon 13-Esplanada": "Dé aproximadamente 10 pasos em direção à esplanada y llegará a su destino: esplanada",
-        "Beacon 11-Beacon 13-Refeitório": "Dé aproximadamente 3 pasos em frente e ao passar a porta chegará ao seu destino: refeitório",
-        "Beacon 13-Refeitório": "Dé aproximadamente 3 pasos en dirección ao refeitório y llegará a su destino: refeitório",
-        "Beacon 14-Beacon 13-Refeitório": "Vire à izquierda, dê aproximadamente 3 pasos e ao passar a porta chegará ao seu destino: refeitório",
-        "Beacon 11-Beacon 13-Sala dos Micro-ondas": "Vire à derecha y llegará a su destino: sala dos micro-ondas",
-        "Beacon 12-Beacon 13-Sala dos Micro-ondas": "Ao passar a porta vire à izquierda y llegará a su destino: sala dos micro-ondas",
-        "Beacon 13-Sala dos Micro-ondas": "Ao passar a porta dê aproximadamente 1 passo em direção à sala dos micro-ondas y llegará a su destino: sala dos micro-ondas",
-        "Beacon 14-Beacon 13-Sala dos Micro-ondas": "Dê 3 pasos em frente y llegará a su destino: sala dos micro-ondas",
-        "Beacon 12-Beacon 13-Beacon 11": "Vire à izquierda e ao passar a porta, dê aproximadamente 10 pasos em frente",
-        "Beacon 13-Beacon 11": "Ao passar a porta dê aproximadamente 10 pasos en dirección ao final del pasillo",
-        "Beacon 14-Beacon 13-Beacon 11": "Vire à derecha e dê aproximadamente 10 pasos",
-        "Beacon 11-Beacon 13-Beacon 12": "Ao passar por uma porta, dê aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha",
-        "Beacon 13-Beacon 12": "Dé aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha en dirección ao bar",
-        "Beacon 14-Beacon 13-Beacon 12": "Vire à izquierda, ao passar por uma porta vire à derecha e dê aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha",
-        "Beacon 11-Beacon 13-Beacon 14": "Vire à izquierda e dê aproximadamente 19 pasos",
-        "Beacon 12-Beacon 13-Beacon 14": "Ao passar por uma porta, vire à derecha e dê aproximadamente 19 pasos",
-        "Beacon 13-Beacon 14": "Dé aproximadamente 19 pasos em direção à livraria"
+        "Beacon 11-Beacon 13-Terraza": "Gire a la izquierda, dé aproximadamente 10 pasos y llegará a su destino: terraza",
+        "Beacon 12-Beacon 13-Terraza": "Gire a la derecha, dé aproximadamente 10 pasos y llegará a su destino: terraza",
+        "Beacon 13-Terraza": "Dé aproximadamente 10 pasos hacia la terraza y llegará a su destino: terraza",
+
+        "Beacon 11-Beacon 13-Comedor": "Dé aproximadamente 3 pasos al frente y al pasar la puerta llegará a su destino: comedor",
+        "Beacon 13-Comedor": "Dé aproximadamente 3 pasos hacia el comedor y llegará a su destino: comedor",
+        "Beacon 14-Beacon 13-Comedor": "Gire a la izquierda, dé aproximadamente 3 pasos y al pasar la puerta llegará a su destino: comedor",
+
+        "Beacon 11-Beacon 13-Sala de Microondas": "Gire a la derecha y llegará a su destino: sala de microondas",
+        "Beacon 12-Beacon 13-Sala de Microondas": "Al pasar la puerta gire a la izquierda y llegará a su destino: sala de microondas",
+        "Beacon 13-Sala de Microondas": "Al pasar la puerta dé aproximadamente 1 paso hacia la sala de microondas y llegará a su destino: sala de microondas",
+        "Beacon 14-Beacon 13-Sala de Microondas": "Dé 3 pasos al frente y llegará a su destino: sala de microondas",
+
+        "Beacon 12-Beacon 13-Beacon 11": "Gire a la izquierda y al pasar la puerta, dé aproximadamente 10 pasos al frente",
+        "Beacon 13-Beacon 11": "Al pasar la puerta dé aproximadamente 10 pasos hacia el final del pasillo",
+        "Beacon 14-Beacon 13-Beacon 11": "Gire a la derecha y dé aproximadamente 10 pasos",
+
+        "Beacon 11-Beacon 13-Beacon 12": "Al pasar por una puerta, dé aproximadamente 5 pasos al frente seguidos de 10 pasos a la derecha",
+        "Beacon 13-Beacon 12": "Dé aproximadamente 5 pasos al frente seguidos de 10 pasos a la derecha hacia el bar",
+        "Beacon 14-Beacon 13-Beacon 12": "Gire a la izquierda, al pasar por una puerta gire a la derecha y dé aproximadamente 5 pasos al frente seguidos de 10 pasos a la derecha",
+
+        "Beacon 11-Beacon 13-Beacon 14": "Gire a la izquierda y dé aproximadamente 19 pasos",
+        "Beacon 12-Beacon 13-Beacon 14": "Al pasar por una puerta, gire a la derecha y dé aproximadamente 19 pasos",
+        "Beacon 13-Beacon 14": "Dé aproximadamente 19 pasos hacia la librería"
       }
     },
     "Beacon 14": {
       "beacon_floor": "-1",
-      "beacon_description": "En este espacio, tem à sua frente a esplanada exterior e, à sua derecha, a entrada da reprografia e as casas de banho.",
-      "beacon_destinations": [
-        "Livraria",
-        "Esplanada",
-        "WC Bar"
-      ],
-      "beacon_connections": [
-        "Beacon 13"
-      ],
+      "beacon_description": "En este espacio, al frente tiene la terraza exterior y, a su derecha, la entrada de la reprografía y los baños.",
+      "beacon_destinations": ["Librería", "Terraza", "WC Bar"],
+      "beacon_connections": ["Beacon 13"],
       "beacon_instructions": {
-        "Beacon 14-Esplanada": "Dê 9 pasos em direção à esplanada y llegará a su destino: esplanada",
-        "Beacon 13-Beacon 14-Livraria": "Vire à derecha, ao passar por uma porta chegará ao seu destino: livraria",
-        "Beacon 14-Livraria": "Dé aproximadamente 1 passo em direção à livraria, ao passar uma porta chegará ao seu destino: livraria",
-        "Beacon 13-Beacon 14-WC Bar": "Em frente suba 5 escalones y llegará a su destino: wc bar",
-        "Beacon 14-WC Bar": "Suba 5 escalones em direção à baño bar y llegará a su destino: wc bar",
-        "Beacon 14-Beacon 13": "Dé aproximadamente 19 pasos en dirección ao refeitório"
-      }
+        "Beacon 14-Terraza": "Dé 9 pasos hacia la terraza y llegará a su destino: terraza",
+
+        "Beacon 13-Beacon 14-Librería": "Gire a la derecha, al pasar por una puerta llegará a su destino: librería",
+        "Beacon 14-Librería": "Dé aproximadamente 1 paso hacia la librería, al pasar por una puerta llegará a su destino: librería",
+
+        "Beacon 13-Beacon 14-WC Bar": "Al frente suba 5 escalones y llegará a su destino: WC Bar",
+        "Beacon 14-WC Bar": "Suba 5 escalones hacia el WC Bar y llegará a su destino: WC Bar",
+
+        "Beacon 14-Beacon 13": "Dé aproximadamente 19 pasos hacia el comedor"
+     }
     },
-    "Beacon 15": {
-      "beacon_floor": "0",
-      "beacon_description": "Chegou ao busto de Luís de Camões. A su derecha encontram-se as escadas para as salas 37 a 70, o UAL Media, o Auditorio 1, o Centro de Informática e as casas de banho. A su izquierda encontram-se as escadas para as salas 10, 16 e 18, as salas 80 a 90, a biblioteca e os laboratórios de psicologia. Também encontrará, neste espaço, a porta de acesso ao Patio Principal.",
-      "beacon_destinations": [
-        "Estátua do Camões"
-      ],
-      "beacon_connections": [
-        "Beacon 3",
-        "Beacon 16",
-        "Beacon 22"
-      ],
-      "beacon_instructions": {
-        "Beacon 3-Beacon 15-Estátua do Camões": "Encuentre unas escaleras, suba 2 escalones y llegará a su destino: estátua do Camões",
-        "Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
-        "Beacon 16-Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
-        "Beacon 22-Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
-        "Beacon 15-Beacon 3": "Encuentre unas escaleras, desça 2 escalones e dê aproximadamente 11 pasos en dirección ao pátio central",
-        "Beacon 16-Beacon 15-Beacon 3": "Vire à derecha, encontre umas escadas e desça 2 escalones seguidos de mais 11 pasos em frente",
-        "Beacon 22-Beacon 15-Beacon 3": "Vire à izquierda, encontre umas escadas e desça 2 escalones seguidos de mais 11 pasos em frente",
-        "Beacon 3-Beacon 15-Beacon 16": "Virá à izquierda e suba 10 escalones",
-        "Beacon 15-Beacon 16": "Encuentre unas escaleras e suba 10 escalones",
-        "Beacon 22-Beacon 15-Beacon 16": "Em frente suba 10 escalones",
-        "Beacon 3-Beacon 15-Beacon 22": "Vire à derecha e suba 12 escalones",
-        "Beacon 15-Beacon 22": "Encuentre unas escaleras e suba 12 escalones",
-        "Beacon 16-Beacon 15-Beacon 22": "Em frente suba 12 escalones"
+  "Beacon 15": {
+    "beacon_floor": "0",
+    "beacon_description": "Ha llegado al busto de Luís de Camões. A su derecha están las escaleras hacia las salas 37 a 70, UAL Media, el Auditorio 1, el Centro de Informática y los baños. A su izquierda están las escaleras hacia las salas 10, 16 y 18, las salas 80 a 90, la biblioteca y los laboratorios de psicología. También encontrará, en este espacio, la puerta de acceso al Patio Principal.",
+    "beacon_destinations": ["Estatua de Camões"],
+    "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+    "beacon_instructions": {
+      "Beacon 3-Beacon 15-Estatua de Camões": "Encuentre unas escaleras, suba 2 escalones y llegará a su destino: Estatua de Camões",
+      "Beacon 15-Estatua de Camões": "Se encuentra en la Estatua de Camões",
+      "Beacon 16-Beacon 15-Estatua de Camões": "Se encuentra en la Estatua de Camões",
+      "Beacon 22-Beacon 15-Estatua de Camões": "Se encuentra en la Estatua de Camões",
+
+      "Beacon 15-Beacon 3": "Encuentre unas escaleras, baje 2 escalones y dé aproximadamente 11 pasos hacia el patio central",
+      "Beacon 16-Beacon 15-Beacon 3": "Gire a la derecha, encuentre unas escaleras y baje 2 escalones seguidos de 11 pasos al frente",
+      "Beacon 22-Beacon 15-Beacon 3": "Gire a la izquierda, encuentre unas escaleras y baje 2 escalones seguidos de 11 pasos al frente",
+
+      "Beacon 3-Beacon 15-Beacon 16": "Gire a la izquierda y suba 10 escalones",
+      "Beacon 15-Beacon 16": "Encuentre unas escaleras y suba 10 escalones",
+      "Beacon 22-Beacon 15-Beacon 16": "Al frente suba 10 escalones",
+
+      "Beacon 3-Beacon 15-Beacon 22": "Gire a la derecha y suba 12 escalones",
+      "Beacon 15-Beacon 22": "Encuentre unas escaleras y suba 12 escalones",
+      "Beacon 16-Beacon 15-Beacon 22": "Al frente suba 12 escalones"
       }
     },
     "Beacon 16": {
@@ -1018,8 +975,8 @@
         "Beacon 38-Sala 90": "Dé aproximadamente 12 pasos seguidos de mais 5 pasos em direção à Sala 90 y llegará a su destino",
         "Beacon 38-Beacon 36": "Baje 11 escalones em frente"
       }
-    }
-  },
+    },
+
   "voice_commands": {
     "auditório 01": "Auditorio 01",
     "auditório 02": "Auditorio 02",

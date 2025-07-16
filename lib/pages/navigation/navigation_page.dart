@@ -17,39 +17,70 @@ class NavigationMapSelectorPage extends StatefulWidget {
 }
 
 class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
-  // JSON carregado
-  Map<String, dynamic> mensagens = {};
-  Map<String, dynamic> beacons = {};
-  Map<String, String> voiceCommandsMap = {};
+  Map<String, dynamic> mensagens = {}; // mensagens carregadas do JSON
+  Map<String, dynamic> beacons = {}; // dados dos beacons
+  Map<String, String> voiceCommandsMap = {}; // comandos de voz → destino
 
+  List<String> beaconsAtivos = [
+    // IDs dos beacons ativos no sistema
+    'Beacon 1',
+    'Beacon 3',
+    'Beacon 4',
+    'Beacon 5',
+    'Beacon 6',
+    'Beacon 7',
+    'Beacon 8',
+    'Beacon 9',
+    'Beacon 10',
+    'Beacon 11',
+    'Beacon 12',
+    'Beacon 13',
+    'Beacon 14',
+    'Beacon 15',
+    'Beacon 16',
+    'Beacon 17',
+    'Beacon 18',
+    'Beacon 19',
+    'Beacon 20',
+    'Beacon 21',
+    'Beacon 22',
+    'Beacon 23',
+    'Beacon 24',
+    'Beacon 25',
+    'Beacon 26',
+    'Beacon 27',
+    'Beacon 28',
+    'Beacon 29',
+    'Beacon 30',
+    'Beacon 31',
+    'Beacon 32',
+    'Beacon 33',
+    'Beacon 36',
+    'Beacon 37',
+    'Beacon 38'
+  ];
 
-  //FALTA BEACON 2, 34 E 35
-  // Beacons ativos
-  List<String> beaconsAtivos = ['Beacon 1', 'Beacon 3', 'Beacon 4', 'Beacon 5', 'Beacon 6', 'Beacon 7', 'Beacon 8', 'Beacon 9', 'Beacon 10', 'Beacon 11', 'Beacon 12', 'Beacon 13', 'Beacon 14', 'Beacon 15', 'Beacon 16', 'Beacon 17', 'Beacon 18', 'Beacon 19', 'Beacon 20', 'Beacon 21', 'Beacon 22', 'Beacon 23', 'Beacon 24', 'Beacon 25', 'Beacon 26', 'Beacon 27', 'Beacon 28', 'Beacon 29', 'Beacon 30', 'Beacon 31', 'Beacon 32', 'Beacon 33', 'Beacon 36', 'Beacon 37', 'Beacon 38'];
+  String? destinoSelecionado; // destino escolhido pelo utilizador
+  late stt.SpeechToText _speech; // reconhecimento de voz
+  final FlutterTts _tts = FlutterTts(); // síntese de voz (text-to-speech)
+  final AudioPlayer _audioPlayer = AudioPlayer(); // toca sons (ex.: bip de gravação)
+  final PreferencesHelper _preferencesHelper = PreferencesHelper(); // carrega definições
+  bool _speechAvailable = false; // indica se reconhecimento de voz está disponível
+  bool _isListening = false; // indica se está a ouvir
+  String selectedLanguageCode = 'pt-PT'; // idioma selecionado
+  bool soundEnabled = true; // som ativado/desativado
+  bool isSpeaking = false; // app está a falar?
+  String _speechStatus = ''; // status atual do reconhecimento
 
-  // Estado
-  String? destinoSelecionado;
-  late stt.SpeechToText _speech;
-  final FlutterTts _tts = FlutterTts();
-  final AudioPlayer _audioPlayer = AudioPlayer();
-  final PreferencesHelper _preferencesHelper = PreferencesHelper();
-  bool _speechAvailable = false;
-  bool _isListening = false;
-  String selectedLanguageCode = 'pt-PT';
-  bool soundEnabled = true;
-  bool isSpeaking = false;
-  String _speechStatus = '';
-
-  // Favoritos
-  List<String> favoritos = [];
-  List<String> destinosDisponiveis = [];
+  List<String> favoritos = []; // lista de favoritos
+  List<String> destinosDisponiveis = []; // destinos encontrados nos beacons
 
   @override
   void initState() {
     super.initState();
-    _initSpeech();
-    _loadSettings();
-    _loadFavorites();
+    _initSpeech(); // inicializa reconhecimento de voz
+    _loadSettings(); // carrega definições guardadas
+    _loadFavorites(); // carrega favoritos guardados
   }
 
   Set<String> get destinosComBeacon {
@@ -57,13 +88,17 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     for (var beaconId in beaconsAtivos) {
       final beacon = beacons[beaconId];
       if (beacon != null) {
-        List<String> destinosFiltrados = List<String>.from(beacon['beacon_destinations'] ?? [])
-            .where((d) => d.trim().isNotEmpty && d.toLowerCase() != 'none')
+        List<String> destinosFiltrados = List<String>.from(
+            beacon['beacon_destinations'] ?? [])
+            .where((d) =>
+        d
+            .trim()
+            .isNotEmpty && d.toLowerCase() != 'none')
             .toList();
         destinos.addAll(destinosFiltrados);
       }
     }
-    return destinos;
+    return destinos; // devolve conjunto único de destinos
   }
 
   Map<String, List<String>> get destinosPorPiso {
@@ -73,15 +108,19 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       'Piso 1': [],
       'Piso 2': [],
       'Piso 3': [],
-      'Piso 4': [],
+      'Piso 4': []
     };
 
     for (var beaconId in beaconsAtivos) {
       final beacon = beacons[beaconId];
       if (beacon != null) {
         String piso = 'Piso ${beacon['beacon_floor']}';
-        List<String> destinos = List<String>.from(beacon['beacon_destinations'] ?? [])
-            .where((d) => d.trim().isNotEmpty && d.toLowerCase() != 'none')
+        List<String> destinos = List<String>.from(
+            beacon['beacon_destinations'] ?? [])
+            .where((d) =>
+        d
+            .trim()
+            .isNotEmpty && d.toLowerCase() != 'none')
             .toList();
         if (pisos.containsKey(piso)) {
           pisos[piso]?.addAll(destinos);
@@ -89,15 +128,14 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       }
     }
 
-    // Remover duplicados e ordenar cada lista
     pisos.updateAll((key, value) {
-      final unique = value.toSet().toList()..sort();
+      final unique = value.toSet().toList()
+        ..sort(); // remove duplicados e ordena
       return unique;
     });
 
     return pisos;
   }
-
 
   Map<String, String> get destinosMap {
     Map<String, String> map = {};
@@ -106,14 +144,14 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
         map[entry.key] = entry.value;
       }
     }
-    return map;
+    return map; // mapeia comando de voz → destino válido
   }
 
   Future<void> _initSpeech() async {
     _speech = stt.SpeechToText();
     _speechAvailable = await _speech.initialize(
       onStatus: (status) {
-        _speechStatus = status;
+        _speechStatus = status; // atualiza status
       },
       onError: (error) async {
         if (_isListening) {
@@ -122,11 +160,12 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
           if (error.errorMsg == 'error_speech_timeout') {
             await _speech.stop();
             await _playStopRecordingSound();
-            mensagemErro = _mensagem('timeout_alert');
+            mensagemErro = _mensagem('timeout_alert'); // alerta timeout
           } else if (error.errorMsg == 'error_no_match') {
             await _speech.stop();
             await _playStopRecordingSound();
-            mensagemErro = _mensagem('no_match_alert');
+            mensagemErro =
+                _mensagem('no_match_alert'); // alerta sem correspondência
           }
           if (mensagemErro.isNotEmpty && soundEnabled) {
             await _tts.speak(mensagemErro);
@@ -143,14 +182,16 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       selectedLanguageCode = settings['selectedLanguageCode'] ?? 'pt-PT';
       soundEnabled = settings['soundEnabled'];
     });
-    await _tts.setLanguage(selectedLanguageCode);
+    await _tts.setLanguage(selectedLanguageCode); // configura TTS
     await _tts.setSpeechRate(0.5);
-    await _loadMessages();
+    await _loadMessages(); // carrega mensagens de texto
   }
 
   Future<void> _loadMessages() async {
-    String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
-    String fullCode = selectedLanguageCode.toLowerCase().replaceAll('_', '-');
+    String langCode = selectedLanguageCode.toLowerCase().split(
+        '-')[0]; // ex.: pt
+    String fullCode = selectedLanguageCode.toLowerCase().replaceAll(
+        '_', '-'); // ex.: pt-PT
     List<String> paths = [
       'assets/tts/navigation/nav_$fullCode.json',
       'assets/tts/navigation/nav_$langCode.json',
@@ -159,80 +200,87 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path);
+        jsonString = await rootBundle.loadString(path); // tenta carregar JSON
         break;
       } catch (_) {}
     }
     setState(() {
-      mensagens = jsonString != null ? json.decode(jsonString) : {};
-      voiceCommandsMap = Map<String, String>.from(mensagens['voice_commands'] ?? {});
-      beacons = mensagens['beacons'] ?? {};
+      mensagens =
+      jsonString != null ? json.decode(jsonString) : {}; // guarda mensagens
+      voiceCommandsMap = Map<String, String>.from(
+          mensagens['voice_commands'] ?? {}); // comandos voz
+      beacons = mensagens['beacons'] ?? {}; // info beacons
     });
 
-    // Atualizar destinos disponíveis com base no JSON carregado
-    destinosDisponiveis = destinosComBeacon.toList()..sort();
-    destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
+    destinosDisponiveis = destinosComBeacon.toList()
+      ..sort(); // ordena destinos
+    destinosDisponiveis.removeWhere((destino) =>
+        favoritos.contains(destino)); // tira favoritos
   }
 
   String normalizarTexto(String texto) {
-    return removeDiacritics(texto.toLowerCase().trim());
+    return removeDiacritics(
+        texto.toLowerCase().trim()); // remove acentos, minúsculas
   }
 
   void _adicionarFavorito(String destino) {
     setState(() {
       if (!favoritos.contains(destino)) {
-        favoritos.add(destino);
-        destinosDisponiveis.remove(destino);
-        _saveFavorites();
+        favoritos.add(destino); // adiciona aos favoritos
+        destinosDisponiveis.remove(destino); // tira da lista geral
+        _saveFavorites(); // guarda no storage
       }
     });
   }
 
   void _removerFavorito(String destino) {
     setState(() {
-      favoritos.remove(destino);
-      destinosDisponiveis.add(destino);
+      favoritos.remove(destino); // remove dos favoritos
+      destinosDisponiveis.add(destino); // volta à lista geral
       _saveFavorites();
     });
   }
 
   Future<void> _saveFavorites() async {
-    await _preferencesHelper.saveFavorites(favoritos);
+    await _preferencesHelper.saveFavorites(favoritos); // grava no storage
   }
 
   Future<void> _loadFavorites() async {
     final favoritosGuardados = await _preferencesHelper.loadFavorites();
     setState(() {
       favoritos = favoritosGuardados;
-      destinosDisponiveis.removeWhere((destino) => favoritos.contains(destino));
+      destinosDisponiveis.removeWhere((destino) =>
+          favoritos.contains(destino)); // atualiza listas
     });
   }
 
   String _mensagem(String chave, {String? valor}) {
-    String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ?? '';
+    String raw = mensagens['alerts']?[chave] ?? mensagens[chave] ??
+        ''; // busca texto
     if (valor != null) {
-      raw = raw.replaceAll('{destination}', valor);
+      raw = raw.replaceAll('{destination}', valor); // substitui {destination}
     }
     return raw;
   }
 
   Future<void> _playStartRecordingSoundAndWait() async {
-    await _audioPlayer.play(AssetSource('sounds/start_recording_sound.mp3'));
-    await Future.delayed(const Duration(milliseconds: 700));
+    await _audioPlayer.play(
+        AssetSource('sounds/start_recording_sound.mp3')); // som início
+    await Future.delayed(const Duration(milliseconds: 700)); // espera terminar
   }
 
   Future<void> _playStopRecordingSound() async {
-    await _audioPlayer.play(AssetSource('sounds/stop_recording_sound.mp3'));
+    await _audioPlayer.play(
+        AssetSource('sounds/stop_recording_sound.mp3')); // som parar
   }
 
   Future<void> _tratarComandoInvalido() async {
     await _speech.stop();
-    await _playStopRecordingSound();
-
+    await _playStopRecordingSound(); // som de parar
     setState(() => _isListening = false);
-
     if (soundEnabled) {
-      await _tts.speak(_mensagem('voice_unavailable_alert'));
+      await _tts.speak(
+          _mensagem('voice_unavailable_alert')); // alerta voz não reconhecida
       await _tts.awaitSpeakCompletion(true);
     }
   }
@@ -245,6 +293,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
     _speechStatus = '';
     await _speech.listen(
       localeId: selectedLanguageCode,
+      // idioma de escuta
       listenMode: stt.ListenMode.dictation,
       listenFor: const Duration(minutes: 5),
       pauseFor: const Duration(minutes: 2),
@@ -262,7 +311,8 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               await _speech.stop();
               await _playStopRecordingSound();
               if (soundEnabled) {
-                await _tts.speak(_mensagem('voice_start_alert', valor: destino));
+                await _tts.speak(_mensagem(
+                    'voice_start_alert', valor: destino)); // fala destino
                 await _tts.awaitSpeakCompletion(true);
               }
               await Future.delayed(const Duration(seconds: 1));
@@ -270,30 +320,31 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BeaconScanPage(
-                    destino: destino,
-                    destinosMap: destinosMap,
-                  ),
+                  builder: (context) =>
+                      BeaconScanPage(
+                        destino: destino,
+                        destinosMap: destinosMap,
+                      ),
                 ),
               );
               return;
             }
           }
         }
-        await _tratarComandoInvalido();
+        await _tratarComandoInvalido(); // se não encontrou destino
       },
     );
 
     int tentativas = 0;
     while (_speechStatus != 'listening' && tentativas < 20) {
       await Future.delayed(const Duration(milliseconds: 50));
-      tentativas++;
+      tentativas++; // espera confirmação que está a ouvir
     }
 
-    await _playStartRecordingSoundAndWait();
+    await _playStartRecordingSoundAndWait(); // toca som início
   }
 
-  String get imagemPiso => 'assets/images/map/00_piso.png';
+  String get imagemPiso => 'assets/images/map/00_piso.png'; // imagem inicial
 
   Future<void> speakAndBlock(String texto) async {
     if (soundEnabled) {
@@ -301,7 +352,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
         isSpeaking = true;
       });
       await _tts.speak(texto);
-      await _tts.awaitSpeakCompletion(true);
+      await _tts.awaitSpeakCompletion(true); // espera acabar de falar
       setState(() {
         isSpeaking = false;
       });
@@ -309,52 +360,61 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   }
 
   void _mostrarAdicionarFavorito() {
+    // Mostra popup para adicionar favorito
     showDialog(
       context: context,
       builder: (context) {
         return Dialog(
-          insetPadding: const EdgeInsets.symmetric(horizontal: 50, vertical: 80),
+          insetPadding: const EdgeInsets.symmetric(
+              horizontal: 50, vertical: 80), // margem do dialog
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            // padding interno
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min, // altura mínima necessária
               children: [
                 Center(
                   child: Text(
                     'navigation_map_selector.add_favorite'.tr(),
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                    // título traduzido
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 19),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(height: 16),
                 const Divider(),
                 SizedBox(
-                  height: 325,
+                  height: 325, // altura fixa para scroll
                   child: SingleChildScrollView(
                     child: Column(
                       children: destinosPorPiso.entries.expand((entry) {
                         final destinosFiltrados = entry.value
-                            .where((destino) => destinosDisponiveis.contains(destino) && destinosComBeacon.contains(destino))
+                            .where((destino) =>
+                        destinosDisponiveis.contains(destino) &&
+                            destinosComBeacon.contains(destino))
                             .toList()
-                          ..sort();
+                          ..sort(); // destinos disponíveis e com beacon, ordenados
 
-
-                        if (destinosFiltrados.isEmpty) return <Widget>[];
+                        if (destinosFiltrados.isEmpty)
+                          return <Widget>[]; // ignora piso vazio
 
                         return [
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Text(
-                              entry.key,
-                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                              entry.key, // nome do piso
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ),
                           ...destinosFiltrados.map((destino) {
                             return ListTile(
-                              title: Text(destino),
+                              title: Text(destino), // nome do destino
                               onTap: () {
-                                _adicionarFavorito(destino);
-                                Navigator.of(context).pop();
+                                _adicionarFavorito(
+                                    destino); // adiciona favorito
+                                Navigator.of(context).pop(); // fecha dialog
                               },
                             );
                           }).toList(),
@@ -368,6 +428,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 Center(
                   child: TextButton(
                     onPressed: () => Navigator.of(context).pop(),
+                    // botão fechar
                     child: Text(
                       'privacy_policy.close'.tr(),
                       style: const TextStyle(fontSize: 14, color: Colors.black),
@@ -383,11 +444,13 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
   }
 
   void _mostrarPopupDestinos() {
+    // Mostra popup para selecionar destino
     showDialog(
       context: context,
       builder: (context) {
         return Dialog(
-          insetPadding: const EdgeInsets.symmetric(horizontal: 50, vertical: 80),
+          insetPadding: const EdgeInsets.symmetric(
+              horizontal: 50, vertical: 80),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             child: Column(
@@ -396,7 +459,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 Center(
                   child: Text(
                     'navigation_map_selector.select_destination'.tr(),
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+                    // título traduzido
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 19),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -408,19 +473,21 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                     child: Column(
                       children: destinosPorPiso.entries.expand((entry) {
                         final destinosFiltrados = entry.value
-                            .where((destino) => destinosComBeacon.contains(destino))
+                            .where((destino) =>
+                            destinosComBeacon.contains(destino))
                             .toList()
-                          ..sort();
+                          ..sort(); // destinos com beacon, ordenados
 
-
-                        if (destinosFiltrados.isEmpty) return <Widget>[];
+                        if (destinosFiltrados.isEmpty)
+                          return <Widget>[]; // ignora piso vazio
 
                         return [
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: Text(
-                              entry.key,
-                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                              entry.key, // nome do piso
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ),
                           ...destinosFiltrados.map((destino) {
@@ -428,9 +495,10 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                               title: Text(destino),
                               onTap: () {
                                 setState(() {
-                                  destinoSelecionado = destino;
+                                  destinoSelecionado =
+                                      destino; // guarda seleção
                                 });
-                                Navigator.of(context).pop();
+                                Navigator.of(context).pop(); // fecha dialog
                               },
                             );
                           }).toList(),
@@ -444,6 +512,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 Center(
                   child: TextButton(
                     onPressed: () => Navigator.of(context).pop(),
+                    // botão fechar
                     child: Text(
                       'privacy_policy.close'.tr(),
                       style: const TextStyle(fontSize: 14, color: Colors.black),
@@ -464,7 +533,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: InteractiveViewer(
+            child: InteractiveViewer( // Permite zoom e arrastar o mapa
               panEnabled: true,
               scaleEnabled: true,
               minScale: 1.0,
@@ -472,13 +541,13 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               constrained: false,
               boundaryMargin: const EdgeInsets.all(100),
               child: Image.asset(
-                imagemPiso,
+                imagemPiso, // Mostra o mapa do piso atual
                 fit: BoxFit.none,
                 alignment: Alignment.topLeft,
               ),
             ),
           ),
-          DraggableScrollableSheet(
+          DraggableScrollableSheet( // Painel inferior arrastável
             minChildSize: 0.20,
             maxChildSize: 0.40,
             initialChildSize: 0.40,
@@ -487,8 +556,11 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.95),
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-                  boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 6)],
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(12)),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black26, blurRadius: 6)
+                  ],
                 ),
                 child: SingleChildScrollView(
                   controller: controller,
@@ -497,21 +569,28 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                     children: [
                       Text(
                         'navigation_map_selector.where_to_go'.tr(),
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        // Título "Para onde deseja ir"
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
-                      GestureDetector(
+                      GestureDetector( // Campo para selecionar destino
                         onTap: _mostrarPopupDestinos,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 16),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey.shade600),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Center(
                             child: Text(
-                              destinoSelecionado ?? 'navigation_map_selector.select_destination'.tr(),
-                              style: TextStyle(fontSize: 16, color: destinoSelecionado == null ? Colors.grey.shade600 : Colors.black),
+                              destinoSelecionado ??
+                                  'navigation_map_selector.select_destination'
+                                      .tr(),
+                              style: TextStyle(fontSize: 16,
+                                  color: destinoSelecionado == null ? Colors
+                                      .grey.shade600 : Colors.black),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -521,37 +600,43 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ElevatedButton.icon(
+                          ElevatedButton.icon( // Botão iniciar navegação
                             onPressed: destinoSelecionado == null || isSpeaking
                                 ? null
                                 : () async {
-                              String mensagemIniciar = mensagens['alerts']?['start_navigation_alert'] ?? 'Mensagem de início não encontrada';
-                              mensagemIniciar = mensagemIniciar.replaceAll('{destination}', destinoSelecionado!);
+                              String mensagemIniciar = mensagens['alerts']?['start_navigation_alert'] ??
+                                  'Mensagem de início não encontrada';
+                              mensagemIniciar = mensagemIniciar.replaceAll(
+                                  '{destination}', destinoSelecionado!);
                               await speakAndBlock(mensagemIniciar);
-
-                              await Future.delayed(const Duration(milliseconds: 500));
+                              await Future.delayed(
+                                  const Duration(milliseconds: 500));
                               if (!mounted) return;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => BeaconScanPage(
-                                    destino: destinoSelecionado!,
-                                    destinosMap: destinosMap,
-                                  ),
+                                  builder: (context) =>
+                                      BeaconScanPage(
+                                        destino: destinoSelecionado!,
+                                        destinosMap: destinosMap,
+                                      ),
                                 ),
                               );
                             },
                             icon: const Icon(Icons.navigation),
-                            label: Text('navigation_map_selector.start_navigation'.tr()),
+                            label: Text(
+                                'navigation_map_selector.start_navigation'
+                                    .tr()),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               foregroundColor: Colors.white,
                             ),
                           ),
-                          ElevatedButton.icon(
+                          ElevatedButton.icon( // Botão comando por voz
                             onPressed: _ouvirComando,
                             icon: const Icon(Icons.mic),
-                            label: Text('navigation_map_selector.by_voice'.tr()),
+                            label: Text(
+                                'navigation_map_selector.by_voice'.tr()),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
                               foregroundColor: Colors.white,
@@ -562,35 +647,41 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                       const SizedBox(height: 10),
                       Text(
                         'navigation_map_selector.favorites'.tr(),
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        // Título "Favoritos"
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                      SingleChildScrollView(
+                      SingleChildScrollView( // Lista horizontal de favoritos
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
                             ...favoritos.map((favorito) {
                               return Padding(
-                                padding: const EdgeInsets.only(right: 8, top: 4, bottom: 1),
+                                padding: const EdgeInsets.only(
+                                    right: 8, top: 4, bottom: 1),
                                 child: Row(
                                   children: [
-                                    ElevatedButton(
+                                    ElevatedButton( // Botão de favorito
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.orange,
                                         foregroundColor: Colors.white,
-                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 0),
                                       ),
                                       onPressed: () async {
                                         setState(() {
                                           destinoSelecionado = favorito;
                                         });
-                                        await speakAndBlock(_mensagem('voice_selected_alert', valor: favorito));
+                                        await speakAndBlock(_mensagem(
+                                            'voice_selected_alert',
+                                            valor: favorito));
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Text(favorito),
                                           const SizedBox(width: 5),
-                                          GestureDetector(
+                                          GestureDetector( // Ícone para remover favorito
                                             onTap: () {
                                               _removerFavorito(favorito);
                                             },
@@ -598,7 +689,9 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                               width: 22,
                                               height: 22,
                                               child: Center(
-                                                child: Icon(Icons.cancel, size: 18, color: Colors.white),
+                                                child: Icon(
+                                                    Icons.cancel, size: 18,
+                                                    color: Colors.white),
                                               ),
                                             ),
                                           ),
@@ -609,7 +702,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
                                 ),
                               );
                             }).toList(),
-                            Padding(
+                            Padding( // Botão para adicionar novo favorito
                               padding: const EdgeInsets.only(right: 10, top: 5),
                               child: ElevatedButton(
                                 onPressed: _mostrarAdicionarFavorito,
@@ -629,7 +722,7 @@ class _NavigationMapSelectorPageState extends State<NavigationMapSelectorPage> {
               );
             },
           ),
-          Positioned(
+          Positioned( // Botão voltar (seta no topo esquerdo)
             top: 40,
             left: 10,
             child: IconButton(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart'; // para tradução
 import 'package:vibration/vibration.dart';
 import 'package:projetogpsnovo/helpers/preferences_helpers.dart';
 
@@ -13,16 +13,16 @@ class SoundSettingsPage extends StatefulWidget {
 }
 
 class _SoundSettingsPageState extends State<SoundSettingsPage> {
-  final FlutterTts flutterTts = FlutterTts();
-  final PreferencesHelper _preferencesHelper = PreferencesHelper();
+  final FlutterTts flutterTts = FlutterTts(); // controlador TTS
+  final PreferencesHelper _preferencesHelper = PreferencesHelper(); // helper de preferências
 
-  bool soundEnabled = true;
-  bool vibrationEnabled = true;
-  String selectedLanguageCode = 'pt-PT';
-  double voiceSpeed = 0.5;
-  double voicePitch = 1.0;
+  bool soundEnabled = true; // som ativado
+  bool vibrationEnabled = true; // vibração ativada
+  String selectedLanguageCode = 'pt-PT'; // idioma selecionado
+  double voiceSpeed = 0.5; // velocidade da voz
+  double voicePitch = 1.0; // tom da voz
 
-  final Map<String, String> voiceTests = {
+  final Map<String, String> voiceTests = { // frases para teste por idioma
     'en-US': 'This is a voice test.',
     'pt-PT': 'Isto é um teste de voz.',
     'ru-RU': 'Это тест голоса.',
@@ -35,7 +35,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
     'it-IT': 'Questo è un test della voce.',
   };
 
-  final Map<String, String> voiceOptions = {
+  final Map<String, String> voiceOptions = { // nomes dos idiomas
     'en-US': 'English',
     'pt-PT': 'Português',
     'ru-RU': 'Русский',
@@ -51,8 +51,8 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   @override
   void initState() {
     super.initState();
-    _loadSoundSettings();
-    _configurarTTS();
+    _loadSoundSettings(); // carrega preferências
+    _configurarTTS(); // configura TTS
   }
 
   Future<void> _configurarTTS() async {
@@ -64,7 +64,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   }
 
   Future<void> _saveSoundSettings() async {
-    await _preferencesHelper.saveSoundSettings(
+    await _preferencesHelper.saveSoundSettings( // guarda preferências
       soundEnabled: soundEnabled,
       vibrationEnabled: vibrationEnabled,
       voiceSpeed: voiceSpeed,
@@ -74,7 +74,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   }
 
   Future<void> _loadSoundSettings() async {
-    final settings = await _preferencesHelper.loadSoundSettings();
+    final settings = await _preferencesHelper.loadSoundSettings(); // lê preferências
     setState(() {
       soundEnabled = settings['soundEnabled'];
       vibrationEnabled = settings['vibrationEnabled'];
@@ -87,9 +87,9 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
   Future<void> _testarVoz() async {
     if (soundEnabled) {
       await _configurarTTS();
-      await flutterTts.speak(voiceTests[selectedLanguageCode] ?? 'Voice test.');
+      await flutterTts.speak(voiceTests[selectedLanguageCode] ?? 'Voice test.'); // executa teste de voz
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Voz reproduzida')),
+        const SnackBar(content: Text('Voz reproduzida')), // notificação
       );
     }
   }
@@ -99,7 +99,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
     final TextStyle titleStyle = GoogleFonts.poppins(
       fontSize: 18,
       fontWeight: FontWeight.bold,
-      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8),
+      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8), // cor adaptada ao tema
     );
 
     final TextStyle subtitleStyle = GoogleFonts.poppins(
@@ -109,7 +109,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('sound_settings_page.sound'.tr(), style: titleStyle),
+        title: Text('sound_settings_page.sound'.tr(), style: titleStyle), // título
         backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white,
         foregroundColor: const Color(0xFF00B4D8),
         elevation: 1,
@@ -117,10 +117,10 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('sound_settings_page.general_preferences'.tr(), style: titleStyle),
+          Text('sound_settings_page.general_preferences'.tr(), style: titleStyle), // secção geral
           const SizedBox(height: 8),
           SwitchListTile(
-            title: Text('sound_settings_page.sound'.tr()),
+            title: Text('sound_settings_page.sound'.tr()), // som
             subtitle: Text('sound_settings_page.sound_description'.tr(), style: subtitleStyle),
             value: soundEnabled,
             activeColor: const Color(0xFF00B4D8),
@@ -132,7 +132,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
             },
           ),
           SwitchListTile(
-            title: Text('sound_settings_page.vibration'.tr()),
+            title: Text('sound_settings_page.vibration'.tr()), // vibração
             subtitle: Text('sound_settings_page.vibration_description'.tr(), style: subtitleStyle),
             value: vibrationEnabled,
             activeColor: const Color(0xFF00B4D8),
@@ -140,19 +140,17 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
               setState(() {
                 vibrationEnabled = val;
               });
-              if (vibrationEnabled) {
-                if (await Vibration.hasVibrator()) {
-                  Vibration.vibrate();
-                }
+              if (vibrationEnabled && await Vibration.hasVibrator()) {
+                Vibration.vibrate(); // vibra para testar
               }
               _saveSoundSettings();
             },
           ),
           const Divider(height: 32),
-          Text('sound_settings_page.voice'.tr(), style: titleStyle),
+          Text('sound_settings_page.voice'.tr(), style: titleStyle), // secção voz
           const SizedBox(height: 8),
           ListTile(
-            title: Text('sound_settings_page.language'.tr()),
+            title: Text('sound_settings_page.language'.tr()), // idioma
             subtitle: Text('sound_settings_page.current_language'.tr(namedArgs: {'language': voiceOptions[selectedLanguageCode] ?? selectedLanguageCode})),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () async {
@@ -172,12 +170,11 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
                 setState(() {
                   selectedLanguageCode = selected;
                 });
-                await _preferencesHelper.clearFavorites(); // Limpar favoritos ao mudar de idioma
+                await _preferencesHelper.clearFavorites(); // limpa favoritos
                 await _configurarTTS();
                 await _saveSoundSettings();
-
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Os favoritos foram limpos devido à mudança de idioma.')),
+                  SnackBar(content: Text('Os favoritos foram limpos devido à mudança de idioma.')), // aviso
                 );
               }
             },
@@ -218,7 +215,7 @@ class _SoundSettingsPageState extends State<SoundSettingsPage> {
           ),
           const SizedBox(height: 24),
           ElevatedButton.icon(
-            onPressed: _testarVoz,
+            onPressed: _testarVoz, // botão testar voz
             icon: const Icon(Icons.volume_up),
             label: Text('sound_settings_page.test_voice'.tr()),
             style: ElevatedButton.styleFrom(

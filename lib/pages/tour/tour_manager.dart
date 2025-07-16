@@ -64,9 +64,9 @@ class TourManager {
     BeaconInfo('107e0a13-90f3-42bf-b980-181d93c3ccd2', 10004, 38, 'E1:AD:34:83:56:08'): 'Beacon 38',
   };
 
-  Map<String, String> instrucoesCarregadas = {};
-  Map<String, dynamic> jsonBeacons = {};
-  List<String> rotaPreDefinida = [];
+  Map<String, String> instrucoesCarregadas = {}; // instruções carregadas
+  Map<String, dynamic> jsonBeacons = {}; // dados dos beacons
+  List<String> rotaPreDefinida = []; // rota da visita guiada
 
   Future<void> carregarInstrucoes(String selectedLanguageCode) async {
     String langCode = selectedLanguageCode.toLowerCase().split('-')[0];
@@ -81,7 +81,7 @@ class TourManager {
     String? jsonString;
     for (String path in paths) {
       try {
-        jsonString = await rootBundle.loadString(path);
+        jsonString = await rootBundle.loadString(path); // tenta carregar ficheiro
         break;
       } catch (_) {}
     }
@@ -95,7 +95,7 @@ class TourManager {
   }
 
   String? getLocalizacao(BeaconInfo beacon) {
-    return beaconLocations[beacon];
+    return beaconLocations[beacon]; // devolve nome do beacon
   }
 
   List<String> getInstrucoes(List<String> caminho) {
@@ -117,7 +117,6 @@ class TourManager {
       }
     }
 
-
     return instr;
   }
 
@@ -131,7 +130,6 @@ class TourManager {
     return '';
   }
 
-
   bool isDestinoFinal(String localAtual, String proximoPasso) {
     if (jsonBeacons.containsKey(localAtual)) {
       final destinos = List<String>.from(jsonBeacons[localAtual]['beacon_destinations'] ?? []);
@@ -144,7 +142,7 @@ class TourManager {
     final md = result.advertisementData.manufacturerData;
     if (md.isEmpty) return null;
 
-    if (!md.containsKey(76)) return null;
+    if (!md.containsKey(76)) return null; // verifica tipo iBeacon
     final data = md[76]!;
 
     if (data.length < 23) return null;
@@ -161,6 +159,6 @@ class TourManager {
 
     print('[DEBUG] Beacon detetado → UUID: $formattedUuid | Major: $major | Minor: $minor | MAC: $mac');
 
-    return BeaconInfo(formattedUuid, major, minor, mac);
+    return BeaconInfo(formattedUuid, major, minor, mac); // devolve beacon parseado
   }
 }

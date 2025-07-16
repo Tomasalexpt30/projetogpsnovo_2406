@@ -23,32 +23,29 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : const Color(0xFFF0F4F8),
       body: SafeArea(
-        child: Stack(
+        child: Stack( // organiza os elementos em camadas
           children: [
-            Positioned(
+            Positioned( // topo com ícones (definições, logo, idioma)
               top: 0,
               left: 0,
               right: 0,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Semantics(
+                    Semantics( // acessibilidade: botão definições
                       label: 'Definições',
                       hint: 'Abre a página de definições',
                       button: true,
                       child: IconButton(
                         icon: Icon(Icons.settings, size: 32, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8)),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SettingsPage()),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
                         },
                       ),
                     ),
-                    Expanded(
+                    Expanded( // logótipo central
                       child: Semantics(
                         label: 'Logótipo da aplicação Autónoma GPS',
                         child: Image.asset(
@@ -58,17 +55,14 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Semantics(
+                    Semantics( // acessibilidade: botão idioma
                       label: 'Idioma',
                       hint: 'Abre a seleção de idioma',
                       button: true,
                       child: IconButton(
                         icon: Icon(Icons.language, size: 32, color: Theme.of(context).brightness == Brightness.dark ? Colors.white : const Color(0xFF00B4D8)),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const LanguageSettingsPage()),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const LanguageSettingsPage()));
                         },
                       ),
                     ),
@@ -76,7 +70,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+            Align( // botões centrais: modo navegação e modo visita
               alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 90, bottom: 80),
@@ -84,7 +78,7 @@ class MyHomePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(height: 20),
-                    Semantics(
+                    Semantics( // botão modo navegação
                       label: 'Modo Navegação',
                       hint: 'Inicia a navegação com beacons pela universidade',
                       button: true,
@@ -93,15 +87,12 @@ class MyHomePage extends StatelessWidget {
                         text: 'my_home_page.mode_navigation'.tr(),
                         onPressed: () {
                           Provider.of<AppModeManager>(context, listen: false).setModo(AppMode.navegacao);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const NavigationMapSelectorPage()),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const NavigationMapSelectorPage()));
                         },
                       ),
                     ),
                     const SizedBox(height: 30),
-                    Semantics(
+                    Semantics( // botão modo visita
                       label: 'Modo Visita',
                       hint: 'Inicia a visita guiada com informação sobre os espaços da universidade',
                       button: true,
@@ -110,10 +101,7 @@ class MyHomePage extends StatelessWidget {
                         text: 'my_home_page.mode_visit'.tr(),
                         onPressed: () {
                           Provider.of<AppModeManager>(context, listen: false).setModo(AppMode.visita);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const TourPage()),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const TourPage()));
                         },
                       ),
                     ),
@@ -121,7 +109,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            Positioned( // texto de boas-vindas na parte inferior
               bottom: 70,
               left: 0,
               right: 0,
@@ -139,7 +127,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            Positioned( // botão política de privacidade
               bottom: 30,
               left: 0,
               right: 0,
@@ -167,16 +155,17 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+
   void _showPrivacyPolicy(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
+        return AlertDialog( // caixa de diálogo para mostrar política
           title: Text(
             'privacy_policy.title'.tr(),
             style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
           ),
-          content: SingleChildScrollView(
+          content: SingleChildScrollView( // permite rolar o conteúdo
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -196,7 +185,7 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           actions: [
-            TextButton(
+            TextButton(  // botão para fechar o diálogo
               onPressed: () => Navigator.of(context).pop(),
               child: Text('privacy_policy.close'.tr(), style: GoogleFonts.poppins(color: const Color(0xFF00B4D8))),
             ),
@@ -205,7 +194,7 @@ class MyHomePage extends StatelessWidget {
       },
     );
   }
-
+// cria uma secção com título e texto
   Widget _buildSection(BuildContext context, String titleKey, String bodyKey) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -221,9 +210,10 @@ class MyHomePage extends StatelessWidget {
 }
 
 class CustomCardButton extends StatelessWidget {
-  final String imagePath;
-  final String text;
-  final VoidCallback onPressed;
+  final String imagePath; // caminho da imagem no botão
+  final String text; // texto mostrado no botão
+  final VoidCallback onPressed; // ação ao clicar
+
 
   const CustomCardButton({
     super.key,
@@ -234,15 +224,15 @@ class CustomCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
+    return TweenAnimationBuilder<double>(  // animação de entrada suave
       tween: Tween<double>(begin: 0, end: 1),
       duration: const Duration(milliseconds: 900),
       curve: Curves.easeOut,
       builder: (context, value, child) {
         return Opacity(
-          opacity: value,
+          opacity: value, // opacidade conforme animação
           child: Transform.translate(
-            offset: Offset(0, (1 - value) * 20),
+            offset: Offset(0, (1 - value) * 20), // movimento vertical suave
             child: child,
           ),
         );
@@ -250,7 +240,7 @@ class CustomCardButton extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 150,
-        child: ElevatedButton(
+        child: ElevatedButton( // botão com estilo personalizado
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF00B4D8),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -261,14 +251,14 @@ class CustomCardButton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
+              Expanded( // imagem no botão
                 child: Image.asset(
                   imagePath,
                   fit: BoxFit.contain,
                 ),
               ),
               const SizedBox(height: 5),
-              Text(
+              Text( // texto abaixo da imagem
                 text,
                 style: GoogleFonts.poppins(
                   fontSize: 18,
