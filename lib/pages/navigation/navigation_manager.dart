@@ -242,4 +242,21 @@ class NavigationManager {
 
     return BeaconInfo(formattedUuid, major, minor, mac);
   }
+  List<String> getInstrucoesComOrigem(List<String> caminho, String? origem) {
+    final instr = <String>[];
+
+    for (var i = 0; i < caminho.length - 1; i++) {
+      String? origemUsada = i > 0 ? caminho[i - 1] : origem;
+      final atual = caminho[i];
+      final destino = caminho[i + 1];
+
+      final instruction = buscarInstrucaoNoBeacon(atual, destino, origemUsada);
+      if (instruction != null && instruction.isNotEmpty) {
+        instr.add(instruction);
+      }
+    }
+
+    return instr;
+  }
+
 }

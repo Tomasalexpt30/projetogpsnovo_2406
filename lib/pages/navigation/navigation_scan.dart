@@ -292,11 +292,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
           // Senão, planeia a rota a partir daqui
           final caminho = nav.dijkstra(local, widget.destino);
           if (caminho != null && caminho.length > 1) {
+            beaconAnterior = localAtual;
             rota = caminho;
             proximoPasso = 1;
             localAtual = local;
             atualizarPosicaoVisual(local);
-            final instr = nav.getInstrucoes(caminho)[0];
+            final instr = nav.getInstrucoesComOrigem(caminho, beaconAnterior)[0];
             await _speakWithVibe(instr);
             setState(() => mostrarSeta = true);
           } else {
@@ -321,7 +322,7 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
             return;
           }
           // Passo intermédio
-          final instr = nav.getInstrucoes(rota)[proximoPasso];
+          final instr = nav.getInstrucoesComOrigem(rota, beaconAnterior)[proximoPasso];
           await _speakWithVibe(instr);
           proximoPasso++;
           return;
@@ -334,11 +335,12 @@ class _BeaconScanPageState extends State<BeaconScanPage> with TickerProviderStat
 
         final novoCaminho = nav.dijkstra(local, widget.destino);
         if (novoCaminho != null && novoCaminho.length > 1) {
+          beaconAnterior = localAtual;
           rota = novoCaminho;
           proximoPasso = 1;
           localAtual = local;
           atualizarPosicaoVisual(local);
-          final instr = nav.getInstrucoes(novoCaminho)[0];
+          final instr = nav.getInstrucoesComOrigem(novoCaminho, beaconAnterior)[0];
           await _speakWithVibe(instr);
           setState(() => mostrarSeta = true);
         } else {
