@@ -1,530 +1,1092 @@
 {
   "alerts": {
-    "already_there_alert": "Ya estás en {location}. Has llegado a tu destino.",
-    "path_not_found_alert": "Estás en {location}. Ruta no encontrada.",
-    "arrived_alert": "Has llegado a tu destino. Gracias por usar nuestra app.",
-    "at_location_alert": "Estás en: {location}",
-    "navigation_cancelled_alert": "Navegación cancelada",
-    "searching_alert": "Buscando...",
-    "end_of_route_alert": "Fin del recorrido",
-    "voice_start_alert": "Vamos a iniciar la navegación hacia {destination}.",
-    "voice_unavailable_alert": "El destino no está disponible, por favor repita.",
-    "voice_selected_alert": "Destino favorito seleccionado: {destination}",
-    "start_navigation_alert": "Vamos a comenzar la navegación con el destino {destination}",
-    "timeout_alert": "Se superó el tiempo límite de audio. Por favor, inténtelo de nuevo.",
-    "no_match_alert": "No se pudo reconocer lo que dijo. Por favor, inténtelo de nuevo.",
-    "navigation_end_alert": "Navegación completada. ¡Gracias por usar nuestra aplicación!"
+    "already_there_alert": "Já se encontra em {location}. Chegou ao seu destino.",
+    "path_not_found_alert": "Encontra-se em {location}. Caminho não encontrado.",
+    "at_location_alert": "Encontra-se em: {location}",
+    "navigation_cancelled_alert": "Navegação cancelada",
+    "searching_alert": "A procurar...",
+    "end_of_route_alert": "Fim da rota",
+    "voice_start_alert": "Vamos iniciar a navegação com o destino {destination}.",
+    "voice_unavailable_alert": "Destino não se encontra disponível, repita por favor.",
+    "voice_selected_alert": "Destino favorito selecionado: {destination}",
+    "start_navigation_alert": "Vamos iniciar a navegação com o destino {destination}",
+    "timeout_alert": "Tempo limite de áudio excedido. Por favor, tente novamente.",
+    "no_match_alert": "Não foi possível reconhecer o que disse. Por favor, tente novamente.",
+    "navigation_end_alert": "Navegação concluida. Obrigado por usar a nossa aplicação!"
   },
-
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "Descripción del Beacon 1",
-      "beacon_destinations": ["Entrada", "Portería"],
-      "beacon_connections": ["Beacon 2", "Beacon 3"],
+      "beacon_description": "En este espacio encontram-se a Sala de Actos, a Entrada Principal e a zona de Objetos Perdidos.",
+      "beacon_destinations": [
+        "Sala dos Atos",
+        "Entrada Principal",
+        "Perdidos e Achados"
+      ],
+      "beacon_connections": [
+        "Beacon 2",
+        "Beacon 3"
+      ],
       "beacon_instructions": {
-        "Beacon 1-Entrada": "Instrucción del Beacon 1 hacia la Entrada",
-        "Beacon 1-Portería": "Instrucción del Beacon 1 hacia la Portería",
-        "Beacon 1-Beacon 2": "Instrucción del Beacon 1 hacia el Beacon 2",
-        "Beacon 1-Beacon 3": "Instrucción del Beacon 1 hacia el Beacon 3"
+        "Beacon 1-Entrada Principal": "Dê cinco pasos em direção à Entrada Principal y llegará a su destino: Entrada Principal",
+        "Beacon 2-Beacon 1-Entrada Principal": "Dé aproximadamente 3 pasos à derecha seguidos de mais cinco pasos à derecha y llegará a su destino: Entrada Principal",
+        "Beacon 3-Beacon 1-Entrada Principal": "Dé aproximadamente 5 pasos em frente y llegará a su destino: Entrada Principal ",
+        "Beacon 1-Perdidos e Achados": "Dé aproximadamente cinco pasos en dirección aos perdidos e achados, y llegará a su destino: Objetos Perdidos",
+        "Beacon 2-Beacon 1-Perdidos e Achados": "Dé aproximadamente sete pasos à derecha y llegará a su destino: Objetos Perdidos",
+        "Beacon 3-Beacon 1-Perdidos e Achados": "Dé aproximadamente cinco pasos em frente seguidos de mais quatro pasos à izquierda y llegará a su destino: Objetos Perdidos",
+        "Beacon 1-Sala dos Atos": " Dé aproximadamente cinco pasos e suba 11 escalones em direção à Sala de Actos y llegará a su destino: Sala de Actos",
+        "Beacon 2-Beacon 1-Sala dos Atos": "Dé aproximadamente 4 pasos em frente, vire à izquierda e suba 11 escalones y llegará a su destino: Sala de Actos ",
+        "Beacon 3-Beacon 1-Sala dos Atos": "Dé aproximadamente três pasos em frente seguidos de mais quatro pasos à derecha, suba 11 escalones y llegará a su destino: Sala de Actos ",
+        "Beacon 1-Beacon 2": "Encuentre unas escaleras à sua izquierda. Baje 6 escalones e dê cinco pasos à derecha Encuentre unas escaleras à sua izquierda. Baje 6 escalones e dê cinco pasos à derecha ",
+        "Beacon 3-Beacon 1-Beacon 2": "Dé aproximadamente seis pasos em frente, encontre umas escadas à derecha. Baje 6 escalones e dê cinco pasos à derecha.",
+        "Beacon 1-Beacon 3": "Dé aproximadamente dezassete pasos em frente",
+        "Beacon 2-Beacon 1-Beacon 3": "-----------Dé aproximadamente vinte pasos em frente "
       }
     },
-
     "Beacon 2": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 13", "Sala 14", "Sala 15"],
-      "beacon_connections": ["Beacon 1"],
-
+      "beacon_description": "En este lugar encontram-se as escadas que utilizou para descer, bem como um corredor que o conduzirá às salas 13, 14 e 15 correspondente",
+      "beacon_destinations": [
+        "Sala 13",
+        "Sala 14",
+        "Sala 15"
+      ],
+      "beacon_connections": [
+        "Beacon 1"
+      ],
       "beacon_instructions": {
-        "Beacon 2-Sala 13": "",
-        "Beacon 2-Sala 14": "",
-        "Beacon 2-Sala 15": "",
-        "Beacon 2-Beacon 1": ""
+        "Beacon 1-Beacon 2-Sala 13": "Vire à derecha e dê aproximadamente 7 pasos. Ao passar a porta chegará ao seu destino: sala13",
+        "Beacon 2-Sala 13": "Dé aproximadamente 7 pasos em direção à sala 13. Ao passar a porta chegará ao seu destino: sala13",
+        "Beacon 1-Beacon 2-Sala 14": "Vire à derecha e dê aproximadamente 14 pasos y llegará a su destino: sala 14",
+        "Beacon 2-Sala 14": "Dé aproximadamente 14 pasos em direção à sala 14 y llegará a su destino: sala 14",
+        "Beacon 1-Beacon 2-Sala 15": "Vire à derecha e dê aproximadamente 21 pasos y llegará a su destino: sala 15",
+        "Beacon 2-Sala 15": "Dé aproximadamente 21 pasos em direção à sala 15 y llegará a su destino: sala 15",
+        "Beacon 2-Beacon 1": "Dé aproximadamente cinco pasos à sua izquierda e suba seis escalones"
       }
     },
-
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "Descripción del Beacon 3",
-      "beacon_destinations": ["Patio"],
-      "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
+      "beacon_description": "Está en el centro do Patio Principal da UAL. À sua volta encontra-se a saída da universidade, o busto de Camões e as escadas de acesso ao interior da universidade.",
+      "beacon_destinations": [
+        "Pátio"
+      ],
+      "beacon_connections": [
+        "Beacon 1",
+        "Beacon 4",
+        "Beacon 8",
+        "Beacon 15"
+      ],
       "beacon_instructions": {
-        "Beacon 3-Patio": "Instrucción del Beacon 3 hacia el Patio",
-        "Beacon 3-Beacon 1": "Instrucción del Beacon 3 hacia el Beacon 1",
-        "Beacon 3-Beacon 4": "Instrucción del Beacon 3 hacia el Beacon 4",
-        "Beacon 3-Beacon 8": "Instrucción del Beacon 3 hacia el Beacon 8",
-        "Beacon 3-Beacon 15": "Instrucción del Beacon 3 hacia el Beacon 15"
+        "Beacon 1-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
+        "Beacon 3-Pátio": "Encontra-se no Patio",
+        "Beacon 4-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
+        "Beacon 8-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
+        "Beacon 15-Beacon 3-Pátio": "Dé aproximadamente três pasos y llegará a su destino: Patio ",
+        "Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos em direção à entrada",
+        "Beacon 4-Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos à izquierda ",
+        "Beacon 8-Beacon 3-Beacon 1": "Dé aproximadamente dezassete pasos à izquierda",
+        "Beacon 15-Beacon 3-Beacon 1": "Dé aproximadamente 20 pasos em frente",
+        "Beacon 1-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
+        "Beacon 3-Beacon 4": "Dé aproximadamente sete pasos em direção às escadas inferiores, suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
+        "Beacon 8-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
+        "Beacon 15-Beacon 3-Beacon 4": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da derecha oito escalones, seguidos de mais dois escalones à izquierda",
+        "Beacon 1-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
+        "Beacon 3-Beacon 8": "Dé aproximadamente sete pasos em direção às escadas superiores, suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
+        "Beacon 4-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à derecha e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
+        "Beacon 15-Beacon 3-Beacon 8": "Dé aproximadamente sete pasos à izquierda e suba pelas escadas da izquierda oito escalones, seguidos de mais dois escalones à derecha",
+        "Beacon 1-Beacon 3-Beacon 15": "Dé aproximadamente vinte pasos em frente e suba dois escalones",
+        "Beacon 3-Beacon 15": "Dé aproximadamente vinte pasos em frente e suba dois escalones",
+        "Beacon 4-Beacon 3-Beacon 15": "Dé aproximadamente doze pasos à frente e suba dois escalones",
+        "Beacon 8-Beacon 3-Beacon 15": "Dé aproximadamente doze pasos em frente e suba dois escalones"
       }
     },
-
-
     "Beacon 4": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Auditório 2", "Auditório 3", "Sala 22", "Sala 23"],
-      "beacon_connections": ["Beacon 3", "Beacon 5", "Beacon 8", "Beacon 9"],
-
+      "beacon_description": "En este espacio, à sua frente está a loja dos trajes académicos, à sua izquierda a Associação de Estudantes e à sua derecha as salas vinte e quatro a trinta e três, os auditórios dois e três e o Oficina de Erasmus.",
+      "beacon_destinations": [
+        "Auditório 02",
+        "Auditório 03",
+        "Sala 22",
+        "Sala 23"
+      ],
+      "beacon_connections": [
+        "Beacon 3",
+        "Beacon 5",
+        "Beacon 8",
+        "Beacon 9"
+      ],
       "beacon_instructions": {
-        "Beacon 4-Auditório 2": "",
-        "Beacon 4-Auditório 3": "",
-        "Beacon 4-Sala 22": "",
-        "Beacon 4-Sala 23": "",
-        "Beacon 4-Beacon 3": "",
-        "Beacon 4-Beacon 5": "",
-        "Beacon 4-Beacon 8": "",
-        "Beacon 4-Beacon 9": ""
+        "Beacon 3-Beacon 4-Auditório 02": "Vire à derecha e dê sete pasos seguidos de mais sete pasos à izquierda y llegará a su destino: Auditorio 2",
+        "Beacon 4-Auditório 02": "Dé aproximadamente sete pasos seguidos de mais sete pasos à izquierda en dirección ao auditório 2 y llegará a su destino: Auditorio 2",
+        "Beacon 8-Beacon 4-Auditório 02": "Dé aproximadamente 11 pasos em frente seguidos de sete pasos à izquierda y llegará a su destino: Auditorio 2",
+        "Beacon 9-Beacon 4-Auditório 02": "Dé aproximadamente 11 pasos em frente seguidos de sete pasos à izquierda y llegará a su destino: Auditorio 2",
+        "Beacon 3-Beacon 4-Auditório 03": "Vire à derecha, dê nove pasos y llegará a su destino: Auditorio 3",
+        "Beacon 4-Auditório 03": "Dê nove pasos en dirección ao auditório 3 y llegará a su destino: Auditorio 3",
+        "Beacon 5-Beacon 4-Auditório 03": "Dé aproximadamente 9 pasos à izquierda y llegará a su destino: Auditorio 3",
+        "Beacon 8-Beacon 4-Auditório 03": "Dé aproximadamente 12 pasos em frente y llegará a su destino: Auditorio 3",
+        "Beacon 9-Beacon 4-Auditório 03": "Dé aproximadamente 12 pasos em frente y llegará a su destino: Auditorio 3",
+        "Beacon 3-Beacon 4-Sala 22": "Dé aproximadamente 9 pasos em frente y llegará a su destino: Sala 22",
+        "Beacon 4-Sala 22": "Dé aproximadamente 9 pasos em direção à sala 22 y llegará a su destino: Sala 22",
+        "Beacon 5-Beacon 4-Sala 22": "Vire à derecha, dê aproximadamente 5 pasos seguidos de mais 9 pasos à derecha y llegará a su destino: Sala 22",
+        "Beacon 8-Beacon 4-Sala 22": "Vire à izquierda, dê aproximadamente 6 pasos y llegará a su destino: Sala 22",
+        "Beacon 9-Beacon 4-Sala 22": "Vire à izquierda e dê aproximadamente 9 pasos y llegará a su destino: Sala 22",
+        "Beacon 3-Beacon 4-Sala 23": "Dé aproximadamente 6 pasos em frente, seguidos de mais 8 pasos à derecha y llegará a su destino: Sala 23",
+        "Beacon 4-Sala 23": "Dé aproximadamente 6 pasos em frente, seguidos de mais 8 pasos em direção à sala 23 y llegará a su destino: Sala 23",
+        "Beacon 5-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos à izquierda seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
+        "Beacon 8-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos em frente, seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
+        "Beacon 9-Beacon 4-Sala 23": "Dé aproximadamente 9 pasos em frente, seguidos de mais 5 pasos à izquierda y llegará a su destino: Sala 23",
+        "Beacon 4-Beacon 3": "Ao passar a porta vire à derecha e desça 8 escalones, vire à izquierda e dê sete pasos",
+        "Beacon 5-Beacon 4-Beacon 3": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à izquierda. Ao passar a porta, vire à derecha e desça 8 escalones",
+        "Beacon 8-Beacon 4-Beacon 3": "Dé aproximadamente 5 pasos em frente, seguidos de mais 2 pasos à derecha. Ao passar a porta, vire à derecha e desça 8 escalones",
+        "Beacon 9-Beacon 4-Beacon 3": "Vire à izquierda e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à derecha. Ao passar a porta, vire à derecha e desça 8 escalones",
+        "Beacon 3-Beacon 4-Beacon 5": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 15 pasos à izquierda",
+        "Beacon 4-Beacon 5": "Vire à derecha e dê aproximadamente 6 pasos, seguidos de mais 15 pasos à izquierda",
+        "Beacon 8-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
+        "Beacon 9-Beacon 4-Beacon 5": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
+        "Beacon 3-Beacon 4-Beacon 8": "Vire à izquierda e dê aproximadamente 13 pasos",
+        "Beacon 4-Beacon 8": "Dé aproximadamente 13 pasos em direção às escadas superiores",
+        "Beacon 5-Beacon 4-Beacon 8": "Vire à derecha e dê aproximadamente 15 pasos",
+        "Beacon 9-Beacon 4-Beacon 8": "Vire à derecha e dê aproximadamente 7 pasos ",
+        "Beacon 3-Beacon 4-Beacon 9": "Vire à izquierda e dê aproximadamente 7 pasos, seguidos de mais 10 pasos à derecha",
+        "Beacon 4-Beacon 9": "Dé aproximadamente 7 pasos em direção às escadas superiores, seguidos de mais 10 pasos à derecha",
+        "Beacon 5-Beacon 4-Beacon 9": "Dé aproximadamente 13 pasos em frente, seguidos de mais 15 pasos à izquierda",
+        "Beacon 8-Beacon 4-Beacon 9": "------------------------------------------------"
       }
     },
-
     "Beacon 5": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Auditório 2", "Sala 24", "Sala 27", "Gabinete de Erasmus +"],
-      "beacon_connections": ["Beacon 4", "Beacon 6"],
-
+      "beacon_description": "Neste corredor encontram-se as salas 24, 27, 28 e 29, por esta ordem. Também encontrará o Oficina de Erasmus e o Coro Académico.",
+      "beacon_destinations": [
+        "Auditório 02",
+        "Sala 24",
+        "Sala 27",
+        "Gabinete de Erasmus"
+      ],
+      "beacon_connections": [
+        "Beacon 4",
+        "Beacon 6"
+      ],
       "beacon_instructions": {
-        "Beacon 5-Auditório 02": "",
-        "Beacon 5-Sala 24": "",
-        "Beacon 5-Sala 27": "",
-        "Beacon 5-Gabinete de Erasmus +": "",
-        "Beacon 5-Beacon 4": "",
-        "Beacon 5-Beacon 6": ""
+        "Beacon 5-Auditório 02": "Dé aproximadamente 5 pasos en dirección ao auditório 2 y llegará a su destino: auditório 2",
+        "Beacon 6-Beacon 5-Auditório 02": "Dé aproximadamente 4 pasos em frente seguidos de 2 pasos à izquierda y llegará a su destino: auditório 2",
+        "Beacon 4-Beacon 5-Gabinete de Erasmus": "Dé aproximadamente 4 pasos em frente seguidos de 2 pasos à izquierda y llegará a su destino: Oficina de Erasmus",
+        "Beacon 5-Gabinete de Erasmus": "Dê 4 pasos en dirección ao gabinete de erasmus y llegará a su destino: gabinete de erasmus",
+        "Beacon 6-Beacon 5-Gabinete de Erasmus": "Vire à derecha e dê aproximadamente 4 pasos y llegará a su destino: gabinete de erasmus",
+        "Beacon 4-Beacon 5-Sala 24": "Vire à izquierda, dê aproximadamente 4 pasos y llegará a su destino: sala 24",
+        "Beacon 5-Sala 24": "Dé aproximadamente 3 pasos em direção à sala 24 y llegará a su destino: sala 24",
+        "Beacon 6-Beacon 5-Sala 24": "Dé aproximadamente 6 pasos em frente, seguidos de mais 3 pasos à derecha y llegará a su destino: sala 24",
+        "Beacon 4-Beacon 5-Sala 27": "Dé aproximadamente 18 pasos em frente seguidos de 2 à izquierda y llegará a su destino: sala 27",
+        "Beacon 5-Sala 27": "Dé aproximadamente 15 pasos em direção à sala 27 y llegará a su destino: sala 27",
+        "Beacon 5-Beacon 4": "Dé aproximadamente 25 pasos em direção às escadas inferiores",
+        "Beacon 6-Beacon 5-Beacon 4": "Dé aproximadamente 28 pasos em frente",
+        "Beacon 4-Beacon 5-Beacon 6": "Dé aproximadamente 30 pasos em frente",
+        "Beacon 5-Beacon 6": "Dé aproximadamente 27 pasos ao final do corredor"
       }
     },
-
     "Beacon 6": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 28", "Sala 29"],
-      "beacon_connections": ["Beacon 5", "Beacon 7"],
-
+      "beacon_description": "A su derecha encontram-se as escadas que descem para as salas 32 e 33. A su izquierda encontram-se as salas 28 e 29.",
+      "beacon_destinations": [
+        "Sala 27",
+        "Sala 28",
+        "Sala 29"
+      ],
+      "beacon_connections": [
+        "Beacon 5",
+        "Beacon 7"
+      ],
       "beacon_instructions": {
-        "Beacon 6-Sala 28": "",
-        "Beacon 6-Sala 29": "",
-        "Beacon 6-Beacon 5": "",
-        "Beacon 6-Beacon 7": ""
+        "Beacon 6-Sala 27": "Dé aproximadamente 12 pasos, seguidos de 3 pasos à derecha em direção à sala 27 y llegará a su destino: sala 27",
+        "Beacon 7-Beacon 6-Sala 27": "Vire à izquierda e dê aproximadamente 12 pasos, seguidos de 3 pasos à derecha em direção à sala 27 y llegará a su destino: sala 27",
+        "Beacon 5-Beacon 6-Sala 28": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha y llegará a su destino: sala 28",
+        "Beacon 6-Sala 28": "Dé aproximadamente 5 pasos, seguidos de 7 pasos à derecha em direção à sala 28 y llegará a su destino: sala 28",
+        "Beacon 7-Beacon 6-Sala 28": "-------Vire à derecha e dê aproximadamente 3 pasos seguidos de mais 7 pasos à derecha y llegará a su destino: sala 28",
+        "Beacon 5-Beacon 6-Sala 29": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha. Em seguida vire à izquierda e dê aproximadamente 10 pasos y llegará a su destino: sala 29",
+        "Beacon 6-Sala 29": "Dé aproximadamente 5 pasos em frente seguidos de mais 7 pasos à derecha. Em seguida vire à izquierda e dê aproximadamente 10 pasos em direção à sala 29 y llegará a su destino: sala 29",
+        "Beacon 6-Beacon 5": "Dé aproximadamente 27 pasos en dirección ao início do corredor",
+        "Beacon 7-Beacon 6-Beacon 5": "Vire à izquierda e dê aproximadamente 27 pasos",
+        "Beacon 5-Beacon 6-Beacon 7": "Vire à derecha e desça 8 escalones seguidos de mais 5 escalones à izquierda. Em seguida dê 5 pasos em frente",
+        "Beacon 6-Beacon 7": "Encuentre unas escaleras e desça 8 escalones seguidos de mais 5 escalones à izquierda. Em seguida dê 5 pasos em frente"
       }
     },
-
     "Beacon 7": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 32", "Sala 33"],
-      "beacon_connections": ["Beacon 6"],
-
+      "beacon_description": "Este corredor irá levá-lo a duas salas: à sua derecha está a Sala 32 e à sua izquierda está a Sala 33.",
+      "beacon_destinations": [
+        "Sala 32",
+        "Sala 33"
+      ],
+      "beacon_connections": [
+        "Beacon 6"
+      ],
       "beacon_instructions": {
-        "Beacon 7-Sala 32": "",
-        "Beacon 7-Sala 33": "",
-        "Beacon 7-Beacon 6": ""
+        "Beacon 6-Beacon 7-Sala 32": "Vire à derecha e dê aproximadamente 7 pasos y llegará a su destino: sala 32",
+        "Beacon 7-Sala 32": "Dé aproximadamente 7 pasos em direção à sala 32 y llegará a su destino: sala 32",
+        "Beacon 6-Beacon 7-Sala 33": "Vire à derecha e dê aproximadamente 3 pasos y llegará a su destino: sala 33",
+        "Beacon 7-Sala 33": "Dé aproximadamente 3 pasos em direção à sala 33 y llegará a su destino: sala 33",
+        "Beacon 7-Beacon 6": "Dé aproximadamente 6 pasos, encontre umas escadas e suba 5 escalones seguidos de 8 escalones à derecha"
       }
     },
-
     "Beacon 8": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "En este espacio tem umas escadas que o irão levar ao Patio Principal, um corredor que o irá levar ao piso 1 e outro corredor que o irá levar a salas, bar e Associação de Estudantes.",
       "beacon_destinations": [],
-      "beacon_connections": ["Beacon 3", "Beacon 4", "Beacon 9", "Beacon 22"],
-
+      "beacon_connections": [
+        "Beacon 3",
+        "Beacon 4",
+        "Beacon 9",
+        "Beacon 22"
+      ],
       "beacon_instructions": {
-        "Beacon 8-Beacon 3": "",
-        "Beacon 8-Beacon 4": "",
-        "Beacon 8-Beacon 9": "",
-        "Beacon 8-Beacon 22": ""
+        "Beacon 4-Beacon 8-Beacon 3": "Vire à izquierda e desça 8 escalones, seguidos de 7 pasos à derecha",
+        "Beacon 8-Beacon 3": "Encuentre unas escaleras, desça 8 escalones e dê 7 pasos à derecha",
+        "Beacon 9-Beacon 8-Beacon 3": "Vire à izquierda, desça 8 escalones e dê 7 pasos à derecha",
+        "Beacon 22-Beacon 8-Beacon 3": "Vire à derecha, desça 8 escalones e dê 7 pasos à derecha",
+        "Beacon 3-Beacon 8-Beacon 4": "Vire à derecha e dê aproximadamente 13 pasos",
+        "Beacon 8-Beacon 4": "Dé aproximadamente 13 pasos em direção às escadas inferiores",
+        "Beacon 9-Beacon 8-Beacon 4": "Vire à izquierda e dê aproximadamente 10 pasos",
+        "Beacon 22-Beacon 8-Beacon 4": "Dé aproximadamente 13 pasos",
+        "Beacon 3-Beacon 8-Beacon 9": "Vire à derecha e dê aproximadamente 6 pasos seguidos de mais 4 pasos à izquierda",
+        "Beacon 4-Beacon 8-Beacon 9": "Não faz sentido",
+        "Beacon 8-Beacon 9": "Dé aproximadamente 6 pasos seguidos de 4 à izquierda em direção às escadas do bar",
+        "Beacon 22-Beacon 8-Beacon 9": "Dé aproximadamente 8 pasos em frente seguidos de 4 pasos à izquierda",
+        "Beacon 3-Beacon 8-Beacon 22": "Vire à izquierda e dê aproximadamente 10 pasos em frente e suba 3 escalones",
+        "Beacon 4-Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos em frente e suba 3 escalones",
+        "Beacon 8-Beacon 22": "Dé aproximadamente 10 pasos no final do corredor",
+        "Beacon 9-Beacon 8-Beacon 22": "Vire à derecha, dê aproximadamente 10 pasos em frente e suba 3 escalones"
       }
     },
-
     "Beacon 9": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["AAUAL", "Loja Académica"],
-      "beacon_connections": ["Beacon 4", "Beacon 8", "Beacon 10"],
-
+      "beacon_description": "À sua volta encontra-se a Associação de Estudantes à derecha, à sua izquierda a loja dos trajes académicos e em frente as escadas que o levarão ao Bar/Cantina.",
+      "beacon_destinations": [
+        "Associação Académica",
+        "Loja Académica"
+      ],
+      "beacon_connections": [
+        "Beacon 4",
+        "Beacon 8",
+        "Beacon 10"
+      ],
       "beacon_instructions": {
-        "Beacon 9-AAUAL": "",
-        "Beacon 9-Loja Académica": "",
-        "Beacon 9-Beacon 4": "",
-        "Beacon 9-Beacon 8": "",
-        "Beacon 9-Beacon 10": ""
+        "Beacon 4-Beacon 9-Associação Académica": "Vire à derecha e dê aproximadamente 5 pasos, seguidos de mais 2 pasos à izquierda y llegará a su destino: associação académica",
+        "Beacon 8-Beacon 9-Associação Académica": "Dé aproximadamente 3 pasos em frente, seguidos de mais 2 pasos à izquierda y llegará a su destino: associação académica",
+        "Beacon 9-Associação Académica": "Dé aproximadamente 5 pasos em direção à associação académica y llegará a su destino: associação académica",
+        "Beacon 10-Beacon 9-Associação Académica": "Dé aproximadamente 4 pasos em frente, seguidos de mais 3 pasos à derecha y llegará a su destino: associação académica",
+        "Beacon 4-Beacon 9-Loja Académica": "Vire à derecha e dê aproximadamente 2 pasos: loja académica",
+        "Beacon 8-Beacon 9-Loja Académica": "Vire à izquierda e dê aproximadamente 2 pasos y llegará a su destino: loja académica",
+        "Beacon 9-Loja Académica": "Dé aproximadamente 2 pasos em direção à loja académica y llegará a su destino: loja académica",
+        "Beacon 10-Beacon 9-Loja Académica": "Vire à derecha e dê aproximadamente 4 pasos, seguidos de 2 pasos à izquierda y llegará a su destino: loja académica",
+        "Beacon 8-Beacon 9-Beacon 4": "Não faz sentido",
+        "Beacon 9-Beacon 4": "Dé aproximadamente 5 pasos em frente, seguidos de mais 6 pasos à izquierda",
+        "Beacon 10-Beacon 9-Beacon 4": "Dé aproximadamente 7 pasos em frente, seguidos de mais 6 pasos à izquierda",
+        "Beacon 4-Beacon 9-Beacon 8": "Não faz sentido",
+        "Beacon 9-Beacon 8": "Dé aproximadamente 5 pasos em frente, seguidos de mais 6 pasos à derecha em direção às escadas superiores",
+        "Beacon 10-Beacon 9-Beacon 8": "Dé aproximadamente 7 pasos em frente, seguidos de mais 6 pasos à derecha",
+        "Beacon 4-Beacon 9-Beacon 10": "Vire à derecha e dê aproximadamente 10 pasos, desça 6 escalones, seguidos de mais 12 escalones à izquierda",
+        "Beacon 8-Beacon 9-Beacon 10": "Vire à izquierda e dê aproximadamente 10 pasos e desça 6 escalones, seguidos de mais 12 escalones à izquierda",
+        "Beacon 9-Beacon 10": "Dé aproximadamente 10 pasos no final do corredor e desça 6 escalones, seguidos de mais 12 escalones à izquierda"
       }
     },
-
     "Beacon 10": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Cacifos", "Bar"],
-      "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
-
+      "beacon_description": "En este espacio encontra-se à sua derecha o Bar/Cantina, os Cacifos e em frente as escadas que o irão levar para o piso 0.",
+      "beacon_destinations": [
+        "Cacifos",
+        "Bar"
+      ],
+      "beacon_connections": [
+        "Beacon 9",
+        "Beacon 11",
+        "Beacon 12"
+      ],
       "beacon_instructions": {
-        "Beacon 10-Cacifos": "",
-        "Beacon 10-Bar": "",
-        "Beacon 10-Beacon 9": "",
-        "Beacon 10-Beacon 11": "",
-        "Beacon 10-Beacon 12": ""
+        "Beacon 9-Beacon 10-Bar": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta chegará ao seu destino: bar",
+        "Beacon 10-Bar": "Dé aproximadamente 8 pasos en dirección ao bar y llegará a su destino: bar",
+        "Beacon 11-Beacon 10-Bar": "Dé aproximadamente 8 pasos à izquierda. Ao passar por uma porta chegará ao seu destino: bar",
+        "Beacon 9-Beacon 10-Cacifos": "Dé aproximadamente 3 pasos em frente y llegará a su destino: cacifos",
+        "Beacon 10-Cacifos": "Dé aproximadamente 3 pasos en dirección aos cacifos y llegará a su destino: cacifos",
+        "Beacon 11-Beacon 10-Cacifos": "Dé aproximadamente 4 pasos em frente y llegará a su destino: cacifos",
+        "Beacon 12-Beacon 10-Cacifos": "Dé aproximadamente 3 pasos em frente y llegará a su destino: cacifos",
+        "Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
+        "Beacon 11-Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
+        "Beacon 12-Beacon 10-Beacon 9": "Encuentre unas escaleras e suba 12 escalones seguidos de mais 6 escalones à derecha. E dê aproximadamente 5 pasos à derecha",
+        "Beacon 9-Beacon 10-Beacon 11": "Vire à derecha e dê 2 pasos seguidos de mais 10 pasos à derecha",
+        "Beacon 10-Beacon 11": "Vire à derecha e dê 2 pasos seguidos de mais 10 pasos à derecha",
+        "Beacon 12-Beacon 10-Beacon 11": "Dé aproximadamente 4 pasos em frente seguidos de mais 10 pasos à derecha",
+        "Beacon 9-Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta dê 5 pasos",
+        "Beacon 10-Beacon 12": "Dé aproximadamente 3 pasos em frente seguidos de mais 4 pasos à izquierda. Ao passar por uma porta dê 5 pasos",
+        "Beacon 11-Beacon 10-Beacon 12": "Dé aproximadamente 7 pasos à izquierda. Ao passar por uma porta dê 5 pasos"
       }
     },
-
     "Beacon 11": {
       "beacon_floor": "-1",
-      "beacon_description": "",
+      "beacon_description": "Onde se encontra, tem à sua frente a esplanada exterior, à sua derecha o caminho para o bar e atrás de si as escadas que o levam para o piso zero.",
       "beacon_destinations": [],
-      "beacon_connections": ["Beacon 10", "Beacon 13"],
-
+      "beacon_connections": [
+        "Beacon 10",
+        "Beacon 13"
+      ],
       "beacon_instructions": {
-        "Beacon 11-Beacon 10": "",
-        "Beacon 11-Beacon 13": ""
+        "Beacon 11-Beacon 10": "Dé aproximadamente 10 pasos em direção às escadas do bar",
+        "Beacon 13-Beacon 11-Beacon 10": "Vire à izquierda e dê aproximadamente 10 pasos",
+        "Beacon 10-Beacon 11-Beacon 13": "Vire à derecha e dê aproximadamente 9 pasos",
+        "Beacon 11-Beacon 13": "Dé aproximadamente 9 pasos em direção à sala dos micro-ondas"
       }
     },
-
-
     "Beacon 12": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Bar", "Refeitório"],
-      "beacon_connections": ["Beacon 10", "Beacon 13"],
-
+      "beacon_description": "En este momento você encontra-se no Bar. A su izquierda tem a esplanada interior e à sua derecha a saída.",
+      "beacon_destinations": [
+        "Bar",
+        "Refeitório"
+      ],
+      "beacon_connections": [
+        "Beacon 10",
+        "Beacon 13"
+      ],
       "beacon_instructions": {
-        "Beacon 12-Bar": "",
-        "Beacon 12-Refeitório": "",
-        "Beacon 12-Beacon 10": "",
-        "Beacon 12-Beacon 13": ""
+        "Beacon 12-Bar": "Dê 3 pasos en dirección ao bar y llegará a su destino: bar",
+        "Beacon 13-Beacon 12-Bar": "Dê 3 pasos em frente y llegará a su destino: bar",
+        "Beacon 10-Beacon 12-Refeitório": "Vire à izquierda e dê aproximadamente 5 pasos y llegará a su destino: refeitório",
+        "Beacon 12-Refeitório": "Dé aproximadamente 3 pasos en dirección ao refeitório y llegará a su destino: refeitório",
+        "Beacon 12-Beacon 10": "Dé aproximadamente 8 pasos em direção às escadas do bar",
+        "Beacon 13-Beacon 12-Beacon 10": "Vire à izquierda e dê aproximadamente 13 pasos",
+        "Beacon 10-Beacon 12-Beacon 13": "Vire à izquierda e dê aproximadamente 13 pasos",
+        "Beacon 12-Beacon 13": "Dé aproximadamente 13 pasos em direção à sala dos micro-ondas"
       }
     },
-
     "Beacon 13": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Micro-ondas", "Refeitório", "Esplanada"],
-      "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
-
+      "beacon_description": "Onde se encontra, tem à sua izquierda uma porta que o levará para a secção dos micro-ondas, para a esplanada exterior e para a esplanada interior.",
+      "beacon_destinations": [
+        "Sala dos Micro-ondas",
+        "Refeitório",
+        "Esplanada"
+      ],
+      "beacon_connections": [
+        "Beacon 11",
+        "Beacon 12",
+        "Beacon 14"
+      ],
       "beacon_instructions": {
-        "Beacon 13-Micro-ondas": "",
-        "Beacon 13-Refeitório": "",
-        "Beacon 13-Esplanada": "",
-        "Beacon 13-Beacon 11": "",
-        "Beacon 13-Beacon 12": "",
-        "Beacon 13-Beacon 14": ""
+        "Beacon 11-Beacon 13-Esplanada": "Vire à izquierda, dê aproximadamente 10 pasos y llegará a su destino: esplanada",
+        "Beacon 12-Beacon 13-Esplanada": "Vire à derecha, dê aproximadamente 10 pasos y llegará a su destino: esplanada",
+        "Beacon 13-Esplanada": "Dé aproximadamente 10 pasos em direção à esplanada y llegará a su destino: esplanada",
+        "Beacon 11-Beacon 13-Refeitório": "Dé aproximadamente 3 pasos em frente e ao passar a porta chegará ao seu destino: refeitório",
+        "Beacon 13-Refeitório": "Dé aproximadamente 3 pasos en dirección ao refeitório y llegará a su destino: refeitório",
+        "Beacon 14-Beacon 13-Refeitório": "Vire à izquierda, dê aproximadamente 3 pasos e ao passar a porta chegará ao seu destino: refeitório",
+        "Beacon 11-Beacon 13-Sala dos Micro-ondas": "Vire à derecha y llegará a su destino: sala dos micro-ondas",
+        "Beacon 12-Beacon 13-Sala dos Micro-ondas": "Ao passar a porta vire à izquierda y llegará a su destino: sala dos micro-ondas",
+        "Beacon 13-Sala dos Micro-ondas": "Ao passar a porta dê aproximadamente 1 passo em direção à sala dos micro-ondas y llegará a su destino: sala dos micro-ondas",
+        "Beacon 14-Beacon 13-Sala dos Micro-ondas": "Dê 3 pasos em frente y llegará a su destino: sala dos micro-ondas",
+        "Beacon 12-Beacon 13-Beacon 11": "Vire à izquierda e ao passar a porta, dê aproximadamente 10 pasos em frente",
+        "Beacon 13-Beacon 11": "Ao passar a porta dê aproximadamente 10 pasos en dirección ao final del pasillo",
+        "Beacon 14-Beacon 13-Beacon 11": "Vire à derecha e dê aproximadamente 10 pasos",
+        "Beacon 11-Beacon 13-Beacon 12": "Ao passar por uma porta, dê aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha",
+        "Beacon 13-Beacon 12": "Dé aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha en dirección ao bar",
+        "Beacon 14-Beacon 13-Beacon 12": "Vire à izquierda, ao passar por uma porta vire à derecha e dê aproximadamente 5 pasos em frente seguidos de mais 10 pasos à derecha",
+        "Beacon 11-Beacon 13-Beacon 14": "Vire à izquierda e dê aproximadamente 19 pasos",
+        "Beacon 12-Beacon 13-Beacon 14": "Ao passar por uma porta, vire à derecha e dê aproximadamente 19 pasos",
+        "Beacon 13-Beacon 14": "Dé aproximadamente 19 pasos em direção à livraria"
       }
     },
-
     "Beacon 14": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Reprografia", "WC Bar"],
-      "beacon_connections": ["Beacon 13"],
-
+      "beacon_description": "En este espacio, tem à sua frente a esplanada exterior e, à sua derecha, a entrada da reprografia e as casas de banho.",
+      "beacon_destinations": [
+        "Livraria",
+        "Esplanada",
+        "WC Bar"
+      ],
+      "beacon_connections": [
+        "Beacon 13"
+      ],
       "beacon_instructions": {
-        "Beacon 14-Reprografia": "",
-        "Beacon 14-WC Bar": "",
-        "Beacon 14-Beacon 13": ""
+        "Beacon 14-Esplanada": "Dê 9 pasos em direção à esplanada y llegará a su destino: esplanada",
+        "Beacon 13-Beacon 14-Livraria": "Vire à derecha, ao passar por uma porta chegará ao seu destino: livraria",
+        "Beacon 14-Livraria": "Dé aproximadamente 1 passo em direção à livraria, ao passar uma porta chegará ao seu destino: livraria",
+        "Beacon 13-Beacon 14-WC Bar": "Em frente suba 5 escalones y llegará a su destino: wc bar",
+        "Beacon 14-WC Bar": "Suba 5 escalones em direção à baño bar y llegará a su destino: wc bar",
+        "Beacon 14-Beacon 13": "Dé aproximadamente 19 pasos en dirección ao refeitório"
       }
     },
-
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "Descripción del Beacon 15",
-      "beacon_destinations": ["Camões"],
-      "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
+      "beacon_description": "Chegou ao busto de Luís de Camões. A su derecha encontram-se as escadas para as salas 37 a 70, o UAL Media, o Auditorio 1, o Centro de Informática e as casas de banho. A su izquierda encontram-se as escadas para as salas 10, 16 e 18, as salas 80 a 90, a biblioteca e os laboratórios de psicologia. Também encontrará, neste espaço, a porta de acesso ao Patio Principal.",
+      "beacon_destinations": [
+        "Estátua do Camões"
+      ],
+      "beacon_connections": [
+        "Beacon 3",
+        "Beacon 16",
+        "Beacon 22"
+      ],
       "beacon_instructions": {
-        "Beacon 15-Camões": "Instrucción del Beacon 15 hacia Camões",
-        "Beacon 15-Beacon 3": "Instrucción del Beacon 15 hacia el Beacon 3",
-        "Beacon 15-Beacon 16": "Instrucción del Beacon 15 hacia el Beacon 16",
-        "Beacon 15-Beacon 22": "Instrucción del Beacon 15 hacia el Beacon 22"
+        "Beacon 3-Beacon 15-Estátua do Camões": "Encuentre unas escaleras, suba 2 escalones y llegará a su destino: estátua do Camões",
+        "Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
+        "Beacon 16-Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
+        "Beacon 22-Beacon 15-Estátua do Camões": "Encontra-se na estátua de Camões",
+        "Beacon 15-Beacon 3": "Encuentre unas escaleras, desça 2 escalones e dê aproximadamente 11 pasos en dirección ao pátio central",
+        "Beacon 16-Beacon 15-Beacon 3": "Vire à derecha, encontre umas escadas e desça 2 escalones seguidos de mais 11 pasos em frente",
+        "Beacon 22-Beacon 15-Beacon 3": "Vire à izquierda, encontre umas escadas e desça 2 escalones seguidos de mais 11 pasos em frente",
+        "Beacon 3-Beacon 15-Beacon 16": "Virá à izquierda e suba 10 escalones",
+        "Beacon 15-Beacon 16": "Encuentre unas escaleras e suba 10 escalones",
+        "Beacon 22-Beacon 15-Beacon 16": "Em frente suba 10 escalones",
+        "Beacon 3-Beacon 15-Beacon 22": "Vire à derecha e suba 12 escalones",
+        "Beacon 15-Beacon 22": "Encuentre unas escaleras e suba 12 escalones",
+        "Beacon 16-Beacon 15-Beacon 22": "Em frente suba 12 escalones"
       }
     },
-
-
     "Beacon 16": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 10", "Sala de Informações"],
-      "beacon_connections": ["Beacon 15", "Beacon 17", "Beacon 19"],
-
+      "beacon_description": "En este espacio, encontrará umas escadas que, ao subir, dão acesso às salas 80 a 90, à sala 10, aos laboratórios de psicologia, à Autónoma 24, sala de estudos, e à biblioteca. A su izquierda encontra-se a sala 18. Também encontrará umas escadas que, ao descer, levam à sala 16.",
+      "beacon_destinations": [
+        "Sala 10",
+        "Livros de Ponto"
+      ],
+      "beacon_connections": [
+        "Beacon 15",
+        "Beacon 17",
+        "Beacon 19"
+      ],
       "beacon_instructions": {
-        "Beacon 16-Sala 10": "",
-        "Beacon 16-Sala de Informações": "",
-        "Beacon 16-Beacon 15": "",
-        "Beacon 16-Beacon 17": "",
-        "Beacon 16-Beacon 19": ""
+        "Beacon 15-Beacon 16-Livros de Ponto": "Vire à izquierda, dê aproximadamente 2 pasos y llegará a su destino: Libros de Registro",
+        "Beacon 16-Livros de Ponto": "Dé aproximadamente 2 pasos en dirección aos livros de ponto y llegará a su destino: Libros de Registro",
+        "Beacon 17-Beacon 16-Livros de Ponto": "Vire à derecha, dê aproximadamente 2 pasos y llegará a su destino: Libros de Registro",
+        "Beacon 19-Beacon 16-Livros de Ponto": "Dé aproximadamente 4 pasos em frente seguidos de mais 2 pasos à derecha y llegará a su destino: Libros de Registro",
+        "Beacon 15-Beacon 16-Sala 10": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dê 4 pasos em frente y llegará a su destino: sala 10",
+        "Beacon 16-Sala 10": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dê 4 pasos em frente y llegará a su destino: sala 10",
+        "Beacon 17-Beacon 16-Sala 10": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dê 4 pasos em frente y llegará a su destino: sala 10",
+        "Beacon 16-Beacon 15": "Encuentre unas escaleras e desça 10 escalones",
+        "Beacon 17-Beacon 16-Beacon 15": "Dé aproximadamente 6 pasos em frente e desça 10 escalones",
+        "Beacon 19-Beacon 16-Beacon 15": "Dé aproximadamente 5 pasos em frente e desça 10 escalones",
+        "Beacon 15-Beacon 16-Beacon 17": "Dé aproximadamente 5 pasos em frente seguidos de mais 9 pasos à izquierda",
+        "Beacon 16-Beacon 17": "Dé aproximadamente 5 pasos em frente seguidos de mais 9 pasos à izquierda em direção à sala 18",
+        "Beacon 19-Beacon 16-Beacon 17": "Vire à derecha e dê aproximadamente 11 pasos",
+        "Beacon 15-Beacon 16-Beacon 19": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dé aproximadamente 6 pasos à izquierda",
+        "Beacon 16-Beacon 19": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dé aproximadamente 6 pasos à izquierda",
+        "Beacon 17-Beacon 16-Beacon 19": "Encuentre unas escaleras, suba 7 escalones seguidos de mais 13 escalones à izquierda. Dé aproximadamente 6 pasos à izquierda"
       }
     },
-
     "Beacon 17": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 18"],
-      "beacon_connections": ["Beacon 16", "Beacon 18"],
-
+      "beacon_description": "A su izquierda encontra-se a sala 18 e à sua derecha umas escadas que o levarão ao piso -1.",
+      "beacon_destinations": [
+        "Sala 18"
+      ],
+      "beacon_connections": [
+        "Beacon 16",
+        "Beacon 18"
+      ],
       "beacon_instructions": {
-        "Beacon 17-Sala 18": "",
-        "Beacon 17-Beacon 16": "",
-        "Beacon 17-Beacon 18": ""
+        "Beacon 16-Beacon 17-Sala 18": "Vire à izquierda, dê aproximadamente 2 pasos y llegará a su destino: sala 18",
+        "Beacon 17-Sala 18": "Dé aproximadamente 2 pasos em direção à sala 18 y llegará a su destino: sala 18",
+        "Beacon 18-Beacon 17-Sala 18": "Dé aproximadamente 2 pasos em frente y llegará a su destino: sala 18",
+        "Beacon 17-Beacon 16": "Dé aproximadamente 11 pasos en dirección aos livros de ponto",
+        "Beacon 18-Beacon 17-Beacon 16": "Vire à izquierda e dê aproximadamente 14 pasos",
+        "Beacon 16-Beacon 17-Beacon 18": "Encuentre unas escaleras, desça 13 escalones seguidos de mais 4 escalones",
+        "Beacon 17-Beacon 18": "Encuentre unas escaleras, desça 13 escalones seguidos de mais 4 escalones"
       }
     },
-
     "Beacon 18": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 16"],
-      "beacon_connections": ["Beacon 17"],
-
+      "beacon_description": "Nesta área encontra-se a sala 16 à sua frente.",
+      "beacon_destinations": [
+        "Sala 16"
+      ],
+      "beacon_connections": [
+        "Beacon 17"
+      ],
       "beacon_instructions": {
-        "Beacon 18-Sala 16": "",
-        "Beacon 18-Beacon 17": ""
+        "Beacon 17-Beacon 18-Sala 16": "Vire à derecha, dê aproximadamente 5 pasos y llegará a su destino: sala 16",
+        "Beacon 18-Sala 16": "Dé aproximadamente 5 pasos em direção à sala 16 y llegará a su destino: sala 16",
+        "Beacon 18-Beacon 17": "Encuentre unas escaleras, suba quatros escalones seguidos de mais doze escalones"
       }
     },
-
     "Beacon 19": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 10", "Biblioteca", "Sala de Computadores"],
-      "beacon_connections": ["Beacon 16", "Beacon 20", "Beacon 21"],
-
+      "beacon_description": "En este espacio onde se encontra, tem à sua derecha a sala 10, à sua izquierda encontra-se uma escada que dá acesso às salas do piso dois, à biblioteca e à Sala de Computadores.",
+      "beacon_destinations": [
+        "Sala 10",
+        "Sala de Computadores",
+        "Biblioteca",
+        "GIRU"
+      ],
+      "beacon_connections": [
+        "Beacon 16",
+        "Beacon 20",
+        "Beacon 21"
+      ],
       "beacon_instructions": {
-        "Beacon 19-Sala 10": "",
-        "Beacon 19-Biblioteca": "",
-        "Beacon 19-Sala de Computadores": "",
-        "Beacon 19-Beacon 16": "",
-        "Beacon 19-Beacon 20": "",
-        "Beacon 19-Beacon 21": ""
+        "Beacon 16-Beacon 19-Biblioteca": "Dé aproximadamente 2 pasos à izquierda y llegará a su destino: biblioteca",
+        "Beacon 19-Biblioteca": "Dé aproximadamente 2 pasos em direção à biblioteca e chegou ao seu destino: biblioteca",
+        "Beacon 20-Beacon 19-Biblioteca": "Dé aproximadamente 5 pasos em frente seguidos de mais 2 pasos à izquierda, y llegará a su destino: biblioteca",
+        "Beacon 21-Beacon 19-Biblioteca": "Dé aproximadamente 3 pasos em frente y llegará a su destino: biblioteca",
+        "Beacon 16-Beacon 19-GIRU": "Vire à izquierda, dê aproximadamente 15 pasos y llegará a su destino: GIRU",
+        "Beacon 19-GIRU": "Dé aproximadamente 13 pasos en dirección ao GIRU y llegará a su destino: GIRU",
+        "Beacon 21-Beacon 19-GIRU": "Vire à izquierda, dê aproximadamente 10 pasos y llegará a su destino: GIRU",
+        "Beacon 19-Sala 10": "Dé aproximadamente 12 pasos em direção à sala 10 y llegará a su destino: sala 10",
+        "Beacon 20-Beacon 19-Sala 10": "Dé aproximadamente 15 pasos seguidos de mais 5 pasos à derecha y llegará a su destino: sala 10",
+        "Beacon 21-Beacon 19-Sala 10": "Vire à derecha, dê aproximadamente 6 pasos seguidos de mais 5 pasos à derecha y llegará a su destino: sala 10",
+        "Beacon 16-Beacon 19-Sala de Computadores": "Vire à izquierda, dê aproximadamente 13 pasos seguidos de mais 3 pasos à izquierda y llegará a su destino: sala dos computadores",
+        "Beacon 19-Sala de Computadores": "Dé aproximadamente 13 pasos em direção à sala dos computadores seguidos de mais 3 pasos à izquierda y llegará a su destino: sala dos computadores",
+        "Beacon 21-Beacon 19-Sala de Computadores": "Vire à izquierda, dê aproximadamente 12 pasos seguidos de mais 3 pasos à izquierda y llegará a su destino: sala dos computadores",
+        "Beacon 19-Beacon 16": "Dé aproximadamente 8 pasos em direção à sala 10 seguidos de mais 6 pasos à derecha. Baje 13 escalones seguidos de mais 7 escalones",
+        "Beacon 20-Beacon 19-Beacon 16": "Dé aproximadamente 8 pasos em frente seguidos de mais 6 pasos à derecha. Baje 13 escalones seguidos de mais 7 escalones",
+        "Beacon 21-Beacon 19-Beacon 16": "Vire à derecha, dê aproximadamente 8 pasos seguidos de mais 6 pasos à derecha. Baje 13 escalones seguidos de mais 7 escalones",
+        "Beacon 16-Beacon 19-Beacon 20": "Vire à izquierda e dê aproximadamente 15 pasos",
+        "Beacon 19-Beacon 20": "Dé aproximadamente 13 pasos em direção à sala de estudo",
+        "Beacon 21-Beacon 19-Beacon 20": "Vire à izquierda e dê aproximadamente 13 pasos",
+        "Beacon 16-Beacon 19-Beacon 21": "Vire à izquierda e dê 2 pasos, encontre umas escadas e suba 10 escalones",
+        "Beacon 19-Beacon 21": "Encuentre unas escaleras e suba 10 escalones",
+        "Beacon 20-Beacon 19-Beacon 21": "Vire à derecha, encontre umas escadas e suba 10 escalones"
       }
     },
-
     "Beacon 20": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala de Estudo", "Sala de Computadores"],
-      "beacon_connections": ["Beacon 19"],
-
+      "beacon_description": "En este espacio à sua frente encontram-se as salas de estudo com computadores e sem, e à sua derecha umas escadas para o pátio superior.",
+      "beacon_destinations": [
+        "Sala de Estudo",
+        "Sala de Computadores",
+        "GIRU"
+      ],
+      "beacon_connections": [
+        "Beacon 19",
+        "Beacon 37"
+      ],
       "beacon_instructions": {
-        "Beacon 20-Sala de Estudo": "",
-        "Beacon 20-Sala de Computadores": "",
-        "Beacon 20-Beacon 19": ""
+        "Beacon 20-GIRU": "Dé aproximadamente 4 pasos em direção à GIRU y llegará a su destino: GIRU",
+        "Beacon 37-Beacon 20-GIRU": "Vire à izquierda, dê aproximadamente 4 pasos y llegará a su destino: GIRU",
+        "Beacon 19-Beacon 20-Sala de Estudo": "Dé aproximadamente 6 pasos em frente e ao passar pela porta chegará ao seu destino: sala de estudo",
+        "Beacon 20-Sala de Estudo": "Dé aproximadamente 4 pasos em direção à sala de estudo y llegará a su destino: sala de estudo",
+        "Beacon 37-Beacon 20-Sala de Estudo": "Vire à derecha, dê aproximadamente 6 pasos y llegará a su destino: sala de estudo",
+        "Beacon 20-Sala de Computadores": "Dé aproximadamente 5 pasos em direção à sala de computadores y llegará a su destino: sala de computadores",
+        "Beacon 37-Beacon 20-Sala de Computadores": "Dé aproximadamente 5 pasos em frente seguidos de mais 5 pasos à izquierda y llegará a su destino: sala de computadores",
+        "Beacon 20-Beacon 19": "Dé aproximadamente 13 pasos em direção à biblioteca",
+        "Beacon 37-Beacon 20-Beacon 19": "Vire à derecha e dê 9 pasos. Encuentre unas escaleras e suba 2 escalones",
+        "Beacon 19-Beacon 20-Beacon 37": "Vire à izquierda e dê aproximadamente 13 pasos",
+        "Beacon 20-Beacon 37": "Dé aproximadamente 9 pasos en dirección ao final do corredor. Encuentre unas escaleras e suba 2 escalones"
       }
     },
-
     "Beacon 21": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 80", "Sala 81", "Sala 82", "Sala 83"],
-      "beacon_connections": ["Beacon 19"],
-
+      "beacon_description": "En este espacio tem à sua izquierda as salas 82 e 83, o Laboratório de Neurociências e o Laboratório de Psicometria. A su derecha encontram-se as salas 81 e 80, por esta ordem.",
+      "beacon_destinations": [
+        "Sala 80",
+        "Sala 81",
+        "Sala 82",
+        "Sala 83",
+        "Laboratórios de Psicologia"
+      ],
+      "beacon_connections": [
+        "Beacon 19"
+      ],
       "beacon_instructions": {
-        "Beacon 21-Sala 80": "",
-        "Beacon 21-Sala 81": "",
-        "Beacon 21-Sala 82": "",
-        "Beacon 21-Sala 83": "",
-        "Beacon 21-Beacon 19": ""
+        "Beacon 19-Beacon 21-Laboratórios de Psicologia": "Vire à izquierda, dê aproximadamente 15 pasos y llegará a su destino: Laboratório de Psicologia",
+        "Beacon 21-Laboratórios de Psicologia": "Dé aproximadamente 15 pasos en dirección ao laboratório de psicologia y llegará a su destino: Laboratório de Psicologia",
+        "Beacon 19-Beacon 21-Sala 80": "Vire à derecha, suba 11 escalones seguidos de aproximadamente 8 pasos à derecha y llegará a su destino: sala 80",
+        "Beacon 21-Sala 80": "Encuentre unas escaleras, suba 11 escalones seguidos de aproximadamente 8 pasos à derecha y llegará a su destino: sala 80",
+        "Beacon 19-Beacon 21-Sala 81": "Vire à derecha, suba 11 escalones seguidos de aproximadamente 4 pasos à derecha y llegará a su destino: sala 81",
+        "Beacon 21-Sala 81": "Encuentre unas escaleras, suba 11 escalones seguidos de aproximadamente 4 pasos à derecha y llegará a su destino: sala 81",
+        "Beacon 19-Beacon 21-Sala 82": "Vire à izquierda, suba 11 escalones seguidos de aproximadamente 7 pasos em frente y llegará a su destino: sala 82",
+        "Beacon 21-Sala 82": "Encuentre unas escaleras, suba 11 escalones seguidos de aproximadamente 7 pasos em frente y llegará a su destino: sala 82",
+        "Beacon 19-Beacon 21-Sala 83": "Vire à izquierda, suba 11 escalones seguidos de aproximadamente 9 pasos em frente y llegará a su destino: sala 83",
+        "Beacon 21-Sala 83": "Encuentre unas escaleras, suba 11 escalones seguidos de aproximadamente 9 pasos em frente y llegará a su destino: sala 83",
+        "Beacon 21-Beacon 19": "Encuentre unas escaleras e desça 11 escalones"
       }
     },
-
     "Beacon 22": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "En este espacio você tem as escadas que o irão levar ao piso 1, Patio Principal e Bar.",
       "beacon_destinations": [],
-      "beacon_connections": ["Beacon 8", "Beacon 15", "Beacon 23"],
-
+      "beacon_connections": [
+        "Beacon 8",
+        "Beacon 15",
+        "Beacon 23"
+      ],
       "beacon_instructions": {
-        "Beacon 22-Beacon 8": "",
-        "Beacon 22-Beacon 15": "",
-        "Beacon 22-Beacon 23": ""
+        "Beacon 15-Beacon 22-Beacon 8": "Suba 4 escalones, vire à derecha, desça 3 escalones e dê aproximadamente 7 pasos em frente",
+        "Beacon 22-Beacon 8": "Encuentre unas escaleras, desça 3 escalones e dê aproximadamente 7 pasos em frente",
+        "Beacon 23-Beacon 22-Beacon 8": "Baje 5 escalones seguidos de mais 3 escalones à izquierda e dê aproximadamente 7 pasos em frente",
+        "Beacon 8-Beacon 22-Beacon 15": "Encuentre unas escaleras, suba 3 escalones, vire à izquierda e desça 4 escalones seguidos de mais 9 escalones",
+        "Beacon 22-Beacon 15": "Encuentre unas escaleras, suba 3 escalones, vire à izquierda e desça 4 escalones seguidos de mais 9 escalones",
+        "Beacon 23-Beacon 22-Beacon 15": "Baje 9 escalones seguidos de mais 3 escalones",
+        "Beacon 8-Beacon 22-Beacon 23": "Encuentre unas escaleras, suba 3 escalones seguidos de mais 5 escalones à derecha. De seguida, suba 13 escalones",
+        "Beacon 15-Beacon 22-Beacon 23": "Encuentre unas escaleras, suba 3 escalones seguidos de mais 13 escalones à derecha. De seguida, suba 13 escalones",
+        "Beacon 22-Beacon 23": "Encuentre unas escaleras, suba 3 escalones seguidos de mais 5 escalones à derecha. De seguida, suba 13 escalones"
       }
     },
-
     "Beacon 23": {
       "beacon_floor": "1",
-      "beacon_description": "",
+      "beacon_description": "A su derecha encontram-se as salas 37 a 45, a sala 90 e o auditório 1; à sua izquierda encontram-se as salas 54 a 70, o centro de informática, o UAL Media, as casas de banho e as escadas para regressar ao Patio Principal.",
       "beacon_destinations": [],
-      "beacon_connections": ["Beacon 22", "Beacon 24", "Beacon 33"],
-
+      "beacon_connections": [
+        "Beacon 22",
+        "Beacon 24",
+        "Beacon 33"
+      ],
       "beacon_instructions": {
-        "Beacon 23-Beacon 22": "",
-        "Beacon 23-Beacon 24": "",
-        "Beacon 23-Beacon 33": ""
+        "Beacon 23-Beacon 22": "Encuentre unas escaleras e desça 13 escalones",
+        "Beacon 24-Beacon 23-Beacon 22": "Vire à derecha. Encuentre unas escaleras e desça 13 escalones",
+        "Beacon 33-Beacon 23-Beacon 22": "Vire à izquierda. Encuentre unas escaleras e desça 13 escalones",
+        "Beacon 22-Beacon 23-Beacon 24": "Vire à izquierda e dê aproximadamente 7 pasos seguidos de mais 6 pasos à derecha",
+        "Beacon 23-Beacon 24": "Dé aproximadamente 7 pasos en dirección ao inicio do ccorredor. seguidos de mais 6 pasos à derecha",
+        "Beacon 33-Beacon 23-Beacon 24": "Dé aproximadamente 11 pasos em frente seguidos de mais 6 pasos à derecha",
+        "Beacon 22-Beacon 23-Beacon 33": "Vire à derecha, ao passar por uma porta. Vire novamente à derecha e dê  aproximadamente 8 pasos. De seguida suba 12 escalones seguidos de mais 5 escalones",
+        "Beacon 23-Beacon 33": "Vire à derecha, ao passar por uma porta vire novamente à derecha e dê  aproximadamente 8 pasos. De seguida suba 12 escalones  seguidos de mais 5 escalones.",
+        "Beacon 24-Beacon 23-Beacon 33": "Dé aproximadamente 8 pasos em frente seguidos de mais 8 pasos à derecha. Suba 12 escalones seguidos de mais 5 escalones"
       }
     },
-
     "Beacon 24": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 58"],
-      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
-
+      "beacon_description": "En este espacio encontram-se a sala 58, casas de banho e a entrada dos laboratórios de ciências da comunicação.",
+      "beacon_destinations": [
+        "Sala 58"
+      ],
+      "beacon_connections": [
+        "Beacon 23",
+        "Beacon 25",
+        "Beacon 27"
+      ],
       "beacon_instructions": {
-        "Beacon 24-Sala 58": "",
-        "Beacon 24-Beacon 23": "",
-        "Beacon 24-Beacon 25": "",
-        "Beacon 24-Beacon 27": "",
-        "Beacon 24-Beacon 28": ""
+        "Beacon 23-Beacon 24-Sala 58": "Dé aproximadamente 15 pasos em frente y llegará a su destino: sala 58",
+        "Beacon 24-Sala 58": "Dé aproximadamente 15 pasos em direção à sala 58 y llegará a su destino: sala 58",
+        "Beacon 27-Beacon 24-Sala 58": "Dé aproximadamente 15 pasos à izquierda y llegará a su destino: sala 58",
+        "Beacon 24-Beacon 23": "Ao passar por uma porta dê aproximadamente 10 pasos em frente seguidos de mais 6 pasos à izquierda",
+        "Beacon 25-Beacon 24-Beacon 23": "Dé aproximadamente 9 pasos em frente seguidos de mais 6 pasos à izquierda",
+        "Beacon 27-Beacon 24-Beacon 23": "Vire à derecha e dê aproximadamente 9 pasos seguidos de mais 6 pasos à izquierda",
+        "Beacon 23-Beacon 24-Beacon 25": "Dé aproximadamente 9 pasos em frente seguidos de mais 3 pasos à derecha",
+        "Beacon 24-Beacon 25": "Dé aproximadamente 13 pasos em direção à sala 58 seguidos de mais 3 pasos à derecha",
+        "Beacon 27-Beacon 24-Beacon 25": "Vire à izquierda e dê aproximadamente 13 pasos seguidos de mais 3 pasos à derecha",
+        "Beacon 23-Beacon 24-Beacon 27": "Dé aproximadamente 6 pasos em frente seguidos de mais 10 pasos à izquierda",
+        "Beacon 24-Beacon 27": "Dé aproximadamente 10 pasos en dirección ao baño do piso 1",
+        "Beacon 25-Beacon 24-Beacon 27": "Vire à derecha e dê aproximadamente 10 pasos"
       }
     },
-
     "Beacon 25": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 58", "UAL Media"],
-      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 27", "Beacon 28"],
-
+      "beacon_description": "Nesta área encontram-se os laboratórios de ciências da comunicação, a UAL Media e a sala 56.",
+      "beacon_destinations": [
+        "Sala 58",
+        "UAL Media"
+      ],
+      "beacon_connections": [
+        "Beacon 24",
+        "Beacon 26",
+        "Beacon 28"
+      ],
       "beacon_instructions": {
-        "Beacon 25-Sala 58": "",
-        "Beacon 25-UAL Media": "",
-        "Beacon 25-Beacon 24": "",
-        "Beacon 25-Beacon 26": "",
-        "Beacon 25-Beacon 27": "",
-        "Beacon 25-Beacon 28": ""
+        "Beacon 24-Beacon 25-UAL Media": "Vire à derecha, dê aproximadamente 7 pasos, seguidos de mais 5 pasos à izquierda y llegará a su destino: UAL Media",
+        "Beacon 25-UAL Media": "Dé aproximadamente 12 pasos em direção à UAL Media y llegará a su destino: UAL Media",
+        "Beacon 26-Beacon 25-UAL Media": "Vire à izquierda e dê aproximadamente 9 pasos em frente seguidos de mais 4 pasos à izquierda y llegará a su destino: UAL media",
+        "Beacon 28-Beacon 25-Sala 58": "Dé aproximadamente 8 pasos em frente seguidos de mais 7 pasos à izquierda y llegará a su destino: sala 58",
+        "Beacon 25-Sala 58": "Dé aproximadamente 7 pasos em direção à sala 58 y llegará a su destino: sala 58",
+        "Beacon 26-Beacon 25-Sala 58": "Dé aproximadamente 3 pasos em frente seguidos de mais 5 pasos à derecha y llegará a su destino: sala 58",
+        "Beacon 25-Beacon 24": "Dé aproximadamente 9 pasos en dirección ao início do corredor",
+        "Beacon 26-Beacon 25-Beacon 24": "Dé aproximadamente 4 pasos em frente seguidos de mais 5 pasos à derecha. De seguida vire à izquierda e dê 9 pasos",
+        "Beacon 28-Beacon 25-Beacon 24": "Vire à derecha e dê aproximadamente 9 pasos",
+        "Beacon 24-Beacon 25-Beacon 26": "Encuentre unas escaleras e suba 17 escalones",
+        "Beacon 25-Beacon 26": "Encuentre unas escaleras e suba 17 escalones",
+        "Beacon 28-Beacon 25-Beacon 26": "Vire à derecha e dê aproximadamente 15 pasos",
+        "Beacon 24-Beacon 25-Beacon 28": "Vire à izquierda e dê aproximadamente 15 pasos",
+        "Beacon 25-Beacon 28": "Vire à derecha e dê aproximadamente 15 pasos",
+        "Beacon 26-Beacon 25-Beacon 28": "Vire à derecha e dê aproximadamente 15 pasos en dirección ao final do corredor"
       }
     },
-
     "Beacon 26": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 56"],
-      "beacon_connections": ["Beacon 25"],
-
+      "beacon_description": "Nesta área tem à sua izquierda as escadas para a UAL Media e à derecha a sala 56.",
+      "beacon_destinations": [
+        "Sala 56"
+      ],
+      "beacon_connections": [
+        "Beacon 25"
+      ],
       "beacon_instructions": {
-        "Beacon 26-Sala 56": "",
-        "Beacon 26-Beacon 25": ""
+        "Beacon 25-Beacon 26-Sala 56": "Vire à derecha, dê aproximadamente 8 pasos y llegará a su destino: sala 56",
+        "Beacon 26-Sala 56": "Dé aproximadamente 8 pasos em direção à sala 56 y llegará a su destino: sala 56",
+        "Beacon 26-Beacon 25": "Encuentre unas escaleras, desça 17 escalones e dê 3 pasos em frente"
       }
     },
-
     "Beacon 27": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 57", "WC Piso 1"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
-
+      "beacon_description": "Neste corredor você tem logo no início umas escadas à sua izquierda que o irão levar à sala 57; em frente tem a casa de banho dos homens à sua derecha e das mulheres à sua izquierda.",
+      "beacon_destinations": [
+        "Sala 57",
+        "WC Piso 1"
+      ],
+      "beacon_connections": [
+        "Beacon 24",
+        "Beacon 28"
+      ],
       "beacon_instructions": {
-        "Beacon 27-Sala 57": "",
-        "Beacon 27-WC Piso 1": "",
-        "Beacon 27-Beacon 24": "",
-        "Beacon 27-Beacon 25": "",
-        "Beacon 27-Beacon 28": ""
+        "Beacon 24-Beacon 27-Sala 57": "Suba um degrau, vire à izquierda e suba 12 escalones. Dê 4 pasos em frente y llegará a su destino: Sala 57",
+        "Beacon 27-Sala 57": "Suba um degrau, vire à izquierda e suba 12 escalones. Dê 4 pasos em frente y llegará a su destino: sala 57",
+        "Beacon 28-Beacon 27-Sala 57": "Suba um degrau, vire à izquierda e suba 12 escalones. Dê 4 pasos em frente y llegará a su destino: sala 57",
+        "Beacon 24-Beacon 27-WC Piso 1": "Vire à izquierda, suba 1 degrau e dê 14 pasos em frente y llegará a su destino: baño",
+        "Beacon 27-WC Piso 1": "Suba um degrau e dê 14 pasos em frente y llegará a su destino: baño",
+        "Beacon 28-Beacon 27-WC Piso 1": "Suba um degrau e dê 14 pasos em frente y llegará a su destino: baño",
+        "Beacon 27-Beacon 24": "Dé aproximadamente 10 pasos en dirección ao início do corredor",
+        "Beacon 28-Beacon 27-Beacon 24": "Vire à izquierda e dê aproximadamente 10 pasos",
+        "Beacon 24-Beacon 27-Beacon 28": "Vire à derecha e dê aproximadamente 7 pasos",
+        "Beacon 27-Beacon 28": "Dé aproximadamente 7 pasos en dirección ao final do corredor"
       }
     },
-
     "Beacon 28": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
-
+      "beacon_description": "En este momento você se encontra num corredor em que, por esta respetiva ordem, vai encontrar à sua derecha a sala 59 e à sua izquierda as salas 60 e 61.",
+      "beacon_destinations": [
+        "Sala 54",
+        "Sala 58",
+        "Sala 59"
+      ],
+      "beacon_connections": [
+        "Beacon 25",
+        "Beacon 27",
+        "Beacon 29"
+      ],
       "beacon_instructions": {
-        "Beacon 28-Sala 54": "",
-        "Beacon 28-Sala 58": "",
-        "Beacon 28-Sala 59": "",
-        "Beacon 28-Beacon 24": "",
-        "Beacon 28-Beacon 25": "",
-        "Beacon 28-Beacon 27": "",
-        "Beacon 28-Beacon 29": ""
+        "Beacon 25-Beacon 28-Sala 54": "Dé aproximadamente 6 pasos em frente seguidos de mais 2 pasos à izquierda y llegará a su destino: sala 54",
+        "Beacon 27-Beacon 28-Sala 54": "Vire à izquierda, dê aproximadamente 6 pasos seguidos de mais 2 pasos à izquierda y llegará a su destino: sala 54",
+        "Beacon 28-Sala 54": "Dé aproximadamente 6 pasos em direção à sala 54 y llegará a su destino: sala 54",
+        "Beacon 29-Beacon 28-Sala 54": "Vire à derecha y llegará a su destino: sala 54",
+        "Beacon 27-Beacon 28-Sala 58": "Dé aproximadamente 4 pasos em frente y llegará a su destino: sala 58",
+        "Beacon 28-Sala 58": "Dé aproximadamente 4 pasos em direção à sala 58 y llegará a su destino: sala 58",
+        "Beacon 29-Beacon 28-Sala 58": "Dé aproximadamente 4 pasos em frente, ao passar por uma porta vire à izquierda y llegará a su destino: sala 58",
+        "Beacon 25-Beacon 28-Sala 59": "Dé aproximadamente 6 pasos em frente seguidos de mais 2 pasos à derecha y llegará a su destino: sala 59",
+        "Beacon 27-Beacon 28-Sala 59": "Vire à izquierda, dê aproximadamente 6 pasos seguidos de mais 2 pasos à derecha y llegará a su destino: sala 59",
+        "Beacon 28-Sala 59": "Dé aproximadamente 6 pasos em direção à sala 59 y llegará a su destino: sala 59",
+        "Beacon 27-Beacon 28-Beacon 25": "Vire à derecha e dê aproximadamente 15 pasos em frente",
+        "Beacon 28-Beacon 25": "Dé aproximadamente 15 pasos em frente",
+        "Beacon 29-Beacon 28-Beacon 25": "Ao passar por uma porta dê aproximadamente 17 pasos em frente",
+        "Beacon 25-Beacon 28-Beacon 27": "Dé aproximadamente 7 pasos en dirección ao baño do piso 1",
+        "Beacon 28-Beacon 27": "Dé aproximadamente 7 pasos en dirección ao baño do piso 1",
+        "Beacon 29-Beacon 28-Beacon 27": "Ao passar por uma porta vire à derecha e dê aproximadamente 7 pasos",
+        "Beacon 25-Beacon 28-Beacon 29": "Ao passar por uma porta dê aproximadamente 15 pasos em frente",
+        "Beacon 27-Beacon 28-Beacon 29": "Vire à izquierda, ao passar por uma porta dê aproximadamente 15 pasos",
+        "Beacon 28-Beacon 29": "Dé aproximadamente 15 pasos en dirección ao final do corredor"
       }
     },
-
     "Beacon 29": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
-      "beacon_connections": ["Beacon 28", "Beacon 30"],
-
+      "beacon_description": "Você neste momento encontra-se no meio do corredor onde tem as salas 60 e 61 à sua izquierda e a sala 59 à sua derecha.",
+      "beacon_destinations": [
+        "Sala 59",
+        "Sala 60",
+        "Sala 61"
+      ],
+      "beacon_connections": [
+        "Beacon 28",
+        "Beacon 30"
+      ],
       "beacon_instructions": {
-        "Beacon 29-Sala 59": "",
-        "Beacon 29-Sala 60": "",
-        "Beacon 29-Sala 61": "",
-        "Beacon 29-Beacon 28": "",
-        "Beacon 29-Beacon 30": ""
+        "Beacon 28-Beacon 29-Sala 59": "Ao passar uma porta vire à izquierda, dê aproximadamente 3 pasos y llegará a su destino: sala 59",
+        "Beacon 29-Sala 59": "Dé aproximadamente 3 pasos em direção à sala 59 y llegará a su destino: sala 59",
+        "Beacon 30-Beacon 29-Sala 59": "Ao passar uma porta vire à izquierda, dê aproximadamente 3 pasos y llegará a su destino: sala 59",
+        "Beacon 28-Beacon 29-Sala 60": "Ao passar uma porta vire à izquierda, dê aproximadamente 2 pasos y llegará a su destino: sala 60",
+        "Beacon 29-Sala 60": "Dé aproximadamente 2 pasos em direção à sala 60 y llegará a su destino: sala 60",
+        "Beacon 30-Beacon 29-Sala 60": "Ao passar uma porta vire à derecha, dê aproximadamente 2 pasos y llegará a su destino: sala 60",
+        "Beacon 28-Beacon 29-Sala 61": "Ao passar uma porta vire à izquierda, dê aproximadamente 6 pasos em frente y llegará a su destino: sala 61",
+        "Beacon 29-Sala 61": "Dé aproximadamente 3 pasos em direção à sala 61 y llegará a su destino: sala 61",
+        "Beacon 29-Beacon 28": "Dé aproximadamente 15 pasos en dirección ao final do corredor",
+        "Beacon 30-Beacon 29-Beacon 28": "Ao passar por uma porta dê aproximadamente 15 pasos em frente",
+        "Beacon 28-Beacon 29-Beacon 30": "Ao passar por uma porta dê aproximadamente 8 pasos em frente",
+        "Beacon 29-Beacon 30": "Dé aproximadamente 8 pasos em direção à sala 62"
       }
     },
-
     "Beacon 30": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 61", "Sala 62", "Sala 63"],
-      "beacon_connections": ["Beacon 29", "Beacon 31"],
-
+      "beacon_description": "En este espacio à sua derecha está a sala 62 e à sua izquierda encontram-se umas escadas que o irão levar às salas 63 a 70.",
+      "beacon_destinations": [
+        "Sala 61",
+        "Sala 62",
+        "Sala 63"
+      ],
+      "beacon_connections": [
+        "Beacon 29",
+        "Beacon 31"
+      ],
       "beacon_instructions": {
-        "Beacon 30-Sala 61": "",
-        "Beacon 30-Sala 62": "",
-        "Beacon 30-Sala 63": "",
-        "Beacon 30-Beacon 29": "",
-        "Beacon 30-Beacon 31": ""
+        "Beacon 30-Sala 61": "Dé aproximadamente 3 pasos em direção à sala 61 y llegará a su destino: sala 61",
+        "Beacon 31-Beacon 30-Sala 61": "Vire à derecha. Ao passar por uma porta dê aproximadamente 2 pasos à derecha y llegará a su destino: sala 61",
+        "Beacon 29-Beacon 30-Sala 62": "Dé aproximadamente 5 pasos em frente seguidos de mais 8 pasos à derecha y llegará a su destino: sala 62",
+        "Beacon 30-Sala 62": "Dé aproximadamente 8 pasos em direção à sala 62 y llegará a su destino: sala 62",
+        "Beacon 31-Beacon 30-Sala 62": "Dé aproximadamente 8 pasos em frente y llegará a su destino: sala 62",
+        "Beacon 29-Beacon 30-Sala 63": "Dé aproximadamente 6 pasos à derecha seguidos de mais 9 pasos à izquierda y llegará a su destino: sala 63",
+        "Beacon 30-Sala 63": "Dé aproximadamente 15 pasos em direção à sala 63 y llegará a su destino: sala 63",
+        "Beacon 31-Beacon 30-Sala 63": "Dé aproximadamente 6 pasos em frente seguidos de mais 9 pasos à izquierda y llegará a su destino: sala 63",
+        "Beacon 30-Beacon 29": "Dé aproximadamente 8 pasos en dirección ao início do corredor",
+        "Beacon 31-Beacon 30-Beacon 29": "Vire à derecha. Ao passar por uma porta dê aproximadamente 3 pasos em frente",
+        "Beacon 29-Beacon 30-Beacon 31": "Ao passar por uma porta vire à izquierda. Dé aproximadamente 8 pasos e suba 8 escalones",
+        "Beacon 30-Beacon 31": "Dé aproximadamente 8 pasos, encontre umas escadas e suba 9 escalones seguidos de mais 8 escalones"
       }
     },
-
     "Beacon 31": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala ?"],
-      "beacon_connections": ["Beacon 30", "Beacon 32"],
-
+      "beacon_description": "Onde se encontra tem a sala 65 à sua derecha e em frente umas escadas que o levarão a salas e ao centro informático.",
+      "beacon_destinations": [],
+      "beacon_connections": [
+        "Beacon 30",
+        "Beacon 32"
+      ],
       "beacon_instructions": {
-        "Beacon 31-Sala ?": "",
-        "Beacon 31-Beacon 30": "",
-        "Beacon 31-Beacon 32": ""
+        "Beacon 31-Beacon 30": "Encuentre unas escaleras. Baje 8 escalones seguidos de mais 9 escalones à derecha",
+        "Beacon 32-Beacon 31-Beacon 30": "Vire à derecha e desça 8 escalones seguidos de mais 9 escalones à derecha",
+        "Beacon 30-Beacon 31-Beacon 32": "Vire à izquierda e dê aproximadamente 4 pasos. Encuentre unas escaleras e suba 11 escalones",
+        "Beacon 31-Beacon 32": "Dé aproximadamente 4 pasos em direção às escadas e suba 11 escalones"
       }
     },
-
     "Beacon 32": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 68", "Sala 69", "Sala 70", "Laboratório de Informática"],
-      "beacon_connections": ["Beacon 31"],
-
+      "beacon_description": "Neste corredor encontram-se as salas da 67 à 70 por esta respetiva ordem e o centro de informática.",
+      "beacon_destinations": [
+        "Sala 68",
+        "Sala 69",
+        "Sala 70",
+        "Centro de Informática",
+        "Laboratórios ECC"
+      ],
+      "beacon_connections": [
+        "Beacon 31"
+      ],
       "beacon_instructions": {
-        "Beacon 32-Sala 68": "",
-        "Beacon 32-Sala 69": "",
-        "Beacon 32-Sala 70": "",
-        "Beacon 32-Laboratório de Informática": "",
-        "Beacon 32-Beacon 31": ""
+        "Beacon 31-Beacon 32-Centro de Informática": "Vire à izquierda. Dé aproximadamente 4 pasos y llegará a su destino: centro de informática",
+        "Beacon 32-Centro de Informática": "Dé aproximadamente 4 pasos en dirección ao centro de informática y llegará a su destino: centro de informática",
+        "Beacon 31-Beacon 32-Laboratórios ECC": "Vire à derecha. Dé aproximadamente 2 pasos y llegará a su destino: laboratórios de ECC",
+        "Beacon 32-Laboratórios ECC": "Dé aproximadamente 2 pasos en dirección aos ECC y llegará a su destino: laboratórios de ECC",
+        "Beacon 31-Beacon 32-Sala 68": "Dé aproximadamente 7 pasos em direção à sala 68 y llegará a su destino: sala 68",
+        "Beacon 32-Sala 68": "Dé aproximadamente 7 pasos em direção à sala 68 y llegará a su destino: sala 68",
+        "Beacon 31-Beacon 32-Sala 69": "Dé aproximadamente 17 pasos em direção à sala 69 y llegará a su destino: sala 69",
+        "Beacon 32-Sala 69": "Dé aproximadamente 17 pasos em direção à sala 69 y llegará a su destino: sala 69",
+        "Beacon 31-Beacon 32-Sala 70": "Dé aproximadamente 27 pasos em direção à sala 70 y llegará a su destino: sala 70",
+        "Beacon 32-Sala 70": "Dé aproximadamente 27 pasos em direção à sala 70 y llegará a su destino: sala 70",
+        "Beacon 32-Beacon 31": "Encuentre unas escaleras. Baje 11 escalones e dê 4 pasos em frente"
       }
     },
-
     "Beacon 33": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 37", "Sala 38", "Pátio de Enfermagem"],
-      "beacon_connections": ["Beacon 23", "Beacon 34"],
-
+      "beacon_description": "Você está num corredor onde à derecha encontram-se as salas 37 e 38 e à izquierda encontra-se o pátio secundário e casas de banho.",
+      "beacon_destinations": [
+        "Sala 37",
+        "Sala 38",
+        "WC Piso 2"
+      ],
+      "beacon_connections": [
+        "Beacon 23",
+        "Beacon 34",
+        "Beacon 36"
+      ],
       "beacon_instructions": {
-        "Beacon 33-Sala 37": "",
-        "Beacon 33-Sala 38": "",
-        "Beacon 33-Pátio de Enfermagem": "",
-        "Beacon 33-Beacon 23": "",
-        "Beacon 33-Beacon 34": ""
+        "Beacon 23-Beacon 33-Sala 37": "Vire à derecha, suba 9 escalones seguidos de mais 2 escalones y llegará a su destino: sala 37",
+        "Beacon 33-Sala 37": "Encuentre unas escaleras, suba 9 escalones seguidos de mais 2 escalones y llegará a su destino: sala 37",
+        "Beacon 34-Beacon 33-Sala 37": "Vire à izquierda, suba 9 escalones y llegará a su destino: sala 37",
+        "Beacon 36-Beacon 33-Sala 37": "Encuentre unas escaleras, suba 9 escalones em frente seguidos de mais 2 escalones y llegará a su destino: sala 37",
+        "Beacon 23-Beacon 33-Sala 38": "Vire à derecha, suba 9 escalones y llegará a su destino: sala 38",
+        "Beacon 33-Sala 38": "Encuentre unas escaleras, suba 9 escalones y llegará a su destino: sala 38",
+        "Beacon 34-Beacon 33-Sala 38": "Vire à izquierda, suba 9 escalones y llegará a su destino: sala 38",
+        "Beacon 36-Beacon 33-Sala 38": "Encuentre unas escaleras, suba 9 escalones y llegará a su destino: sala 38",
+        "Beacon 23-Beacon 33-WC Piso 2": "Dé aproximadamente 5 pasos em frente. Ao passar por uma porta, encontre umas escadas, suba 8 escalones y llegará a su destino: baño piso 2",
+        "Beacon 33-WC Piso 2": "Ao passar por uma porta, encontre umas escadas, suba 8 escalones y llegará a su destino: baño piso 2",
+        "Beacon 34-Beacon 33-WC Piso 2": "Vire à derecha. Ao passar por uma porta, encontre 8 escalones y llegará a su destino: baño piso 2",
+        "Beacon 33-Beacon 23": "Encuentre unas escaleras, desça 5 escalones seguidos de 12 escalones. Em seguida dê aproximadamente 7 pasos em frente seguidos de mais 5 pasos à izquierda",
+        "Beacon 34-Beacon 33-Beacon 23": "Dé aproximadamente 5 pasos em frente. Encuentre unas escaleras, desça 5 escalones seguidos de 12 escalones. Em seguida dê aproximadamente 7 pasos em frente seguidos de mais 5 pasos à izquierda",
+        "Beacon 36-Beacon 33-Beacon 23": "Encuentre unas escaleras, desça 5 escalones seguidos de 12 escalones. Em seguida dê aproximadamente 7 pasos em frente seguidos de mais 5 pasos à izquierda",
+        "Beacon 23-Beacon 33-Beacon 34": "Vire à derecha e suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda",
+        "Beacon 33-Beacon 34": "Suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda",
+        "Beacon 36-Beacon 33-Beacon 34": "Vire à izquierda e suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda",
+        "Beacon 23-Beacon 33-Beacon 36": "Vire à derecha e suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda",
+        "Beacon 33-Beacon 36": "Suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda",
+        "Beacon 34-Beacon 33-Beacon 36": "Vire à izquierda e suba 9 escalones, seguidos de mais 5 pasos em frente e suba mais 7 escalones seguidos de mais 13 escalones à izquierda"
       }
     },
-
     "Beacon 34": {
       "beacon_floor": "3",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 39", "Sala 40", "Sala 41"],
-      "beacon_connections": ["Beacon 33", "Beacon 35"],
-
+      "beacon_description": "Agora que subiu as escadas encontra-se num corredor onde por esta mesma ordem irá ter as salas 39, 40 e 41.",
+      "beacon_destinations": [
+        "Sala 39",
+        "Sala 40",
+        "Sala 41"
+      ],
+      "beacon_connections": [
+        "Beacon 33",
+        "Beacon 35"
+      ],
       "beacon_instructions": {
-        "Beacon 34-Sala 39": "",
-        "Beacon 34-Sala 40": "",
-        "Beacon 34-Sala 41": "",
-        "Beacon 34-Beacon 33": "",
-        "Beacon 34-Beacon 35": ""
+        "Beacon 33-Beacon 34-Sala 39": "Ir para a Sala 39 passando pelo Beacon 34, vindo do Beacon 33",
+        "Beacon 34-Sala 39": "Siga para a Sala 39 a partir daqui",
+        "Beacon 35-Beacon 34-Sala 39": "Ir para a Sala 39 passando pelo Beacon 34, vindo do Beacon 35",
+        "Beacon 33-Beacon 34-Sala 40": "Ir para a Sala 40 passando pelo Beacon 34, vindo do Beacon 33",
+        "Beacon 34-Sala 40": "Siga para a Sala 40 a partir daqui",
+        "Beacon 35-Beacon 34-Sala 40": "Ir para a Sala 40 passando pelo Beacon 34, vindo do Beacon 35",
+        "Beacon 33-Beacon 34-Sala 41": "Ir para a Sala 41 passando pelo Beacon 34, vindo do Beacon 33",
+        "Beacon 34-Sala 41": "Siga para a Sala 41 a partir daqui",
+        "Beacon 35-Beacon 34-Sala 41": "Ir para a Sala 41 passando pelo Beacon 34, vindo do Beacon 35",
+        "Beacon 34-Beacon 33": "Siga para o Beacon 33 a partir daqui",
+        "Beacon 35-Beacon 34-Beacon 33": "Ir para o Beacon 33 passando pelo Beacon 34, vindo do Beacon 35",
+        "Beacon 33-Beacon 34-Beacon 35": "Ir para o Beacon 35 passando pelo Beacon 34, vindo do Beacon 33",
+        "Beacon 34-Beacon 35": "Siga para o Beacon 35 a partir daqui"
       }
     },
-
     "Beacon 35": {
       "beacon_floor": "4",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 42", "Sala 44", "Sala 45"],
-      "beacon_connections": ["Beacon 34"],
-
+      "beacon_description": "En este espacio encontram-se as salas 42, 43, 44 e 45 por esta respetiva ordem.",
+      "beacon_destinations": [
+        "Sala 42",
+        "Sala 44",
+        "Sala 45"
+      ],
+      "beacon_connections": [
+        "Beacon 34"
+      ],
       "beacon_instructions": {
-        "Beacon 35-Sala 42": "",
-        "Beacon 35-Sala 44": "",
-        "Beacon 35-Sala 45": "",
-        "Beacon 35-Beacon 34": ""
+        "Beacon 34-Beacon 35-Sala 42": "Dé aproximadamente 4 pasos em frente y llegará a su destino: sala 42",
+        "Beacon 35-Sala 42": "Dé aproximadamente 4 pasos em direção à sala 42 y llegará a su destino: sala 42",
+        "Beacon 34-Beacon 35-Sala 44": "Vire à izquierda e dê aproximadamente 5 pasos y llegará a su destino: sala 44",
+        "Beacon 35-Sala 44": "Dé aproximadamente 5 pasos em direção à sala 44 y llegará a su destino: sala 44",
+        "Beacon 34-Beacon 35-Sala 45": "Vire à izquierda e dê aproximadamente 7 pasos y llegará a su destino: sala 45",
+        "Beacon 35-Sala 45": "Dé aproximadamente 7 pasos em direção à sala 45 y llegará a su destino: sala 45",
+        "Beacon 35-Beacon 34": "Vire à izquierda e desça 19 escalones"
+      }
+    },
+    "Beacon 36": {
+      "beacon_floor": "2",
+      "beacon_description": "En este espacio estão o Patio de Enfermagem e o baño do Piso 2.",
+      "beacon_destinations": [
+        "Pátio de Enfermagem",
+        "WC Piso 2"
+      ],
+      "beacon_connections": [
+        "Beacon 33",
+        "Beacon 37",
+        "Beacon 38"
+      ],
+      "beacon_instructions": {
+        "Beacon 33-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Patio de Enfermagem.",
+        "Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Patio de Enfermagem.",
+        "Beacon 37-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Patio de Enfermagem.",
+        "Beacon 38-Beacon 36-Pátio de Enfermagem": "Chegou ao seu destino: Patio de Enfermagem.",
+        "Beacon 33-Beacon 36-WC Piso 2": "Dé aproximadamente 14 pasos en dirección ao baño Piso 2 e desça 8 escalones à derecha.",
+        "Beacon 36-WC Piso 2": "Dé aproximadamente 14 pasos em frente y llegará a su destino: baño Piso 2.",
+        "Beacon 37-Beacon 36-WC Piso 2": "Dé aproximadamente 14 pasos em frente y llegará a su destino: baño Piso 2.",
+        "Beacon 38-Beacon 36-WC Piso 2": "Dé aproximadamente 14 pasos em frente y llegará a su destino: baño Piso 2.",
+        "Beacon 36-Beacon 33": "Dé aproximadamente 11 pasos em frente e desça 8 escalones à derecha.",
+        "Beacon 37-Beacon 36-Beacon 33": "Dé aproximadamente 11 pasos em frente e desça 8 escalones à derecha.",
+        "Beacon 38-Beacon 36-Beacon 33": "Dé aproximadamente 11 pasos em frente e desça 8 escalones à derecha.",
+        "Beacon 36-Beacon 37": "Encuentre unas escaleras e desça 6 escalones.",
+        "Beacon 33-Beacon 36-Beacon 37": "Encuentre unas escaleras e desça 6 escalones.",
+        "Beacon 38-Beacon 36-Beacon 37": "Vire à derecha, ande aproximadamente 6 pasos e desça 6 escalones em frente.",
+        "Beacon 36-Beacon 38": "Vire à izquierda, ande aproximadamente 4 pasos e suba 11 escalones em frente.",
+        "Beacon 33-Beacon 36-Beacon 38": "Ande aproximadamente 4 pasos e suba 11 escalones em frente.",
+        "Beacon 37-Beacon 36-Beacon 38": "Vire à izquierda, ande 4 pasos e suba 11 escalones em frente."
+      }
+    },
+    "Beacon 37": {
+      "beacon_floor": "2",
+      "beacon_description": "En este espacio encontra-se a Sala 80 e ligações para os pisos superiores e inferiores.",
+      "beacon_destinations": [
+        "Sala 80"
+      ],
+      "beacon_connections": [
+        "Beacon 20",
+        "Beacon 36"
+      ],
+      "beacon_instructions": {
+        "Beacon 20-Beacon 37-Sala 80": "Vire à izquierda e dê aproximadamente 2 pasos y llegará a su destino: sala 80",
+        "Beacon 36-Beacon 37-Sala 80": "Vire à izquierda e dê aproximadamente 2 pasos y llegará a su destino: sala 80",
+        "Beacon 37-Sala 80": "Dé aproximadamente 2 pasos em direção à sala 80 y llegará a su destino",
+        "Beacon 36-Beacon 37-Beacon 20": "Vire à derecha e suba 6 escalones seguidos de mais aproximadamente 7 pasos em frente",
+        "Beacon 37-Beacon 20": "Suba 6 escalones seguidos de mais aproximadamente 7 pasos em frente",
+        "Beacon 20-Beacon 37-Beacon 36": "Vire à izquierda e desça 15 escalones",
+        "Beacon 37-Beacon 36": "Baje 15 escalones"
+      }
+    },
+    "Beacon 38": {
+      "beacon_floor": "3",
+      "beacon_description": "En este espacio encontra-se o Auditorio 01 e a Sala 90.",
+      "beacon_destinations": [
+        "Auditório 01",
+        "Sala 90"
+      ],
+      "beacon_connections": [
+        "Beacon 36"
+      ],
+      "beacon_instructions": {
+        "Beacon 36-Beacon 38-Auditório 01": "Vire à izquierda e dê aproximadamente 3 pasos y llegará a su destino: Auditorio 01",
+        "Beacon 38-Auditório 01": "Dé aproximadamente 3 pasos en dirección ao Auditorio 01 y llegará a su destino",
+        "Beacon 36-Beacon 38-Sala 90": "Vire à izquierda e dê aproximadamente 12 pasos seguidos de mais 5 pasos à derecha y llegará a su destino: Sala 90",
+        "Beacon 38-Sala 90": "Dé aproximadamente 12 pasos seguidos de mais 5 pasos em direção à Sala 90 y llegará a su destino",
+        "Beacon 38-Beacon 36": "Baje 11 escalones em frente"
       }
     }
   },
   "voice_commands": {
-    "entrada": "Entrada",
-    "portería": "Portería",
-    "patio": "Patio",
-    "camões": "Camões"
+    "auditório 01": "Auditorio 01",
+    "auditório 02": "Auditorio 02",
+    "auditório 03": "Auditorio 03",
+    "associação académica": "Asociación Académica",
+    "bar": "Bar",
+    "biblioteca": "Biblioteca",
+    "cacifos": "Cacifos",
+    "centro de informática": "Centro de Informática",
+    "entrada principal": "Entrada Principal",
+    "esplanada": "Terraza",
+    "estátua do camões": "Estátua do Camões",
+    "gabinete de erasmus": "Oficina de Erasmus",
+    "giru": "GIRU",
+    "laboratórios ecc": "Laboratorios ECC",
+    "laboratórios de psicologia": "Laboratorios de Psicología",
+    "loja académica": "Tienda Académica",
+    "livraria": "Livraria",
+    "livros de ponto": "Libros de Registro",
+    "pátio": "Patio",
+    "pátio de enfermagem": "Patio de Enfermagem",
+    "perdidos e achados": "Objetos Perdidos",
+    "refeitório": "Comedor",
+    "sala 10": "Sala 10",
+    "sala 13": "Sala 13",
+    "sala 14": "Sala 14",
+    "sala 15": "Sala 15",
+    "sala 16": "Sala 16",
+    "sala 18": "Sala 18",
+    "sala 22": "Sala 22",
+    "sala 23": "Sala 23",
+    "sala 24": "Sala 24",
+    "sala 27": "Sala 27",
+    "sala 28": "Sala 28",
+    "sala 29": "Sala 29",
+    "sala 32": "Sala 32",
+    "sala 33": "Sala 33",
+    "sala 37": "Sala 37",
+    "sala 38": "Sala 38",
+    "sala 39": "Sala 39",
+    "sala 40": "Sala 40",
+    "sala 41": "Sala 41",
+    "sala 42": "Sala 42",
+    "sala 44": "Sala 44",
+    "sala 45": "Sala 45",
+    "sala 54": "Sala 54",
+    "sala 56": "Sala 56",
+    "sala 57": "Sala 57",
+    "sala 58": "Sala 58",
+    "sala 59": "Sala 59",
+    "sala 60": "Sala 60",
+    "sala 61": "Sala 61",
+    "sala 62": "Sala 62",
+    "sala 63": "Sala 63",
+    "sala 68": "Sala 68",
+    "sala 69": "Sala 69",
+    "sala 70": "Sala 70",
+    "sala 80": "Sala 80",
+    "sala 81": "Sala 81",
+    "sala 82": "Sala 82",
+    "sala 83": "Sala 83",
+    "sala 90": "Sala 90",
+    "sala dos atos": "Sala de Actos",
+    "sala dos micro-ondas": "Sala de Microondas",
+    "ual media": "UAL Media",
+    "wc bar": "baño Bar",
+    "wc piso 1": "baño Piso 1",
+    "wc piso 2": "baño Piso 2"
   }
 }

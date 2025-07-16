@@ -19,15 +19,27 @@
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "Description of Beacon 1",
-      "beacon_destinations": ["Entrance", "Reception"],
+      "beacon_description": "In diesem Bereich befinden sich der Festsaal, der Haupteingang und der Bereich für Fundsachen.",
+      "beacon_destinations": ["Festsaal", "Haupteingang", "Fundsachen"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
       "beacon_instructions": {
-        "Beacon 1-Entrance": "Instruction from Beacon 1 to Entrance",
-        "Beacon 1-Reception": "Instruction from Beacon 1 to Reception",
-        "Beacon 1-Beacon 2": "Instruction from Beacon 1 to Beacon 2",
-        "Beacon 1-Beacon 3": "Instruction from Beacon 1 to Beacon 3"
-      }
+        "Beacon 1-Haupteingang": "Gehen Sie fünf Schritte in Richtung Haupteingang und Sie erreichen Ihr Ziel: Haupteingang",
+        "Beacon 2-Beacon 1-Haupteingang": "Gehen Sie etwa 3 Schritte nach rechts, gefolgt von weiteren fünf Schritten nach rechts, und Sie erreichen Ihr Ziel: Haupteingang",
+        "Beacon 3-Beacon 1-Haupteingang": "Gehen Sie etwa 5 Schritte geradeaus und Sie erreichen Ihr Ziel: Haupteingang",
+
+        "Beacon 1-Fundsachen": "Gehen Sie etwa fünf Schritte in Richtung Fundsachen und Sie erreichen Ihr Ziel: Fundsachen",
+        "Beacon 2-Beacon 1-Fundsachen": "Gehen Sie etwa sieben Schritte nach rechts und Sie erreichen Ihr Ziel: Fundsachen",
+        "Beacon 3-Beacon 1-Fundsachen": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von vier Schritten nach links, und Sie erreichen Ihr Ziel: Fundsachen",
+
+        "Beacon 1-Festsaal": "Gehen Sie etwa fünf Schritte und steigen Sie 11 Stufen in Richtung Festsaal hinauf und Sie erreichen Ihr Ziel: Festsaal",
+        "Beacon 2-Beacon 1-Festsaal": "Gehen Sie etwa 4 Schritte geradeaus, biegen Sie links ab und steigen Sie 11 Stufen hinauf und Sie erreichen Ihr Ziel: Festsaal",
+        "Beacon 3-Beacon 1-Festsaal": "Gehen Sie etwa drei Schritte geradeaus, gefolgt von vier Schritten nach rechts, steigen Sie 11 Stufen hinauf und Sie erreichen Ihr Ziel: Festsaal",
+
+        "Beacon 1-Beacon 2": "Finden Sie eine Treppe zu Ihrer linken. Gehen Sie 6 Stufen hinunter und fünf Schritte nach rechts.",
+        "Beacon 3-Beacon 1-Beacon 2": "Gehen Sie etwa sechs Schritte geradeaus, finden Sie eine Treppe zu Ihrer rechten. Gehen Sie 6 Stufen hinunter und fünf Schritte nach rechts.",
+
+        "Beacon 1-Beacon 3": "Gehen Sie etwa siebzehn Schritte geradeaus",
+        "Beacon 2-Beacon 1-Beacon 3": "Gehen Sie etwa zwanzig Schritte geradeaus"      }
     },
 
 

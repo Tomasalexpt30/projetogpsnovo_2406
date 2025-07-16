@@ -1,531 +1,792 @@
 {
   "alerts": {
-    "already_there_alert": "Sie sind bereits bei {location}. Sie haben Ihr Ziel erreicht.",
-    "path_not_found_alert": "Sie sind bei {location}. Route nicht gefunden.",
-    "arrived_alert": "Sie haben Ihr Ziel erreicht. Vielen Dank für die Nutzung unserer App.",
-    "at_location_alert": "Sie sind bei: {location}",
+    "already_there_alert": "Sie befinden sich bereits in {location}. Sie haben Ihr Ziel erreicht.",
+    "path_not_found_alert": "Sie befinden sich in {location}. Weg nicht gefunden.",
+    "at_location_alert": "Sie befinden sich in: {location}",
     "navigation_cancelled_alert": "Navigation abgebrochen",
     "searching_alert": "Suche...",
     "end_of_route_alert": "Ende der Route",
     "voice_start_alert": "Wir starten die Navigation zum Ziel {destination}.",
-    "voice_unavailable_alert": "Ziel ist nicht verfügbar, bitte wiederholen.",
-    "voice_selected_alert": "Ausgewähltes Lieblingsziel: {destination}",
-    "start_navigation_alert": "Lassen Sie uns die Navigation mit dem Ziel {destination} starten",
-    "timeout_alert": "Audio-Zeitlimit überschritten. Bitte versuchen Sie es erneut.",
-    "no_match_alert": "Es war nicht möglich, zu erkennen, was Sie gesagt haben. Bitte versuchen Sie es erneut.",
-    "navigation_end_alert": "Navigation abgeschlossen. Danke, dass Sie unsere Anwendung nutzen!"
+    "voice_unavailable_alert": "Ziel nicht verfügbar, bitte wiederholen.",
+    "voice_selected_alert": "Favoritenziel ausgewählt: {destination}",
+    "start_navigation_alert": "Wir starten die Navigation zum Ziel {destination}.",
+    "timeout_alert": "Audio-Zeitlimit überschritten. Bitte erneut versuchen.",
+    "no_match_alert": "Konnte nicht erkennen, was Sie gesagt haben. Bitte erneut versuchen.",
+    "navigation_end_alert": "Navigation abgeschlossen. Danke, dass Sie unsere App verwenden!"
   },
 
   "beacons": {
     "Beacon 1": {
       "beacon_floor": "0",
-      "beacon_description": "Beschreibung des Beacon 1",
-      "beacon_destinations": ["Eingang", "Empfang"],
+      "beacon_description": "In diesem Bereich befinden sich der Festsaal, der Haupteingang und das Fundbüro.",
+      "beacon_destinations": ["Festsaal", "Haupteingang", "Fundbüro"],
       "beacon_connections": ["Beacon 2", "Beacon 3"],
       "beacon_instructions": {
-        "Beacon 1-Eingang": "Anweisung von Beacon 1 zum Eingang",
-        "Beacon 1-Empfang": "Anweisung von Beacon 1 zum Empfang",
-        "Beacon 1-Beacon 2": "Anweisung von Beacon 1 zu Beacon 2",
-        "Beacon 1-Beacon 3": "Anweisung von Beacon 1 zu Beacon 3"
+        "Beacon 1-Haupteingang": "Gehen Sie fünf Schritte in Richtung Haupteingang und Sie erreichen Ihr Ziel: Haupteingang",
+        "Beacon 2-Beacon 1-Haupteingang": "Gehen Sie etwa 3 Schritte nach rechts, gefolgt von weiteren fünf Schritten nach rechts, und Sie erreichen Ihr Ziel: Haupteingang",
+        "Beacon 3-Beacon 1-Haupteingang": "Gehen Sie etwa 5 Schritte geradeaus und Sie erreichen Ihr Ziel: Haupteingang",
+
+        "Beacon 1-Fundbüro": "Gehen Sie etwa fünf Schritte in Richtung Fundbüro, und Sie erreichen Ihr Ziel: Fundbüro",
+        "Beacon 2-Beacon 1-Fundbüro": "Gehen Sie etwa sieben Schritte nach rechts und Sie erreichen Ihr Ziel: Fundbüro",
+        "Beacon 3-Beacon 1-Fundbüro": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von vier Schritten nach links, und Sie erreichen Ihr Ziel: Fundbüro",
+
+        "Beacon 1-Festsaal": "Gehen Sie etwa fünf Schritte und steigen Sie 11 Stufen in Richtung Festsaal hinauf, um Ihr Ziel zu erreichen: Festsaal",
+        "Beacon 2-Beacon 1-Festsaal": "Gehen Sie etwa 4 Schritte geradeaus, biegen Sie links ab und steigen Sie 11 Stufen hinauf, um Ihr Ziel zu erreichen: Festsaal",
+        "Beacon 3-Beacon 1-Festsaal": "Gehen Sie etwa drei Schritte geradeaus, gefolgt von vier Schritten nach rechts, steigen Sie 11 Stufen hinauf, um Ihr Ziel zu erreichen: Festsaal",
+
+        "Beacon 1-Beacon 2": "Finden Sie eine Treppe zu Ihrer linken. Steigen Sie 6 Stufen hinab und gehen Sie fünf Schritte nach rechts.",
+        "Beacon 3-Beacon 1-Beacon 2": "Gehen Sie etwa sechs Schritte geradeaus, finden Sie eine Treppe zu Ihrer rechten. Steigen Sie 6 Stufen hinab und gehen Sie fünf Schritte nach rechts.",
+
+        "Beacon 1-Beacon 3": "Gehen Sie etwa siebzehn Schritte geradeaus",
+        "Beacon 2-Beacon 1-Beacon 3": "Gehen Sie etwa zwanzig Schritte geradeaus"
       }
     },
 
-
     "Beacon 2": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 13", "Sala 14", "Sala 15"],
+      "beacon_description": "An diesem Ort befinden sich die Treppen, die Sie hinuntergestiegen sind, sowie ein Korridor, der Sie zu den Räumen 13, 14 und 15 führt.",
+      "beacon_destinations": ["Raum 13", "Raum 14", "Raum 15"],
       "beacon_connections": ["Beacon 1"],
-
       "beacon_instructions": {
-        "Beacon 2-Sala 13": "",
-        "Beacon 2-Sala 14": "",
-        "Beacon 2-Sala 15": "",
-        "Beacon 2-Beacon 1": ""
+        "Beacon 1-Beacon 2-Raum 13": "Biegen Sie rechts ab und gehen Sie etwa 7 Schritte. Nach der Tür erreichen Sie Ihr Ziel: Raum 13",
+        "Beacon 2-Raum 13": "Gehen Sie etwa 7 Schritte in Richtung Raum 13. Nach der Tür erreichen Sie Ihr Ziel: Raum 13",
+
+        "Beacon 1-Beacon 2-Raum 14": "Biegen Sie rechts ab und gehen Sie etwa 14 Schritte, um Ihr Ziel zu erreichen: Raum 14",
+        "Beacon 2-Raum 14": "Gehen Sie etwa 14 Schritte in Richtung Raum 14, um Ihr Ziel zu erreichen: Raum 14",
+
+        "Beacon 1-Beacon 2-Raum 15": "Biegen Sie rechts ab und gehen Sie etwa 21 Schritte, um Ihr Ziel zu erreichen: Raum 15",
+        "Beacon 2-Raum 15": "Gehen Sie etwa 21 Schritte in Richtung Raum 15, um Ihr Ziel zu erreichen: Raum 15",
+
+        "Beacon 2-Beacon 1": "Gehen Sie etwa fünf Schritte nach links und steigen Sie sechs Stufen hinauf"
       }
     },
 
     "Beacon 3": {
       "beacon_floor": "0",
-      "beacon_description": "Beschreibung des Beacon 3",
-      "beacon_destinations": ["Innenhof"],
+      "beacon_description": "Sie befinden sich im Zentrum des Haupthofs der UAL. Um Sie herum befinden sich der Ausgang der Universität, die Camões-Büste und die Treppen ins Innere der Universität.",
+      "beacon_destinations": ["Hof"],
       "beacon_connections": ["Beacon 1", "Beacon 4", "Beacon 8", "Beacon 15"],
       "beacon_instructions": {
-        "Beacon 3-Innenhof": "Anweisung von Beacon 3 zum Innenhof",
-        "Beacon 3-Beacon 1": "Anweisung von Beacon 3 zu Beacon 1",
-        "Beacon 3-Beacon 4": "Anweisung von Beacon 3 zu Beacon 4",
-        "Beacon 3-Beacon 8": "Anweisung von Beacon 3 zu Beacon 8",
-        "Beacon 3-Beacon 15": "Anweisung von Beacon 3 zu Beacon 15"
+        "Beacon 1-Beacon 3-Hof": "Gehen Sie etwa drei Schritte, um Ihr Ziel zu erreichen: Hof",
+        "Beacon 3-Hof": "Sie befinden sich im Hof",
+        "Beacon 4-Beacon 3-Hof": "Gehen Sie etwa drei Schritte, um Ihr Ziel zu erreichen: Hof",
+        "Beacon 8-Beacon 3-Hof": "Gehen Sie etwa drei Schritte, um Ihr Ziel zu erreichen: Hof",
+        "Beacon 15-Beacon 3-Hof": "Gehen Sie etwa drei Schritte, um Ihr Ziel zu erreichen: Hof",
+
+        "Beacon 3-Beacon 1": "Gehen Sie etwa siebzehn Schritte in Richtung Eingang",
+        "Beacon 4-Beacon 3-Beacon 1": "Gehen Sie etwa siebzehn Schritte nach links",
+        "Beacon 8-Beacon 3-Beacon 1": "Gehen Sie etwa siebzehn Schritte nach links",
+        "Beacon 15-Beacon 3-Beacon 1": "Gehen Sie etwa zwanzig Schritte geradeaus"
       }
     },
 
 
     "Beacon 4": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Auditório 2", "Auditório 3", "Sala 22", "Sala 23"],
+      "beacon_description": "In diesem Bereich befindet sich vor Ihnen der akademische Laden, links die Studentenvereinigung und rechts die Räume 24 bis 33, die Auditorien 2 und 3 sowie das Erasmus-Büro.",
+      "beacon_destinations": ["Auditorium 02", "Auditorium 03", "Raum 22", "Raum 23"],
       "beacon_connections": ["Beacon 3", "Beacon 5", "Beacon 8", "Beacon 9"],
-
       "beacon_instructions": {
-        "Beacon 4-Auditório 2": "",
-        "Beacon 4-Auditório 3": "",
-        "Beacon 4-Sala 22": "",
-        "Beacon 4-Sala 23": "",
-        "Beacon 4-Beacon 3": "",
-        "Beacon 4-Beacon 5": "",
-        "Beacon 4-Beacon 8": "",
-        "Beacon 4-Beacon 9": ""
+        "Beacon 3-Beacon 4-Auditorium 02": "Biegen Sie rechts ab, gehen Sie sieben Schritte, gefolgt von sieben Schritten nach links, um Ihr Ziel zu erreichen: Auditorium 2",
+        "Beacon 4-Auditorium 02": "Gehen Sie etwa sieben Schritte, gefolgt von sieben Schritten nach links in Richtung Auditorium 2, um Ihr Ziel zu erreichen: Auditorium 2",
+        "Beacon 8-Beacon 4-Auditorium 02": "Gehen Sie etwa 11 Schritte geradeaus, gefolgt von sieben Schritten nach links, um Ihr Ziel zu erreichen: Auditorium 2",
+        "Beacon 9-Beacon 4-Auditorium 02": "Gehen Sie etwa 11 Schritte geradeaus, gefolgt von sieben Schritten nach links, um Ihr Ziel zu erreichen: Auditorium 2",
+
+        "Beacon 3-Beacon 4-Auditorium 03": "Biegen Sie rechts ab, gehen Sie neun Schritte, um Ihr Ziel zu erreichen: Auditorium 3",
+        "Beacon 4-Auditorium 03": "Gehen Sie neun Schritte in Richtung Auditorium 3, um Ihr Ziel zu erreichen: Auditorium 3",
+        "Beacon 5-Beacon 4-Auditorium 03": "Gehen Sie etwa neun Schritte nach links, um Ihr Ziel zu erreichen: Auditorium 3",
+        "Beacon 8-Beacon 4-Auditorium 03": "Gehen Sie etwa zwölf Schritte geradeaus, um Ihr Ziel zu erreichen: Auditorium 3",
+        "Beacon 9-Beacon 4-Auditorium 03": "Gehen Sie etwa zwölf Schritte geradeaus, um Ihr Ziel zu erreichen: Auditorium 3",
+
+        "Beacon 3-Beacon 4-Raum 22": "Gehen Sie etwa neun Schritte geradeaus, um Ihr Ziel zu erreichen: Raum 22",
+        "Beacon 4-Raum 22": "Gehen Sie etwa neun Schritte in Richtung Raum 22, um Ihr Ziel zu erreichen: Raum 22",
+        "Beacon 5-Beacon 4-Raum 22": "Biegen Sie rechts ab, gehen Sie etwa fünf Schritte, gefolgt von neun Schritten nach rechts, um Ihr Ziel zu erreichen: Raum 22",
+        "Beacon 8-Beacon 4-Raum 22": "Biegen Sie links ab, gehen Sie etwa sechs Schritte, um Ihr Ziel zu erreichen: Raum 22",
+        "Beacon 9-Beacon 4-Raum 22": "Biegen Sie links ab, gehen Sie etwa neun Schritte, um Ihr Ziel zu erreichen: Raum 22",
+
+        "Beacon 3-Beacon 4-Raum 23": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von acht Schritten nach rechts, um Ihr Ziel zu erreichen: Raum 23",
+        "Beacon 4-Raum 23": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von acht Schritten in Richtung Raum 23, um Ihr Ziel zu erreichen: Raum 23",
+        "Beacon 5-Beacon 4-Raum 23": "Gehen Sie etwa neun Schritte nach links, gefolgt von fünf Schritten nach links, um Ihr Ziel zu erreichen: Raum 23",
+        "Beacon 8-Beacon 4-Raum 23": "Gehen Sie etwa neun Schritte geradeaus, gefolgt von fünf Schritten nach links, um Ihr Ziel zu erreichen: Raum 23",
+        "Beacon 9-Beacon 4-Raum 23": "Gehen Sie etwa neun Schritte geradeaus, gefolgt von fünf Schritten nach links, um Ihr Ziel zu erreichen: Raum 23"
       }
     },
 
     "Beacon 5": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Auditório 2", "Sala 24", "Sala 27", "Gabinete de Erasmus +"],
+      "beacon_description": "In diesem Korridor befinden sich die Räume 24, 27, 28 und 29 in dieser Reihenfolge. Außerdem finden Sie hier das Erasmus-Büro und den Akademischen Chor.",
+      "beacon_destinations": ["Auditorium 02", "Raum 24", "Raum 27", "Erasmus-Büro"],
       "beacon_connections": ["Beacon 4", "Beacon 6"],
-
       "beacon_instructions": {
-        "Beacon 5-Auditório 02": "",
-        "Beacon 5-Sala 24": "",
-        "Beacon 5-Sala 27": "",
-        "Beacon 5-Gabinete de Erasmus +": "",
-        "Beacon 5-Beacon 4": "",
-        "Beacon 5-Beacon 6": ""
+        "Beacon 5-Auditorium 02": "Gehen Sie etwa fünf Schritte in Richtung Auditorium 2, um Ihr Ziel zu erreichen: Auditorium 2",
+        "Beacon 6-Beacon 5-Auditorium 02": "Gehen Sie etwa vier Schritte geradeaus, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Auditorium 2",
+
+        "Beacon 4-Beacon 5-Erasmus-Büro": "Gehen Sie etwa vier Schritte geradeaus, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Erasmus-Büro",
+        "Beacon 5-Erasmus-Büro": "Gehen Sie vier Schritte in Richtung Erasmus-Büro, um Ihr Ziel zu erreichen: Erasmus-Büro",
+        "Beacon 6-Beacon 5-Erasmus-Büro": "Biegen Sie rechts ab, gehen Sie etwa vier Schritte, um Ihr Ziel zu erreichen: Erasmus-Büro",
+
+        "Beacon 4-Beacon 5-Raum 24": "Biegen Sie links ab, gehen Sie etwa vier Schritte, um Ihr Ziel zu erreichen: Raum 24",
+        "Beacon 5-Raum 24": "Gehen Sie etwa drei Schritte in Richtung Raum 24, um Ihr Ziel zu erreichen: Raum 24",
+        "Beacon 6-Beacon 5-Raum 24": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von drei Schritten nach rechts, um Ihr Ziel zu erreichen: Raum 24",
+
+        "Beacon 4-Beacon 5-Raum 27": "Gehen Sie etwa 18 Schritte geradeaus, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Raum 27",
+        "Beacon 5-Raum 27": "Gehen Sie etwa 15 Schritte in Richtung Raum 27, um Ihr Ziel zu erreichen: Raum 27"
       }
     },
 
     "Beacon 6": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 28", "Sala 29"],
+      "beacon_description": "Zu Ihrer Rechten befinden sich die Treppen, die zu den Räumen 32 und 33 hinunterführen. Zu Ihrer Linken befinden sich die Räume 28 und 29.",
+      "beacon_destinations": ["Raum 27", "Raum 28", "Raum 29"],
       "beacon_connections": ["Beacon 5", "Beacon 7"],
-
       "beacon_instructions": {
-        "Beacon 6-Sala 28": "",
-        "Beacon 6-Sala 29": "",
-        "Beacon 6-Beacon 5": "",
-        "Beacon 6-Beacon 7": ""
+        "Beacon 6-Raum 27": "Gehen Sie etwa zwölf Schritte, gefolgt von drei Schritten nach rechts in Richtung Raum 27, um Ihr Ziel zu erreichen: Raum 27",
+        "Beacon 7-Beacon 6-Raum 27": "Biegen Sie links ab, gehen Sie etwa zwölf Schritte, gefolgt von drei Schritten nach rechts in Richtung Raum 27, um Ihr Ziel zu erreichen: Raum 27",
+
+        "Beacon 5-Beacon 6-Raum 28": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von sieben Schritten nach rechts, um Ihr Ziel zu erreichen: Raum 28",
+        "Beacon 6-Raum 28": "Gehen Sie etwa fünf Schritte, gefolgt von sieben Schritten nach rechts in Richtung Raum 28, um Ihr Ziel zu erreichen: Raum 28",
+        "Beacon 7-Beacon 6-Raum 28": "Biegen Sie rechts ab, gehen Sie etwa drei Schritte, gefolgt von sieben Schritten nach rechts, um Ihr Ziel zu erreichen: Raum 28",
+
+        "Beacon 5-Beacon 6-Raum 29": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von sieben Schritten nach rechts. Dann biegen Sie links ab und gehen etwa zehn Schritte, um Ihr Ziel zu erreichen: Raum 29",
+        "Beacon 6-Raum 29": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von sieben Schritten nach rechts. Dann biegen Sie links ab und gehen etwa zehn Schritte in Richtung Raum 29, um Ihr Ziel zu erreichen: Raum 29"
       }
     },
 
     "Beacon 7": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 32", "Sala 33"],
+      "beacon_description": "Dieser Korridor führt zu zwei Räumen: Rechts befindet sich Raum 32 und links Raum 33.",
+      "beacon_destinations": ["Raum 32", "Raum 33"],
       "beacon_connections": ["Beacon 6"],
-
       "beacon_instructions": {
-        "Beacon 7-Sala 32": "",
-        "Beacon 7-Sala 33": "",
+        "Beacon 6-Beacon 7-Raum 32": "Biegen Sie rechts ab, gehen Sie etwa sieben Schritte, um Ihr Ziel zu erreichen: Raum 32",
+        "Beacon 7-Raum 32": "Gehen Sie etwa sieben Schritte in Richtung Raum 32, um Ihr Ziel zu erreichen: Raum 32",
+
+        "Beacon 6-Beacon 7-Raum 33": "Biegen Sie rechts ab, gehen Sie etwa drei Schritte, um Ihr Ziel zu erreichen: Raum 33",
+        "Beacon 7-Raum 33": "Gehen Sie etwa drei Schritte in Richtung Raum 33, um Ihr Ziel zu erreichen: Raum 33",
         "Beacon 7-Beacon 6": ""
       }
     },
 
     "Beacon 8": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "In diesem Bereich gibt es eine Treppe, die Sie zum Haupthof führt, einen Flur zum ersten Stock und einen weiteren Flur zu den Räumen, der Bar und der Studentenvereinigung.",
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 3", "Beacon 4", "Beacon 9", "Beacon 22"],
-
       "beacon_instructions": {
-        "Beacon 8-Beacon 3": "",
-        "Beacon 8-Beacon 4": "",
-        "Beacon 8-Beacon 9": "",
-        "Beacon 8-Beacon 22": ""
+        "Beacon 4-Beacon 8-Beacon 3": "Biegen Sie links ab, gehen Sie acht Stufen hinunter, gefolgt von sieben Schritten nach rechts.",
+        "Beacon 8-Beacon 3": "Finden Sie eine Treppe, gehen Sie acht Stufen hinunter und sieben Schritte nach rechts.",
+        "Beacon 9-Beacon 8-Beacon 3": "Biegen Sie links ab, gehen Sie acht Stufen hinunter und sieben Schritte nach rechts.",
+        "Beacon 22-Beacon 8-Beacon 3": "Biegen Sie rechts ab, gehen Sie acht Stufen hinunter und sieben Schritte nach rechts.",
+
+        "Beacon 3-Beacon 8-Beacon 4": "Biegen Sie rechts ab und gehen Sie etwa 13 Schritte.",
+        "Beacon 8-Beacon 4": "Gehen Sie etwa 13 Schritte in Richtung untere Treppe.",
+        "Beacon 9-Beacon 8-Beacon 4": "Biegen Sie links ab und gehen Sie etwa 10 Schritte.",
+        "Beacon 22-Beacon 8-Beacon 4": "Gehen Sie etwa 13 Schritte.",
+
+        "Beacon 3-Beacon 8-Beacon 9": "Biegen Sie rechts ab und gehen Sie etwa sechs Schritte, gefolgt von vier Schritten nach links.",
+        "Beacon 4-Beacon 8-Beacon 9": "Macht keinen Sinn.",
+        "Beacon 8-Beacon 9": "Gehen Sie etwa sechs Schritte, gefolgt von vier nach links in Richtung Bar-Treppe.",
+        "Beacon 22-Beacon 8-Beacon 9": "Gehen Sie etwa acht Schritte geradeaus, gefolgt von vier Schritten nach links.",
+
+        "Beacon 3-Beacon 8-Beacon 22": "Biegen Sie links ab und gehen Sie etwa zehn Schritte geradeaus, dann drei Stufen hinauf.",
+        "Beacon 4-Beacon 8-Beacon 22": "Gehen Sie etwa zehn Schritte geradeaus und dann drei Stufen hinauf.",
+        "Beacon 8-Beacon 22": "Gehen Sie etwa zehn Schritte bis zum Ende des Flurs.",
+        "Beacon 9-Beacon 8-Beacon 22": "Biegen Sie rechts ab, gehen Sie etwa zehn Schritte geradeaus und drei Stufen hinauf."
       }
     },
 
     "Beacon 9": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["AAUAL", "Loja Académica"],
+      "beacon_description": "Um Sie herum befindet sich rechts die Studentenvereinigung, links der akademische Laden und geradeaus die Treppe, die zur Bar/Kantine führt.",
+      "beacon_destinations": ["Studentenvereinigung", "Akademischer Laden"],
       "beacon_connections": ["Beacon 4", "Beacon 8", "Beacon 10"],
-
       "beacon_instructions": {
-        "Beacon 9-AAUAL": "",
-        "Beacon 9-Loja Académica": "",
-        "Beacon 9-Beacon 4": "",
-        "Beacon 9-Beacon 8": "",
-        "Beacon 9-Beacon 10": ""
+        "Beacon 4-Beacon 9-Studentenvereinigung": "Biegen Sie rechts ab und gehen Sie etwa fünf Schritte, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Studentenvereinigung.",
+        "Beacon 8-Beacon 9-Studentenvereinigung": "Gehen Sie etwa drei Schritte geradeaus, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Studentenvereinigung.",
+        "Beacon 9-Studentenvereinigung": "Gehen Sie etwa fünf Schritte in Richtung Studentenvereinigung, um Ihr Ziel zu erreichen.",
+        "Beacon 10-Beacon 9-Studentenvereinigung": "Gehen Sie etwa vier Schritte geradeaus, gefolgt von drei Schritten nach rechts, um Ihr Ziel zu erreichen: Studentenvereinigung.",
+
+        "Beacon 4-Beacon 9-Akademischer Laden": "Biegen Sie rechts ab und gehen Sie etwa zwei Schritte: Akademischer Laden.",
+        "Beacon 8-Beacon 9-Akademischer Laden": "Biegen Sie links ab und gehen Sie etwa zwei Schritte, um Ihr Ziel zu erreichen: Akademischer Laden.",
+        "Beacon 9-Akademischer Laden": "Gehen Sie etwa zwei Schritte in Richtung Akademischer Laden, um Ihr Ziel zu erreichen.",
+        "Beacon 10-Beacon 9-Akademischer Laden": "Biegen Sie rechts ab und gehen Sie etwa vier Schritte, gefolgt von zwei Schritten nach links, um Ihr Ziel zu erreichen: Akademischer Laden."
       }
     },
 
     "Beacon 10": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Cacifos", "Bar"],
+      "beacon_description": "In diesem Bereich befindet sich rechts die Bar/Kantine, die Schließfächer und geradeaus die Treppen, die zum Erdgeschoss führen.",
+      "beacon_destinations": ["Schließfächer", "Bar"],
       "beacon_connections": ["Beacon 9", "Beacon 11", "Beacon 12"],
-
       "beacon_instructions": {
-        "Beacon 10-Cacifos": "",
-        "Beacon 10-Bar": "",
-        "Beacon 10-Beacon 9": "",
-        "Beacon 10-Beacon 11": "",
-        "Beacon 10-Beacon 12": ""
+        "Beacon 9-Beacon 10-Bar": "Gehen Sie etwa drei Schritte geradeaus, gefolgt von vier Schritten nach links. Nach einer Tür erreichen Sie Ihr Ziel: Bar.",
+        "Beacon 10-Bar": "Gehen Sie etwa acht Schritte in Richtung Bar, um Ihr Ziel zu erreichen.",
+        "Beacon 11-Beacon 10-Bar": "Gehen Sie etwa acht Schritte nach links. Nach einer Tür erreichen Sie Ihr Ziel: Bar.",
+
+        "Beacon 9-Beacon 10-Schließfächer": "Gehen Sie etwa drei Schritte geradeaus, um Ihr Ziel zu erreichen: Schließfächer.",
+        "Beacon 10-Schließfächer": "Gehen Sie etwa drei Schritte in Richtung Schließfächer, um Ihr Ziel zu erreichen.",
+        "Beacon 11-Beacon 10-Schließfächer": "Gehen Sie etwa vier Schritte geradeaus, um Ihr Ziel zu erreichen: Schließfächer.",
+        "Beacon 12-Beacon 10-Schließfächer": "Gehen Sie etwa drei Schritte geradeaus, um Ihr Ziel zu erreichen: Schließfächer."
       }
     },
 
     "Beacon 11": {
       "beacon_floor": "-1",
-      "beacon_description": "",
+      "beacon_description": "Vor Ihnen befindet sich die Außenterrasse, rechts der Weg zur Bar und hinter Ihnen die Treppen, die ins Erdgeschoss führen.",
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 10", "Beacon 13"],
-
       "beacon_instructions": {
-        "Beacon 11-Beacon 10": "",
-        "Beacon 11-Beacon 13": ""
+        "Beacon 11-Beacon 10": "Gehen Sie etwa zehn Schritte in Richtung Bar-Treppe.",
+        "Beacon 13-Beacon 11-Beacon 10": "Biegen Sie links ab und gehen Sie etwa zehn Schritte.",
+
+        "Beacon 10-Beacon 11-Beacon 13": "Biegen Sie rechts ab und gehen Sie etwa neun Schritte.",
+        "Beacon 11-Beacon 13": "Gehen Sie etwa neun Schritte in Richtung Mikrowellenraum."
       }
     },
 
-
     "Beacon 12": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Bar", "Refeitório"],
+      "beacon_description": "Sie befinden sich gerade in der Bar. Links befindet sich die Innenterrasse und rechts der Ausgang.",
+      "beacon_destinations": ["Bar", "Kantine"],
       "beacon_connections": ["Beacon 10", "Beacon 13"],
-
       "beacon_instructions": {
-        "Beacon 12-Bar": "",
-        "Beacon 12-Refeitório": "",
-        "Beacon 12-Beacon 10": "",
-        "Beacon 12-Beacon 13": ""
+        "Beacon 12-Bar": "Gehen Sie drei Schritte in Richtung Bar, um Ihr Ziel zu erreichen.",
+        "Beacon 13-Beacon 12-Bar": "Gehen Sie drei Schritte geradeaus, um Ihr Ziel zu erreichen: Bar.",
+
+        "Beacon 10-Beacon 12-Kantine": "Biegen Sie links ab und gehen Sie etwa fünf Schritte, um Ihr Ziel zu erreichen: Kantine.",
+        "Beacon 12-Kantine": "Gehen Sie etwa drei Schritte in Richtung Kantine, um Ihr Ziel zu erreichen: Kantine."
       }
     },
 
     "Beacon 13": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Micro-ondas", "Refeitório", "Esplanada"],
+      "beacon_description": "Links von Ihnen befindet sich eine Tür, die Sie zu den Mikrowellenraum, zur Außenterrasse und zur Innenterrasse führt.",
+      "beacon_destinations": ["Mikrowellenraum", "Kantine", "Terrasse"],
       "beacon_connections": ["Beacon 11", "Beacon 12", "Beacon 14"],
-
       "beacon_instructions": {
-        "Beacon 13-Micro-ondas": "",
-        "Beacon 13-Refeitório": "",
-        "Beacon 13-Esplanada": "",
-        "Beacon 13-Beacon 11": "",
-        "Beacon 13-Beacon 12": "",
-        "Beacon 13-Beacon 14": ""
+        "Beacon 11-Beacon 13-Terrasse": "Biegen Sie links ab, gehen Sie etwa zehn Schritte und Sie erreichen Ihr Ziel: Terrasse.",
+        "Beacon 12-Beacon 13-Terrasse": "Biegen Sie rechts ab, gehen Sie etwa zehn Schritte und Sie erreichen Ihr Ziel: Terrasse.",
+        "Beacon 13-Terrasse": "Gehen Sie etwa zehn Schritte in Richtung Terrasse und Sie erreichen Ihr Ziel: Terrasse.",
+
+        "Beacon 11-Beacon 13-Kantine": "Gehen Sie etwa drei Schritte geradeaus und nach der Tür erreichen Sie Ihr Ziel: Kantine.",
+        "Beacon 13-Kantine": "Gehen Sie etwa drei Schritte in Richtung Kantine und Sie erreichen Ihr Ziel: Kantine.",
+        "Beacon 14-Beacon 13-Kantine": "Biegen Sie links ab, gehen Sie etwa drei Schritte und nach der Tür erreichen Sie Ihr Ziel: Kantine.",
+
+        "Beacon 11-Beacon 13-Mikrowellenraum": "Biegen Sie rechts ab und Sie erreichen Ihr Ziel: Mikrowellenraum.",
+        "Beacon 12-Beacon 13-Mikrowellenraum": "Nach der Tür biegen Sie links ab und Sie erreichen Ihr Ziel: Mikrowellenraum.",
+        "Beacon 13-Mikrowellenraum": "Nach der Tür gehen Sie etwa einen Schritt in Richtung Mikrowellenraum und Sie erreichen Ihr Ziel: Mikrowellenraum.",
+        "Beacon 14-Beacon 13-Mikrowellenraum": "Gehen Sie drei Schritte geradeaus und Sie erreichen Ihr Ziel: Mikrowellenraum."
       }
     },
 
     "Beacon 14": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Reprografia", "WC Bar"],
+      "beacon_description": "Vor Ihnen befindet sich die Außenterrasse, rechts der Eingang zur Druckerei und zu den Toiletten.",
+      "beacon_destinations": ["Buchladen", "Terrasse", "WC Bar"],
       "beacon_connections": ["Beacon 13"],
-
       "beacon_instructions": {
-        "Beacon 14-Reprografia": "",
-        "Beacon 14-WC Bar": "",
-        "Beacon 14-Beacon 13": ""
+        "Beacon 14-Terrasse": "Gehen Sie neun Schritte in Richtung Terrasse und Sie erreichen Ihr Ziel: Terrasse.",
+
+        "Beacon 13-Beacon 14-Buchladen": "Biegen Sie rechts ab, nach der Tür erreichen Sie Ihr Ziel: Buchladen.",
+        "Beacon 14-Buchladen": "Gehen Sie etwa einen Schritt in Richtung Buchladen, nach einer Tür erreichen Sie Ihr Ziel: Buchladen.",
+
+        "Beacon 13-Beacon 14-WC Bar": "Gehen Sie geradeaus, steigen Sie fünf Stufen hinauf und Sie erreichen Ihr Ziel: WC Bar.",
+        "Beacon 14-WC Bar": "Steigen Sie fünf Stufen in Richtung WC Bar hinauf und Sie erreichen Ihr Ziel: WC Bar."
       }
     },
 
     "Beacon 15": {
       "beacon_floor": "0",
-      "beacon_description": "Beschreibung des Beacon 15",
-      "beacon_destinations": ["Camões"],
+      "beacon_description": "Sie stehen an der Büste von Luís de Camões. Rechts befinden sich die Treppen zu den Räumen 37 bis 70, UAL Media, Auditorium 1, dem Informatikzentrum und den Toiletten. Links führen die Treppen zu den Räumen 10, 16 und 18, zu den Räumen 80 bis 90, zur Bibliothek und zu den Psychologielaboren. Außerdem finden Sie hier die Tür zum Haupthof.",
+      "beacon_destinations": ["Camões-Statue"],
       "beacon_connections": ["Beacon 3", "Beacon 16", "Beacon 22"],
       "beacon_instructions": {
-        "Beacon 15-Camões": "Anweisung von Beacon 15 zu Camões",
-        "Beacon 15-Beacon 3": "Anweisung von Beacon 15 zu Beacon 3",
-        "Beacon 15-Beacon 16": "Anweisung von Beacon 15 zu Beacon 16",
-        "Beacon 15-Beacon 22": "Anweisung von Beacon 15 zu Beacon 22"
+        "Beacon 3-Beacon 15-Camões-Statue": "Finden Sie eine Treppe, steigen Sie zwei Stufen hinauf und Sie erreichen Ihr Ziel: Camões-Statue.",
+        "Beacon 15-Camões-Statue": "Sie stehen an der Camões-Statue.",
+        "Beacon 16-Beacon 15-Camões-Statue": "Sie stehen an der Camões-Statue.",
+        "Beacon 22-Beacon 15-Camões-Statue": "Sie stehen an der Camões-Statue."
       }
     },
 
-
     "Beacon 16": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 10", "Sala de Informações"],
+      "beacon_description": "In diesem Bereich gibt es eine Treppe, die zu den Räumen 80 bis 90, Raum 10, den Psychologielaboren, der Autónoma 24, dem Studierzimmer und der Bibliothek führt. Links befindet sich Raum 18. Außerdem gibt es eine Treppe, die zu Raum 16 hinunterführt.",
+      "beacon_destinations": ["Raum 10", "Anwesenheitsbuch"],
       "beacon_connections": ["Beacon 15", "Beacon 17", "Beacon 19"],
-
       "beacon_instructions": {
-        "Beacon 16-Sala 10": "",
-        "Beacon 16-Sala de Informações": "",
-        "Beacon 16-Beacon 15": "",
-        "Beacon 16-Beacon 17": "",
-        "Beacon 16-Beacon 19": ""
+        "Beacon 15-Beacon 16-Anwesenheitsbuch": "Biegen Sie links ab, gehen Sie etwa zwei Schritte und Sie erreichen Ihr Ziel: Anwesenheitsbuch.",
+        "Beacon 16-Anwesenheitsbuch": "Gehen Sie etwa zwei Schritte in Richtung Anwesenheitsbuch und Sie erreichen Ihr Ziel: Anwesenheitsbuch.",
+        "Beacon 17-Beacon 16-Anwesenheitsbuch": "Biegen Sie rechts ab, gehen Sie etwa zwei Schritte und Sie erreichen Ihr Ziel: Anwesenheitsbuch.",
+        "Beacon 19-Beacon 16-Anwesenheitsbuch": "Gehen Sie etwa vier Schritte geradeaus, gefolgt von zwei Schritten nach rechts und Sie erreichen Ihr Ziel: Anwesenheitsbuch.",
+
+        "Beacon 15-Beacon 16-Raum 10": "Finden Sie eine Treppe, steigen Sie sieben Stufen hinauf, gefolgt von 13 Stufen nach links. Gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 10.",
+        "Beacon 16-Raum 10": "Finden Sie eine Treppe, steigen Sie sieben Stufen hinauf, gefolgt von 13 Stufen nach links. Gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 10.",
+        "Beacon 17-Beacon 16-Raum 10": "Finden Sie eine Treppe, steigen Sie sieben Stufen hinauf, gefolgt von 13 Stufen nach links. Gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 10."
       }
     },
 
     "Beacon 17": {
       "beacon_floor": "0",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 18"],
+      "beacon_description": "Links befindet sich Raum 18 und rechts eine Treppe, die Sie in das Untergeschoss führt.",
+      "beacon_destinations": ["Raum 18"],
       "beacon_connections": ["Beacon 16", "Beacon 18"],
-
       "beacon_instructions": {
-        "Beacon 17-Sala 18": "",
-        "Beacon 17-Beacon 16": "",
-        "Beacon 17-Beacon 18": ""
+        "Beacon 16-Beacon 17-Raum 18": "Biegen Sie links ab, gehen Sie etwa zwei Schritte und Sie erreichen Ihr Ziel: Raum 18.",
+        "Beacon 17-Raum 18": "Gehen Sie etwa zwei Schritte in Richtung Raum 18 und Sie erreichen Ihr Ziel: Raum 18.",
+        "Beacon 18-Beacon 17-Raum 18": "Gehen Sie etwa zwei Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 18."
       }
     },
 
     "Beacon 18": {
       "beacon_floor": "-1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 16"],
+      "beacon_description": "In diesem Bereich befindet sich direkt vor Ihnen Raum 16.",
+      "beacon_destinations": ["Raum 16"],
       "beacon_connections": ["Beacon 17"],
-
       "beacon_instructions": {
-        "Beacon 18-Sala 16": "",
-        "Beacon 18-Beacon 17": ""
+        "Beacon 17-Beacon 18-Raum 16": "Biegen Sie rechts ab, gehen Sie etwa fünf Schritte und Sie erreichen Ihr Ziel: Raum 16.",
+        "Beacon 18-Raum 16": "Gehen Sie etwa fünf Schritte in Richtung Raum 16 und Sie erreichen Ihr Ziel: Raum 16."
       }
     },
 
     "Beacon 19": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 10", "Biblioteca", "Sala de Computadores"],
+      "beacon_description": "In diesem Bereich befindet sich rechts Raum 10, links eine Treppe, die zu den Räumen im zweiten Stock, zur Bibliothek und zum Computerraum führt.",
+      "beacon_destinations": ["Raum 10", "Computerraum", "Bibliothek", "GIRU"],
       "beacon_connections": ["Beacon 16", "Beacon 20", "Beacon 21"],
-
       "beacon_instructions": {
-        "Beacon 19-Sala 10": "",
-        "Beacon 19-Biblioteca": "",
-        "Beacon 19-Sala de Computadores": "",
-        "Beacon 19-Beacon 16": "",
-        "Beacon 19-Beacon 20": "",
-        "Beacon 19-Beacon 21": ""
+        "Beacon 16-Beacon 19-Bibliothek": "Gehen Sie etwa zwei Schritte nach links und Sie erreichen Ihr Ziel: Bibliothek.",
+        "Beacon 19-Bibliothek": "Gehen Sie etwa zwei Schritte in Richtung Bibliothek und Sie erreichen Ihr Ziel: Bibliothek.",
+        "Beacon 20-Beacon 19-Bibliothek": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von zwei Schritten nach links, und Sie erreichen Ihr Ziel: Bibliothek.",
+        "Beacon 21-Beacon 19-Bibliothek": "Gehen Sie etwa drei Schritte geradeaus und Sie erreichen Ihr Ziel: Bibliothek.",
+
+        "Beacon 16-Beacon 19-GIRU": "Biegen Sie links ab, gehen Sie etwa 15 Schritte und Sie erreichen Ihr Ziel: GIRU.",
+        "Beacon 19-GIRU": "Gehen Sie etwa 13 Schritte in Richtung GIRU und Sie erreichen Ihr Ziel: GIRU.",
+        "Beacon 21-Beacon 19-GIRU": "Biegen Sie links ab, gehen Sie etwa 10 Schritte und Sie erreichen Ihr Ziel: GIRU.",
+
+        "Beacon 19-Raum 10": "Gehen Sie etwa 12 Schritte in Richtung Raum 10 und Sie erreichen Ihr Ziel: Raum 10.",
+        "Beacon 20-Beacon 19-Raum 10": "Gehen Sie etwa 15 Schritte, gefolgt von fünf Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 10.",
+        "Beacon 21-Beacon 19-Raum 10": "Biegen Sie rechts ab, gehen Sie etwa sechs Schritte, gefolgt von fünf Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 10.",
+
+        "Beacon 16-Beacon 19-Computerraum": "Biegen Sie links ab, gehen Sie etwa 13 Schritte, gefolgt von drei Schritten nach links, und Sie erreichen Ihr Ziel: Computerraum.",
+        "Beacon 19-Computerraum": "Gehen Sie etwa 13 Schritte in Richtung Computerraum, gefolgt von drei Schritten nach links, und Sie erreichen Ihr Ziel: Computerraum.",
+        "Beacon 21-Beacon 19-Computerraum": "Biegen Sie links ab, gehen Sie etwa 12 Schritte, gefolgt von drei Schritten nach links, und Sie erreichen Ihr Ziel: Computerraum."
       }
     },
 
     "Beacon 20": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala de Estudo", "Sala de Computadores"],
-      "beacon_connections": ["Beacon 19"],
-
+      "beacon_description": "Vor Ihnen befinden sich die Studierzimmer mit und ohne Computer, rechts eine Treppe zum oberen Hof.",
+      "beacon_destinations": ["Studierzimmer", "Computerraum", "GIRU"],
+      "beacon_connections": ["Beacon 19", "Beacon 37"],
       "beacon_instructions": {
-        "Beacon 20-Sala de Estudo": "",
-        "Beacon 20-Sala de Computadores": "",
-        "Beacon 20-Beacon 19": ""
+        "Beacon 20-GIRU": "Gehen Sie etwa vier Schritte in Richtung GIRU und Sie erreichen Ihr Ziel: GIRU.",
+        "Beacon 37-Beacon 20-GIRU": "Biegen Sie links ab, gehen Sie etwa vier Schritte und Sie erreichen Ihr Ziel: GIRU.",
+
+        "Beacon 19-Beacon 20-Studierzimmer": "Gehen Sie etwa sechs Schritte geradeaus, nach der Tür erreichen Sie Ihr Ziel: Studierzimmer.",
+        "Beacon 20-Studierzimmer": "Gehen Sie etwa vier Schritte in Richtung Studierzimmer und Sie erreichen Ihr Ziel: Studierzimmer.",
+        "Beacon 37-Beacon 20-Studierzimmer": "Biegen Sie rechts ab, gehen Sie etwa sechs Schritte und Sie erreichen Ihr Ziel: Studierzimmer.",
+
+        "Beacon 20-Computerraum": "Gehen Sie etwa fünf Schritte in Richtung Computerraum und Sie erreichen Ihr Ziel: Computerraum.",
+        "Beacon 37-Beacon 20-Computerraum": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von fünf Schritten nach links, und Sie erreichen Ihr Ziel: Computerraum."
       }
     },
 
     "Beacon 21": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 80", "Sala 81", "Sala 82", "Sala 83"],
+      "beacon_description": "Links befinden sich die Räume 82 und 83, das Neurowissenschaftslabor und das Psychometriellabor. Rechts befinden sich die Räume 81 und 80.",
+      "beacon_destinations": ["Raum 80", "Raum 81", "Raum 82", "Raum 83", "Psychologielabore"],
       "beacon_connections": ["Beacon 19"],
-
       "beacon_instructions": {
-        "Beacon 21-Sala 80": "",
-        "Beacon 21-Sala 81": "",
-        "Beacon 21-Sala 82": "",
-        "Beacon 21-Sala 83": "",
-        "Beacon 21-Beacon 19": ""
+        "Beacon 19-Beacon 21-Psychologielabore": "Biegen Sie links ab, gehen Sie etwa 15 Schritte und Sie erreichen Ihr Ziel: Psychologielabore.",
+        "Beacon 21-Psychologielabore": "Gehen Sie etwa 15 Schritte in Richtung Psychologielabore und Sie erreichen Ihr Ziel: Psychologielabore.",
+
+        "Beacon 19-Beacon 21-Raum 80": "Biegen Sie rechts ab, steigen Sie elf Stufen hinauf, gefolgt von etwa acht Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 80.",
+        "Beacon 21-Raum 80": "Finden Sie eine Treppe, steigen Sie elf Stufen hinauf, gefolgt von etwa acht Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 80.",
+
+        "Beacon 19-Beacon 21-Raum 81": "Biegen Sie rechts ab, steigen Sie elf Stufen hinauf, gefolgt von etwa vier Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 81.",
+        "Beacon 21-Raum 81": "Finden Sie eine Treppe, steigen Sie elf Stufen hinauf, gefolgt von etwa vier Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 81.",
+
+        "Beacon 19-Beacon 21-Raum 82": "Biegen Sie links ab, steigen Sie elf Stufen hinauf, gefolgt von etwa sieben Schritten geradeaus, und Sie erreichen Ihr Ziel: Raum 82.",
+        "Beacon 21-Raum 82": "Finden Sie eine Treppe, steigen Sie elf Stufen hinauf, gefolgt von etwa sieben Schritten geradeaus, und Sie erreichen Ihr Ziel: Raum 82.",
+
+        "Beacon 19-Beacon 21-Raum 83": "Biegen Sie links ab, steigen Sie elf Stufen hinauf, gefolgt von etwa neun Schritten geradeaus, und Sie erreichen Ihr Ziel: Raum 83.",
+        "Beacon 21-Raum 83": "Finden Sie eine Treppe, steigen Sie elf Stufen hinauf, gefolgt von etwa neun Schritten geradeaus, und Sie erreichen Ihr Ziel: Raum 83."
       }
     },
 
     "Beacon 22": {
       "beacon_floor": "0",
-      "beacon_description": "",
+      "beacon_description": "In diesem Bereich gibt es Treppen, die Sie in den ersten Stock, zum Haupthof und zur Bar führen.",
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 8", "Beacon 15", "Beacon 23"],
-
       "beacon_instructions": {
-        "Beacon 22-Beacon 8": "",
-        "Beacon 22-Beacon 15": "",
-        "Beacon 22-Beacon 23": ""
+        "Beacon 15-Beacon 22-Beacon 8": "Steigen Sie vier Stufen hinauf, biegen Sie rechts ab, gehen Sie drei Stufen hinunter und dann etwa sieben Schritte geradeaus.",
+        "Beacon 22-Beacon 8": "Finden Sie eine Treppe, gehen Sie drei Stufen hinunter und etwa sieben Schritte geradeaus.",
+        "Beacon 23-Beacon 22-Beacon 8": "Gehen Sie fünf Stufen hinunter, gefolgt von drei Stufen nach links, und dann etwa sieben Schritte geradeaus.",
+
+        "Beacon 8-Beacon 22-Beacon 15": "Finden Sie eine Treppe, steigen Sie drei Stufen hinauf, biegen Sie links ab und gehen Sie vier Stufen hinunter, gefolgt von neun weiteren Stufen.",
+        "Beacon 22-Beacon 15": "Finden Sie eine Treppe, steigen Sie drei Stufen hinauf, biegen Sie links ab und gehen Sie vier Stufen hinunter, gefolgt von neun weiteren Stufen.",
+        "Beacon 23-Beacon 22-Beacon 15": "Gehen Sie neun Stufen hinunter, gefolgt von drei weiteren Stufen.",
+
+        "Beacon 8-Beacon 22-Beacon 23": "Finden Sie eine Treppe, steigen Sie drei Stufen hinauf, gefolgt von fünf Stufen nach rechts. Dann steigen Sie 13 weitere Stufen hinauf.",
+        "Beacon 15-Beacon 22-Beacon 23": "Finden Sie eine Treppe, steigen Sie drei Stufen hinauf, gefolgt von 13 Stufen nach rechts. Dann steigen Sie 13 weitere Stufen hinauf.",
+        "Beacon 22-Beacon 23": "Finden Sie eine Treppe, steigen Sie drei Stufen hinauf, gefolgt von fünf Stufen nach rechts. Dann steigen Sie 13 weitere Stufen hinauf."
       }
     },
 
     "Beacon 23": {
       "beacon_floor": "1",
-      "beacon_description": "",
+      "beacon_description": "Rechts befinden sich die Räume 37 bis 45, Raum 90 und Auditorium 1; links die Räume 54 bis 70, das Informatikzentrum, UAL Media, die Toiletten und die Treppe zurück zum Haupthof.",
       "beacon_destinations": [],
       "beacon_connections": ["Beacon 22", "Beacon 24", "Beacon 33"],
-
       "beacon_instructions": {
-        "Beacon 23-Beacon 22": "",
-        "Beacon 23-Beacon 24": "",
-        "Beacon 23-Beacon 33": ""
+        "Beacon 23-Beacon 22": "Finden Sie eine Treppe und gehen Sie 13 Stufen hinunter.",
+        "Beacon 24-Beacon 23-Beacon 22": "Biegen Sie rechts ab. Finden Sie eine Treppe und gehen Sie 13 Stufen hinunter.",
+        "Beacon 33-Beacon 23-Beacon 22": "Biegen Sie links ab. Finden Sie eine Treppe und gehen Sie 13 Stufen hinunter.",
+
+        "Beacon 22-Beacon 23-Beacon 24": "Biegen Sie links ab und gehen Sie etwa sieben Schritte, gefolgt von sechs Schritten nach rechts.",
+        "Beacon 23-Beacon 24": "Gehen Sie etwa sieben Schritte zum Anfang des Flurs, gefolgt von sechs Schritten nach rechts.",
+        "Beacon 33-Beacon 23-Beacon 24": "Gehen Sie etwa elf Schritte geradeaus, gefolgt von sechs Schritten nach rechts.",
+
+        "Beacon 22-Beacon 23-Beacon 33": "Biegen Sie rechts ab, nach einer Tür erneut rechts, gehen Sie etwa acht Schritte, dann steigen Sie 12 Stufen hinauf, gefolgt von fünf weiteren Stufen.",
+        "Beacon 23-Beacon 33": "Biegen Sie rechts ab, nach einer Tür erneut rechts, gehen Sie etwa acht Schritte, dann steigen Sie 12 Stufen hinauf, gefolgt von fünf weiteren Stufen.",
+        "Beacon 24-Beacon 23-Beacon 33": "Gehen Sie etwa acht Schritte geradeaus, gefolgt von acht Schritten nach rechts. Steigen Sie 12 Stufen hinauf, gefolgt von fünf weiteren Stufen."
       }
     },
 
     "Beacon 24": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 58"],
-      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27", "Beacon 28"],
-
+      "beacon_description": "In diesem Bereich befinden sich Raum 58, Toiletten und der Eingang zu den Kommunikationslaboren.",
+      "beacon_destinations": ["Raum 58"],
+      "beacon_connections": ["Beacon 23", "Beacon 25", "Beacon 27"],
       "beacon_instructions": {
-        "Beacon 24-Sala 58": "",
-        "Beacon 24-Beacon 23": "",
-        "Beacon 24-Beacon 25": "",
-        "Beacon 24-Beacon 27": "",
-        "Beacon 24-Beacon 28": ""
+        "Beacon 23-Beacon 24-Raum 58": "Gehen Sie etwa 15 Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 58.",
+        "Beacon 24-Raum 58": "Gehen Sie etwa 15 Schritte in Richtung Raum 58 und Sie erreichen Ihr Ziel: Raum 58.",
+        "Beacon 27-Beacon 24-Raum 58": "Gehen Sie etwa 15 Schritte nach links und Sie erreichen Ihr Ziel: Raum 58."
       }
     },
 
     "Beacon 25": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 58", "UAL Media"],
-      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 27", "Beacon 28"],
-
+      "beacon_description": "Hier befinden sich die Kommunikationslabore, UAL Media und Raum 56.",
+      "beacon_destinations": ["Raum 58", "UAL Media"],
+      "beacon_connections": ["Beacon 24", "Beacon 26", "Beacon 28"],
       "beacon_instructions": {
-        "Beacon 25-Sala 58": "",
-        "Beacon 25-UAL Media": "",
-        "Beacon 25-Beacon 24": "",
-        "Beacon 25-Beacon 26": "",
-        "Beacon 25-Beacon 27": "",
-        "Beacon 25-Beacon 28": ""
+        "Beacon 24-Beacon 25-UAL Media": "Biegen Sie rechts ab, gehen Sie etwa sieben Schritte, gefolgt von fünf Schritten nach links, und Sie erreichen Ihr Ziel: UAL Media.",
+        "Beacon 25-UAL Media": "Gehen Sie etwa zwölf Schritte in Richtung UAL Media und Sie erreichen Ihr Ziel: UAL Media.",
+        "Beacon 26-Beacon 25-UAL Media": "Biegen Sie links ab, gehen Sie etwa neun Schritte geradeaus, gefolgt von vier Schritten nach links, und Sie erreichen Ihr Ziel: UAL Media."
       }
     },
 
     "Beacon 26": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 56"],
+      "beacon_description": "Links befinden sich die Treppen zu UAL Media und rechts Raum 56.",
+      "beacon_destinations": ["Raum 56"],
       "beacon_connections": ["Beacon 25"],
-
       "beacon_instructions": {
-        "Beacon 26-Sala 56": "",
-        "Beacon 26-Beacon 25": ""
+        "Beacon 25-Beacon 26-Raum 56": "Biegen Sie rechts ab, gehen Sie etwa acht Schritte und Sie erreichen Ihr Ziel: Raum 56.",
+        "Beacon 26-Raum 56": "Gehen Sie etwa acht Schritte in Richtung Raum 56 und Sie erreichen Ihr Ziel: Raum 56."
       }
     },
 
     "Beacon 27": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 57", "WC Piso 1"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 28"],
-
+      "beacon_description": "Am Anfang dieses Flurs befindet sich links eine Treppe, die Sie zu Raum 57 führt. Geradeaus befindet sich rechts die Herrentoilette und links die Damentoilette.",
+      "beacon_destinations": ["Raum 57", "WC 1. Stock"],
+      "beacon_connections": ["Beacon 24", "Beacon 28"],
       "beacon_instructions": {
-        "Beacon 27-Sala 57": "",
-        "Beacon 27-WC Piso 1": "",
-        "Beacon 27-Beacon 24": "",
-        "Beacon 27-Beacon 25": "",
-        "Beacon 27-Beacon 28": ""
+        "Beacon 24-Beacon 27-Raum 57": "Steigen Sie eine Stufe hinauf, biegen Sie links ab, steigen Sie zwölf Stufen hinauf, gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 57.",
+        "Beacon 27-Raum 57": "Steigen Sie eine Stufe hinauf, biegen Sie links ab, steigen Sie zwölf Stufen hinauf, gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 57.",
+        "Beacon 28-Beacon 27-Raum 57": "Steigen Sie eine Stufe hinauf, biegen Sie links ab, steigen Sie zwölf Stufen hinauf, gehen Sie vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 57.",
+
+        "Beacon 24-Beacon 27-WC 1. Stock": "Biegen Sie links ab, steigen Sie eine Stufe hinauf, gehen Sie vierzehn Schritte geradeaus und Sie erreichen Ihr Ziel: WC.",
+        "Beacon 27-WC 1. Stock": "Steigen Sie eine Stufe hinauf, gehen Sie vierzehn Schritte geradeaus und Sie erreichen Ihr Ziel: WC.",
+        "Beacon 28-Beacon 27-WC 1. Stock": "Steigen Sie eine Stufe hinauf, gehen Sie vierzehn Schritte geradeaus und Sie erreichen Ihr Ziel: WC."
       }
     },
 
     "Beacon 28": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 54", "Sala 58", "Sala 59"],
-      "beacon_connections": ["Beacon 24", "Beacon 25", "Beacon 27", "Beacon 29"],
-
+      "beacon_description": "Sie befinden sich jetzt in einem Flur, in dem sich rechts Raum 59 und links die Räume 60 und 61 befinden.",
+      "beacon_destinations": ["Raum 54", "Raum 58", "Raum 59"],
+      "beacon_connections": ["Beacon 25", "Beacon 27", "Beacon 29"],
       "beacon_instructions": {
-        "Beacon 28-Sala 54": "",
-        "Beacon 28-Sala 58": "",
-        "Beacon 28-Sala 59": "",
-        "Beacon 28-Beacon 24": "",
-        "Beacon 28-Beacon 25": "",
-        "Beacon 28-Beacon 27": "",
-        "Beacon 28-Beacon 29": ""
+        "Beacon 25-Beacon 28-Raum 54": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von zwei Schritten nach links, und Sie erreichen Ihr Ziel: Raum 54.",
+        "Beacon 27-Beacon 28-Raum 54": "Biegen Sie links ab, gehen Sie etwa sechs Schritte, gefolgt von zwei Schritten nach links, und Sie erreichen Ihr Ziel: Raum 54.",
+        "Beacon 28-Raum 54": "Gehen Sie etwa sechs Schritte in Richtung Raum 54 und Sie erreichen Ihr Ziel: Raum 54.",
+        "Beacon 29-Beacon 28-Raum 54": "Biegen Sie rechts ab und Sie erreichen Ihr Ziel: Raum 54.",
+
+        "Beacon 27-Beacon 28-Raum 58": "Gehen Sie etwa vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 58.",
+        "Beacon 28-Raum 58": "Gehen Sie etwa vier Schritte in Richtung Raum 58 und Sie erreichen Ihr Ziel: Raum 58.",
+        "Beacon 29-Beacon 28-Raum 58": "Gehen Sie etwa vier Schritte geradeaus, nach einer Tür biegen Sie links ab und Sie erreichen Ihr Ziel: Raum 58.",
+
+        "Beacon 25-Beacon 28-Raum 59": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von zwei Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 59.",
+        "Beacon 27-Beacon 28-Raum 59": "Biegen Sie links ab, gehen Sie etwa sechs Schritte, gefolgt von zwei Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 59.",
+        "Beacon 28-Raum 59": "Gehen Sie etwa sechs Schritte in Richtung Raum 59 und Sie erreichen Ihr Ziel: Raum 59."
       }
     },
 
     "Beacon 29": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 59", "Sala 60", "Sala 61"],
+      "beacon_description": "Sie befinden sich jetzt in der Mitte des Flurs, wo sich links die Räume 60 und 61 und rechts Raum 59 befinden.",
+      "beacon_destinations": ["Raum 59", "Raum 60", "Raum 61"],
       "beacon_connections": ["Beacon 28", "Beacon 30"],
-
       "beacon_instructions": {
-        "Beacon 29-Sala 59": "",
-        "Beacon 29-Sala 60": "",
-        "Beacon 29-Sala 61": "",
-        "Beacon 29-Beacon 28": "",
-        "Beacon 29-Beacon 30": ""
+        "Beacon 28-Beacon 29-Raum 59": "Nach einer Tür biegen Sie links ab, gehen etwa drei Schritte und Sie erreichen Ihr Ziel: Raum 59.",
+        "Beacon 29-Raum 59": "Gehen Sie etwa drei Schritte in Richtung Raum 59 und Sie erreichen Ihr Ziel: Raum 59.",
+        "Beacon 30-Beacon 29-Raum 59": "Nach einer Tür biegen Sie links ab, gehen etwa drei Schritte und Sie erreichen Ihr Ziel: Raum 59.",
+
+        "Beacon 28-Beacon 29-Raum 60": "Nach einer Tür biegen Sie links ab, gehen etwa zwei Schritte und Sie erreichen Ihr Ziel: Raum 60.",
+        "Beacon 29-Raum 60": "Gehen Sie etwa zwei Schritte in Richtung Raum 60 und Sie erreichen Ihr Ziel: Raum 60.",
+        "Beacon 30-Beacon 29-Raum 60": "Nach einer Tür biegen Sie rechts ab, gehen etwa zwei Schritte und Sie erreichen Ihr Ziel: Raum 60.",
+
+        "Beacon 28-Beacon 29-Raum 61": "Nach einer Tür biegen Sie links ab, gehen etwa sechs Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 61.",
+        "Beacon 29-Raum 61": "Gehen Sie etwa drei Schritte in Richtung Raum 61 und Sie erreichen Ihr Ziel: Raum 61."
       }
     },
 
     "Beacon 30": {
       "beacon_floor": "1",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 61", "Sala 62", "Sala 63"],
+      "beacon_description": "In diesem Bereich befindet sich rechts Raum 62 und links eine Treppe, die zu den Räumen 63 bis 70 führt.",
+      "beacon_destinations": ["Raum 61", "Raum 62", "Raum 63"],
       "beacon_connections": ["Beacon 29", "Beacon 31"],
-
       "beacon_instructions": {
-        "Beacon 30-Sala 61": "",
-        "Beacon 30-Sala 62": "",
-        "Beacon 30-Sala 63": "",
-        "Beacon 30-Beacon 29": "",
-        "Beacon 30-Beacon 31": ""
+        "Beacon 30-Raum 61": "Gehen Sie etwa drei Schritte in Richtung Raum 61 und Sie erreichen Ihr Ziel: Raum 61.",
+        "Beacon 31-Beacon 30-Raum 61": "Biegen Sie rechts ab, nach einer Tür gehen Sie etwa zwei Schritte nach rechts und Sie erreichen Ihr Ziel: Raum 61.",
+
+        "Beacon 29-Beacon 30-Raum 62": "Gehen Sie etwa fünf Schritte geradeaus, gefolgt von acht Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 62.",
+        "Beacon 30-Raum 62": "Gehen Sie etwa acht Schritte in Richtung Raum 62 und Sie erreichen Ihr Ziel: Raum 62.",
+        "Beacon 31-Beacon 30-Raum 62": "Gehen Sie etwa acht Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 62.",
+
+        "Beacon 29-Beacon 30-Raum 63": "Gehen Sie etwa sechs Schritte nach rechts, gefolgt von neun Schritten nach links, und Sie erreichen Ihr Ziel: Raum 63.",
+        "Beacon 30-Raum 63": "Gehen Sie etwa 15 Schritte in Richtung Raum 63 und Sie erreichen Ihr Ziel: Raum 63.",
+        "Beacon 31-Beacon 30-Raum 63": "Gehen Sie etwa sechs Schritte geradeaus, gefolgt von neun Schritten nach links, und Sie erreichen Ihr Ziel: Raum 63."
       }
     },
 
+
     "Beacon 31": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala ?"],
+      "beacon_description": "Hier befindet sich rechts Raum 65 und geradeaus eine Treppe, die zu den Räumen und zum Informatikzentrum führt.",
+      "beacon_destinations": [],
       "beacon_connections": ["Beacon 30", "Beacon 32"],
-
       "beacon_instructions": {
-        "Beacon 31-Sala ?": "",
-        "Beacon 31-Beacon 30": "",
-        "Beacon 31-Beacon 32": ""
+        "Beacon 31-Beacon 30": "Finden Sie eine Treppe. Gehen Sie acht Stufen hinunter, gefolgt von neun Stufen nach rechts.",
+        "Beacon 32-Beacon 31-Beacon 30": "Biegen Sie rechts ab und gehen Sie acht Stufen hinunter, gefolgt von neun Stufen nach rechts.",
+
+        "Beacon 30-Beacon 31-Beacon 32": "Biegen Sie links ab, gehen Sie etwa vier Schritte. Finden Sie eine Treppe und steigen Sie elf Stufen hinauf.",
+        "Beacon 31-Beacon 32": "Gehen Sie etwa vier Schritte in Richtung der Treppe und steigen Sie elf Stufen hinauf."
       }
     },
 
     "Beacon 32": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 68", "Sala 69", "Sala 70", "Laboratório de Informática"],
+      "beacon_description": "In diesem Flur befinden sich die Räume 67 bis 70 in dieser Reihenfolge sowie das Informatikzentrum.",
+      "beacon_destinations": ["Raum 68", "Raum 69", "Raum 70", "Informatikzentrum", "ECC Labore"],
       "beacon_connections": ["Beacon 31"],
-
       "beacon_instructions": {
-        "Beacon 32-Sala 68": "",
-        "Beacon 32-Sala 69": "",
-        "Beacon 32-Sala 70": "",
-        "Beacon 32-Laboratório de Informática": "",
-        "Beacon 32-Beacon 31": ""
+        "Beacon 31-Beacon 32-Informatikzentrum": "Biegen Sie links ab, gehen Sie etwa vier Schritte und Sie erreichen Ihr Ziel: Informatikzentrum.",
+        "Beacon 32-Informatikzentrum": "Gehen Sie etwa vier Schritte in Richtung Informatikzentrum und Sie erreichen Ihr Ziel: Informatikzentrum.",
+
+        "Beacon 31-Beacon 32-ECC Labore": "Biegen Sie rechts ab, gehen Sie etwa zwei Schritte und Sie erreichen Ihr Ziel: ECC Labore.",
+        "Beacon 32-ECC Labore": "Gehen Sie etwa zwei Schritte in Richtung ECC Labore und Sie erreichen Ihr Ziel: ECC Labore.",
+
+        "Beacon 31-Beacon 32-Raum 68": "Gehen Sie etwa sieben Schritte in Richtung Raum 68 und Sie erreichen Ihr Ziel: Raum 68.",
+        "Beacon 32-Raum 68": "Gehen Sie etwa sieben Schritte in Richtung Raum 68 und Sie erreichen Ihr Ziel: Raum 68.",
+
+        "Beacon 31-Beacon 32-Raum 69": "Gehen Sie etwa siebzehn Schritte in Richtung Raum 69 und Sie erreichen Ihr Ziel: Raum 69.",
+        "Beacon 32-Raum 69": "Gehen Sie etwa siebzehn Schritte in Richtung Raum 69 und Sie erreichen Ihr Ziel: Raum 69.",
+
+        "Beacon 31-Beacon 32-Raum 70": "Gehen Sie etwa siebenundzwanzig Schritte in Richtung Raum 70 und Sie erreichen Ihr Ziel: Raum 70.",
+        "Beacon 32-Raum 70": "Gehen Sie etwa siebenundzwanzig Schritte in Richtung Raum 70 und Sie erreichen Ihr Ziel: Raum 70.",
+
+        "Beacon 32-Beacon 31": "Finden Sie eine Treppe. Gehen Sie elf Stufen hinunter und dann vier Schritte geradeaus."
       }
     },
 
     "Beacon 33": {
       "beacon_floor": "2",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 37", "Sala 38", "Pátio de Enfermagem"],
-      "beacon_connections": ["Beacon 23", "Beacon 34"],
-
+      "beacon_description": "Sie befinden sich in einem Flur, wo sich rechts die Räume 37 und 38 und links der Nebenhof und die Toiletten befinden.",
+      "beacon_destinations": ["Raum 37", "Raum 38", "WC 2. Stock"],
+      "beacon_connections": ["Beacon 23", "Beacon 34", "Beacon 36"],
       "beacon_instructions": {
-        "Beacon 33-Sala 37": "",
-        "Beacon 33-Sala 38": "",
-        "Beacon 33-Pátio de Enfermagem": "",
-        "Beacon 33-Beacon 23": "",
-        "Beacon 33-Beacon 34": ""
+        "Beacon 23-Beacon 33-Raum 37": "Biegen Sie rechts ab, steigen Sie neun Stufen hinauf, gefolgt von zwei weiteren Stufen, und Sie erreichen Ihr Ziel: Raum 37.",
+        "Beacon 33-Raum 37": "Finden Sie eine Treppe, steigen Sie neun Stufen hinauf, gefolgt von zwei weiteren Stufen, und Sie erreichen Ihr Ziel: Raum 37.",
+        "Beacon 34-Beacon 33-Raum 37": "Biegen Sie links ab, steigen Sie neun Stufen hinauf, und Sie erreichen Ihr Ziel: Raum 37.",
+        "Beacon 36-Beacon 33-Raum 37": "Finden Sie eine Treppe, steigen Sie neun Stufen geradeaus hinauf, gefolgt von zwei weiteren Stufen, und Sie erreichen Ihr Ziel: Raum 37.",
+
+        "Beacon 23-Beacon 33-Raum 38": "Biegen Sie rechts ab, steigen Sie neun Stufen hinauf, und Sie erreichen Ihr Ziel: Raum 38.",
+        "Beacon 33-Raum 38": "Finden Sie eine Treppe, steigen Sie neun Stufen hinauf, und Sie erreichen Ihr Ziel: Raum 38.",
+        "Beacon 34-Beacon 33-Raum 38": "Biegen Sie links ab, steigen Sie neun Stufen hinauf, und Sie erreichen Ihr Ziel: Raum 38.",
+        "Beacon 36-Beacon 33-Raum 38": "Finden Sie eine Treppe, steigen Sie neun Stufen hinauf, und Sie erreichen Ihr Ziel: Raum 38.",
+
+        "Beacon 23-Beacon 33-WC 2. Stock": "Gehen Sie etwa fünf Schritte geradeaus. Nach einer Tür finden Sie eine Treppe, steigen Sie acht Stufen hinauf, und Sie erreichen Ihr Ziel: WC 2. Stock.",
+        "Beacon 33-WC 2. Stock": "Nach einer Tür finden Sie eine Treppe, steigen Sie acht Stufen hinauf, und Sie erreichen Ihr Ziel: WC 2. Stock.",
+        "Beacon 34-Beacon 33-WC 2. Stock": "Biegen Sie rechts ab. Nach einer Tür finden Sie acht Stufen, und Sie erreichen Ihr Ziel: WC 2. Stock."
       }
     },
 
     "Beacon 34": {
       "beacon_floor": "3",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 39", "Sala 40", "Sala 41"],
+      "beacon_description": "Nachdem Sie die Treppe hinaufgestiegen sind, befinden Sie sich in einem Flur, in dem sich der Reihe nach die Räume 39, 40 und 41 befinden.",
+      "beacon_destinations": ["Raum 39", "Raum 40", "Raum 41"],
       "beacon_connections": ["Beacon 33", "Beacon 35"],
-
       "beacon_instructions": {
-        "Beacon 34-Sala 39": "",
-        "Beacon 34-Sala 40": "",
-        "Beacon 34-Sala 41": "",
-        "Beacon 34-Beacon 33": "",
-        "Beacon 34-Beacon 35": ""
+        "Beacon 33-Beacon 34-Raum 39": "Gehen Sie zu Raum 39 über Beacon 34 von Beacon 33 kommend.",
+        "Beacon 34-Raum 39": "Gehen Sie von hier aus zu Raum 39.",
+        "Beacon 35-Beacon 34-Raum 39": "Gehen Sie zu Raum 39 über Beacon 34 von Beacon 35 kommend.",
+
+        "Beacon 33-Beacon 34-Raum 40": "Gehen Sie zu Raum 40 über Beacon 34 von Beacon 33 kommend.",
+        "Beacon 34-Raum 40": "Gehen Sie von hier aus zu Raum 40.",
+        "Beacon 35-Beacon 34-Raum 40": "Gehen Sie zu Raum 40 über Beacon 34 von Beacon 35 kommend.",
+
+        "Beacon 33-Beacon 34-Raum 41": "Gehen Sie zu Raum 41 über Beacon 34 von Beacon 33 kommend.",
+        "Beacon 34-Raum 41": "Gehen Sie von hier aus zu Raum 41.",
+        "Beacon 35-Beacon 34-Raum 41": "Gehen Sie zu Raum 41 über Beacon 34 von Beacon 35 kommend."
       }
     },
 
     "Beacon 35": {
       "beacon_floor": "4",
-      "beacon_description": "",
-      "beacon_destinations": ["Sala 42", "Sala 44", "Sala 45"],
+      "beacon_description": "In diesem Bereich befinden sich der Reihe nach die Räume 42, 43, 44 und 45.",
+      "beacon_destinations": ["Raum 42", "Raum 44", "Raum 45"],
       "beacon_connections": ["Beacon 34"],
-
       "beacon_instructions": {
-        "Beacon 35-Sala 42": "",
-        "Beacon 35-Sala 44": "",
-        "Beacon 35-Sala 45": "",
-        "Beacon 35-Beacon 34": ""
+        "Beacon 34-Beacon 35-Raum 42": "Gehen Sie etwa vier Schritte geradeaus und Sie erreichen Ihr Ziel: Raum 42.",
+        "Beacon 35-Raum 42": "Gehen Sie etwa vier Schritte in Richtung Raum 42 und Sie erreichen Ihr Ziel: Raum 42.",
+
+        "Beacon 34-Beacon 35-Raum 44": "Biegen Sie links ab, gehen Sie etwa fünf Schritte, und Sie erreichen Ihr Ziel: Raum 44.",
+        "Beacon 35-Raum 44": "Gehen Sie etwa fünf Schritte in Richtung Raum 44 und Sie erreichen Ihr Ziel: Raum 44.",
+
+        "Beacon 34-Beacon 35-Raum 45": "Biegen Sie links ab, gehen Sie etwa sieben Schritte, und Sie erreichen Ihr Ziel: Raum 45.",
+        "Beacon 35-Raum 45": "Gehen Sie etwa sieben Schritte in Richtung Raum 45 und Sie erreichen Ihr Ziel: Raum 45.",
+
+        "Beacon 35-Beacon 34": "Biegen Sie links ab und gehen Sie 19 Stufen hinunter."
+      }
+    },
+
+    "Beacon 36": {
+      "beacon_floor": "2",
+      "beacon_description": "In diesem Bereich befinden sich der Krankenpflegehof und das WC im 2. Stock.",
+      "beacon_destinations": ["Krankenpflegehof", "WC 2. Stock"],
+      "beacon_connections": ["Beacon 33", "Beacon 37", "Beacon 38"],
+      "beacon_instructions": {
+        "Beacon 33-Beacon 36-Krankenpflegehof": "Sie haben Ihr Ziel erreicht: Krankenpflegehof.",
+        "Beacon 36-Krankenpflegehof": "Sie haben Ihr Ziel erreicht: Krankenpflegehof.",
+        "Beacon 37-Beacon 36-Krankenpflegehof": "Sie haben Ihr Ziel erreicht: Krankenpflegehof.",
+        "Beacon 38-Beacon 36-Krankenpflegehof": "Sie haben Ihr Ziel erreicht: Krankenpflegehof.",
+
+        "Beacon 33-Beacon 36-WC 2. Stock": "Gehen Sie etwa 14 Schritte in Richtung WC 2. Stock und steigen Sie acht Stufen rechts hinunter.",
+        "Beacon 36-WC 2. Stock": "Gehen Sie etwa 14 Schritte geradeaus und Sie erreichen Ihr Ziel: WC 2. Stock.",
+        "Beacon 37-Beacon 36-WC 2. Stock": "Gehen Sie etwa 14 Schritte geradeaus und Sie erreichen Ihr Ziel: WC 2. Stock.",
+        "Beacon 38-Beacon 36-WC 2. Stock": "Gehen Sie etwa 14 Schritte geradeaus und Sie erreichen Ihr Ziel: WC 2. Stock."
+      }
+    },
+
+    "Beacon 37": {
+      "beacon_floor": "2",
+      "beacon_description": "In diesem Bereich befindet sich Raum 80 und Verbindungen zu den oberen und unteren Stockwerken.",
+      "beacon_destinations": ["Raum 80"],
+      "beacon_connections": ["Beacon 20", "Beacon 36"],
+      "beacon_instructions": {
+        "Beacon 20-Beacon 37-Raum 80": "Biegen Sie links ab, gehen Sie etwa zwei Schritte, und Sie erreichen Ihr Ziel: Raum 80.",
+        "Beacon 36-Beacon 37-Raum 80": "Biegen Sie links ab, gehen Sie etwa zwei Schritte, und Sie erreichen Ihr Ziel: Raum 80.",
+        "Beacon 37-Raum 80": "Gehen Sie etwa zwei Schritte in Richtung Raum 80 und Sie erreichen Ihr Ziel: Raum 80.",
+
+        "Beacon 36-Beacon 37-Beacon 20": "Biegen Sie rechts ab, steigen Sie sechs Stufen hinauf, gefolgt von etwa sieben Schritten geradeaus.",
+        "Beacon 37-Beacon 20": "Steigen Sie sechs Stufen hinauf, gefolgt von etwa sieben Schritten geradeaus.",
+
+        "Beacon 20-Beacon 37-Beacon 36": "Biegen Sie links ab und steigen Sie 15 Stufen hinunter.",
+        "Beacon 37-Beacon 36": "Steigen Sie 15 Stufen hinunter."
+      }
+    },
+
+    "Beacon 38": {
+      "beacon_floor": "3",
+      "beacon_description": "In diesem Bereich befinden sich das Auditorium 01 und Raum 90.",
+      "beacon_destinations": ["Auditorium 01", "Raum 90"],
+      "beacon_connections": ["Beacon 36"],
+      "beacon_instructions": {
+        "Beacon 36-Beacon 38-Auditorium 01": "Biegen Sie links ab, gehen Sie etwa drei Schritte, und Sie erreichen Ihr Ziel: Auditorium 01.",
+        "Beacon 38-Auditorium 01": "Gehen Sie etwa drei Schritte in Richtung Auditorium 01 und Sie erreichen Ihr Ziel.",
+
+        "Beacon 36-Beacon 38-Raum 90": "Biegen Sie links ab, gehen Sie etwa zwölf Schritte, gefolgt von fünf Schritten nach rechts, und Sie erreichen Ihr Ziel: Raum 90.",
+        "Beacon 38-Raum 90": "Gehen Sie etwa zwölf Schritte, gefolgt von fünf Schritten in Richtung Raum 90, und Sie erreichen Ihr Ziel.",
+
+        "Beacon 38-Beacon 36": "Steigen Sie elf Stufen geradeaus hinunter."
       }
     }
+
+
   },
   "voice_commands": {
-    "eingang": "Eingang",
-    "empfang": "Empfang",
-    "innenhof": "Innenhof",
-    "camões": "Camões"
+    "auditorium 01": "Auditorium 01",
+    "auditorium 02": "Auditorium 02",
+    "auditorium 03": "Auditorium 03",
+    "akademische vereinigung": "Akademische Vereinigung",
+    "bar": "Bar",
+    "bibliothek": "Bibliothek",
+    "schließfächer": "Schließfächer",
+    "informatikzentrum": "Informatikzentrum",
+    "haupteingang": "Haupteingang",
+    "terrasse": "Terrasse",
+    "camões-statue": "Camões-Statue",
+    "erasmus-büro": "Erasmus-Büro",
+    "giru": "GIRU",
+    "ecc-labore": "ECC-Labore",
+    "psychologielabore": "Psychologielabore",
+    "akademischer laden": "Akademischer Laden",
+    "buchladen": "Buchladen",
+    "punktbücher": "Punktbücher",
+    "hof": "Hof",
+    "pflegehof": "Pflegehof",
+    "fundbüro": "Fundbüro",
+    "mensa": "Mensa",
+    "raum 10": "Raum 10",
+    "raum 13": "Raum 13",
+    "raum 14": "Raum 14",
+    "raum 15": "Raum 15",
+    "raum 16": "Raum 16",
+    "raum 18": "Raum 18",
+    "raum 22": "Raum 22",
+    "raum 23": "Raum 23",
+    "raum 24": "Raum 24",
+    "raum 27": "Raum 27",
+    "raum 28": "Raum 28",
+    "raum 29": "Raum 29",
+    "raum 32": "Raum 32",
+    "raum 33": "Raum 33",
+    "raum 37": "Raum 37",
+    "raum 38": "Raum 38",
+    "raum 39": "Raum 39",
+    "raum 40": "Raum 40",
+    "raum 41": "Raum 41",
+    "raum 42": "Raum 42",
+    "raum 44": "Raum 44",
+    "raum 45": "Raum 45",
+    "raum 54": "Raum 54",
+    "raum 56": "Raum 56",
+    "raum 57": "Raum 57",
+    "raum 58": "Raum 58",
+    "raum 59": "Raum 59",
+    "raum 60": "Raum 60",
+    "raum 61": "Raum 61",
+    "raum 62": "Raum 62",
+    "raum 63": "Raum 63",
+    "raum 68": "Raum 68",
+    "raum 69": "Raum 69",
+    "raum 70": "Raum 70",
+    "raum 80": "Raum 80",
+    "raum 81": "Raum 81",
+    "raum 82": "Raum 82",
+    "raum 83": "Raum 83",
+    "raum 90": "Raum 90",
+    "festsaal": "Festsaal",
+    "mikrowellenraum": "Mikrowellenraum",
+    "ual media": "UAL Media",
+    "wc bar": "WC Bar",
+    "wc 1. stock": "WC 1. Stock",
+    "wc 2. stock": "WC 2. Stock"
   }
+
 }
